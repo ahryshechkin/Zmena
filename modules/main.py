@@ -6,5 +6,6 @@ engine = Engine()
 for pair in Samples.get_pairs():
     src = pair["src"].strip().splitlines()
     trg = pair["trg"].strip().splitlines()
+    engine.set_width(src, trg)
     engine.run(src, trg)
 
