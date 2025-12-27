@@ -27,9 +27,10 @@ Pull Request follows this title pattern:
 ```
 
 Guidelines:
-- What was changed
-- Why it was changed (optional)
-- How to test the changes (if applicable)
+
+- Describe what was changed
+- Explain why it was changed (optional)
+- Outline how to test the changes (if applicable)
 
 ### Branch Name
 
