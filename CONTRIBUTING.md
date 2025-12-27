@@ -18,18 +18,22 @@ Please take a moment to read this guide before opening an Issue or Pull Request.
 
 ## Naming Convention
 
-### PR Title
+### Pull Request
 
-Pull Request title follows this format:
+Pull Request follows this title pattern:
 
 ```
 [ZM-<issue-id>] Short Description
 ```
 
+Guidelines:
+- What was changed
+- Why it was changed (optional)
+- How to test the changes (if applicable)
 
 ### Branch Name
 
-Use the following format:
+Branch name should be in the format:
 
 ```
 zm-<issue-id>-short-description
