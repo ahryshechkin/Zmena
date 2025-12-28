@@ -10,7 +10,8 @@ class Samples(Enum):
         for sample in Samples:
             if sample != Samples.BASE:
                 pair = {
-                    "name": sample.value["name"],
+                    "name": sample.name,
+                    "desc": sample.value["desc"],
                     "src": Samples.BASE.value,
                     "trg": sample.value["text"],
                 }
@@ -25,7 +26,7 @@ class Samples(Enum):
 
         for sample in Samples:
             if sample != Samples.BASE:
-                names.append(sample.value["name"])
+                names.append(sample.value["desc"])
 
         return names
 
@@ -44,7 +45,7 @@ class Samples(Enum):
     """).strip("\n")
 
     SML_01 = {
-        "name": "ADD_COLUMN_NOT_NULL",
+        "desc": "ADD_COLUMN_NOT_NULL",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -61,7 +62,7 @@ class Samples(Enum):
     }
 
     SML_02 = {
-        "name": "ADD_COLUMN_NULL",
+        "desc": "ADD_COLUMN_NULL",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -78,7 +79,7 @@ class Samples(Enum):
     }
 
     SML_03 = {
-        "name": "ALTER_CONSTRAINT_NOT_NULL",
+        "desc": "ALTER_CONSTRAINT_NOT_NULL",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -94,7 +95,7 @@ class Samples(Enum):
     }
 
     SML_04 = {
-        "name": "ALTER_CONSTRAINT_NULL",
+        "desc": "ALTER_CONSTRAINT_NULL",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -110,7 +111,7 @@ class Samples(Enum):
     }
 
     SML_05 = {
-        "name": "CHANGE_DATA_TYPE",
+        "desc": "CHANGE_DATA_TYPE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -126,7 +127,7 @@ class Samples(Enum):
     }
 
     SML_06 = {
-        "name": "DROP_COLUMN",
+        "desc": "DROP_COLUMN",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -141,7 +142,7 @@ class Samples(Enum):
     }
 
     SML_07 = {
-        "name": "MOVE_COLUMN",
+        "desc": "MOVE_COLUMN",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -157,7 +158,7 @@ class Samples(Enum):
     }
 
     SML_08 = {
-        "name": "RENAME_COLUMN",
+        "desc": "RENAME_COLUMN",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -173,7 +174,7 @@ class Samples(Enum):
     }
 
     SML_09 = {
-        "name": "ADD_COLUMN_AFTER_CHANGED_PLACE",
+        "desc": "ADD_COLUMN_AFTER_CHANGED_PLACE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -190,7 +191,7 @@ class Samples(Enum):
     }
 
     SML_10 = {
-        "name": "ADD_COLUMN_BEFORE_CHANGED_PLACE",
+        "desc": "ADD_COLUMN_BEFORE_CHANGED_PLACE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -207,7 +208,7 @@ class Samples(Enum):
     }
 
     SML_11 = {
-        "name": "MAKE_SEVERAL_CHANGES",
+        "desc": "MAKE_SEVERAL_CHANGES",
         "text": dedent("""
             col_01 int not null,
             col_11 int,
@@ -225,7 +226,7 @@ class Samples(Enum):
     }
 
     SML_12 = {
-        "name": "MOVE_DOWN_TO_RENAMED_PLACE",
+        "desc": "MOVE_DOWN_TO_RENAMED_PLACE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -241,7 +242,7 @@ class Samples(Enum):
     }
 
     SML_13 = {
-        "name": "MOVE_UP_TO_RENAMED_PLACE",
+        "desc": "MOVE_UP_TO_RENAMED_PLACE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -257,7 +258,7 @@ class Samples(Enum):
     }
 
     SML_14 = {
-        "name": "MOVE_WITH_DOUBLE_CONSTRAINT_ALTER",
+        "desc": "MOVE_WITH_DOUBLE_CONSTRAINT_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -273,7 +274,7 @@ class Samples(Enum):
     }
 
     SML_15 = {
-        "name": "MOVE_WITH_DOUBLE_TYPE_ALTER",
+        "desc": "MOVE_WITH_DOUBLE_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -289,7 +290,7 @@ class Samples(Enum):
     }
 
     SML_16 = {
-        "name": "MOVE_WITH_DOUBLE_CONSTRAINT_TYPE_ALTER",
+        "desc": "MOVE_WITH_DOUBLE_CONSTRAINT_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -305,7 +306,7 @@ class Samples(Enum):
     }
 
     SML_17 = {
-        "name": "MOVE_WITH_SINGLE_CONSTRAINT_ALTER",
+        "desc": "MOVE_WITH_SINGLE_CONSTRAINT_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -321,7 +322,7 @@ class Samples(Enum):
     }
 
     SML_18 = {
-        "name": "MOVE_WITH_SINGLE_TYPE_ALTER",
+        "desc": "MOVE_WITH_SINGLE_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -337,7 +338,7 @@ class Samples(Enum):
     }
 
     SML_19 = {
-        "name": "MOVE_WITH_SINGLE_CONSTRAINT_TYPE_ALTER",
+        "desc": "MOVE_WITH_SINGLE_CONSTRAINT_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -353,7 +354,7 @@ class Samples(Enum):
     }
 
     SML_20 = {
-        "name": "ORGANIZE_SCRIPTS_IN_PROPER_ORDER",
+        "desc": "ORGANIZE_SCRIPTS_IN_PROPER_ORDER",
         "text": dedent("""
             col_01 int not null,
             col_05 varchar(50) not null,
@@ -369,7 +370,7 @@ class Samples(Enum):
     }
 
     SML_21 = {
-        "name": "PERFORM_ALTER_AND_RENAME_NEXT_TO",
+        "desc": "PERFORM_ALTER_AND_RENAME_NEXT_TO",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -385,7 +386,7 @@ class Samples(Enum):
     }
 
     SML_22 = {
-        "name": "RENAME_LIKE_DELETED_COLUMN_ON_TOP",
+        "desc": "RENAME_LIKE_DELETED_COLUMN_ON_TOP",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -400,7 +401,7 @@ class Samples(Enum):
     }
 
     SML_23 = {
-        "name": "RENAME_LIKE_DELETED_COLUMN_FROM_BOTTOM",
+        "desc": "RENAME_LIKE_DELETED_COLUMN_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -415,7 +416,7 @@ class Samples(Enum):
     }
 
     SML_24 = {
-        "name": "SWAP_COLUMNS",
+        "desc": "SWAP_COLUMNS",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
