@@ -385,7 +385,7 @@ class Samples(Enum):
     }
 
     SML_22 = {
-        "name": "RENAME_DOWN_AS_DELETED_COLUMN",
+        "name": "RENAME_LIKE_DELETED_COLUMN_ON_TOP",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -400,7 +400,7 @@ class Samples(Enum):
     }
 
     SML_23 = {
-        "name": "RENAME_UP_AS_DELETED_COLUMN",
+        "name": "RENAME_LIKE_DELETED_COLUMN_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
