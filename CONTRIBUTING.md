@@ -24,7 +24,6 @@ Pull Request follows this title pattern:
 ```
 
 Guidelines:
-
 - Describe what was changed
 - Explain why it was changed (optional)
 - Outline how to test the changes (if applicable)
@@ -45,7 +44,6 @@ Guidelines:
 - Use lowercase letters and hyphens only
 - Avoid spaces or special characters
 
-
 ### Commit Message
 
 This project complies with the following convention:
@@ -54,7 +52,14 @@ This project complies with the following convention:
 <type>: short description
 ```
 
-Examples and allowed types:
+Allowed types:
+- `feat` - add a new feature or enhancement
+- `fix` - fix a bug
+- `test` - add or update tests
+- `refactor` - improve code structure or readability without changing functionality
+- `docs` - add or update documentation
+
+Examples:
 - `feat`: add base parser interface
 - `fix`: handle empty input
 - `test`: add parser unit tests
