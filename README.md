@@ -1,14 +1,14 @@
-# Zmena
+## Zmena
 
 > **Detects changes in SQL files and generates corresponding SQL statements**  
 
-## Overview
+### Overview
 
 Zmena is a Git-native tool that analyzes SQL files containing DDL statements and generates SQL expressions reflecting the actual changes.
 
 It compares SQL files between two Git commits, without just comparing raw text or connecting to a live database.
 
-## Key Idea
+### Key Idea
 
 Zmena works with SQL files, not databases.
 
