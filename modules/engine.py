@@ -14,10 +14,10 @@ class Engine:
         self.right_width = len(max(trg, key=len, default=None))
 
 
-    def run(self, name, src, trg):
+    def run(self, name, desc, src, trg):
         self.sm.set_seqs(src, trg)
 
-        self.print_header(name)
+        self.print_header(name, desc)
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
             if tag == Tag.EQUAL:
                 for idx in range(shi - slo):
@@ -56,10 +56,10 @@ class Engine:
                     self.show_line(tag, left_lineno, left_line, "", "")
 
 
-    def print_header(self, name):
-        total_len = self.left_width + self.right_width - len(name) + 26
+    def print_header(self, name, desc):
+        total_len = self.left_width + self.right_width - len(desc) + 17
         print(
-            f"\n ### {name} {'#' * total_len}\n"
+            f"\n ### {name} - {desc} {'#' * total_len}\n"
             f"{'opcode':>7} | "
             f"{'lineno':>6} | {'source':<{self.left_width}} | "
             f"{'lineno':>6} | {'target':<{self.right_width}}"
