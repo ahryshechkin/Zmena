@@ -27,11 +27,22 @@ class Engine:
                     right_line = trg[tlo + idx]
                     self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
             elif tag == Tag.REPLACE:
-                for idx in range(shi - slo):
-                    left_lineno = slo + idx + 1
-                    left_line = src[slo + idx]
-                    right_lineno = tlo + idx + 1
-                    right_line = trg[tlo + idx]
+                left_range = shi - slo
+                right_range = thi - tlo
+                max_range = max(left_range, right_range)
+                for idx in range(max_range):
+                    if idx < left_range:
+                        left_lineno = slo + idx + 1
+                        left_line = src[slo + idx]
+                    else:
+                        left_lineno = ""
+                        left_line = ""
+                    if idx < right_range:
+                        right_lineno = tlo + idx + 1
+                        right_line = trg[tlo + idx]
+                    else:
+                        right_lineno = ""
+                        right_line = ""
                     self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
             elif tag == Tag.INSERT:
                 for idx in range(thi - tlo):
