@@ -1,4 +1,4 @@
-# Zmena
+## Zmena
 
 > **Detects changes in SQL files and generates corresponding SQL statements**  
 
