@@ -10,3 +10,6 @@ for pair in Samples.get_pairs():
     engine.set_width(src, trg)
     engine.run(name, src, trg)
 
+
+for name in Samples.get_names():
+    print(name)
