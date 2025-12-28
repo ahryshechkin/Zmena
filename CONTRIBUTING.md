@@ -1,4 +1,4 @@
-# Contributing to Zmena
+## Contributing to Zmena
 
 Thank you for your interest in contributing to **Zmena**!  
 We welcome bug reports, feature requests, documentation improvements, and code contributions.
