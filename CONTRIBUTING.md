@@ -19,7 +19,9 @@ Please take a moment to read this guide before opening an Issue or Pull Request.
 
 Pull Request follows this title pattern:
 
-> [ZM-<issue-id>] Short Description
+```
+[ZM-<issue-id>] Short Description
+```
 
 Guidelines:
 
@@ -31,7 +33,9 @@ Guidelines:
 
 Branch name should be in the format:
 
-> zm-<issue-id>-short-description
+```
+zm-<issue-id>-short-description
+```
 
 Examples:
 - zm-0001-add-new-parser
