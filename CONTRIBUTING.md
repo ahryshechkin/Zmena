@@ -5,8 +5,6 @@ We welcome bug reports, feature requests, documentation improvements, and code c
 
 Please take a moment to read this guide before opening an Issue or Pull Request.
 
----
-
 ## Getting started
 
 1. Fork the repository
@@ -14,7 +12,6 @@ Please take a moment to read this guide before opening an Issue or Pull Request.
 3. Make your changes
 4. Open a Pull Request
 
----
 
 ## Naming Convention
 
@@ -22,9 +19,7 @@ Please take a moment to read this guide before opening an Issue or Pull Request.
 
 Pull Request follows this title pattern:
 
-```
-[ZM-<issue-id>] Short Description
-```
+> [ZM-<issue-id>] Short Description
 
 Guidelines:
 
@@ -36,9 +31,7 @@ Guidelines:
 
 Branch name should be in the format:
 
-```
-zm-<issue-id>-short-description
-```
+> zm-<issue-id>-short-description
 
 Examples:
 - zm-0001-add-new-parser
