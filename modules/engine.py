@@ -18,14 +18,16 @@ class Engine:
         self.sm.set_seqs(src, trg)
 
         self.print_header(name, desc)
+        cnt_ins, cnt_del = 0, 0
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
+            # print(tag, slo, shi, tlo, thi)
             if tag == Tag.EQUAL:
                 for idx in range(shi - slo):
                     left_lineno = slo + idx + 1
                     left_line = src[slo + idx]
                     right_lineno = tlo + idx + 1
                     right_line = trg[tlo + idx]
-                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
+                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line, cnt_ins, cnt_del)
             elif tag == Tag.REPLACE:
                 left_range = shi - slo
                 right_range = thi - tlo
@@ -43,35 +45,43 @@ class Engine:
                     else:
                         right_lineno = ""
                         right_line = ""
-                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
+                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line, cnt_ins, cnt_del)
             elif tag == Tag.INSERT:
                 for idx in range(thi - tlo):
+                    cnt_ins += 1
                     right_lineno = tlo + idx + 1
                     right_line = trg[tlo + idx]
-                    self.show_line(tag, "", "", right_lineno, right_line)
+                    self.show_line(tag, "", "", right_lineno, right_line, cnt_ins, cnt_del)
             elif tag == Tag.DELETE:
                 for idx in range(shi - slo):
+                    cnt_del += 1
                     left_lineno = slo + idx + 1
                     left_line = src[slo + idx]
-                    self.show_line(tag, left_lineno, left_line, "", "")
+                    self.show_line(tag, left_lineno, left_line, "", "", cnt_ins, cnt_del)
 
 
     def print_header(self, name, desc):
-        total_len = self.left_width + self.right_width - len(desc) + 17
+        total_len = self.left_width + self.right_width - len(desc) + 37
         print(
             f"\n ### {name} - {desc} {'#' * total_len}\n"
             f"{'opcode':>7} | "
             f"{'lineno':>6} | {'source':<{self.left_width}} | "
-            f"{'lineno':>6} | {'target':<{self.right_width}}"
+            f"{'lineno':>6} | {'target':<{self.right_width}} | "
+            f"{'inserts':>7} | {'deletes':>7}"
         )
-        print(f"{'-' * 7}-+-{'-' * 6}-+-{'-' * self.left_width}-+-{'-' * 6}-+-{'-' * self.right_width}-")
+        print(
+            f"{'-' * 7}-+-{'-' * 6}-+-"
+            f"{'-' * self.left_width}-+-{'-' * 6}-+-{'-' * self.right_width}-+-"
+            f"{'-' * 7}-+-{'-' * 7}-"
+        )
 
 
-    def show_line(self, tag, left_lineno, left_line, right_lineno, right_line):
+    def show_line(self, tag, left_lineno, left_line, right_lineno, right_line, cnt_ins, cnt_del):
         line = (
             f"{tag:>7} | "
             f"{left_lineno:>6} | {left_line:<{self.left_width}} | "
-            f"{right_lineno:>6} | {right_line:<{self.right_width}}"
+            f"{right_lineno:>6} | {right_line:<{self.right_width}} | "
+            f"{cnt_ins:>7} | {cnt_del:>7}"
         )
         colored_line = self.colorize(tag, line)
         print(colored_line)
