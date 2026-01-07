@@ -8,11 +8,11 @@ class Samples(Enum):
         pairs = list()
 
         for sample in Samples:
-            if sample != Samples.BASE:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG):
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],
-                    "src": Samples.BASE.value,
+                    "src": Samples.SRC_LONG.value if sample.name == "SML_12" else Samples.SRC_SHORT.value,
                     "trg": sample.value["text"],
                 }
                 pairs.append(pair)
@@ -25,13 +25,13 @@ class Samples(Enum):
         names = list()
 
         for sample in Samples:
-            if sample != Samples.BASE:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG):
                 names.append(sample.value["desc"])
 
         return names
 
 
-    BASE = dedent("""
+    SRC_SHORT = dedent("""
         col_01 int not null,
         col_02 varchar(50) not null,
         col_03 varchar(200),
@@ -42,6 +42,29 @@ class Samples(Enum):
         col_08 date not null,
         col_09 datetime2 not null,
         col_10 datetime2 not null
+    """).strip("\n")
+
+    SRC_LONG = dedent("""
+        col_01 int not null,
+        col_02 varchar(50) not null,
+        col_03 varchar(200),
+        col_04 varchar(50) not null,
+        col_05 varchar(50),
+        col_06 int,
+        col_07 varchar(1) not null,
+        col_08 date not null,
+        col_09 datetime2 not null,
+        col_10 datetime2 not null,
+        col_11 int not null,
+        col_12 varchar(50) not null,
+        col_13 varchar(200),
+        col_14 varchar(50) not null,
+        col_15 varchar(50),
+        col_16 int,
+        col_17 varchar(1) not null,
+        col_18 date not null,
+        col_19 datetime2 not null,
+        col_20 datetime2 not null
     """).strip("\n")
 
     SML_01 = {
@@ -174,7 +197,7 @@ class Samples(Enum):
     }
 
     SML_09 = {
-        "desc": "ADD_COLUMN_AFTER_CHANGED_PLACE",
+        "desc": "ALTER_COLUMN_AND_ADD_ANOTHER_AFTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -191,7 +214,7 @@ class Samples(Enum):
     }
 
     SML_10 = {
-        "desc": "ADD_COLUMN_BEFORE_CHANGED_PLACE",
+        "desc": "ALTER_COLUMN_AND_ADD_ANOTHER_BEFORE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -208,7 +231,7 @@ class Samples(Enum):
     }
 
     SML_11 = {
-        "desc": "MAKE_SEVERAL_CHANGES",
+        "desc": "PERFORM_SEVERAL_SIMPLE_CHANGES",
         "text": dedent("""
             col_01 int not null,
             col_11 int,
@@ -226,7 +249,33 @@ class Samples(Enum):
     }
 
     SML_12 = {
-        "desc": "MOVE_DOWN_TO_RENAMED_PLACE",
+        "desc": "MOVE_TWO_COLUMNS_BEFORE_ALTERED_ONE_TWICE",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_03 varchar(200),
+            col_07 varchar(1) not null,
+            col_08 date not null,
+            col_04 varchar(51) not null,
+            col_05 varchar(50),
+            col_06 int,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null,
+            col_11 int not null,
+            col_12 varchar(50) not null,
+            col_13 varchar(200),
+            col_17 varchar(1) not null,
+            col_18 date not null,
+            col_14 varchar(51) not null,
+            col_15 varchar(50),
+            col_16 int,
+            col_19 datetime2 not null,
+            col_20 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_13 = {
+        "desc": "RENAME_COLUMN_AND_MOVE_ANOTHER_BEFORE_FROM_TOP",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -241,8 +290,24 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_13 = {
-        "desc": "MOVE_UP_TO_RENAMED_PLACE",
+    SML_13_1 = {
+        "desc": "RENAME_COLUMN_AND_MOVE_ANOTHER_AFTER_FROM_TOP",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_04 varchar(50) not null,
+            col_05 varchar(50),
+            col_06 int,
+            col_77 varchar(1) not null,
+            col_03 varchar(200),
+            col_08 date not null,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_14 = {
+        "desc": "RENAME_COLUMN_AND_MOVE_ANOTHER_BEFORE_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -257,8 +322,24 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_14 = {
-        "desc": "MOVE_TO_DOUBLE_CONSTRAINT_ALTER_AREA",
+    SML_14_1 = {
+        "desc": "RENAME_COLUMN_AND_MOVE_ANOTHER_AFTER_FROM_BOTTOM",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_33 varchar(200),
+            col_07 varchar(1) not null,
+            col_04 varchar(50) not null,
+            col_05 varchar(50),
+            col_06 int,
+            col_08 date not null,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_15 = {
+        "desc": "MOVE_COLUMN_BEFORE_TWO_CONSTRAINT_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -273,8 +354,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_15 = {
-        "desc": "MOVE_TO_DOUBLE_TYPE_ALTER_AREA",
+    SML_16 = {
+        "desc": "MOVE_COLUMN_BEFORE_TWO_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -289,8 +370,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_16 = {
-        "desc": "MOVE_TO_DOUBLE_CONSTRAINT_TYPE_ALTER_AREA",
+    SML_17 = {
+        "desc": "MOVE_COLUMN_BEFORE_TWO_CONSTRAINT_AND_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -305,8 +386,24 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_17 = {
-        "desc": "MOVE_TO_SINGLE_CONSTRAINT_ALTER_AREA",
+    SML_17_1 = {
+        "desc": "MOVE_COLUMN_AFTER_TWO_CONSTRAINT_AND_TYPE_ALTER",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_03 varchar(200),
+            col_04 date,
+            col_05 date not null,
+            col_07 varchar(1) not null,
+            col_06 int,
+            col_08 date not null,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_18 = {
+        "desc": "MOVE_COLUMN_BEFORE_SINGLE_CONSTRAINT_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -321,8 +418,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_18 = {
-        "desc": "MOVE_TO_SINGLE_TYPE_ALTER_AREA",
+    SML_19 = {
+        "desc": "MOVE_COLUMN_BEFORE_SINGLE_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -337,8 +434,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_19 = {
-        "desc": "MOVE_TO_SINGLE_CONSTRAINT_TYPE_ALTER_AREA",
+    SML_20 = {
+        "desc": "MOVE_COLUMN_BEFORE_SINGLE_CONSTRAINT_AND_TYPE_ALTER",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -353,8 +450,24 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_20 = {
-        "desc": "MOVE_TWO_ROWS_TO_CHANGED_AREA",
+    SML_20_1 = {
+        "desc": "MOVE_COLUMN_AFTER_SINGLE_CONSTRAINT_AND_TYPE_ALTER",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_03 varchar(200),
+            col_04 date,
+            col_07 varchar(1) not null,
+            col_05 varchar(50),
+            col_06 int,
+            col_08 date not null,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_21 = {
+        "desc": "MOVE_TWO_COLUMNS_BEFORE_ALTERED_ONE",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -369,8 +482,24 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_21 = {
-        "desc": "ORGANIZE_SCRIPTS_IN_PROPER_ORDER",
+    SML_21_1 = {
+        "desc": "MOVE_TWO_COLUMNS_AFTER_ALTERED_ONE",
+        "text": dedent("""
+            col_01 int not null,
+            col_02 varchar(50) not null,
+            col_03 varchar(200),
+            col_04 varchar(50),
+            col_07 varchar(1) not null,
+            col_08 date not null,
+            col_05 varchar(50),
+            col_06 int,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_22 = {
+        "desc": "APPLY_SCRIPTS_IN_PROPER_ORDER",
         "text": dedent("""
             col_01 int not null,
             col_05 varchar(50) not null,
@@ -385,8 +514,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_22 = {
-        "desc": "PERFORM_ALTER_AND_RENAME_NEXT_TO",
+    SML_23 = {
+        "desc": "ALTER_COLUMN_AND_RENAME_TWO_ADJACENT_ONES",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -401,8 +530,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_23 = {
-        "desc": "RENAME_LIKE_DELETED_COLUMN_ON_TOP",
+    SML_24 = {
+        "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_TOP",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -416,8 +545,8 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_24 = {
-        "desc": "RENAME_LIKE_DELETED_COLUMN_FROM_BOTTOM",
+    SML_25 = {
+        "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -431,7 +560,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_25 = {
+    SML_26 = {
         "desc": "SWAP_COLUMNS",
         "text": dedent("""
             col_01 int not null,
@@ -443,6 +572,38 @@ class Samples(Enum):
             col_03 varchar(200),
             col_08 date not null,
             col_09 datetime2 not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_27 = {
+        "desc": "SWAP_COLUMNS_WITH_OVERLAP",
+        "text": dedent("""
+            col_01 int not null,
+            col_06 int,
+            col_03 varchar(200),
+            col_09 datetime2 not null,
+            col_05 varchar(50),
+            col_02 varchar(50) not null,
+            col_07 varchar(1) not null,
+            col_08 date not null,
+            col_04 varchar(50) not null,
+            col_10 datetime2 not null
+        """).strip("\n"),
+    }
+
+    SML_28 = {
+        "desc": "SWAP_COLUMNS_NESTED",
+        "text": dedent("""
+            col_01 int not null,
+            col_09 datetime2 not null,
+            col_03 varchar(200),
+            col_06 int,
+            col_05 varchar(50),
+            col_04 varchar(50) not null,
+            col_07 varchar(1) not null,
+            col_08 date not null,
+            col_02 varchar(50) not null,
             col_10 datetime2 not null
         """).strip("\n"),
     }
