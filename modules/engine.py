@@ -1,6 +1,7 @@
 from constant import Color, Tag
 from difflib import SequenceMatcher
 from modules.brick import Brick
+from modules.index import Index
 from modules.lexeme import Lexeme
 
 
@@ -22,7 +23,7 @@ class Engine:
 
         self.print_header(name, desc)
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
-            print(tag, slo, shi, tlo, thi)
+            # print(tag, slo, shi, tlo, thi)
             if tag == Tag.EQUAL:
                 for idx in range(shi - slo):
                     left_lineno = slo + idx + 1
@@ -38,14 +39,20 @@ class Engine:
                     if idx < left_range:
                         left_lineno = slo + idx + 1
                         left_line = src[slo + idx]
-                        self.bricks.append(Brick(tag, "L", left_lineno, Lexeme(left_line)))
+                        index = Index(slo, shi, tlo, thi)
+                        lexeme = Lexeme(left_line)
+                        brick = Brick(tag, index, "L", left_lineno, lexeme)
+                        self.bricks.append(brick)
                     else:
                         left_lineno = ""
                         left_line = ""
                     if idx < right_range:
                         right_lineno = tlo + idx + 1
                         right_line = trg[tlo + idx]
-                        self.bricks.append(Brick(tag, "R", right_lineno, Lexeme(right_line)))
+                        index = Index(slo, shi, tlo, thi)
+                        lexeme = Lexeme(right_line)
+                        brick = Brick(tag, index, "R", right_lineno, lexeme)
+                        self.bricks.append(brick)
                     else:
                         right_lineno = ""
                         right_line = ""
@@ -54,13 +61,19 @@ class Engine:
                 for idx in range(thi - tlo):
                     right_lineno = tlo + idx + 1
                     right_line = trg[tlo + idx]
-                    self.bricks.append(Brick(tag, "R", right_lineno, Lexeme(right_line)))
+                    lexeme = Lexeme(right_line)
+                    index = Index(slo, shi, tlo, thi)
+                    brick = Brick(tag, index, "R", right_lineno, lexeme)
+                    self.bricks.append(brick)
                     self.show_line(tag, "", "", right_lineno, right_line, "")
             elif tag == Tag.DELETE:
                 for idx in range(shi - slo):
                     left_lineno = slo + idx + 1
                     left_line = src[slo + idx]
-                    self.bricks.append(Brick(tag, left_lineno, "L", Lexeme(left_line)))
+                    index = Index(slo, shi, tlo, thi)
+                    lexeme = Lexeme(left_line)
+                    brick = Brick(tag, index, "L", left_lineno, lexeme)
+                    self.bricks.append(brick)
                     self.show_line(tag, left_lineno, left_line, "", "", "")
 
 
