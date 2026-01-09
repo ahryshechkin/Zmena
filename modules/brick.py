@@ -1,3 +1,4 @@
+from modules.constant import Side
 from modules.lexeme import Lexeme
 
 
@@ -16,7 +17,8 @@ class Brick:
     def __str__(self):
         constraint = self.constraint if self.constraint else ""
         return (
-            f"{self.tag:>7} | {self.uid:>8} | {self.side} | {self.name:>7} | "
+            f"{self.tag:>7} | {self.uid:>8} | "
+            f"{self.side.value} | {self.name:>7} | "
             f"{self.type:>13} | {constraint:>10} |"
         )
 
@@ -27,7 +29,7 @@ class LeftBrick(Brick):
         super().__init__(
             hunk.tag(),
             hunk.uid(),
-            "L",
+            Side.LEFT,
             hunk.right_lineno(offset),
             lexeme.name(),
             lexeme.type(),
@@ -41,7 +43,7 @@ class RightBrick(Brick):
         super().__init__(
             hunk.tag(),
             hunk.uid(),
-            "R",
+            Side.RIGHT,
             hunk.right_lineno(offset),
             lexeme.name(),
             lexeme.type(),

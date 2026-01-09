@@ -14,3 +14,8 @@ class Color(str, Enum):
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
     RESET = "\033[0m"
+
+
+class Side(str, Enum):
+    LEFT = "L"
+    RIGHT = "R"

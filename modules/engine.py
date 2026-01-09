@@ -30,20 +30,20 @@ class Engine:
                     visualizer.show_line(idx, hunk)
             elif tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
+                    visualizer.show_line(idx, hunk)
                     if idx < hunk.left_range():
                         brick = LeftBrick(idx, hunk)
                         self.bricks.append(brick)
                     if idx < hunk.right_range():
                         brick = RightBrick(idx, hunk)
                         self.bricks.append(brick)
-                    visualizer.show_line(idx, hunk)
             elif tag == Tag.INSERT:
                 for idx in range(hunk.right_range()):
+                    visualizer.show_line(idx, hunk)
                     brick = RightBrick(idx, hunk)
                     self.bricks.append(brick)
-                    visualizer.show_line(idx, hunk)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
+                    visualizer.show_line(idx, hunk)
                     brick = LeftBrick(idx, hunk)
                     self.bricks.append(brick)
-                    visualizer.show_line(idx, hunk)
