@@ -8,6 +8,10 @@ class Hunk:
         self.right = right
 
 
+    def uid(self):
+        return f"{self.left.uid()}{self.right.uid()}"
+
+
     def left_lineno(self, index):
         return self.left.lineno(index + 1)
 
@@ -34,11 +38,3 @@ class Hunk:
 
     def height(self):
         return max(self.left.range(), self.right.range())
-
-
-    def index(self):
-        return f"{self.left.index()}{self.right.index()}"
-
-
-    def left_coordinate(self, index):
-        return Coordinate(self.index(), self.left.lineno(index))

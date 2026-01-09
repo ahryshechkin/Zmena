@@ -36,7 +36,7 @@ class Engine:
                     if idx < hunk.left_range():
                         left_lineno = hunk.left_lineno(idx)
                         left_line = hunk.left_line(idx)
-                        index = hunk.index()
+                        index = hunk.uid()
                         lexeme = Lexeme(left_line)
                         brick = LeftBrick(tag, index, left_lineno, lexeme)
                         self.bricks.append(brick)
@@ -46,7 +46,7 @@ class Engine:
                     if idx < hunk.right_range():
                         right_lineno = hunk.right_lineno(idx)
                         right_line = hunk.right_line(idx)
-                        index = hunk.index()
+                        index = hunk.uid()
                         lexeme = Lexeme(right_line)
                         brick = RightBrick(tag, index, right_lineno, lexeme)
                         self.bricks.append(brick)
@@ -59,7 +59,7 @@ class Engine:
                     right_lineno = hunk.right_lineno(idx)
                     right_line = hunk.right_line(idx)
                     lexeme = Lexeme(right_line)
-                    index = hunk.index()
+                    index = hunk.uid()
                     brick = RightBrick(tag, index, right_lineno, lexeme)
                     self.bricks.append(brick)
                     self.show_line(tag, "", "", right_lineno, right_line)
@@ -67,7 +67,7 @@ class Engine:
                 for idx in range(hunk.left_range()):
                     left_lineno = hunk.left_lineno(idx)
                     left_line = hunk.left_line(idx)
-                    index = hunk.index()
+                    index = hunk.uid()
                     lexeme = Lexeme(left_line)
                     brick = LeftBrick(tag, index, left_lineno, lexeme)
                     self.bricks.append(brick)
