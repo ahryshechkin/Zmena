@@ -8,7 +8,6 @@ for pair in Samples.get_pairs():
     desc = pair["desc"]
     src = pair["src"].strip().splitlines()
     trg = pair["trg"].strip().splitlines()
-    engine.set_width(src, trg)
     engine.run(name, desc, src, trg)
 
 print("")
