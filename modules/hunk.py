@@ -14,11 +14,15 @@ class Hunk:
 
 
     def left_lineno(self, offset):
-        return self.left.lineno(offset + 1)
+        if offset < self.left_range():
+            return self.left.lineno(offset + 1)
+        return ""
 
 
     def left_line(self, offset):
-        return self.left.line(offset)
+        if offset < self.left_range():
+            return self.left.line(offset)
+        return ""
 
 
     def left_range(self):
@@ -26,11 +30,15 @@ class Hunk:
 
 
     def right_lineno(self, offset):
-        return self.right.lineno(offset + 1)
+        if offset < self.right_range():
+            return self.right.lineno(offset + 1)
+        return ""
 
 
     def right_line(self, offset):
-        return self.right.line(offset)
+        if offset < self.right_range():
+            return self.right.line(offset)
+        return ""
 
 
     def right_range(self):
