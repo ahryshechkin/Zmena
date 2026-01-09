@@ -36,9 +36,8 @@ class Engine:
                     if idx < hunk.left_range():
                         left_lineno = hunk.left_lineno(idx)
                         left_line = hunk.left_line(idx)
-                        index = hunk.uid()
                         lexeme = Lexeme(left_line)
-                        brick = LeftBrick(tag, index, left_lineno, lexeme)
+                        brick = LeftBrick(idx, hunk, lexeme)
                         self.bricks.append(brick)
                     else:
                         left_lineno = ""
@@ -46,9 +45,7 @@ class Engine:
                     if idx < hunk.right_range():
                         right_lineno = hunk.right_lineno(idx)
                         right_line = hunk.right_line(idx)
-                        index = hunk.uid()
-                        lexeme = Lexeme(right_line)
-                        brick = RightBrick(tag, index, right_lineno, lexeme)
+                        brick = RightBrick(idx, hunk)
                         self.bricks.append(brick)
                     else:
                         right_lineno = ""
@@ -58,18 +55,15 @@ class Engine:
                 for idx in range(hunk.right_range()):
                     right_lineno = hunk.right_lineno(idx)
                     right_line = hunk.right_line(idx)
-                    lexeme = Lexeme(right_line)
-                    index = hunk.uid()
-                    brick = RightBrick(tag, index, right_lineno, lexeme)
+                    brick = RightBrick(idx, hunk)
                     self.bricks.append(brick)
                     self.show_line(tag, "", "", right_lineno, right_line)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
                     left_lineno = hunk.left_lineno(idx)
                     left_line = hunk.left_line(idx)
-                    index = hunk.uid()
                     lexeme = Lexeme(left_line)
-                    brick = LeftBrick(tag, index, left_lineno, lexeme)
+                    brick = LeftBrick(idx, hunk, lexeme)
                     self.bricks.append(brick)
                     self.show_line(tag, left_lineno, left_line, "", "")
 
