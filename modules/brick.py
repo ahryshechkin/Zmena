@@ -1,12 +1,16 @@
+from modules.lexeme import Lexeme
+
+
 class Brick:
-    def __init__(self, tag, index, side, lineno, lexeme):
+    def __init__(self, tag, uid, side, lineno, name, data_type, constraint):
         self.tag = tag
-        self.uid = index
+        self.uid = uid
         self.side = side
         self.lineno = lineno
-        self.name = lexeme.name()
-        self.type = lexeme.type()
-        self.constraint = lexeme.constraint()
+        self.name = name
+        self.type = data_type
+        self.constraint = constraint
+
 
 
     def __str__(self):
@@ -18,10 +22,27 @@ class Brick:
 
 
 class LeftBrick(Brick):
-    def __init__(self, tag, index, lineno, lexeme):
-        super().__init__(tag, index, "L", lineno, lexeme)
+    def __init__(self, offset, hunk, lexeme):
+        super().__init__(
+            hunk.tag(),
+            hunk.uid(),
+            "L",
+            hunk.right_lineno(offset),
+            lexeme.name(),
+            lexeme.type(),
+            lexeme.constraint()
+        )
 
 
 class RightBrick(Brick):
-    def __init__(self, tag, index, lineno, lexeme):
-        super().__init__(tag, index, "R", lineno, lexeme)
+    def __init__(self, offset, hunk):
+        lexeme = Lexeme(hunk.right_line(offset))
+        super().__init__(
+            hunk.tag(),
+            hunk.uid(),
+            "R",
+            hunk.right_lineno(offset),
+            lexeme.name(),
+            lexeme.type(),
+            lexeme.constraint()
+        )

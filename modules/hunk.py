@@ -1,35 +1,36 @@
-from modules.coordinate import Coordinate
-
-
 class Hunk:
-    def __init__(self, tag, left, right):
-        self.tag = tag
+    def __init__(self, opcode, left, right):
+        self.opcode = opcode
         self.left = left
         self.right = right
+
+
+    def tag(self):
+        return self.opcode
 
 
     def uid(self):
         return f"{self.left.uid()}{self.right.uid()}"
 
 
-    def left_lineno(self, index):
-        return self.left.lineno(index + 1)
+    def left_lineno(self, offset):
+        return self.left.lineno(offset + 1)
 
 
-    def left_line(self, index):
-        return self.left.line(index)
+    def left_line(self, offset):
+        return self.left.line(offset)
 
 
     def left_range(self):
         return self.left.range()
 
 
-    def right_lineno(self, index):
-        return self.right.lineno(index + 1)
+    def right_lineno(self, offset):
+        return self.right.lineno(offset + 1)
 
 
-    def right_line(self, index):
-        return self.right.line(index)
+    def right_line(self, offset):
+        return self.right.line(offset)
 
 
     def right_range(self):
