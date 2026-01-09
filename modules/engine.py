@@ -2,7 +2,6 @@ from constant import Color, Tag
 from difflib import SequenceMatcher
 from modules.brick import LeftBrick, RightBrick
 from modules.hunk import Hunk
-from modules.lexeme import Lexeme
 from modules.span import Span
 
 
