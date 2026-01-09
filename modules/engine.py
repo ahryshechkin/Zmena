@@ -1,8 +1,9 @@
 from constant import Color, Tag
 from difflib import SequenceMatcher
-from modules.brick import Brick
-from modules.index import Index
+from modules.brick import LeftBrick, RightBrick
+from modules.hunk import Hunk
 from modules.lexeme import Lexeme
+from modules.span import Span
 
 
 class Engine:
@@ -24,81 +25,74 @@ class Engine:
         self.print_header(name, desc)
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
             # print(tag, slo, shi, tlo, thi)
+            left = Span(src, slo, shi)
+            right = Span(trg, tlo, thi)
+            hunk = Hunk(tag, left, right)
             if tag == Tag.EQUAL:
-                for idx in range(shi - slo):
-                    left_lineno = slo + idx + 1
-                    left_line = src[slo + idx]
-                    right_lineno = tlo + idx + 1
-                    right_line = trg[tlo + idx]
-                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line, "")
+                for idx in range(hunk.left_range()):
+                    self.show_line(tag, hunk.left_lineno(idx), hunk.left_line(idx), hunk.right_lineno(idx), hunk.right_line(idx))
             elif tag == Tag.REPLACE:
-                left_range = shi - slo
-                right_range = thi - tlo
-                max_range = max(left_range, right_range)
-                for idx in range(max_range):
-                    if idx < left_range:
-                        left_lineno = slo + idx + 1
-                        left_line = src[slo + idx]
-                        index = Index(slo, shi, tlo, thi)
+                for idx in range(hunk.height()):
+                    if idx < hunk.left_range():
+                        left_lineno = hunk.left_lineno(idx)
+                        left_line = hunk.left_line(idx)
+                        index = hunk.index()
                         lexeme = Lexeme(left_line)
-                        brick = Brick(tag, index, "L", left_lineno, lexeme)
+                        brick = LeftBrick(tag, index, left_lineno, lexeme)
                         self.bricks.append(brick)
                     else:
                         left_lineno = ""
                         left_line = ""
-                    if idx < right_range:
-                        right_lineno = tlo + idx + 1
-                        right_line = trg[tlo + idx]
-                        index = Index(slo, shi, tlo, thi)
+                    if idx < hunk.right_range():
+                        right_lineno = hunk.right_lineno(idx)
+                        right_line = hunk.right_line(idx)
+                        index = hunk.index()
                         lexeme = Lexeme(right_line)
-                        brick = Brick(tag, index, "R", right_lineno, lexeme)
+                        brick = RightBrick(tag, index, right_lineno, lexeme)
                         self.bricks.append(brick)
                     else:
                         right_lineno = ""
                         right_line = ""
-                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line, right_range - left_range)
+                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
             elif tag == Tag.INSERT:
-                for idx in range(thi - tlo):
-                    right_lineno = tlo + idx + 1
-                    right_line = trg[tlo + idx]
+                for idx in range(hunk.right_range()):
+                    right_lineno = hunk.right_lineno(idx)
+                    right_line = hunk.right_line(idx)
                     lexeme = Lexeme(right_line)
-                    index = Index(slo, shi, tlo, thi)
-                    brick = Brick(tag, index, "R", right_lineno, lexeme)
+                    index = hunk.index()
+                    brick = RightBrick(tag, index, right_lineno, lexeme)
                     self.bricks.append(brick)
-                    self.show_line(tag, "", "", right_lineno, right_line, "")
+                    self.show_line(tag, "", "", right_lineno, right_line)
             elif tag == Tag.DELETE:
-                for idx in range(shi - slo):
-                    left_lineno = slo + idx + 1
-                    left_line = src[slo + idx]
-                    index = Index(slo, shi, tlo, thi)
+                for idx in range(hunk.left_range()):
+                    left_lineno = hunk.left_lineno(idx)
+                    left_line = hunk.left_line(idx)
+                    index = hunk.index()
                     lexeme = Lexeme(left_line)
-                    brick = Brick(tag, index, "L", left_lineno, lexeme)
+                    brick = LeftBrick(tag, index, left_lineno, lexeme)
                     self.bricks.append(brick)
-                    self.show_line(tag, left_lineno, left_line, "", "", "")
+                    self.show_line(tag, left_lineno, left_line, "", "")
 
 
     def print_header(self, name, desc):
-        total_len = self.left_width + self.right_width - len(desc) + 28
+        total_len = self.left_width + self.right_width - len(desc) + 17
         print(
             f"\n#### {name} - {desc} {'#' * total_len}\n"
             f"{'opcode':>7} | "
-            f"{'lineno':>6} | {'source':<{self.left_width}} | "
-            f"{'lineno':>6} | {'target':<{self.right_width}} | "
-            f"{'counter':>7} | "
+            f"{'lineno':>6} | {'left':<{self.left_width}} | "
+            f"{'lineno':>6} | {'right':<{self.right_width}} | "
         )
         print(
             f"{'-' * 7}-+-{'-' * 6}-+-"
-            f"{'-' * self.left_width}-+-{'-' * 6}-+-{'-' * self.right_width}-+-"
-            f"{'-' * 7}-+"
+            f"{'-' * self.left_width}-+-{'-' * 6}-+-{'-' * self.right_width}-+"
         )
 
 
-    def show_line(self, tag, left_lineno, left_line, right_lineno, right_line, cnt_ins):
+    def show_line(self, tag, left_lineno, left_line, right_lineno, right_line):
         line = (
             f"{tag:>7} | "
             f"{left_lineno:>6} | {left_line:<{self.left_width}} | "
             f"{right_lineno:>6} | {right_line:<{self.right_width}} | "
-            f"{cnt_ins:>7} | "
         )
         colored_line = self.colorize(tag, line)
         print(colored_line)

@@ -1,7 +1,7 @@
 class Brick:
     def __init__(self, tag, index, side, lineno, lexeme):
         self.tag = tag
-        self.index = index.get()
+        self.index = index
         self.side = side
         self.lineno = lineno
         self.name = lexeme.name()
@@ -15,3 +15,13 @@ class Brick:
             f"{self.tag:>7} | {self.index:>8} | {self.side} | {self.name:>7} | "
             f"{self.type:>13} | {constraint:>10} |"
         )
+
+
+class LeftBrick(Brick):
+    def __init__(self, tag, index, lineno, lexeme):
+        super().__init__(tag, index, "L", lineno, lexeme)
+
+
+class RightBrick(Brick):
+    def __init__(self, tag, index, lineno, lexeme):
+        super().__init__(tag, index, "R", lineno, lexeme)
