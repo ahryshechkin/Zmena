@@ -22,7 +22,8 @@ class Brick:
 
 
 class LeftBrick(Brick):
-    def __init__(self, offset, hunk, lexeme):
+    def __init__(self, offset, hunk):
+        lexeme = Lexeme(hunk.left_line(offset))
         super().__init__(
             hunk.tag(),
             hunk.uid(),

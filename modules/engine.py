@@ -30,42 +30,26 @@ class Engine:
             hunk = Hunk(tag, left, right)
             if tag == Tag.EQUAL:
                 for idx in range(hunk.left_range()):
-                    self.show_line(tag, hunk.left_lineno(idx), hunk.left_line(idx), hunk.right_lineno(idx), hunk.right_line(idx))
+                    self.show_line(idx, hunk)
             elif tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
-                        left_lineno = hunk.left_lineno(idx)
-                        left_line = hunk.left_line(idx)
-                        lexeme = Lexeme(left_line)
-                        brick = LeftBrick(idx, hunk, lexeme)
+                        brick = LeftBrick(idx, hunk)
                         self.bricks.append(brick)
-                    else:
-                        left_lineno = ""
-                        left_line = ""
                     if idx < hunk.right_range():
-                        right_lineno = hunk.right_lineno(idx)
-                        right_line = hunk.right_line(idx)
                         brick = RightBrick(idx, hunk)
                         self.bricks.append(brick)
-                    else:
-                        right_lineno = ""
-                        right_line = ""
-                    self.show_line(tag, left_lineno, left_line, right_lineno, right_line)
+                    self.show_line(idx, hunk)
             elif tag == Tag.INSERT:
                 for idx in range(hunk.right_range()):
-                    right_lineno = hunk.right_lineno(idx)
-                    right_line = hunk.right_line(idx)
                     brick = RightBrick(idx, hunk)
                     self.bricks.append(brick)
-                    self.show_line(tag, "", "", right_lineno, right_line)
+                    self.show_line(idx, hunk)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
-                    left_lineno = hunk.left_lineno(idx)
-                    left_line = hunk.left_line(idx)
-                    lexeme = Lexeme(left_line)
-                    brick = LeftBrick(idx, hunk, lexeme)
+                    brick = LeftBrick(idx, hunk)
                     self.bricks.append(brick)
-                    self.show_line(tag, left_lineno, left_line, "", "")
+                    self.show_line(idx, hunk)
 
 
     def print_header(self, name, desc):
@@ -82,13 +66,13 @@ class Engine:
         )
 
 
-    def show_line(self, tag, left_lineno, left_line, right_lineno, right_line):
+    def show_line(self, offset, hunk):
         line = (
-            f"{tag:>7} | "
-            f"{left_lineno:>6} | {left_line:<{self.left_width}} | "
-            f"{right_lineno:>6} | {right_line:<{self.right_width}} | "
+            f"{hunk.tag():>7} | "
+            f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.left_width}} | "
+            f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.right_width}} | "
         )
-        colored_line = self.colorize(tag, line)
+        colored_line = self.colorize(hunk.tag(), line)
         print(colored_line)
 
 
