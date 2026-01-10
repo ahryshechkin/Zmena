@@ -10,10 +10,10 @@ for pair in Samples.get_pairs():
     trg = pair["trg"].strip().splitlines()
     engine.run(name, desc, src, trg)
 
-print("")
-for brick in engine.bricks:
-    print(brick)
+# print("")
+# for brick in engine.bricks:
+#     print(brick)
 
-# print("\n")
-# for name in Samples.get_names():
-#     print(name)
+print("\n")
+for name in Samples.get_names():
+    print(name)
