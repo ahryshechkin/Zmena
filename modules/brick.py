@@ -3,23 +3,22 @@ from modules.lexeme import Lexeme
 
 
 class Brick:
-    def __init__(self, tag, uid, side, lineno, name, data_type, constraint):
+    def __init__(self, tag, side, segment, position, name, data_type, constraint):
         self.tag = tag
-        self.uid = uid
         self.side = side
-        self.lineno = lineno
+        self.segment = segment
+        self.position = position
         self.name = name
         self.type = data_type
         self.constraint = constraint
 
 
-
     def __str__(self):
         constraint = self.constraint if self.constraint else ""
         return (
-            f"{self.tag:>7} | {self.uid:>8} | "
-            f"{self.side.value} | {self.name:>7} | "
-            f"{self.type:>13} | {constraint:>10} |"
+            f"{self.tag:>7} | {self.side.value} | "
+            f"{self.segment:>8} | {self.position:>3} | "
+            f"{self.name:>7} | {self.type:>13} | {constraint:>10} |"
         )
 
 
@@ -28,9 +27,9 @@ class LeftBrick(Brick):
         lexeme = Lexeme(hunk.left_line(offset))
         super().__init__(
             hunk.tag(),
-            hunk.uid(),
             Side.LEFT,
-            hunk.right_lineno(offset),
+            hunk.uid(),
+            hunk.left_lineno(offset),
             lexeme.name(),
             lexeme.type(),
             lexeme.constraint()
@@ -42,8 +41,8 @@ class RightBrick(Brick):
         lexeme = Lexeme(hunk.right_line(offset))
         super().__init__(
             hunk.tag(),
-            hunk.uid(),
             Side.RIGHT,
+            hunk.uid(),
             hunk.right_lineno(offset),
             lexeme.name(),
             lexeme.type(),
