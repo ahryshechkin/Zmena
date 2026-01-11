@@ -78,7 +78,7 @@ class View:
     def show_bricks(self, bricks):
         print(
             f"\n{'#' * 77} \n"
-            f"{'action':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+            f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} |"
         )
         print(
