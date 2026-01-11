@@ -16,9 +16,9 @@ class Brick:
     def __str__(self):
         constraint = self.constraint if self.constraint else ""
         return (
-            f"{self.tag:>7} | {self.side.value} | "
-            f"{self.segment:>8} | {self.position:>3} | "
-            f"{self.name:>7} | {self.type:>13} | {constraint:>10} |"
+            f"{self.tag:>7} | {self.side.value:>4} | "
+            f"{self.segment:>8} | {self.position:>8} | "
+            f"{self.name:<7} | {self.type:<13} | {constraint:>10} |"
         )
 
 
