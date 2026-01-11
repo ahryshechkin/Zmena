@@ -10,11 +10,4 @@ for sample in Samples.get_pairs():
     engine.run(src, trg)
     view = View(sample)
     view.show_report()
-
-print("")
-for brick in engine.bricks:
-    print(brick)
-
-# print("\n")
-# for name in Samples.get_names():
-#     print(name)
+    view.show_bricks(engine.bricks)

@@ -75,5 +75,16 @@ class View:
         return f"{color}{text}{Color.RESET.value}"
 
 
-    def show_bricks(self):
-        pass
+    def show_bricks(self, bricks):
+        print(
+            f"\n{'#' * 77} \n"
+            f"{'action':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} |"
+        )
+        print(
+            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+        )
+
+        for brick in bricks:
+            print(brick)
