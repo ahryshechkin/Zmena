@@ -34,3 +34,7 @@ class Engine:
                 for idx in range(hunk.left_range()):
                     brick = LeftBrick(idx, hunk)
                     self.bricks.append(brick)
+
+
+    def match(self):
+        pass
