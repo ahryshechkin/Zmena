@@ -1,19 +1,20 @@
 from modules.engine import Engine
 from modules.sample import Samples
+from modules.view import View
 
 
 engine = Engine()
-for pair in Samples.get_pairs():
-    name = pair["name"]
-    desc = pair["desc"]
-    src = pair["src"].strip().splitlines()
-    trg = pair["trg"].strip().splitlines()
-    engine.run(name, desc, src, trg)
+for sample in Samples.get_pairs():
+    src = sample["src"].strip().splitlines()
+    trg = sample["trg"].strip().splitlines()
+    engine.run(src, trg)
+    view = View(sample)
+    view.show_report()
 
-# print("")
-# for brick in engine.bricks:
-#     print(brick)
+print("")
+for brick in engine.bricks:
+    print(brick)
 
-print("\n")
-for name in Samples.get_names():
-    print(name)
+# print("\n")
+# for name in Samples.get_names():
+#     print(name)
