@@ -79,7 +79,7 @@ class View:
         print(
             f"\n{'#' * 77} \n"
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-            f"{'name':<7} | {'type':<13} | {'constraint':<10} |"
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
         print(
             f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
@@ -88,3 +88,25 @@ class View:
 
         for brick in bricks:
             print(brick)
+
+
+    def show_pairs(self, pairs):
+        print(
+            f"\n{'#' * 162} \n"
+            f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            f"{'link'} | "
+            f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+        )
+        print(
+            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            f"{'-' * 5}-+"
+            f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
+            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+        )
+
+        for left, right in pairs:
+            print(f"{left}  <=> | {right}")
+
