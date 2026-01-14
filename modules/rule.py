@@ -7,11 +7,11 @@ class Rule(ABC):
         pass
 
 
-class NameRule(Rule):
+class RuleName(Rule):
     def match(self, left, right):
-        return left.name == right.name
+        return left.compare_by_name(right)
 
 
-class PositionRule(Rule):
+class RulePosition(Rule):
     def match(self, left, right):
-        return left.position == right.position
+        return left.compare_by_position(right)

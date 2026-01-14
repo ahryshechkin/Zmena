@@ -22,6 +22,14 @@ class Brick:
         )
 
 
+    def compare_by_name(self, brick):
+        return self.name == brick.name
+
+
+    def compare_by_position(self, brick):
+        return self.position == brick.position
+
+
 class LeftBrick(Brick):
     def __init__(self, offset, hunk):
         lexeme = Lexeme(hunk.left_line(offset))
