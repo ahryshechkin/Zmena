@@ -15,15 +15,13 @@ for sample in Samples.get_pairs():
     view.show_report()
     brick_filter = Filter(engine.bricks)
     view.show_bricks(engine.bricks)
-    # result = brick_filter.by_side("L").result()
-    # view.show_bricks(result)
-    rule = RuleName()
     matcher = Matcher(engine.bricks, engine.bricks)
-    pairs_name = matcher.match(rule)
-    print("")
-    for pair in pairs_name:
-        print(f"{pair[0]} <=> {pair[1]}")
+    pairs_name = matcher.match(RuleName())
     pairs_position = matcher.match(RulePosition())
+    view.show_pairs(pairs_name)
     print("")
-    for pair in pairs_position:
-        print(f"{pair[0]} <=> {pair[1]}")
+    # for pair in pairs_name:
+    #     print(f"{pair[0]} <=> {pair[1]}")
+    # print("")
+    # for pair in pairs_position:
+    #     print(f"{pair[0]} <=> {pair[1]}")
