@@ -41,3 +41,15 @@ class RuleDelete(Rule):
                 pairs.append((brick, None))
 
         return pairs
+
+
+class RuleInsert(Rule):
+    def apply(self, scopes):
+        bricks = scopes[1]
+        pairs = list()
+
+        for brick in bricks:
+            if brick.is_insert():
+                pairs.append((brick, None))
+
+        return pairs
