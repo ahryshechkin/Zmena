@@ -2,7 +2,7 @@ from modules.constant import Side, Tag
 from modules.engine import Engine
 from modules.filter import Filter
 from modules.matcher import Matcher
-from modules.rule import RuleName, RulePosition
+from modules.rule import RuleDelete, RuleName, RulePosition
 from modules.sample import Samples
 from modules.view import View
 
@@ -18,11 +18,10 @@ for sample in Samples.get_pairs():
     filtered_bricks = Filter(engine.bricks)
     left_bricks = filtered_bricks.by_side(Side.LEFT)
     right_bricks = filtered_bricks.by_side(Side.RIGHT)
-    delete_bricks = filtered_bricks.by_side(Side.LEFT).by_tag(Tag.DELETE)
     matcher = Matcher(left_bricks.bricks, right_bricks.bricks)
     pairs_name = matcher.match(RuleName())
     pairs_position = matcher.match(RulePosition())
-    # matcher = Matcher(delete_bricks)
-    # pairs_delete = matcher.match(RuleDelete())
+    pairs_delete = matcher.match(RuleDelete())
     view.show_pairs(pairs_name)
     view.show_pairs(pairs_position)
+    view.show_pairs(pairs_delete)

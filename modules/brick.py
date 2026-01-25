@@ -1,4 +1,4 @@
-from modules.constant import Side
+from modules.constant import Side, Tag
 from modules.lexeme import Lexeme
 
 
@@ -28,6 +28,10 @@ class Brick:
 
     def compare_by_position(self, brick):
         return self.position == brick.position
+
+
+    def is_delete(self):
+        return self.tag == Tag.DELETE and self.side == Side.LEFT
 
 
 class LeftBrick(Brick):
