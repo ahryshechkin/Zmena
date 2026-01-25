@@ -15,3 +15,8 @@ class RuleName(Rule):
 class RulePosition(Rule):
     def match(self, left, right):
         return left.compare_by_position(right)
+
+
+class RuleDelete(Rule):
+    def match(self, left, right=None):
+        pass
