@@ -34,6 +34,10 @@ class Brick:
         return self.tag == Tag.DELETE and self.side == Side.LEFT
 
 
+    def is_insert(self):
+        return self.tag == Tag.INSERT and self.side == Side.RIGHT
+
+
 class LeftBrick(Brick):
     def __init__(self, offset, hunk):
         lexeme = Lexeme(hunk.left_line(offset))
