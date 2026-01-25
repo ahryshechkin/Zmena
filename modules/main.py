@@ -1,3 +1,4 @@
+from modules.constant import Side, Tag
 from modules.engine import Engine
 from modules.filter import Filter
 from modules.matcher import Matcher
@@ -13,15 +14,15 @@ for sample in Samples.get_pairs():
     engine.run(src, trg)
     view = View(sample)
     view.show_report()
-    brick_filter = Filter(engine.bricks)
     view.show_bricks(engine.bricks)
-    matcher = Matcher(engine.bricks, engine.bricks)
+    filtered_bricks = Filter(engine.bricks)
+    left_bricks = filtered_bricks.by_side(Side.LEFT)
+    right_bricks = filtered_bricks.by_side(Side.RIGHT)
+    delete_bricks = filtered_bricks.by_side(Side.LEFT).by_tag(Tag.DELETE)
+    matcher = Matcher(left_bricks.bricks, right_bricks.bricks)
     pairs_name = matcher.match(RuleName())
     pairs_position = matcher.match(RulePosition())
+    # matcher = Matcher(delete_bricks)
+    # pairs_delete = matcher.match(RuleDelete())
     view.show_pairs(pairs_name)
-    print("")
-    # for pair in pairs_name:
-    #     print(f"{pair[0]} <=> {pair[1]}")
-    # print("")
-    # for pair in pairs_position:
-    #     print(f"{pair[0]} <=> {pair[1]}")
+    view.show_pairs(pairs_position)

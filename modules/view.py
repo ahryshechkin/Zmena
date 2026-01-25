@@ -95,7 +95,7 @@ class View:
             f"\n{'#' * 162} \n"
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
-            f"{'link'} | "
+            f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
@@ -108,5 +108,4 @@ class View:
         )
 
         for left, right in pairs:
-            print(f"{left}  <=> | {right}")
-
+            print(f"{left} <==> | {right}")
