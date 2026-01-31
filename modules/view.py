@@ -54,7 +54,7 @@ class View:
 
     def print_report_line(self, offset, hunk):
         line = (
-            f"{hunk.tag():>7} | {hunk.uid():>8} | "
+            f"{hunk.tag().value:>7} | {hunk.uid():>8} | "
             f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.left_width}} | "
             f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.right_width}} | "
         )

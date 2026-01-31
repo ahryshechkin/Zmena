@@ -6,6 +6,7 @@ class Tag(str, Enum):
     EQUAL = "equal"
     INSERT = "insert"
     REPLACE = "replace"
+    STUB = "stub"
 
 
 class Color(str, Enum):
