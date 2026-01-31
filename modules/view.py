@@ -90,9 +90,10 @@ class View:
             print(brick)
 
 
-    def show_pairs(self, pairs):
+    def show_links(self, links):
         print(
-            f"\n{'#' * 162} \n"
+            f"\n{'#' * 177} \n"
+            f"{'rule':>12} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
             f"{'####'} | "
@@ -100,6 +101,7 @@ class View:
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
         print(
+            f"{'-' * 12}-+-"
             f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
             f"{'-' * 5}-+"
@@ -107,5 +109,5 @@ class View:
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
         )
 
-        for left, right in pairs:
-            print(f"{left} <==> | {right}")
+        for link in links:
+            print(link)

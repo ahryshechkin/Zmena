@@ -19,6 +19,9 @@ for sample in Samples.get_pairs():
     left_bricks = filtered_bricks.by_side(Side.LEFT)
     right_bricks = filtered_bricks.by_side(Side.RIGHT)
     matcher = Matcher(left_bricks.bricks, right_bricks.bricks)
-    for rule in [RuleDelete(), RuleInsert(), RuleName(), RulePosition()]:
-        pairs = matcher.match(rule)
-        view.show_pairs(pairs)
+
+    links = list()
+    for rule in [RuleName(), RulePosition(), RuleDelete(), RuleInsert()]:
+        links.extend(matcher.match(rule))
+
+    view.show_links(links)
