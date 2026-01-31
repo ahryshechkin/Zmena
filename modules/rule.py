@@ -1,55 +1,75 @@
 from abc import ABC, abstractmethod
-from brick import RightBrick
+from link import Link
 
 
 class Rule(ABC):
+    def __init__(self, name):
+        self.name = name
+
+
     @abstractmethod
     def apply(self, scopes):
         pass
 
 
 class RuleName(Rule):
+    def __init__(self):
+        super().__init__("RuleName")
+
+
     def apply(self, scopes):
         left_bricks, right_bricks = scopes[:2]
-        pairs = list()
+        links = list()
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_name(right):
-                    pairs.append((left, right))
+                    links.append(Link(self.name, left, right))
 
-        return pairs
+        return links
 
 
 class RulePosition(Rule):
+    def __init__(self):
+        super().__init__("RulePosition")
+
+
     def apply(self, scopes):
         left_bricks, right_bricks = scopes[:2]
-        pairs = list()
+        links = list()
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_position(right):
-                    pairs.append((left, right))
+                    links.append(Link(self.name, left, right))
 
-        return pairs
+        return links
 
 
 class RuleDelete(Rule):
+    def __init__(self):
+        super().__init__("RuleDelete")
+
+
     def apply(self, scopes):
         bricks = scopes[0]
-        pairs = list()
+        links = list()
         for brick in bricks:
             if brick.is_delete():
-                pairs.append((brick, None))
+                links.append(Link(self.name, brick, None))
 
-        return pairs
+        return links
 
 
 class RuleInsert(Rule):
+    def __init__(self):
+        super().__init__("RuleInsert")
+
+
     def apply(self, scopes):
         bricks = scopes[1]
-        pairs = list()
+        links = list()
 
         for brick in bricks:
             if brick.is_insert():
-                pairs.append((brick, None))
+                links.append(Link(self.name, brick, None))
 
-        return pairs
+        return links
