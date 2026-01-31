@@ -19,3 +19,11 @@ class Color(str, Enum):
 class Side(str, Enum):
     LEFT = "L"
     RIGHT = "R"
+
+
+class RuleId(str, Enum):
+    NAME = "name"
+    POSITION = "position"
+    DELETE = "delete"
+    INSERT = "insert"
+    SIGNATURE = "signature"

@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
+from constant import RuleId
 from link import Link
 
 
 class Rule(ABC):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, rule_id):
+        self.rule_id = rule_id
 
 
     @abstractmethod
@@ -14,7 +15,7 @@ class Rule(ABC):
 
 class RuleName(Rule):
     def __init__(self):
-        super().__init__("RuleName")
+        super().__init__(RuleId.NAME)
 
 
     def apply(self, scopes):
@@ -23,14 +24,14 @@ class RuleName(Rule):
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_name(right):
-                    links.append(Link(self.name, left, right))
+                    links.append(Link(self.rule_id, left, right))
 
         return links
 
 
 class RulePosition(Rule):
     def __init__(self):
-        super().__init__("RulePosition")
+        super().__init__(RuleId.POSITION)
 
 
     def apply(self, scopes):
@@ -39,14 +40,14 @@ class RulePosition(Rule):
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_position(right):
-                    links.append(Link(self.name, left, right))
+                    links.append(Link(self.rule_id, left, right))
 
         return links
 
 
 class RuleDelete(Rule):
     def __init__(self):
-        super().__init__("RuleDelete")
+        super().__init__(RuleId.DELETE)
 
 
     def apply(self, scopes):
@@ -54,14 +55,14 @@ class RuleDelete(Rule):
         links = list()
         for brick in bricks:
             if brick.is_delete():
-                links.append(Link(self.name, brick, None))
+                links.append(Link(self.rule_id, brick, None))
 
         return links
 
 
 class RuleInsert(Rule):
     def __init__(self):
-        super().__init__("RuleInsert")
+        super().__init__(RuleId.INSERT)
 
 
     def apply(self, scopes):
@@ -70,6 +71,6 @@ class RuleInsert(Rule):
 
         for brick in bricks:
             if brick.is_insert():
-                links.append(Link(self.name, brick, None))
+                links.append(Link(self.rule_id, brick, None))
 
         return links

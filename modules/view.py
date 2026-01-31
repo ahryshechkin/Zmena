@@ -92,8 +92,8 @@ class View:
 
     def show_links(self, links):
         print(
-            f"\n{'#' * 177} \n"
-            f"{'rule':>12} | "
+            f"\n{'#' * 174} \n"
+            f"{'rule':>9} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
             f"{'####'} | "
@@ -101,7 +101,7 @@ class View:
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
         print(
-            f"{'-' * 12}-+-"
+            f"{'-' * 9}-+-"
             f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
             f"{'-' * 5}-+"
