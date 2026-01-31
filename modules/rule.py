@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from constant import RuleId
+from brick import StubBrick
+from constant import RuleId, Side, Tag
 from link import Link
 
 
@@ -24,7 +25,8 @@ class RuleName(Rule):
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_name(right):
-                    links.append(Link(self.rule_id, left, right))
+                    link = Link(self.rule_id, left, right)
+                    links.append(link)
 
         return links
 
@@ -40,7 +42,8 @@ class RulePosition(Rule):
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_position(right):
-                    links.append(Link(self.rule_id, left, right))
+                    link = Link(self.rule_id, left, right)
+                    links.append(link)
 
         return links
 
@@ -55,7 +58,9 @@ class RuleDelete(Rule):
         links = list()
         for brick in bricks:
             if brick.is_delete():
-                links.append(Link(self.rule_id, brick, None))
+                stub_brick = StubBrick(Side.RIGHT)
+                link = Link(self.rule_id, brick, stub_brick)
+                links.append(link)
 
         return links
 
@@ -71,6 +76,8 @@ class RuleInsert(Rule):
 
         for brick in bricks:
             if brick.is_insert():
-                links.append(Link(self.rule_id, brick, None))
+                stub_brick = StubBrick(Side.LEFT)
+                link = Link(self.rule_id, stub_brick, brick)
+                links.append(link)
 
         return links

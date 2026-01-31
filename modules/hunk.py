@@ -1,6 +1,9 @@
+from constant import Tag
+
+
 class Hunk:
     def __init__(self, opcode, left, right):
-        self.opcode = opcode
+        self.opcode = Tag(opcode)
         self.left = left
         self.right = right
 

@@ -16,7 +16,7 @@ class Brick:
     def __str__(self):
         constraint = self.constraint if self.constraint else ""
         return (
-            f"{self.tag:>7} | {self.side.value:>4} | "
+            f"{self.tag.value:>7} | {self.side.value:>4} | "
             f"{self.segment:>8} | {self.position:>8} | "
             f"{self.name:<7} | {self.type:<13} | {constraint:>10} |"
         )
@@ -64,3 +64,7 @@ class RightBrick(Brick):
             lexeme.type(),
             lexeme.constraint()
         )
+
+class StubBrick(Brick):
+    def __init__(self, side):
+        super().__init__(Tag.STUB, side, "", "", "", "", None)
