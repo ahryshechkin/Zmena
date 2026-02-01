@@ -18,7 +18,6 @@ class Engine:
             left = Span(src, slo, shi)
             right = Span(trg, tlo, thi)
             hunk = Hunk(tag, left, right)
-            t = hunk.tag()
             if tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
