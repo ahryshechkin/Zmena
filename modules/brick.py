@@ -9,7 +9,7 @@ class Brick:
         self.segment = segment
         self.position = position
         self.name = name
-        self.type = data_type
+        self.data_type = data_type
         self.constraint = constraint
 
 
@@ -18,7 +18,7 @@ class Brick:
         return (
             f"{self.tag.value:>7} | {self.side.value:>4} | "
             f"{self.segment:>8} | {self.position:>8} | "
-            f"{self.name:<7} | {self.type:<13} | {constraint:>10} |"
+            f"{self.name:<7} | {self.data_type:<13} | {constraint:>10} |"
         )
 
 
@@ -28,6 +28,14 @@ class Brick:
 
     def compare_by_position(self, brick):
         return self.position == brick.position
+
+
+    def compare_by_signature(self, brick):
+        return (
+            self.segment == brick.segment and
+            self.data_type == brick.data_type and
+            self.constraint == brick.constraint
+        )
 
 
     def is_delete(self):
