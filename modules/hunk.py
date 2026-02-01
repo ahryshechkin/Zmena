@@ -1,4 +1,4 @@
-from constant import Tag
+from modules.constant import Tag
 
 
 class Hunk:
