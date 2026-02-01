@@ -1,4 +1,3 @@
-from modules.constant import Side, Tag
 from modules.engine import Engine
 from modules.filter import Filter
 from modules.matcher import Matcher

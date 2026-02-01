@@ -1,5 +1,5 @@
-from constant import Tag
 from difflib import SequenceMatcher
+from modules.constant import Tag
 from modules.brick import LeftBrick, RightBrick
 from modules.hunk import Hunk
 from modules.span import Span
