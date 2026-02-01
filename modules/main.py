@@ -2,7 +2,7 @@ from modules.constant import Side, Tag
 from modules.engine import Engine
 from modules.filter import Filter
 from modules.matcher import Matcher
-from modules.rule import RuleDelete, RuleInsert, RuleName, RulePosition
+from modules.rule import *
 from modules.sample import Samples
 from modules.view import View
 
@@ -21,7 +21,7 @@ for sample in Samples.get_pairs():
     matcher = Matcher(left_bricks.bricks, right_bricks.bricks)
 
     links = list()
-    for rule in [RuleName(), RulePosition(), RuleDelete(), RuleInsert()]:
+    for rule in [RuleName(), RulePosition(), RuleSignature(), RuleDelete(), RuleInsert()]:
         links.extend(matcher.match(rule))
 
     view.show_links(links)
