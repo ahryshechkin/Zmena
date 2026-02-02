@@ -111,3 +111,42 @@ class View:
 
         for link in links:
             print(link)
+
+
+    def show_components(self, components):
+        for i, component in enumerate(components, 1):
+            print(
+                f"\n### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
+                f"{'#' * 139} \n"
+                f"{'rule':>9} | "
+                f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+                f"{'####'} | "
+                f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            )
+            print(
+                f"{'-' * 9}-+-"
+                f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+                f"{'-' * 5}-+"
+                f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            )
+
+            for link in component.links:
+                print(link)
+
+            print(
+                f"\n### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
+                f"{'#' * 42} \n"
+                f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            )
+            print(
+                f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            )
+
+            for brick in component.bricks:
+                print(brick)
