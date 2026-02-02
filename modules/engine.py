@@ -1,5 +1,8 @@
+from collections import defaultdict
 from difflib import SequenceMatcher
+
 from modules.constant import Tag
+from modules.component import Component
 from modules.brick import LeftBrick, RightBrick
 from modules.hunk import Hunk
 from modules.span import Span
@@ -36,5 +39,36 @@ class Engine:
                     self.bricks.append(brick)
 
 
-    def match(self):
-        pass
+    def build_components(self, links):
+        components = list()
+
+        vertex_to_edges = defaultdict(set)
+        for link in links:
+            vertex_to_edges[link.left].add(link)
+            vertex_to_edges[link.right].add(link)
+
+
+        visited = set()
+        for vertex in vertex_to_edges:
+            if vertex in visited:
+                continue
+
+            component = Component()
+
+            stack = [vertex]
+            while stack:
+                current = stack.pop()
+                if current in visited:
+                    continue
+                visited.add(current)
+                for link in vertex_to_edges[current]:
+                    component.add_link(link)
+                    if current == link.left:
+                        opposite = link.right
+                    else:
+                        opposite = link.left
+                    stack.append(opposite)
+
+            components.append(component)
+
+        return components
