@@ -42,32 +42,32 @@ class Engine:
     def build_components(self, links):
         components = list()
 
-        vertex_to_edges = defaultdict(set)
+        brick_to_links = defaultdict(set)
         for link in links:
-            vertex_to_edges[link.left].add(link)
-            vertex_to_edges[link.right].add(link)
+            brick_to_links[link.left].add(link)
+            brick_to_links[link.right].add(link)
 
 
-        visited = set()
-        for vertex in vertex_to_edges:
-            if vertex in visited:
+        visited_bricks = set()
+        for brick in brick_to_links:
+            if brick in visited_bricks:
                 continue
 
             component = Component()
+            stack = [brick]
 
-            stack = [vertex]
             while stack:
-                current = stack.pop()
-                if current in visited:
+                current_brick = stack.pop()
+                if current_brick in visited_bricks:
                     continue
-                visited.add(current)
-                for link in vertex_to_edges[current]:
-                    component.add_link(link)
-                    if current == link.left:
-                        opposite = link.right
+                visited_bricks.add(current_brick)
+                for link in brick_to_links[current_brick]:
+                    component.add(link)
+                    if current_brick == link.left:
+                        neighbor = link.right
                     else:
-                        opposite = link.left
-                    stack.append(opposite)
+                        neighbor = link.left
+                    stack.append(neighbor)
 
             components.append(component)
 
