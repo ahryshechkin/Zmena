@@ -9,18 +9,21 @@ from modules.view import View
 for sample in Samples.get_pairs():
     src = sample["src"].strip().splitlines()
     trg = sample["trg"].strip().splitlines()
+
     engine = Engine()
     engine.run(src, trg)
     view = View(sample)
     view.show_report()
-    view.show_bricks(engine.bricks)
-    filtered_bricks = Filter(engine.bricks)
-    left_bricks = filtered_bricks.by_side(Side.LEFT)
-    right_bricks = filtered_bricks.by_side(Side.RIGHT)
-    matcher = Matcher(left_bricks.bricks, right_bricks.bricks)
+    # view.show_bricks(engine.bricks)
 
+    filtered_bricks = Filter(engine.bricks)
+    bricks_left = filtered_bricks.by_side(Side.LEFT)
+    bricks_right = filtered_bricks.by_side(Side.RIGHT)
+    matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
     links = list()
     for rule in [RuleName(), RulePosition(), RuleSignature(), RuleDelete(), RuleInsert()]:
         links.extend(matcher.match(rule))
+    # view.show_links(links)
 
-    view.show_links(links)
+    components = engine.build_components(links)
+    view.show_components(components)
