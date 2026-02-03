@@ -21,14 +21,14 @@ class Samples(Enum):
 
 
     @classmethod
-    def get_names(cls):
-        names = list()
+    def list_cases(cls):
+        cases = list()
 
         for sample in Samples:
             if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG):
-                names.append(sample.value["desc"])
+                cases.append(f"{sample.name} - {sample.value['desc']}")
 
-        return names
+        return cases
 
 
     SRC_SHORT = dedent("""
