@@ -12,6 +12,7 @@
 - isolates uncertainty
 
 ### `Decision`
+- a consistent interpretation of a Component that produces semantic Statements
 - a consistent interpretation of a Component that selects, rejects or combines Links and produces semantic conclusions
 - resolves uncertainty
 - a subset of Links such that:

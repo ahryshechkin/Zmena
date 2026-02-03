@@ -27,3 +27,7 @@ for sample in Samples.get_pairs():
 
     components = engine.build_components(links)
     view.show_components(components)
+
+    print("")
+    for case in Samples.list_cases():
+        print(case)
