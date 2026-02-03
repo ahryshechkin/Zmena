@@ -12,7 +12,7 @@ class Samples(Enum):
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],
-                    "src": Samples.SRC_LONG.value if sample.name == "SML_12" else Samples.SRC_SHORT.value,
+                    "src": Samples.SRC_LONG.value if sample.name == "SML_403" else Samples.SRC_SHORT.value,
                     "trg": sample.value["text"],
                 }
                 pairs.append(pair)

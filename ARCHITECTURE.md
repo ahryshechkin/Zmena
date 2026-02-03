@@ -3,6 +3,7 @@
 
 ### `Link`
 - records hypotheses
+- A Link represents a hypothesis about correspondence between bricks, proposed by a Rule
 
 ### `Component`
 - a set of Bricks
