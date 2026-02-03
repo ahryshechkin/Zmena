@@ -14,7 +14,7 @@ class Engine:
         self.bricks = list()
 
 
-    def run(self, src, trg):
+    def build_bricks(self, src, trg):
         self.sm.set_seqs(src, trg)
 
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
