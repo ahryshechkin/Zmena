@@ -30,11 +30,13 @@ for sample in Samples.get_pairs():
     components = engine.build_components(links)
     view.show_components(components)
 
+    decisions = list()
     heuristics = [HeuristicName(), HeuristicPosition()]
     for component in components:
         decision = Decision(component, heuristics)
-        result = decision.make()
-        print(result)
+        decisions.append(decision.make())
+
+    view.show_decisions(decisions)
 
 
 
