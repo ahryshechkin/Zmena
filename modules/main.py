@@ -1,5 +1,7 @@
+from modules.decision import Decision
 from modules.engine import Engine
 from modules.filter import Filter
+from modules.heuristic import *
 from modules.matcher import Matcher
 from modules.rule import *
 from modules.sample import Samples
@@ -28,6 +30,14 @@ for sample in Samples.get_pairs():
     components = engine.build_components(links)
     view.show_components(components)
 
-    print("")
-    for case in Samples.list_cases():
-        print(case)
+    heuristics = [HeuristicName(), HeuristicPosition()]
+    for component in components:
+        decision = Decision(component, heuristics)
+        result = decision.make()
+        print(result)
+
+
+
+    # print("")
+    # for case in Samples.list_cases():
+    #     print(case)
