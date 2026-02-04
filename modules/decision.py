@@ -5,14 +5,11 @@ class Decision:
 
 
     def make(self):
-        result = dict()
-
+        scores = dict()
         for link in self.component.links:
-            scores = list()
+            score = 0
             for heuristic in self.heuristics:
-                score = heuristic.score(link)
-                scores.append(score)
-            result[link] = scores
+                score += heuristic.score(link)
+            scores[link] = score
 
-        return result
-
+        return scores

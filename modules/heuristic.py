@@ -11,15 +11,9 @@ class Heuristic(ABC):
 
 class HeuristicName(Heuristic):
     def score(self, link):
-        if link.rule_id == RuleId.NAME:
-            return 100
-        else:
-            return 0
+        return 100 if link.rule_id == RuleId.NAME else 0
 
 
 class HeuristicPosition(Heuristic):
     def score(self, link):
-        if link.rule_id == RuleId.POSITION:
-            return 50
-        else:
-            return 0
+        return 50 if link.rule_id == RuleId.POSITION else 0
