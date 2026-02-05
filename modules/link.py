@@ -9,3 +9,9 @@ class Link:
         return (
             f"{self.rule_id.value:>9} | #### | {self.left} #### | {self.right}"
         )
+
+
+    def __repr__(self):
+        return (
+            f"Link(rule_id={self.rule_id.value})"
+        )
