@@ -1,17 +1,17 @@
-### `Rule`
+## `Rule`
 - proposes hypotheses
 
-### `Link`
+## `Link`
 - records hypotheses
 - represents a hypothesis about correspondence between Bricks, proposed by a Rule
 
-### `Component`
+## `Component`
 - a connected, closed subgraph of Links in which all involved Bricks are mutually dependent and must be interpreted together
 - a set of Bricks
 - a set of Links between them
 - isolates uncertainty
 
-### `Decision`
+## `Decision`
 - a consistent interpretation of a Component that produces semantic Statements
 - a consistent interpretation of a Component that selects, rejects or combines Links and produces semantic conclusions
 - resolves uncertainty
@@ -19,6 +19,31 @@
   - each Brick participates in no more than one interpretation
   - there are no logical conflicts (delete + rename at the same time, etc.)
 
-### `Statement`
+## `Statement`
 - the result of decoding a Decision in terms of DDL
 - emits meaning
+
+---
+
+### `Core Domain`
+- Brick
+- Link
+- ScoredLink
+- Component
+- Decision
+- Heuristic
+
+### `Rules & Matching`
+- Rule
+- Matcher
+- Filter
+
+### `Diff Structure`
+- Hunk
+- Span
+- Lexeme
+
+### `Infrastructure`
+- Engine
+- View
+- Constant
