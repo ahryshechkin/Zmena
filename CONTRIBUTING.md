@@ -26,7 +26,6 @@ Pull Request follows this title pattern:
 Guidelines:
 - Describe what was changed
 - Explain why it was changed (optional)
-- Outline how to test the changes (if applicable)
 
 ### Branch Name
 
@@ -37,8 +36,8 @@ zm-<issue-id>-short-description
 ```
 
 Examples:
-- zm-0001-add-new-parser
-- zm-0002-handle-empty-input
+- zm-0001-new-parser
+- zm-0002-empty-input
 
 Guidelines:
 - Use lowercase letters and hyphens only
