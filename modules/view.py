@@ -77,7 +77,8 @@ class View:
 
     def show_bricks(self, bricks):
         print(
-            f"\n{'#' * 77} \n"
+            f"\n#### Bricks "
+            f"{'#' * 65} \n"
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
@@ -92,8 +93,10 @@ class View:
 
     def show_links(self, links):
         print(
-            f"\n{'#' * 174} \n"
+            f"\n#### Links "
+            f"{'#' * 170} \n"
             f"{'rule':>9} | "
+            f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
             f"{'####'} | "
@@ -101,8 +104,9 @@ class View:
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
         )
         print(
-            f"{'-' * 9}-+-"
-            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+            f"{'-' * 9}-+"
+            f"{'-' * 5}-+"
+            f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
             f"{'-' * 5}-+"
             f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
@@ -116,9 +120,10 @@ class View:
     def show_components(self, components):
         for i, component in enumerate(components, 1):
             print(
-                f"\n### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
-                f"{'#' * 139} \n"
+                f"\n#### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
+                f"{'#' * 145} \n"
                 f"{'rule':>9} | "
+                f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
                 f"{'####'} | "
@@ -126,8 +131,9 @@ class View:
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
             )
             print(
-                f"{'-' * 9}-+-"
-                f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 9}-+"
+                f"{'-' * 5}-+"
+                f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
                 f"{'-' * 5}-+"
                 f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
@@ -153,24 +159,27 @@ class View:
 
 
     def show_decisions(self, decisions):
-        print(
-            f"\n{'#' * 184} \n"
-            f"{'score':>7} | {'rule':>9} | "
-            f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
-            f"{'####'} | "
-            f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
-        )
-        print(
-            f"{'-' * 7}-+-{'-' * 9}-+-"
-            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
-            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
-            f"{'-' * 5}-+"
-            f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
-            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
-        )
+        for i, decision in enumerate(decisions, 1):
+            print(
+                f"\n#### Decision {i} "
+                f"{'#' * 175} \n"
+                f"{'score':>7} | {'rule':>9} | "
+                f"{'####'} | "
+                f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+                f"{'####'} | "
+                f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            )
+            print(
+                f"{'-' * 7}-+-{'-' * 9}-+"
+                f"{'-' * 5}-+"
+                f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+                f"{'-' * 5}-+"
+                f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            )
 
-        for decision in decisions:
             for link, score in decision.items():
                 print(f"{score:>7} | {link}")

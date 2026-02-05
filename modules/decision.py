@@ -12,4 +12,13 @@ class Decision:
                 score += heuristic.score(link)
             scores[link] = score
 
-        return scores
+        result = dict()
+        sorted_links = sorted(scores, key=scores.get, reverse=True)
+        used_bricks = set()
+        for link in sorted_links:
+            if link.left not in used_bricks and link.right not in used_bricks:
+                used_bricks.add(link.left)
+                used_bricks.add(link.right)
+                result[link] = scores[link]
+
+        return result
