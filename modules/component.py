@@ -1,3 +1,6 @@
+from modules.scored_link import ScoredLink
+
+
 class Component:
     def __init__(self):
         self.links = set()
@@ -11,11 +14,11 @@ class Component:
 
 
     def evaluate(self, heuristics):
-        scores = dict()
+        scored_links = list()
         for link in self.links:
             score = 0
             for heuristic in heuristics:
                 score += heuristic.score(link)
-            scores[link] = score
+            scored_links.append(ScoredLink(score, link))
 
-        return scores
+        return scored_links

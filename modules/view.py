@@ -181,5 +181,5 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
             )
 
-            for link, score in decision.items():
-                print(f"{score:>7} | {link}")
+            for scored_link in decision:
+                print(f"{scored_link.score:>7} | {scored_link.link}")
