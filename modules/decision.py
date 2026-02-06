@@ -9,11 +9,10 @@ class Decision:
         used_bricks = set()
 
         scored_links = self.component.evaluate(self.heuristics)
-        for scored_link in sorted(scored_links, reverse=True):
-            link = scored_link.link
-            if link.left not in used_bricks and link.right not in used_bricks:
-                used_bricks.add(link.left)
-                used_bricks.add(link.right)
-                result.append(scored_link)
+        for candidate in sorted(scored_links, reverse=True):
+            if candidate.left not in used_bricks and candidate.right not in used_bricks:
+                used_bricks.add(candidate.left)
+                used_bricks.add(candidate.right)
+                result.append(candidate)
 
         return result

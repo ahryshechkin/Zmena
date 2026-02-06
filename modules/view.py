@@ -182,4 +182,4 @@ class View:
             )
 
             for scored_link in decision:
-                print(f"{scored_link.score:>7} | {scored_link.link}")
+                print(scored_link)
