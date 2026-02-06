@@ -24,9 +24,7 @@ class ScoredLink(Link):
 
 
     def __str__(self):
-        return (
-            f"{self.score:>7} | {super().__str__()}"
-        )
+        return f"{self.score:>7} | {super().__str__()}"
 
 
     def __repr__(self):
