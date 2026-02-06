@@ -4,6 +4,7 @@ import re
 class Lexeme:
     pattern = r"^(\w+)\s+((\w+)\s*(\(\d+\))?)(\s*(not)?\s+(null)?)?"
 
+
     def __init__(self, line):
         self.token = re.search(self.pattern, line, re.IGNORECASE)
 

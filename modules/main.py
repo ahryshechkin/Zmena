@@ -38,7 +38,6 @@ for sample in Samples.get_pairs():
 
     view.show_decisions(decisions)
 
-
     # print("")
     # for case in Samples.list_cases():
     #     print(case)

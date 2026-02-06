@@ -5,7 +5,7 @@ class Decision:
 
 
     def make(self):
-        result = list()
+        selected_links = list()
         used_bricks = set()
 
         scored_links = self.component.evaluate(self.heuristics)
@@ -16,6 +16,6 @@ class Decision:
             left, right = candidate.bricks()
             used_bricks.add(left)
             used_bricks.add(right)
-            result.append(candidate)
+            selected_links.append(candidate)
 
-        return result
+        return selected_links
