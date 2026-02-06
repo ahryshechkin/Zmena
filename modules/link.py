@@ -12,9 +12,7 @@ class Link:
 
 
     def __repr__(self):
-        return (
-            f"Link(rule_id={self.rule_id.value})"
-        )
+        return f"Link(rule_id={self.rule_id.value})"
 
 
 class ScoredLink(Link):
@@ -33,3 +31,11 @@ class ScoredLink(Link):
 
     def __lt__(self, other):
         return self.score < other.score
+
+
+    def bricks(self):
+        return self.left, self.right
+
+
+    def conflicts_with(self, used_bricks):
+        return self.left in used_bricks or self.right in used_bricks
