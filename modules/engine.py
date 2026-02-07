@@ -3,9 +3,7 @@ from difflib import SequenceMatcher
 
 from modules.constant import Tag
 from modules.component import Component
-from modules.model.brick.brick import LeftBrick, RightBrick
-from modules.model.hunk import Hunk
-from modules.model.span import Span
+from modules.model import LeftBrick, RightBrick, Hunk, Span
 
 
 class Engine:

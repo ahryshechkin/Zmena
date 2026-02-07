@@ -1,7 +1,6 @@
 from difflib import SequenceMatcher
 from modules.constant import Color, Tag
-from modules.model.hunk import Hunk
-from modules.model.span import Span
+from modules.model import Hunk, Span
 
 
 class View:

@@ -1,4 +1,4 @@
-from modules.model.link.link import ScoredLink
+from modules.model import ScoredLink
 
 
 class Component:
