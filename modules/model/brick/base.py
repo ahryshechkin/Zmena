@@ -1,5 +1,4 @@
 from modules.constant import Side, Tag
-from modules.model.lexeme import Lexeme
 
 
 class Brick:
@@ -54,35 +53,3 @@ class Brick:
 
     def is_insert(self):
         return self.tag == Tag.INSERT and self.side == Side.RIGHT
-
-
-class LeftBrick(Brick):
-    def __init__(self, offset, hunk):
-        lexeme = Lexeme(hunk.left_line(offset))
-        super().__init__(
-            hunk.tag(),
-            Side.LEFT,
-            hunk.uid(),
-            hunk.left_lineno(offset),
-            lexeme.name(),
-            lexeme.type(),
-            lexeme.constraint()
-        )
-
-
-class RightBrick(Brick):
-    def __init__(self, offset, hunk):
-        lexeme = Lexeme(hunk.right_line(offset))
-        super().__init__(
-            hunk.tag(),
-            Side.RIGHT,
-            hunk.uid(),
-            hunk.right_lineno(offset),
-            lexeme.name(),
-            lexeme.type(),
-            lexeme.constraint()
-        )
-
-class StubBrick(Brick):
-    def __init__(self, side):
-        super().__init__(Tag.STUB, side, "", "", "", "", None)
