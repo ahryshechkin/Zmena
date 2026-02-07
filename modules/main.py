@@ -1,9 +1,10 @@
+from modules.constant import Side
 from modules.decision import Decision
 from modules.engine import Engine
 from modules.filter import Filter
-from modules.heuristic.heuristic import *
+from modules.heuristic import HeuristicName, HeuristicPosition, HeuristicSignature
 from modules.matcher import Matcher
-from modules.rule.rule import *
+from modules.rule import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert
 from modules.sample import Samples
 from modules.view import View
 
