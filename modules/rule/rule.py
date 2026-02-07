@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from modules.brick import StubBrick
+from modules.model.brick.brick import StubBrick
 from modules.constant import RuleId, Side
-from modules.link import Link
+from modules.model.link.link import Link
 
 
 class Rule(ABC):
