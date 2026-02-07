@@ -1,5 +1,5 @@
 from modules.constant import Side, Tag
-from modules.lexeme import Lexeme
+from modules.model.lexeme import Lexeme
 
 
 class Brick:
