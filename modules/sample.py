@@ -196,7 +196,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_051 = {
+    SML_051 = {  # Failed
         "desc": "ALTER_COLUMN_AND_ADD_ANOTHER_AFTER",
         "text": dedent("""
             col_01 int not null,
@@ -213,7 +213,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_052 = {
+    SML_052 = {  # Failed
         "desc": "ALTER_COLUMN_AND_ADD_ANOTHER_BEFORE",
         "text": dedent("""
             col_01 int not null,
@@ -246,7 +246,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_151 = {
+    SML_151 = {  # Failed
         "desc": "APPLY_SCRIPTS_IN_PROPER_ORDER",
         "text": dedent("""
             col_01 int not null,
@@ -531,7 +531,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_651 = {
+    SML_651 = {  # Failed
         "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
@@ -546,7 +546,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_652 = {
+    SML_652 = {  # Failed
         "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_TOP",
         "text": dedent("""
             col_01 int not null,
