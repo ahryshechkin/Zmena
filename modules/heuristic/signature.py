@@ -5,4 +5,4 @@ from .base import Heuristic
 
 class HeuristicSignature(Heuristic):
     def score(self, link):
-        return 50 if link.rule_id == RuleId.SIGNATURE else 0
+        return 40 if link.rule_id == RuleId.SIGNATURE else 0
