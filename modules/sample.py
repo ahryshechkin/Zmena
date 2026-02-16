@@ -8,7 +8,7 @@ class Samples(Enum):
         pairs = list()
 
         for sample in Samples:
-            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_651:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_052:
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],
@@ -246,7 +246,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_151 = {  # Failed
+    SML_151 = {
         "desc": "APPLY_SCRIPTS_IN_PROPER_ORDER",
         "text": dedent("""
             col_01 int not null,
@@ -531,7 +531,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_651 = {  # Failed
+    SML_651 = {
         "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_BOTTOM",
         "text": dedent("""
             col_01 int not null,
@@ -546,7 +546,7 @@ class Samples(Enum):
         """).strip("\n"),
     }
 
-    SML_652 = {  # Failed
+    SML_652 = {
         "desc": "RENAME_COLUMN_TO_DELETED_NAME_FROM_TOP",
         "text": dedent("""
             col_01 int not null,

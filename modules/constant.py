@@ -28,3 +28,4 @@ class RuleId(str, Enum):
     DELETE = "delete"
     INSERT = "insert"
     SIGNATURE = "signature"
+    OVERFLOW = "overflow"

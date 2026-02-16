@@ -4,7 +4,7 @@ from modules.engine import Engine
 from modules.filter import Filter
 from modules.heuristic import HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature
 from modules.matcher import Matcher
-from modules.rule import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert
+from modules.rule import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow
 from modules.sample import Samples
 from modules.view import View
 
@@ -17,19 +17,19 @@ for sample in Samples.get_pairs():
     engine.build_bricks(src, trg)
     view = View(sample)
     view.show_report()
-    # view.show_bricks(engine.bricks)
+    view.show_bricks(engine.bricks)
 
     filtered_bricks = Filter(engine.bricks)
     bricks_left = filtered_bricks.by_side(Side.LEFT)
     bricks_right = filtered_bricks.by_side(Side.RIGHT)
     matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
     links = list()
-    for rule in [RuleName(), RulePosition(), RuleSignature(), RuleDelete(), RuleInsert()]:
+    for rule in [RuleName(), RulePosition(), RuleSignature(), RuleDelete(), RuleInsert(), RuleOverflow()]:
         links.extend(matcher.match(rule))
-    # view.show_links(links)
+    view.show_links(links)
 
     components = engine.build_components(links)
-    # view.show_components(components)
+    view.show_components(components)
 
     selected_links, all_links = list(), list()
     heuristics = [HeuristicCompatibility(), HeuristicName(), HeuristicPosition(), HeuristicSignature()]
@@ -38,7 +38,7 @@ for sample in Samples.get_pairs():
         decision = Decision(component, heuristics)
         selected_links.append(decision.make())
 
-    # view.show_decisions(all_links)
+    view.show_decisions(all_links)
     view.show_decisions(selected_links)
 
     # print("")
