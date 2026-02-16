@@ -15,8 +15,8 @@ class RuleDelete(Rule):
         links = list()
         for brick in bricks:
             if brick.is_delete():
-                stub_brick = StubBrick(Side.RIGHT)
-                link = Link(self.rule_id, brick, stub_brick)
+                brick_stub = StubBrick(Side.RIGHT)
+                link = Link(self.rule_id, brick, brick_stub)
                 links.append(link)
 
         return links

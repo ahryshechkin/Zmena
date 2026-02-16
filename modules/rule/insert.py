@@ -15,8 +15,8 @@ class RuleInsert(Rule):
         links = list()
         for brick in bricks:
             if brick.is_insert():
-                stub_brick = StubBrick(Side.LEFT)
-                link = Link(self.rule_id, stub_brick, brick)
+                brick_stub = StubBrick(Side.LEFT)
+                link = Link(self.rule_id, brick_stub, brick)
                 links.append(link)
 
         return links
