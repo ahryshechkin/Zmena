@@ -12,6 +12,7 @@ class RuleSignature(Rule):
     def apply(self, scopes):
         left_bricks, right_bricks = scopes[:2]
         links = list()
+
         for left in left_bricks:
             for right in right_bricks:
                 if left is not right and left.compare_by_signature(right):

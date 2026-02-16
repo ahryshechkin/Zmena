@@ -11,6 +11,7 @@ class RuleDelete(Rule):
 
     def apply(self, scopes):
         bricks = scopes[0]
+
         links = list()
         for brick in bricks:
             if brick.is_delete():
