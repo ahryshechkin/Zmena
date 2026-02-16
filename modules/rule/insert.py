@@ -1,5 +1,5 @@
 from modules.constant import RuleId, Side
-from modules.model import Link, StubBrick
+from modules.model import BrickStub, Link
 
 from .base import Rule
 
@@ -15,7 +15,7 @@ class RuleInsert(Rule):
         links = list()
         for brick in bricks:
             if brick.is_insert():
-                brick_stub = StubBrick(Side.LEFT)
+                brick_stub = BrickStub(Side.LEFT)
                 link = Link(self.rule_id, brick_stub, brick)
                 links.append(link)
 

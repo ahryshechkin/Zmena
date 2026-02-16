@@ -4,7 +4,7 @@ from modules.model.lexeme import Lexeme
 from .base import Brick
 
 
-class RightBrick(Brick):
+class BrickRight(Brick):
     def __init__(self, offset, hunk):
         lexeme = Lexeme(hunk.right_line(offset))
         super().__init__(

@@ -1,5 +1,5 @@
 from modules.constant import RuleId, Side
-from modules.model import Link, StubBrick
+from modules.model import BrickStub, Link
 
 from .base import Rule
 
@@ -15,7 +15,7 @@ class RuleDelete(Rule):
         links = list()
         for brick in bricks:
             if brick.is_delete():
-                brick_stub = StubBrick(Side.RIGHT)
+                brick_stub = BrickStub(Side.RIGHT)
                 link = Link(self.rule_id, brick, brick_stub)
                 links.append(link)
 
