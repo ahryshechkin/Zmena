@@ -10,11 +10,11 @@ class RulePosition(Rule):
 
 
     def apply(self, scopes):
-        left_bricks, right_bricks = scopes[:2]
-        links = list()
+        bricks_left, bricks_right = scopes[:2]
 
-        for left in left_bricks:
-            for right in right_bricks:
+        links = list()
+        for left in bricks_left:
+            for right in bricks_right:
                 if left is not right and left.compare_by_position(right):
                     link = Link(self.rule_id, left, right)
                     links.append(link)
