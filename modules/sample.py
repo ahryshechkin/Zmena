@@ -8,7 +8,7 @@ class Samples(Enum):
         pairs = list()
 
         for sample in Samples:
-            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_052:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_051:
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],
@@ -223,6 +223,7 @@ class Samples(Enum):
             col_04 varchar(50) not null,
             col_05 varchar(50),
             col_06 int,
+            col_66 int,
             col_07 varchar(1) not null,
             col_08 date not null,
             col_09 datetime2 not null,

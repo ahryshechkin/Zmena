@@ -1,5 +1,5 @@
-from modules.constant import RuleId
-from modules.model import Link
+from modules.constant import RuleId, Side, Tag
+from modules.model import Link, StubBrick
 
 from .base import Rule
 
@@ -10,4 +10,32 @@ class RuleOverflow(Rule):
 
 
     def apply(self, scopes):
-        return []
+        bricks_left, bricks_right = scopes[:2]
+
+        bricks_left_by_segment = dict()
+        for brick in bricks_left:
+            bricks_left_by_segment.setdefault(brick.segment, []).append(brick)
+
+        bricks_right_by_segment = dict()
+        for brick in bricks_right:
+            bricks_right_by_segment.setdefault(brick.segment, []).append(brick)
+
+        links = list()
+        for segment, rights in bricks_right_by_segment.items():
+            lefts = bricks_left_by_segment.get(segment, [])
+
+            if len(lefts) >= len(rights):
+                continue
+
+            if not all(brick.tag == Tag.REPLACE for brick in lefts):
+                continue
+
+            if not all(brick.tag == Tag.REPLACE for brick in rights):
+                continue
+
+            for brick in rights:
+                brick_stub = StubBrick(Side.LEFT)
+                link = Link(self.rule_id, brick_stub, brick)
+                links.append(link)
+
+        return links
