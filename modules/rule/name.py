@@ -15,7 +15,7 @@ class RuleName(Rule):
         links = list()
         for left in bricks_left:
             for right in bricks_right:
-                if left is not right and left.compare_by_name(right):
+                if left is not right and left.same_name_as(right):
                     link = Link(self.rule_id, left, right)
                     links.append(link)
 

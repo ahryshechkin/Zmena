@@ -15,7 +15,7 @@ class RuleSignature(Rule):
         links = list()
         for left in bricks_left:
             for right in bricks_right:
-                if left is not right and left.compare_by_signature(right):
+                if left is not right and left.same_signature_as(right):
                     link = Link(self.rule_id, left, right)
                     links.append(link)
 

@@ -31,15 +31,15 @@ class Brick:
         )
 
 
-    def compare_by_name(self, brick):
+    def same_name_as(self, brick):
         return self.name == brick.name
 
 
-    def compare_by_position(self, brick):
+    def same_position_as(self, brick):
         return self.position == brick.position
 
 
-    def compare_by_signature(self, brick):
+    def same_signature_as(self, brick):
         return (
             self.segment == brick.segment and
             self.data_type == brick.data_type and
