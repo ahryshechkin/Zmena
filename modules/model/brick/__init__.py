@@ -1,4 +1,4 @@
 from .base import Brick
-from .left import LeftBrick
-from .right import RightBrick
-from .stub import StubBrick
+from .left import BrickLeft
+from .right import BrickRight
+from .stub import BrickStub

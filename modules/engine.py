@@ -3,7 +3,7 @@ from difflib import SequenceMatcher
 
 from modules.constant import Tag
 from modules.component import Component
-from modules.model import LeftBrick, RightBrick, Hunk, Span
+from modules.model import BrickLeft, BrickRight, Hunk, Span
 
 
 class Engine:
@@ -22,18 +22,18 @@ class Engine:
             if tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
-                        brick = LeftBrick(idx, hunk)
+                        brick = BrickLeft(idx, hunk)
                         self.bricks.append(brick)
                     if idx < hunk.right_range():
-                        brick = RightBrick(idx, hunk)
+                        brick = BrickRight(idx, hunk)
                         self.bricks.append(brick)
             elif tag == Tag.INSERT:
                 for idx in range(hunk.right_range()):
-                    brick = RightBrick(idx, hunk)
+                    brick = BrickRight(idx, hunk)
                     self.bricks.append(brick)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
-                    brick = LeftBrick(idx, hunk)
+                    brick = BrickLeft(idx, hunk)
                     self.bricks.append(brick)
 
 

@@ -1,5 +1,5 @@
 from modules.constant import RuleId, Side, Tag
-from modules.model import Link, StubBrick
+from modules.model import BrickStub, Link
 
 from .base import Rule
 
@@ -34,7 +34,7 @@ class RuleOverflow(Rule):
                 continue
 
             for brick in rights:
-                brick_stub = StubBrick(Side.LEFT)
+                brick_stub = BrickStub(Side.LEFT)
                 link = Link(self.rule_id, brick_stub, brick)
                 links.append(link)
 
