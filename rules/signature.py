@@ -1,12 +1,12 @@
-from modules.constant import RuleId
-from modules.model import Link
+from core.constant import RuleId
+from model import Link
 
 from .base import Rule
 
 
-class RulePosition(Rule):
+class RuleSignature(Rule):
     def __init__(self):
-        super().__init__(RuleId.POSITION)
+        super().__init__(RuleId.SIGNATURE)
 
 
     def apply(self, scopes):
@@ -15,7 +15,7 @@ class RulePosition(Rule):
         links = list()
         for left in bricks_left:
             for right in bricks_right:
-                if left is not right and left.same_position_as(right):
+                if left is not right and left.same_signature_as(right):
                     link = Link(self.rule_id, left, right)
                     links.append(link)
 

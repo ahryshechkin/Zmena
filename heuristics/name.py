@@ -1,4 +1,4 @@
-from modules.constant import RuleId
+from core.constant import RuleId
 
 from .base import Heuristic
 

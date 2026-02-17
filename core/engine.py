@@ -1,9 +1,9 @@
 from collections import defaultdict
 from difflib import SequenceMatcher
 
-from modules.constant import Tag
-from modules.component import Component
-from modules.model import BrickLeft, BrickRight, Hunk, Span
+from core.constant import Tag
+from core.component import Component
+from model import BrickLeft, BrickRight, Hunk, Span
 
 
 class Engine:

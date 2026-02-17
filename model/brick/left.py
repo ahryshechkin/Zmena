@@ -1,17 +1,17 @@
-from modules.constant import Side
-from modules.model.lexeme import Lexeme
+from core.constant import Side
+from model.lexeme import Lexeme
 
 from .base import Brick
 
 
-class BrickRight(Brick):
+class BrickLeft(Brick):
     def __init__(self, offset, hunk):
-        lexeme = Lexeme(hunk.right_line(offset))
+        lexeme = Lexeme(hunk.left_line(offset))
         super().__init__(
             hunk.tag(),
-            Side.RIGHT,
+            Side.LEFT,
             hunk.uid(),
-            hunk.right_lineno(offset),
+            hunk.left_lineno(offset),
             lexeme.name(),
             lexeme.type(),
             lexeme.constraint()
