@@ -1,4 +1,4 @@
-from modules.constant import Tag
+from core.constant import Tag
 
 from .base import Brick
 

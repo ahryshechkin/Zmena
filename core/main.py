@@ -1,12 +1,12 @@
-from modules.constant import Side
-from modules.decision import Decision
-from modules.engine import Engine
-from modules.filter import Filter
-from modules.heuristic import HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature
-from modules.matcher import Matcher
-from modules.rule import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow
-from modules.sample import Samples
-from modules.view import View
+from core.constant import Side
+from core.decision import Decision
+from core.engine import Engine
+from core.filter import Filter
+from heuristics import HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature
+from core.matcher import Matcher
+from rules import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow
+from core.sample import Samples
+from core.view import View
 
 
 for sample in Samples.get_pairs():

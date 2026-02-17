@@ -1,6 +1,6 @@
 from difflib import SequenceMatcher
-from modules.constant import Color, Tag
-from modules.model import Hunk, Span
+from core.constant import Color, Tag
+from model import Hunk, Span
 
 
 class View:
@@ -94,7 +94,7 @@ class View:
         print(
             f"\n#### Links "
             f"{'#' * 170} \n"
-            f"{'rule':>9} | "
+            f"{'rules':>9} | "
             f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
@@ -121,7 +121,7 @@ class View:
             print(
                 f"\n#### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
                 f"{'#' * 145} \n"
-                f"{'rule':>9} | "
+                f"{'rules':>9} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
@@ -162,7 +162,7 @@ class View:
             print(
                 f"\n#### Decision {i} "
                 f"{'#' * 175} \n"
-                f"{'score':>7} | {'rule':>9} | "
+                f"{'score':>7} | {'rules':>9} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "

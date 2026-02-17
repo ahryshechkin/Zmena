@@ -1,4 +1,4 @@
-from modules.constant import Side, Tag
+from core.constant import Side, Tag
 
 
 class Brick:
