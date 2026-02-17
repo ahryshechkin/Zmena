@@ -13,3 +13,7 @@ class Link:
 
     def __repr__(self):
         return f"Link(rule_id={self.rule_id.value})"
+
+
+    def signature_mismatch(self):
+        return not self.left.same_signature_as(self.right)
