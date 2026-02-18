@@ -1,4 +1,4 @@
-from model import ScoredLink
+from domain.model import ScoredLink
 
 
 class Component:

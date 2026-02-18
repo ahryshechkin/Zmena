@@ -1,6 +1,6 @@
+from domain.services import Color, Tag
 from difflib import SequenceMatcher
-from core.constant import Color, Tag
-from model import Hunk, Span
+from domain.model import Hunk, Span
 
 
 class View:

@@ -1,5 +1,5 @@
-from core.constant import RuleId
-from model import Link
+from domain.services import RuleId
+from domain.model import Link
 
 from .base import Rule
 

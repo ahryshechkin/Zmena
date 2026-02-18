@@ -1,4 +1,4 @@
-from core.constant import Tag
+from domain.services import Tag
 
 
 class Hunk:
