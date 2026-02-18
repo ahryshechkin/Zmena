@@ -1,5 +1,5 @@
-from core.constant import RuleId, Side, Tag
-from model import BrickStub, Link
+from domain.services import RuleId, Side, Tag
+from domain.model import BrickStub, Link
 
 from .base import Rule
 

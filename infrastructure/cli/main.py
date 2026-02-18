@@ -1,12 +1,12 @@
-from core.constant import Side
-from core.decision import Decision
-from core.engine import Engine
-from core.filter import Filter
-from heuristics import HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature
-from core.matcher import Matcher
-from rules import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow
-from core.sample import Samples
-from core.view import View
+from domain.services.constant import Side
+from domain.services.decision import Decision
+from application import Engine
+from domain import Filter
+from domain.services.matcher import Matcher
+from domain.services.sample import Samples
+from infrastructure.view.view import View
+from domain.heuristics import HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature
+from domain.rules import RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow
 
 
 for sample in Samples.get_pairs():
