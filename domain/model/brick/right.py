@@ -1,7 +1,7 @@
-from domain.services import Side
+from domain.model.lexeme import Lexeme
+from domain.services.constant import Side
 
 from .base import Brick
-from ..lexeme import Lexeme
 
 
 class BrickRight(Brick):
