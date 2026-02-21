@@ -1,4 +1,4 @@
-from domain.services import Tag
+from domain.services.constant import Tag
 
 from .base import Brick
 

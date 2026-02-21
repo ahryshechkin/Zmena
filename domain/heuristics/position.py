@@ -1,4 +1,4 @@
-from domain.services import RuleId
+from domain.services.constant import RuleId
 
 from .base import Heuristic
 

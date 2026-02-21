@@ -1,4 +1,4 @@
-from domain.services import Side, Tag
+from domain.services.constant import Side, Tag
 
 
 class Brick:
