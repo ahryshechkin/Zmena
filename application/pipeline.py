@@ -3,14 +3,14 @@ from domain import *
 
 
 class Pipeline:
-    def __init__(self, src, trg):
-        self.src = src
-        self.trg = trg
+    def __init__(self, before, after):
+        self.before = before
+        self.after = after
 
 
     def run(self):
         engine = Engine()
-        engine.build_bricks(self.src, self.trg)
+        engine.build_bricks(self.before, self.after)
 
         filtered_bricks = Filter(engine.bricks)
         bricks_left = filtered_bricks.by_side(Side.LEFT)
