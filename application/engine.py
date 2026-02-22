@@ -10,12 +10,12 @@ class Engine:
         self.bricks = list()
 
 
-    def build_bricks(self, src, trg):
-        self.sm.set_seqs(src, trg)
+    def build_bricks(self, before, after):
+        self.sm.set_seqs(before, after)
 
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
-            left = Span(src, slo, shi)
-            right = Span(trg, tlo, thi)
+            left = Span(before, slo, shi)
+            right = Span(after, tlo, thi)
             hunk = Hunk(tag, left, right)
             if tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
