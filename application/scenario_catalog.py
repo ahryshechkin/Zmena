@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 class ScenarioCatalog:
     def __init__(self):
-        pass
+        self.root_dir = Path(__file__).resolve().parents[1] / "scenarios"
