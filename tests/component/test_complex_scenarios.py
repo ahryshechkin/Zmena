@@ -13,6 +13,10 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
+        actual = list()
+        for link in result["selected_links"][0]:
+            actual.append(str(link))
+
         self.assertTrue(True)
 
 
@@ -21,4 +25,20 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
+        actual = list()
+        for link in result["selected_links"][0]:
+            actual.append(str(link))
+
         self.assertTrue(True)
+
+
+    def test_sce_651_reuse_free_name_from_bottom(self):
+        scenario = self.catalog.get(["651"])[0]
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for link in result["selected_links"][0]:
+            actual.append(str(link))
+
+        self.assertCountEqual(actual, scenario.expected)

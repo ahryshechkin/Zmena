@@ -1,0 +1,2 @@
+     40 | signature | #### | replace |    L |     2323 |        3 | col_03  | varchar(200)  |            | #### | replace |    R |     2323 |        3 | col_07  | varchar(200)  |            |
+      0 |    delete | #### |  delete |    L |     6766 |        7 | col_07  | varchar(1)    |   not null | #### |    stub |    R |          |          |         |               |            |
