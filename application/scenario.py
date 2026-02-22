@@ -5,3 +5,4 @@ from dataclasses import dataclass
 class Scenario:
     before: list[str]
     after: list[str]
+    expected: list[str]
