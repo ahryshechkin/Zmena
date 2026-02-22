@@ -1,7 +1,9 @@
-
+from application.scenario import Scenario
 
 from application import ScenarioCatalog
 
 
-scenario_catalog = ScenarioCatalog()
-print(scenario_catalog.root_dir)
+catalog = ScenarioCatalog()
+s = catalog.get("014")
+
+print(s)
