@@ -20,7 +20,7 @@ class TestComplexScenarios(unittest.TestCase):
         self.assertTrue(True)
 
 
-    def test_sce_151_alter_column_then_add_another_after(self):
+    def test_sce_151_apply_scripts_in_proper_order(self):
         scenario = self.catalog.get(["151"])[0]
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
