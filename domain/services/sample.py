@@ -8,7 +8,7 @@ class Samples(Enum):
         pairs = list()
 
         for sample in Samples:
-            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_051:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_014:
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],

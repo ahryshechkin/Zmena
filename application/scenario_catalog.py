@@ -15,10 +15,12 @@ class ScenarioCatalog:
             if any(sce_id in path.name for sce_id in sce_ids):
                 before = (path / "before.sql").read_text(encoding="utf-8")
                 after = (path / "after.sql").read_text(encoding="utf-8")
+                expected = (path / "expected.txt").read_text(encoding="utf-8")
 
                 scenarios.append(Scenario(
                     before=before.strip().splitlines(),
                     after=after.strip().splitlines(),
+                    expected=expected.strip().splitlines(),
                 ))
 
         return scenarios
