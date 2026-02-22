@@ -18,9 +18,9 @@ class ScenarioCatalog:
                 expected = (path / "expected.txt").read_text(encoding="utf-8")
 
                 scenarios.append(Scenario(
-                    before=before.strip().splitlines(),
-                    after=after.strip().splitlines(),
-                    expected=expected.strip().splitlines(),
+                    before=before.splitlines(),
+                    after=after.splitlines(),
+                    expected=expected.splitlines(),
                 ))
 
         return scenarios
