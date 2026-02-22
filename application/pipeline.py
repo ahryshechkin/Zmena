@@ -29,10 +29,10 @@ class Pipeline:
             decision = Decision(component, heuristics)
             selected_links.append(decision.make())
 
-        return (
-            engine.bricks,
-            links,
-            components,
-            all_links,
-            selected_links
-        )
+        return {
+            "bricks": engine.bricks,
+            "links": links,
+            "components": components,
+            "all_links": all_links,
+            "selected_links": selected_links,
+        }

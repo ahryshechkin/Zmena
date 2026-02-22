@@ -12,11 +12,11 @@ for sample in Samples.get_pairs():
 
     view = View(sample)
     view.show_report()
-    view.show_bricks(result[0])
-    view.show_links(result[1])
-    view.show_components(result[2])
-    view.show_decisions(result[3])
-    view.show_decisions(result[4])
+    view.show_bricks(result["bricks"])
+    view.show_links(result["links"])
+    view.show_components(result["components"])
+    view.show_decisions(result["all_links"])
+    view.show_decisions(result["selected_links"])
 
     # print("")
     # for case in Samples.list_cases():
