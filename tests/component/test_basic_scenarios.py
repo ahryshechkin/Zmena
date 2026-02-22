@@ -3,7 +3,7 @@ import unittest
 from application import Pipeline, ScenarioCatalog
 
 
-class TestSimpleScenarios(unittest.TestCase):
+class TestBasicScenarios(unittest.TestCase):
     def setUp(self):
         self.catalog = ScenarioCatalog()
 
