@@ -14,7 +14,7 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = list()
-        for link in result["selected_links"][0]:
-            actual.append(str(link))
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
 
         self.assertCountEqual(actual, scenario.expected)
