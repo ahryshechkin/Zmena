@@ -9,7 +9,7 @@ class TestComplexScenarios(unittest.TestCase):
 
 
     def test_sce_051_alter_column_then_add_another_after(self):
-        scenario = self.catalog.get(["051"])[0]
+        scenario = self.catalog.scenario("051")
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
@@ -21,7 +21,7 @@ class TestComplexScenarios(unittest.TestCase):
 
 
     def test_sce_151_apply_scripts_in_proper_order(self):
-        scenario = self.catalog.get(["151"])[0]
+        scenario = self.catalog.scenario("151")
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
@@ -33,7 +33,7 @@ class TestComplexScenarios(unittest.TestCase):
 
 
     def test_sce_651_reuse_free_name_from_bottom(self):
-        scenario = self.catalog.get(["651"])[0]
+        scenario = self.catalog.scenario("651")
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
