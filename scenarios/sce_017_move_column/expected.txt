@@ -1,0 +1,1 @@
+     35 |      name | #### |  delete |    L |     6777 |        7 | col_07  | varchar(1)    |   not null | #### |  insert |    R |     3334 |        4 | col_07  | varchar(1)    |   not null |

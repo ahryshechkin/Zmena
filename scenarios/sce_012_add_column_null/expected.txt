@@ -1,0 +1,1 @@
+      0 |    insert | #### |    stub |    L |          |          |         |               |            | #### |  insert |    R |     3334 |        4 | col_33  | varchar(200)  |            |

@@ -12,9 +12,9 @@ for sample in Samples.get_pairs():
 
     view = View(sample)
     view.show_report()
-    view.show_bricks(result["bricks"])
-    view.show_links(result["links"])
-    view.show_components(result["components"])
+    # view.show_bricks(result["bricks"])
+    # view.show_links(result["links"])
+    # view.show_components(result["components"])
     view.show_decisions(result["all_links"])
     view.show_decisions(result["selected_links"])
 

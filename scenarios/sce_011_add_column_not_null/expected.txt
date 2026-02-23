@@ -1,0 +1,1 @@
+      0 |    insert | #### |    stub |    L |          |          |         |               |            | #### |  insert |    R |     8889 |        9 | col_88  | date          |   not null |

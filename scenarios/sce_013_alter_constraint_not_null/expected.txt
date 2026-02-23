@@ -1,0 +1,1 @@
+     35 |      name | #### | replace |    L |     5656 |        6 | col_06  | int           |            | #### | replace |    R |     5656 |        6 | col_06  | int           |   not null |

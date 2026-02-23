@@ -1,0 +1,1 @@
+     35 |      name | #### | replace |    L |     7878 |        8 | col_08  | date          |   not null | #### | replace |    R |     7878 |        8 | col_08  | datetime2     |   not null |
