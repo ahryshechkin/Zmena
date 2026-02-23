@@ -17,7 +17,7 @@ class TestComplexScenarios(unittest.TestCase):
         for link in result["selected_links"][0]:
             actual.append(str(link))
 
-        self.assertTrue(True)
+        self.assertCountEqual(actual, scenario.expected)
 
 
     def test_sce_151_apply_scripts_in_proper_order(self):
@@ -29,7 +29,7 @@ class TestComplexScenarios(unittest.TestCase):
         for link in result["selected_links"][0]:
             actual.append(str(link))
 
-        self.assertTrue(True)
+        self.assertCountEqual(actual, scenario.expected)
 
 
     def test_sce_651_reuse_free_name_from_bottom(self):
