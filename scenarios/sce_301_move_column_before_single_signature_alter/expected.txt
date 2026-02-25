@@ -1,0 +1,2 @@
+     35 |      name | #### | replace |    L |     3435 |        4 | col_04  | varchar(50)   |   not null | #### | replace |    R |     3435 |        5 | col_04  | date          |            |
+     35 |      name | #### |  delete |    L |     6777 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R |     3435 |        4 | col_07  | varchar(1)    |   not null |

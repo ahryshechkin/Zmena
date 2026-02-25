@@ -1,0 +1,2 @@
+     35 |      name | #### | replace |    L |     2324 |        3 | col_03  | varchar(200)  |            | #### | replace |    R |     2324 |        4 | col_03  | varchar(200)  |   not null |
+      0 |  overflow | #### |    stub |    L |          |          |         |               |            | #### | replace |    R |     2324 |        3 | col_22  | varchar(50)   |   not null |
