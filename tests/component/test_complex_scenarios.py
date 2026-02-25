@@ -152,8 +152,152 @@ class TestComplexScenarios(unittest.TestCase):
         self.assertCountEqual(actual, scenario.expected)
 
 
-    def test_sce_651_reuse_free_name_from_bottom(self):
+    def test_sce_401_move_two_columns_before_altered_one(self):
+        scenario = self.catalog.scenario("401")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_402_move_two_columns_after_altered_one(self):
+        scenario = self.catalog.scenario("402")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_403_move_two_columns_before_altered_one_twice(self):
+        scenario = self.catalog.scenario("403")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_501_perform_several_simple_changes(self):
+        scenario = self.catalog.scenario("501")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_601_rename_column_then_move_another_before_from_top(self):
+        scenario = self.catalog.scenario("601")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_602_rename_column_then_move_another_before_from_bottom(self):
+        scenario = self.catalog.scenario("602")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_603_rename_column_then_move_another_after_from_top(self):
+        scenario = self.catalog.scenario("603")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_604_rename_column_then_move_another_after_from_bottom(self):
+        scenario = self.catalog.scenario("604")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_651_reuse_free_name_from_top(self):
         scenario = self.catalog.scenario("651")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_652_reuse_free_name_from_bottom(self):
+        scenario = self.catalog.scenario("652")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_701_swap_columns(self):
+        scenario = self.catalog.scenario("701")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_702_swap_columns_nested(self):
+        scenario = self.catalog.scenario("702")
+        pipeline = Pipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = list()
+        for links in result["selected_links"]:
+            actual.extend([str(link) for link in links])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+
+    def test_sce_703_swap_columns_with_overlap(self):
+        scenario = self.catalog.scenario("703")
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
