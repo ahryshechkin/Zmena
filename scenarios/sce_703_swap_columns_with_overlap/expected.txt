@@ -1,3 +1,4 @@
-     35 |      name | #### |  delete |    L |     6777 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R |     3536 |        4 | col_07  | varchar(1)    |   not null |
-     35 |      name | #### | replace |    L |     3536 |        5 | col_05  | varchar(50)   |            | #### | replace |    R |     3536 |        6 | col_05  | date          |            |
-     35 |      name | #### | replace |    L |     3536 |        4 | col_04  | varchar(50)   |   not null | #### | replace |    R |     3536 |        5 | col_04  | date          |   not null |
+     35 |      name | #### | replace |    L | 11121112 |       12 | col_12  | varchar(50)   |   not null | #### | replace |    R |     2323 |        3 | col_12  | varchar(50)   |   not null |
+     35 |      name | #### | replace |    L |     2323 |        3 | col_03  | varchar(200)  |            | #### | replace |    R | 11121112 |       12 | col_03  | varchar(200)  |            |
+     35 |      name | #### | replace |    L | 15161516 |       16 | col_16  | int           |            | #### | replace |    R |     6767 |        7 | col_16  | int           |            |
+     35 |      name | #### | replace |    L |     6767 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R | 15161516 |       16 | col_07  | varchar(1)    |   not null |

@@ -8,11 +8,11 @@ class Samples(Enum):
         pairs = list()
 
         for sample in Samples:
-            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_601:
+            if sample not in (Samples.SRC_SHORT, Samples.SRC_LONG) and sample == Samples.SML_703:
                 pair = {
                     "name": sample.name,
                     "desc": sample.value["desc"],
-                    "src": Samples.SRC_LONG.value if sample.name == "SML_403" else Samples.SRC_SHORT.value,
+                    "src": Samples.SRC_LONG.value if sample.name in ("SML_403", "SML_703") else Samples.SRC_SHORT.value,
                     "trg": sample.value["text"],
                 }
                 pairs.append(pair)
@@ -597,14 +597,24 @@ class Samples(Enum):
         "desc": "SWAP_COLUMNS_WITH_OVERLAP",
         "text": dedent("""
             col_01 int not null,
-            col_06 int,
-            col_03 varchar(200),
-            col_09 datetime2 not null,
-            col_05 varchar(50),
             col_02 varchar(50) not null,
-            col_07 varchar(1) not null,
-            col_08 date not null,
+            col_12 varchar(50) not null,
             col_04 varchar(50) not null,
-            col_10 datetime2 not null
+            col_05 varchar(50),
+            col_06 int,
+            col_16 int,
+            col_08 date not null,
+            col_09 datetime2 not null,
+            col_10 datetime2 not null,
+            col_11 int not null,
+            col_03 varchar(200),
+            col_13 varchar(200),
+            col_14 varchar(50) not null,
+            col_15 varchar(50),
+            col_07 varchar(1) not null,
+            col_17 varchar(1) not null,
+            col_18 date not null,
+            col_19 datetime2 not null,
+            col_20 datetime2 not null
         """).strip("\n"),
     }
