@@ -5,8 +5,8 @@ from domain import Color, Hunk, Span, Tag
 
 class View:
     def __init__(self, scenario):
-        self.name = "SCE-017"
-        self.desc = scenario.name.upper()
+        self.sce_id = f"SCE-{scenario.sce_id}"
+        self.name = scenario.name.upper()
         self.src = scenario.before
         self.trg = scenario.after
         self.width_left = len(max(self.src, key=len, default=None))
@@ -37,10 +37,10 @@ class View:
 
 
     def print_report_header(self):
-        total_len = self.width_left + self.width_right - len(self.desc) + 28
+        total_len = self.width_left + self.width_right - len(self.name) + 28
 
         print(
-            f"\n#### {self.name} - {self.desc} {'#' * total_len}\n"
+            f"\n#### {self.sce_id} - {self.name} {'#' * total_len}\n"
             f"{'action':>7} | {'opcode':>8} | "
             f"{'lineno':>6} | {'left':<{self.width_left}} | "
             f"{'lineno':>6} | {'right':<{self.width_right}} | "
