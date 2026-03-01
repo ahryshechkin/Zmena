@@ -17,5 +17,5 @@ for scenario in catalog.get_many(sce_ids):
     view.show_decisions(result["selected_links"])
 
 
-print("")
-catalog.print_scenarios()
+# print("")
+# catalog.print_scenarios()
