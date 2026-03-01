@@ -5,8 +5,8 @@ from domain import Color, Hunk, Span, Tag
 
 class View:
     def __init__(self, scenario):
-        # self.name = sample["name"]
-        # self.desc = sample["desc"]
+        self.name = "SCE-017"
+        self.desc = scenario.name.upper()
         self.src = scenario.before
         self.trg = scenario.after
         self.width_left = len(max(self.src, key=len, default=None))

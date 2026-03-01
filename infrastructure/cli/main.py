@@ -3,7 +3,7 @@ from domain import Samples
 from infrastructure import View
 
 
-sce_ids = ["", ""]
+sce_ids = ["501"]
 catalog = ScenarioCatalog()
 for scenario in catalog.scenarios(sce_ids):
     pipeline = Pipeline(scenario.before, scenario.after)
