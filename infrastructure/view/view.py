@@ -4,13 +4,13 @@ from domain import Color, Hunk, Span, Tag
 
 
 class View:
-    def __init__(self, sample):
-        self.name = sample["name"]
-        self.desc = sample["desc"]
-        self.src = sample["src"].strip().splitlines()
-        self.trg = sample["trg"].strip().splitlines()
-        self.left_width = len(max(self.src, key=len, default=None))
-        self.right_width = len(max(self.trg, key=len, default=None))
+    def __init__(self, scenario):
+        # self.name = sample["name"]
+        # self.desc = sample["desc"]
+        self.src = scenario.before
+        self.trg = scenario.after
+        self.width_left = len(max(self.src, key=len, default=None))
+        self.width_right = len(max(self.trg, key=len, default=None))
         self.sm = SequenceMatcher()
 
 
@@ -37,25 +37,25 @@ class View:
 
 
     def print_report_header(self):
-        total_len = self.left_width + self.right_width - len(self.desc) + 28
+        total_len = self.width_left + self.width_right - len(self.desc) + 28
 
         print(
             f"\n#### {self.name} - {self.desc} {'#' * total_len}\n"
             f"{'action':>7} | {'opcode':>8} | "
-            f"{'lineno':>6} | {'left':<{self.left_width}} | "
-            f"{'lineno':>6} | {'right':<{self.right_width}} | "
+            f"{'lineno':>6} | {'left':<{self.width_left}} | "
+            f"{'lineno':>6} | {'right':<{self.width_right}} | "
         )
         print(
             f"{'-' * 7}-+-{'-' * 8}-+-{'-' * 6}-+-"
-            f"{'-' * self.left_width}-+-{'-' * 6}-+-{'-' * self.right_width}-+"
+            f"{'-' * self.width_left}-+-{'-' * 6}-+-{'-' * self.width_right}-+"
         )
 
 
     def print_report_line(self, offset, hunk):
         line = (
             f"{hunk.tag().value:>7} | {hunk.uid():>8} | "
-            f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.left_width}} | "
-            f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.right_width}} | "
+            f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.width_left}} | "
+            f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.width_right}} | "
         )
 
         print(self.colorize(hunk.tag(), line))

@@ -7,10 +7,11 @@ sce_ids = ["", ""]
 catalog = ScenarioCatalog()
 for scenario in catalog.scenarios(sce_ids):
     pipeline = Pipeline(scenario.before, scenario.after)
-    result = pipeline.run()git
+    result = pipeline.run()
 
-    # view = View(sample)
-    # view.show_report()
+    view = View(scenario)
+    view.show_report()
+    view.show_bricks(result["bricks"])
 
 
 # for sample in Samples.get_pairs():
