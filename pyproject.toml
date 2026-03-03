@@ -1,7 +1,7 @@
 [project]
 name = "zmena"
 version = "0.1.0"
-description = "Add your description here"
+description = "Zmena is a git-native tool"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
