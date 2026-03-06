@@ -1,5 +1,10 @@
 from application import Engine
-from domain import *
+from domain import (
+    RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow,
+    Side,
+    Filter, Matcher, Decision,
+    HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature,
+)
 
 
 class Pipeline:
