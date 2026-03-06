@@ -1,7 +1,6 @@
 from application import Pipeline, ScenarioCatalog
 from infrastructure import View
 
-
 sce_ids = ["301", "304"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
