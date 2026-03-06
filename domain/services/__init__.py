@@ -1,5 +1,5 @@
 from .component import Component
-from .constant import Color, Tag, Side, RuleId
+from .constant import Color, RuleId, Side, Tag
 from .decision import Decision
 from .filter import Filter
 from .matcher import Matcher

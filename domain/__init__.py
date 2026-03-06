@@ -4,7 +4,16 @@ from .heuristics import (
     HeuristicPosition,
     HeuristicSignature,
 )
-from .model import BrickLeft, BrickRight, BrickStub, Hunk, Lexeme, Link, ScoredLink, Span
+from .model import (
+    BrickLeft,
+    BrickRight,
+    BrickStub,
+    Hunk,
+    Lexeme,
+    Link,
+    ScoredLink,
+    Span,
+)
 from .rules import (
     RuleDelete,
     RuleInsert,

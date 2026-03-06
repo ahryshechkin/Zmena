@@ -1,9 +1,19 @@
 from application import Engine
 from domain import (
-    RuleName, RulePosition, RuleSignature, RuleDelete, RuleInsert, RuleOverflow,
+    Decision,
+    Filter,
+    HeuristicCompatibility,
+    HeuristicName,
+    HeuristicPosition,
+    HeuristicSignature,
+    Matcher,
+    RuleDelete,
+    RuleInsert,
+    RuleName,
+    RuleOverflow,
+    RulePosition,
+    RuleSignature,
     Side,
-    Filter, Matcher, Decision,
-    HeuristicCompatibility, HeuristicName, HeuristicPosition, HeuristicSignature,
 )
 
 
