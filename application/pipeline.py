@@ -22,7 +22,6 @@ class Pipeline:
         self.before = before
         self.after = after
 
-
     def run(self):
         engine = Engine()
         engine.build_bricks(self.before, self.after)
@@ -32,13 +31,25 @@ class Pipeline:
         bricks_right = filtered_bricks.by_side(Side.RIGHT)
         matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
         links = list()
-        for rule in [RuleName(), RulePosition(), RuleSignature(), RuleDelete(), RuleInsert(), RuleOverflow()]:
+        for rule in [
+            RuleDelete(),
+            RuleInsert(),
+            RuleName(),
+            RuleOverflow(),
+            RulePosition(),
+            RuleSignature(),
+        ]:
             links.extend(matcher.match(rule))
 
         components = engine.build_components(links)
 
         selected_links, all_links = list(), list()
-        heuristics = [HeuristicCompatibility(), HeuristicName(), HeuristicPosition(), HeuristicSignature()]
+        heuristics = [
+            HeuristicCompatibility(),
+            HeuristicName(),
+            HeuristicPosition(),
+            HeuristicSignature(),
+        ]
         for component in components:
             all_links.append(component.evaluate(heuristics))
             decision = Decision(component, heuristics)
