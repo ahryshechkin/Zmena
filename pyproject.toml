@@ -11,11 +11,17 @@ dependencies = [
 line-length = 100
 [tool.ruff.lint]
 select = [
+    "A",
     "B",
+    "COM",
     "C4",
     "E",
     "F",
     "I",
+    "N",
+    "PIE",
+    "Q",
+    "S",
     "SIM",
     "UP",
     "W",

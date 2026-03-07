@@ -41,11 +41,11 @@ class View:
             f"\n#### {self.sce_id} - {self.name} {'#' * total_len}\n"
             f"{'action':>7} | {'opcode':>8} | "
             f"{'lineno':>6} | {'left':<{self.width_left}} | "
-            f"{'lineno':>6} | {'right':<{self.width_right}} | "
+            f"{'lineno':>6} | {'right':<{self.width_right}} | ",
         )
         print(
             f"{'-' * 7}-+-{'-' * 8}-+-{'-' * 6}-+-"
-            f"{'-' * self.width_left}-+-{'-' * 6}-+-{'-' * self.width_right}-+"
+            f"{'-' * self.width_left}-+-{'-' * 6}-+-{'-' * self.width_right}-+",
         )
 
     def print_report_line(self, offset, hunk):
@@ -74,10 +74,11 @@ class View:
             f"\n#### Bricks "
             f"{'#' * 65} \n"
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
         )
         print(
-            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-{'-' * 8}-+-"
+            f"{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
         )
 
         for brick in bricks:
@@ -93,7 +94,7 @@ class View:
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
             f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-            f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+            f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
         )
         print(
             f"{'-' * 9}-+"
@@ -102,7 +103,7 @@ class View:
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
             f"{'-' * 5}-+"
             f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
-            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+            f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
         )
 
         for link in links:
@@ -120,7 +121,7 @@ class View:
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )
             print(
                 f"{'-' * 9}-+"
@@ -129,7 +130,7 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
                 f"{'-' * 5}-+"
                 f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
-                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
             for link in component.links:
@@ -140,11 +141,11 @@ class View:
                 f"links={len(component.links)}, bricks={len(component.bricks)} "
                 f"{'#' * 42} \n"
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )
             print(
                 f"{'-' * 7}-+-{'-' * 4}-+-{'-' * 8}-+-"
-                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
             for brick in component.bricks:
@@ -161,7 +162,7 @@ class View:
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
-                f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
+                f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )
             print(
                 f"{'-' * 7}-+-{'-' * 9}-+"
@@ -170,7 +171,7 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
                 f"{'-' * 5}-+"
                 f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
-                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
+                f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
             for scored_link in decision:
