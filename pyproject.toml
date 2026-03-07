@@ -5,7 +5,7 @@ description = "Zmena is a git-native tool"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "ruff>=0.15.4",
+    "ruff>=0.15.5",
 ]
 [tool.ruff]
 line-length = 100
