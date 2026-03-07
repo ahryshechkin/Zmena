@@ -3,7 +3,6 @@ class Decision:
         self.component = component
         self.heuristics = heuristics
 
-
     def make(self):
         selected_links = list()
         used_bricks = set()

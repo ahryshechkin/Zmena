@@ -14,5 +14,5 @@ class BrickRight(Brick):
             hunk.right_lineno(offset),
             lexeme.name(),
             lexeme.type(),
-            lexeme.constraint()
+            lexeme.constraint(),
         )

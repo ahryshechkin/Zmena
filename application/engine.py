@@ -9,7 +9,6 @@ class Engine:
         self.sm = SequenceMatcher()
         self.bricks = list()
 
-
     def build_bricks(self, before, after):
         self.sm.set_seqs(before, after)
 
@@ -34,7 +33,6 @@ class Engine:
                     brick = BrickLeft(idx, hunk)
                     self.bricks.append(brick)
 
-
     def build_components(self, links):
         components = list()
 
@@ -42,7 +40,6 @@ class Engine:
         for link in links:
             brick_to_links[link.left].add(link)
             brick_to_links[link.right].add(link)
-
 
         visited_bricks = set()
         for brick in brick_to_links:
