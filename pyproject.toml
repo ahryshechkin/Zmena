@@ -25,6 +25,7 @@ select = [
     "F",
     "FBT",
     "FLY",
+    "FURB",
     "G",
     "I",
     "ICN",
@@ -35,12 +36,17 @@ select = [
     "N",
     "PERF",
     "PGH",
+    "PLC",
+    "PLE",
+    "PLR",
+    "PLW",
     "PIE",
     "PTH",
     "PYI",
     "Q",
     "RET",
     "RSE",
+    "RUF",
     "S",
     "SIM",
     "SLF",
@@ -49,7 +55,11 @@ select = [
     "TC",
     "TD",
     "TID",
+    "TRY",
     "UP",
     "YTT",
     "W",
+]
+ignore = [
+    "PLR0913"
 ]
