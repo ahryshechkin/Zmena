@@ -4,7 +4,7 @@ class Decision:
         self.heuristics = heuristics
 
     def make(self):
-        selected_links = list()
+        selected_links = []
         used_bricks = set()
 
         scored_links = self.component.evaluate(self.heuristics)

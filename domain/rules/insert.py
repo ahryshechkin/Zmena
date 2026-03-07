@@ -11,7 +11,7 @@ class RuleInsert(Rule):
     def apply(self, scopes):
         bricks = scopes[1]
 
-        links = list()
+        links = []
         for brick in bricks:
             if brick.is_insert():
                 brick_stub = BrickStub(Side.LEFT)

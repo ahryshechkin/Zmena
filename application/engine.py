@@ -7,7 +7,7 @@ from domain import BrickLeft, BrickRight, Component, Hunk, Span, Tag
 class Engine:
     def __init__(self):
         self.sm = SequenceMatcher()
-        self.bricks = list()
+        self.bricks = []
 
     def build_bricks(self, before, after):
         self.sm.set_seqs(before, after)
@@ -34,7 +34,7 @@ class Engine:
                     self.bricks.append(brick)
 
     def build_components(self, links):
-        components = list()
+        components = []
 
         brick_to_links = defaultdict(set)
         for link in links:

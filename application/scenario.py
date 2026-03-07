@@ -37,7 +37,7 @@ class ScenarioCatalog:
         return None
 
     def get_many(self, sce_ids):
-        scenarios = list()
+        scenarios = []
 
         for path in self.root_dir.iterdir():
             if any(sce_id in path.name for sce_id in sce_ids):
@@ -47,7 +47,7 @@ class ScenarioCatalog:
         return scenarios
 
     def get_all(self):
-        scenarios = list()
+        scenarios = []
 
         for path in self.root_dir.iterdir():
             scenario = self.build_scenario_from(path)
