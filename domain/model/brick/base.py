@@ -12,7 +12,7 @@ class Brick:
         self.constraint = constraint
 
     def __str__(self):
-        constraint = self.constraint if self.constraint else ""
+        constraint = self.constraint or ""
         return (
             f"{self.tag.value:>7} | {self.side.value:>4} | "
             f"{self.segment:>8} | {self.position:>8} | "
