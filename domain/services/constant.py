@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class Tag(str, Enum):
+class Tag(StrEnum):
     DELETE = "delete"
     EQUAL = "equal"
     INSERT = "insert"
@@ -9,7 +9,7 @@ class Tag(str, Enum):
     STUB = "stub"
 
 
-class Color(str, Enum):
+class Color(StrEnum):
     GRAY = "\033[38;5;250m"
     RED = "\033[91m"
     GREEN = "\033[92m"
@@ -17,12 +17,12 @@ class Color(str, Enum):
     RESET = "\033[0m"
 
 
-class Side(str, Enum):
+class Side(StrEnum):
     LEFT = "L"
     RIGHT = "R"
 
 
-class RuleId(str, Enum):
+class RuleId(StrEnum):
     NAME = "name"
     POSITION = "position"
     DELETE = "delete"

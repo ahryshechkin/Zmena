@@ -36,4 +36,4 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "ruff", specifier = ">=0.15.4" }]
+requires-dist = [{ name = "ruff", specifier = ">=0.15.5" }]
