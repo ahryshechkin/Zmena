@@ -14,5 +14,5 @@ class BrickLeft(Brick):
             hunk.left_lineno(offset),
             lexeme.name(),
             lexeme.type(),
-            lexeme.constraint()
+            lexeme.constraint(),
         )

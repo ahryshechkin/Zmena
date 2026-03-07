@@ -8,7 +8,6 @@ class RuleOverflow(Rule):
     def __init__(self):
         super().__init__(RuleId.OVERFLOW)
 
-
     def apply(self, scopes):
         bricks_left, bricks_right = scopes[:2]
 

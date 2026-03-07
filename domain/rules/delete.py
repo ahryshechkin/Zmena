@@ -8,7 +8,6 @@ class RuleDelete(Rule):
     def __init__(self):
         super().__init__(RuleId.DELETE)
 
-
     def apply(self, scopes):
         bricks = scopes[0]
 

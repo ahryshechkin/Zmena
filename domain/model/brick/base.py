@@ -11,7 +11,6 @@ class Brick:
         self.data_type = data_type
         self.constraint = constraint
 
-
     def __str__(self):
         constraint = self.constraint if self.constraint else ""
         return (
@@ -19,7 +18,6 @@ class Brick:
             f"{self.segment:>8} | {self.position:>8} | "
             f"{self.name:<7} | {self.data_type:<13} | {constraint:>10} |"
         )
-
 
     def __repr__(self):
         return (
@@ -30,26 +28,21 @@ class Brick:
             f"constraint={self.constraint})"
         )
 
-
     def same_name_as(self, brick):
         return self.name == brick.name
-
 
     def same_position_as(self, brick):
         return self.position == brick.position
 
-
     def same_signature_as(self, brick):
         return (
-            self.segment == brick.segment and
-            self.data_type == brick.data_type and
-            self.constraint == brick.constraint
+            self.segment == brick.segment
+            and self.data_type == brick.data_type
+            and self.constraint == brick.constraint
         )
-
 
     def is_delete(self):
         return self.tag == Tag.DELETE and self.side == Side.LEFT
-
 
     def is_insert(self):
         return self.tag == Tag.INSERT and self.side == Side.RIGHT

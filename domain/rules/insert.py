@@ -8,7 +8,6 @@ class RuleInsert(Rule):
     def __init__(self):
         super().__init__(RuleId.INSERT)
 
-
     def apply(self, scopes):
         bricks = scopes[1]
 

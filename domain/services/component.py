@@ -6,12 +6,10 @@ class Component:
         self.links = set()
         self.bricks = set()
 
-
     def add(self, link):
         self.links.add(link)
         self.bricks.add(link.left)
         self.bricks.add(link.right)
-
 
     def evaluate(self, heuristics):
         scored_links = list()

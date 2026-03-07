@@ -8,7 +8,6 @@ class RuleName(Rule):
     def __init__(self):
         super().__init__(RuleId.NAME)
 
-
     def apply(self, scopes):
         bricks_left, bricks_right = scopes[:2]
 
