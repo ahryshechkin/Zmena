@@ -56,10 +56,7 @@ class Engine:
                 visited_bricks.add(current_brick)
                 for link in brick_to_links[current_brick]:
                     component.add(link)
-                    if current_brick == link.left:
-                        neighbor = link.right
-                    else:
-                        neighbor = link.left
+                    neighbor = link.right if current_brick == link.left else link.left
                     stack.append(neighbor)
 
             components.append(component)

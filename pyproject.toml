@@ -12,9 +12,11 @@ line-length = 100
 [tool.ruff.lint]
 select = [
     "B",
+#    "C4",
     "E",
     "F",
     "I",
+    "SIM",
     "UP",
     "W",
 ]
