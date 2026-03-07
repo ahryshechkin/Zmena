@@ -12,7 +12,8 @@ class Component:
         self.bricks.add(link.right)
 
     def evaluate(self, heuristics):
-        scored_links = list()
+        scored_links = []
+
         for link in self.links:
             score = 0
             for heuristic in heuristics:

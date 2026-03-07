@@ -30,7 +30,7 @@ class Pipeline:
         bricks_left = filtered_bricks.by_side(Side.LEFT)
         bricks_right = filtered_bricks.by_side(Side.RIGHT)
         matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
-        links = list()
+        links = []
         for rule in [
             RuleDelete(),
             RuleInsert(),
@@ -43,7 +43,7 @@ class Pipeline:
 
         components = engine.build_components(links)
 
-        selected_links, all_links = list(), list()
+        selected_links, all_links = [], []
         heuristics = [
             HeuristicCompatibility(),
             HeuristicName(),

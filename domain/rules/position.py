@@ -11,7 +11,7 @@ class RulePosition(Rule):
     def apply(self, scopes):
         bricks_left, bricks_right = scopes[:2]
 
-        links = list()
+        links = []
         for left in bricks_left:
             for right in bricks_right:
                 if left is not right and left.same_position_as(right):

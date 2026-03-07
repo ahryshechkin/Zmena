@@ -12,7 +12,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -23,7 +23,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -34,7 +34,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -45,7 +45,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -56,7 +56,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -67,7 +67,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -78,7 +78,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -89,7 +89,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -100,7 +100,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -111,7 +111,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -122,7 +122,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -133,7 +133,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -144,7 +144,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -155,7 +155,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -166,7 +166,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -177,7 +177,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -188,7 +188,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -199,7 +199,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -210,7 +210,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -221,7 +221,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -232,7 +232,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -243,7 +243,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -254,7 +254,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -265,7 +265,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 
@@ -276,7 +276,7 @@ class TestComplexScenarios(unittest.TestCase):
         pipeline = Pipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = list()
+        actual = []
         for links in result["selected_links"]:
             actual.extend([str(link) for link in links])
 

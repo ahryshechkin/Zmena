@@ -11,15 +11,15 @@ class RuleOverflow(Rule):
     def apply(self, scopes):
         bricks_left, bricks_right = scopes[:2]
 
-        bricks_left_by_segment = dict()
+        bricks_left_by_segment = {}
         for brick in bricks_left:
             bricks_left_by_segment.setdefault(brick.segment, []).append(brick)
 
-        bricks_right_by_segment = dict()
+        bricks_right_by_segment = {}
         for brick in bricks_right:
             bricks_right_by_segment.setdefault(brick.segment, []).append(brick)
 
-        links = list()
+        links = []
         for segment, rights in bricks_right_by_segment.items():
             lefts = bricks_left_by_segment.get(segment, [])
 
