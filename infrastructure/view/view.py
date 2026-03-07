@@ -119,7 +119,8 @@ class View:
     def show_components(self, components):
         for i, component in enumerate(components, 1):
             print(
-                f"\n#### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
+                f"\n#### Component {i}: "
+                f"links={len(component.links)}, bricks={len(component.bricks)} "
                 f"{'#' * 145} \n"
                 f"{'rules':>9} | "
                 f"{'####'} | "
@@ -143,7 +144,8 @@ class View:
                 print(link)
 
             print(
-                f"\n### Component {i}: links={len(component.links)}, bricks={len(component.bricks)} "
+                f"\n### Component {i}: "
+                f"links={len(component.links)}, bricks={len(component.bricks)} "
                 f"{'#' * 42} \n"
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
