@@ -61,5 +61,6 @@ select = [
     "W",
 ]
 ignore = [
-    "PLR0913"
+    "COM812",
+    "PLR0913",
 ]
