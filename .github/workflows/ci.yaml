@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Install uv
@@ -21,11 +21,11 @@ jobs:
       - name: Install Python
         run: uv python install 3.14
 
-      - name: Sync Dependencies
+      - name: Sync dependencies
         run: uv sync --frozen
 
-      - name: Run Ruff Linter
+      - name: Run Ruff linter
         run: uv run ruff check .
 
-      - name: Run Ruff Formatter
+      - name: Run Ruff formatter
         run: uv run ruff format . --check
