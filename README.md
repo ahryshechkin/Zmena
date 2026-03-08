@@ -19,4 +19,5 @@ Zmena works with SQL files, not databases.
 
 It does not require ORM metadata or a special migration language.  
 Instead, it interprets what changed in the DDL statements and generates SQL to apply those changes.
+
 It compares SQL files between two Git commits without just comparing raw text or connecting to a live database.
