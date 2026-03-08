@@ -1,4 +1,4 @@
-name: CI
+name: Zmena CI
 
 on:
   push:
