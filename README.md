@@ -1,12 +1,17 @@
 ## Zmena
 
-> **Detects changes in SQL files and generates corresponding SQL statements**  
+Writing SQL migrations by hand... again?
+- Multiple environments.
+- Multiple releases.
+- Endless ALTER TABLE statements.
+
+There must be a better way!
+
 
 ## Overview
 
-Zmena is a Git-native tool that analyzes SQL files containing DDL statements and generates SQL expressions reflecting the actual changes.
+Zmena understands semantic changes in SQL schemas and generates corresponding SQL migrations.
 
-It compares SQL files between two Git commits without just comparing raw text or connecting to a live database.
 
 ## Key Idea
 
@@ -14,3 +19,4 @@ Zmena works with SQL files, not databases.
 
 It does not require ORM metadata or a special migration language.  
 Instead, it interprets what changed in the DDL statements and generates SQL to apply those changes.
+It compares SQL files between two Git commits without just comparing raw text or connecting to a live database.
