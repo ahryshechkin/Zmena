@@ -13,7 +13,7 @@ class Scenario:
 
 class ScenarioCatalog:
     def __init__(self):
-        self.root_dir = Path(__file__).resolve().parents[1] / "scenarios"
+        self.root_dir = Path(__file__).resolve().parents[2] / "scenarios"
 
     def build_scenario_from(self, path):
         sce_id, name = path.name.split("_", maxsplit=2)[1:]
