@@ -1,5 +1,5 @@
-from src.domain.model.lexeme import Lexeme
-from src.domain.services.constant import Side
+from domain.model.lexeme import Lexeme
+from domain.services.constant import Side
 
 from .base import Brick
 
