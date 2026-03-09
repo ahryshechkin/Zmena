@@ -1,5 +1,5 @@
-from src.domain.model import BrickStub, Link
-from src.domain.services.constant import RuleId, Side, Tag
+from domain.model import BrickStub, Link
+from domain.services.constant import RuleId, Side, Tag
 
 from .base import Rule
 

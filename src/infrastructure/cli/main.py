@@ -1,5 +1,5 @@
-from src.application import Pipeline, ScenarioCatalog
-from src.infrastructure import View
+from application import Pipeline, ScenarioCatalog
+from infrastructure import View
 
 sce_ids = ["301", "304"]
 catalog = ScenarioCatalog()

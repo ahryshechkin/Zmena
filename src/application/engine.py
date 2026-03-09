@@ -1,7 +1,7 @@
 from collections import defaultdict
 from difflib import SequenceMatcher
 
-from src.domain import BrickLeft, BrickRight, Component, Hunk, Span, Tag
+from domain import BrickLeft, BrickRight, Component, Hunk, Span, Tag
 
 
 class Engine:
