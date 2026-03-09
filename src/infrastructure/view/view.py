@@ -1,6 +1,6 @@
 from difflib import SequenceMatcher
 
-from domain import Color, Hunk, Span, Tag
+from src.domain import Color, Hunk, Span, Tag
 
 
 class View:

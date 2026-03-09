@@ -1,5 +1,5 @@
-from application import Engine
-from domain import (
+from src.application import Engine
+from src.domain import (
     Decision,
     Filter,
     HeuristicCompatibility,

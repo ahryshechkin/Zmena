@@ -1,4 +1,4 @@
-from domain.services.constant import Tag
+from src.domain.services.constant import Tag
 
 
 class Hunk:
