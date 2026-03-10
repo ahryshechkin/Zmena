@@ -33,4 +33,4 @@ jobs:
       - name: Run tests
         env:
           PYTHONPATH: src
-        run: uv run -m unittest tests.component.test_basic_scenarios
+        run: uv run -m unittest -v tests.component.test_basic_scenarios
