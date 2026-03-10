@@ -30,7 +30,12 @@ jobs:
       - name: Run Ruff formatter
         run: uv run ruff format . --check
 
-      - name: Run tests
+      - name: Run unit tests
+        env:
+          PYTHONPATH: src
+        run: uv run -m unittest discover -v tests/unit
+
+      - name: Run component tests
         env:
           PYTHONPATH: src
         run: uv run -m unittest -v tests.component.test_basic_scenarios
