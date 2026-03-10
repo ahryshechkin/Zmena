@@ -20,5 +20,14 @@ class TestSpan(unittest.TestCase):
 
         self.span = Span(self.before, 2, 5)
 
+    def test_line(self):
+        self.assertEqual(self.span.line(0), self.before[2])
+
+    def test_lineno(self):
+        self.assertEqual(self.span.lineno(0), 2)
+
+    def test_range(self):
+        self.assertEqual(self.span.range(), 3)
+
     def test_uid(self):
         self.assertEqual(self.span.uid(), "25")
