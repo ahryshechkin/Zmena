@@ -1,6 +1,6 @@
 ## Zmena
 
-[![Hits‑of‑Code](https://hitsofcode.com/github/octocat/Hello‑World)](https://hitsofcode.com/github/ahryshechkin/Zmena/view)
+[![HoC](https://hitsofcode.com/github/ahryshechkin/Zmena)](https://hitsofcode.com/github/ahryshechkin/Zmena/view)
 
 Writing SQL migrations by hand... again?
 - Multiple environments.
