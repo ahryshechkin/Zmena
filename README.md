@@ -21,7 +21,7 @@ Zmena understands semantic changes in SQL schemas and generates corresponding SQ
 
 Zmena treats SQL files in Git as the source of truth.
 
-It parses DDL, detects semantic schema changes between commits, and automatically generates SQL migrations.
+It parses DDL, detects meaningful schema changes between commits, and automatically generates SQL migrations.
 No raw text diffs. No live databases. No ORM metadata. No custom migration language.
 
 This keeps schema definitions in plain SQL and fits naturally into Git-based CI and release workflows.
