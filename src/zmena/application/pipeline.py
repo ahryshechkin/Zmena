@@ -1,5 +1,5 @@
-from application import Engine
-from domain import (
+from zmena.application import Engine
+from zmena.domain import (
     Decision,
     Filter,
     HeuristicCompatibility,

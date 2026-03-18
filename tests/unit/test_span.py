@@ -1,6 +1,6 @@
 import unittest
 
-from domain import Span
+from zmena.domain import Span
 
 
 class TestSpan(unittest.TestCase):

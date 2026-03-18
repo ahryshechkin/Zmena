@@ -1,4 +1,4 @@
-from domain.model import ScoredLink
+from zmena.domain.model import ScoredLink
 
 
 class Component:

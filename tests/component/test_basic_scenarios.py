@@ -1,6 +1,6 @@
 import unittest
 
-from application import Pipeline, ScenarioCatalog
+from zmena.application import Pipeline, ScenarioCatalog
 
 
 class TestBasicScenarios(unittest.TestCase):

@@ -1,5 +1,5 @@
-from domain.model import Link
-from domain.services.constant import RuleId
+from zmena.domain.model import Link
+from zmena.domain.services.constant import RuleId
 
 from .base import Rule
 
