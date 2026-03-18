@@ -1,5 +1,5 @@
-from domain.model import BrickStub, Link
-from domain.services.constant import RuleId, Side, Tag
+from zmena.domain.model import BrickStub, Link
+from zmena.domain.services.constant import RuleId, Side, Tag
 
 from .base import Rule
 

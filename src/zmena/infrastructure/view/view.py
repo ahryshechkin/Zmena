@@ -1,6 +1,6 @@
 from difflib import SequenceMatcher
 
-from domain import Color, Hunk, Span, Tag
+from zmena.domain import Color, Hunk, Span, Tag
 
 
 class View:

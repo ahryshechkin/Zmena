@@ -1,5 +1,5 @@
-from application import Pipeline, ScenarioCatalog
-from infrastructure import View
+from zmena.application import Pipeline, ScenarioCatalog
+from zmena.infrastructure import View
 
 sce_ids = ["301", "304"]
 catalog = ScenarioCatalog()
