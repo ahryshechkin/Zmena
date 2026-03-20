@@ -1,4 +1,4 @@
-from zmena.domain.model import BrickStub, Link
+from zmena.domain.model import BrickStub, Hypothesis
 from zmena.domain.services.constant import RuleId, Side
 
 from .base import Rule
@@ -11,11 +11,11 @@ class RuleInsert(Rule):
     def apply(self, scopes):
         bricks = scopes[1]
 
-        links = []
+        hypotheses = []
         for brick in bricks:
             if brick.is_insert():
                 brick_stub = BrickStub(Side.LEFT)
-                link = Link(self.rule_id, brick_stub, brick)
-                links.append(link)
+                hypothesis = Hypothesis(self.rule_id, brick_stub, brick)
+                hypotheses.append(hypothesis)
 
-        return links
+        return hypotheses

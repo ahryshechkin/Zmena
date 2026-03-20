@@ -1,4 +1,4 @@
-from zmena.domain.model import BrickStub, Link
+from zmena.domain.model import BrickStub, Hypothesis
 from zmena.domain.services.constant import RuleId, Side, Tag
 
 from .base import Rule
@@ -19,7 +19,7 @@ class RuleOverflow(Rule):
         for brick in bricks_right:
             bricks_right_by_segment.setdefault(brick.segment, []).append(brick)
 
-        links = []
+        hypotheses = []
         for segment, rights in bricks_right_by_segment.items():
             lefts = bricks_left_by_segment.get(segment, [])
 
@@ -34,7 +34,7 @@ class RuleOverflow(Rule):
 
             for brick in rights:
                 brick_stub = BrickStub(Side.LEFT)
-                link = Link(self.rule_id, brick_stub, brick)
-                links.append(link)
+                hypothesis = Hypothesis(self.rule_id, brick_stub, brick)
+                hypotheses.append(hypothesis)
 
-        return links
+        return hypotheses

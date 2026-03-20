@@ -30,7 +30,7 @@ class Pipeline:
         bricks_left = filtered_bricks.by_side(Side.LEFT)
         bricks_right = filtered_bricks.by_side(Side.RIGHT)
         matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
-        links = []
+        hypotheses = []
         for rule in [
             RuleDelete(),
             RuleInsert(),
@@ -39,9 +39,9 @@ class Pipeline:
             RulePosition(),
             RuleSignature(),
         ]:
-            links.extend(matcher.match(rule))
+            hypotheses.extend(matcher.match(rule))
 
-        components = engine.build_components(links)
+        components = engine.build_components(hypotheses)
 
         selected_links, all_links = [], []
         heuristics = [
@@ -57,7 +57,7 @@ class Pipeline:
 
         return {
             "bricks": engine.bricks,
-            "links": links,
+            "hypotheses": hypotheses,
             "components": components,
             "all_links": all_links,
             "selected_links": selected_links,

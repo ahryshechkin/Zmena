@@ -1,4 +1,4 @@
-from zmena.domain.model import Link
+from zmena.domain.model import Hypothesis
 from zmena.domain.services.constant import RuleId
 
 from .base import Rule
@@ -11,11 +11,11 @@ class RuleSignature(Rule):
     def apply(self, scopes):
         bricks_left, bricks_right = scopes[:2]
 
-        links = []
+        hypotheses = []
         for left in bricks_left:
             for right in bricks_right:
                 if left is not right and left.same_signature_as(right):
-                    link = Link(self.rule_id, left, right)
-                    links.append(link)
+                    hypothesis = Hypothesis(self.rule_id, left, right)
+                    hypotheses.append(hypothesis)
 
-        return links
+        return hypotheses
