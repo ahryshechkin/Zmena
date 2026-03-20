@@ -1,7 +1,8 @@
 from .brick import BrickLeft, BrickRight, BrickStub
 from .hunk import Hunk
+from .hypothesis import Hypothesis
 from .lexeme import Lexeme
-from .link import Link, ScoredLink
+from .link import ScoredLink
 from .span import Span
 
 __all__ = [
@@ -9,8 +10,8 @@ __all__ = [
     "BrickRight",
     "BrickStub",
     "Hunk",
+    "Hypothesis",
     "Lexeme",
-    "Link",
     "ScoredLink",
     "Span",
 ]

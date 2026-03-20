@@ -84,10 +84,10 @@ class View:
         for brick in bricks:
             print(brick)
 
-    def show_links(self, links):
+    def show_hypotheses(self, links):
         print(
-            f"\n#### Links "
-            f"{'#' * 170} \n"
+            f"\n#### Hypotheses "
+            f"{'#' * 165} \n"
             f"{'rules':>9} | "
             f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
@@ -113,8 +113,8 @@ class View:
         for i, component in enumerate(components, 1):
             print(
                 f"\n#### Component {i}: "
-                f"links={len(component.links)}, bricks={len(component.bricks)} "
-                f"{'#' * 145} \n"
+                f"hypotheses={len(component.links)}, bricks={len(component.bricks)} "
+                f"{'#' * 140} \n"
                 f"{'rules':>9} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
@@ -138,8 +138,8 @@ class View:
 
             print(
                 f"\n### Component {i}: "
-                f"links={len(component.links)}, bricks={len(component.bricks)} "
-                f"{'#' * 42} \n"
+                f"hypotheses={len(component.links)}, bricks={len(component.bricks)} "
+                f"{'#' * 37} \n"
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )

@@ -12,3 +12,6 @@ class Hypothesis:
 
     def key(self):
         return self.left, self.right
+
+    def signature_mismatch(self):
+        return not self.left.same_signature_as(self.right)

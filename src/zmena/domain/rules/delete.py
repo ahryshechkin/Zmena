@@ -1,4 +1,4 @@
-from zmena.domain.model import BrickStub, Link
+from zmena.domain.model import BrickStub, Hypothesis
 from zmena.domain.services.constant import RuleId, Side
 
 from .base import Rule
@@ -11,11 +11,11 @@ class RuleDelete(Rule):
     def apply(self, scopes):
         bricks = scopes[0]
 
-        links = []
+        hypotheses = []
         for brick in bricks:
             if brick.is_delete():
                 brick_stub = BrickStub(Side.RIGHT)
-                link = Link(self.rule_id, brick, brick_stub)
-                links.append(link)
+                hypothesis = Hypothesis(self.rule_id, brick, brick_stub)
+                hypotheses.append(hypothesis)
 
-        return links
+        return hypotheses
