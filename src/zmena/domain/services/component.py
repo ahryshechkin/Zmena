@@ -1,4 +1,4 @@
-from zmena.domain.model import ScoredLink
+from zmena.domain.model.link.scored_link import ScoredLink
 
 
 class Component:
@@ -17,7 +17,8 @@ class Component:
         for hypothesis in self.hypotheses:
             score = 0
             for heuristic in heuristics:
-                score += heuristic.score(hypothesis)
+                for evidence in heuristic.evaluate(hypothesis):
+                    score += evidence.score
             scored_links.append(ScoredLink(score, hypothesis))
 
         return scored_links
