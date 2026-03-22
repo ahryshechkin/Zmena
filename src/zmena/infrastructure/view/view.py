@@ -113,7 +113,7 @@ class View:
         for i, component in enumerate(components, 1):
             print(
                 f"\n#### Component {i}: "
-                f"hypotheses={len(component.links)}, bricks={len(component.bricks)} "
+                f"hypotheses={len(component.hypotheses)}, bricks={len(component.bricks)} "
                 f"{'#' * 140} \n"
                 f"{'rules':>9} | "
                 f"{'####'} | "
@@ -133,12 +133,12 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
-            for link in component.links:
-                print(link)
+            for hypothesis in component.hypotheses:
+                print(hypothesis)
 
             print(
                 f"\n### Component {i}: "
-                f"hypotheses={len(component.links)}, bricks={len(component.bricks)} "
+                f"hypotheses={len(component.hypotheses)}, bricks={len(component.bricks)} "
                 f"{'#' * 37} \n"
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
