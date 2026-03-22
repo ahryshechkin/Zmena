@@ -11,7 +11,7 @@ class Component:
         self.bricks.add(hypothesis.left)
         self.bricks.add(hypothesis.right)
 
-    def evaluate(self, heuristics):
+    def assess(self, heuristics):
         scored_links = []
 
         for hypothesis in self.hypotheses:
