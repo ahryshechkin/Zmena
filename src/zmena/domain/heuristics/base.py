@@ -3,5 +3,5 @@ from abc import ABC, abstractmethod
 
 class Heuristic(ABC):
     @abstractmethod
-    def score(self, link):
+    def evaluate(self, hypothesis):
         pass

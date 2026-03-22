@@ -1,4 +1,4 @@
-from .heuristics_tmp import (
+from .heuristics import (
     HeuristicCompatibility,
     HeuristicName,
     HeuristicPosition,
