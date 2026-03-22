@@ -12,7 +12,6 @@ from .model import (
     Hunk,
     Hypothesis,
     Lexeme,
-    ScoredLink,
     Span,
 )
 from .rules import (
@@ -47,7 +46,6 @@ __all__ = [
     "RuleOverflow",
     "RulePosition",
     "RuleSignature",
-    "ScoredLink",
     "Side",
     "Span",
     "Tag",
