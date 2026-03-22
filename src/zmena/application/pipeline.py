@@ -15,6 +15,7 @@ from zmena.domain import (
     RuleSignature,
     Side,
 )
+from zmena.domain.services.component_service import ComponentService
 
 
 class Pipeline:
@@ -41,7 +42,8 @@ class Pipeline:
         ]:
             hypotheses.extend(matcher.match(rule))
 
-        components = engine.build_components(hypotheses)
+        component_service = ComponentService(hypotheses)
+        components = component_service.compose()
 
         selected_links, all_links = [], []
         heuristics = [
@@ -51,7 +53,7 @@ class Pipeline:
             HeuristicSignature(),
         ]
         for component in components:
-            all_links.append(component.evaluate(heuristics))
+            all_links.append(component.assess(heuristics))
             decision = Decision(component, heuristics)
             selected_links.append(decision.make())
 

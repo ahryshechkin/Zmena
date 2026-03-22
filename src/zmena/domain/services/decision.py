@@ -7,7 +7,7 @@ class Decision:
         selected_links = []
         used_bricks = set()
 
-        scored_links = self.component.evaluate(self.heuristics)
+        scored_links = self.component.assess(self.heuristics)
         for candidate in sorted(scored_links, reverse=True):
             if candidate.conflicts_with(used_bricks):
                 continue

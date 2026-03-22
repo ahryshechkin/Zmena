@@ -22,14 +22,13 @@ from .rules import (
     RulePosition,
     RuleSignature,
 )
-from .services import Color, Component, Decision, Filter, Matcher, RuleId, Side, Tag
+from .services import Color, Decision, Filter, Matcher, RuleId, Side, Tag
 
 __all__ = [
     "BrickLeft",
     "BrickRight",
     "BrickStub",
     "Color",
-    "Component",
     "Decision",
     "Filter",
     "HeuristicCompatibility",
