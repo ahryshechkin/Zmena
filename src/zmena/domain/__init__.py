@@ -8,6 +8,7 @@ from .model import (
     BrickLeft,
     BrickRight,
     BrickStub,
+    Decision,
     Hunk,
     Hypothesis,
     Lexeme,
@@ -22,7 +23,7 @@ from .rules import (
     RulePosition,
     RuleSignature,
 )
-from .services import Color, Decision, Filter, Matcher, RuleId, Side, Tag
+from .services import Color, Filter, Matcher, RuleId, Side, Tag
 
 __all__ = [
     "BrickLeft",
