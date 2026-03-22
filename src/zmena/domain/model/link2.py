@@ -1,8 +1,8 @@
 class Link:
-    def __init__(self, rule_id, left, right):
-        self.rule_id = rule_id
-        self.left = left
-        self.right = right
+    def __init__(self, hypothesis):
+        self.rule_id = hypothesis.rule_id
+        self.left = hypothesis.left
+        self.right = hypothesis.right
         self.evidence = []
 
     def bricks(self):
