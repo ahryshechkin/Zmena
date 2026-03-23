@@ -1,3 +1,5 @@
+from zmena.domain.model.hunk import Hunk
+from zmena.domain.model.span import Span
 from zmena.domain.services.brick_service import BrickService
 from zmena.domain.services.component_service import ComponentService
 
@@ -12,10 +14,7 @@ from .model import (
     BrickRight,
     BrickStub,
     Decision,
-    Hunk,
     Hypothesis,
-    Lexeme,
-    Span,
 )
 from .rules import (
     RuleDelete,
@@ -42,7 +41,6 @@ __all__ = [
     "HeuristicSignature",
     "Hunk",
     "Hypothesis",
-    "Lexeme",
     "Matcher",
     "RuleDelete",
     "RuleId",
