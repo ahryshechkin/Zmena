@@ -33,3 +33,5 @@ class BrickService:
                 for idx in range(hunk.left_range()):
                     brick = BrickLeft(idx, hunk)
                     bricks.append(brick)
+
+        return bricks
