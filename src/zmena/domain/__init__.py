@@ -1,3 +1,6 @@
+from zmena.domain.services.brick_service import BrickService
+from zmena.domain.services.component_service import ComponentService
+
 from .heuristics import (
     HeuristicCompatibility,
     HeuristicName,
@@ -27,8 +30,10 @@ from .services import Color, Filter, Matcher, RuleId, Side, Tag
 __all__ = [
     "BrickLeft",
     "BrickRight",
+    "BrickService",
     "BrickStub",
     "Color",
+    "ComponentService",
     "Decision",
     "Filter",
     "HeuristicCompatibility",

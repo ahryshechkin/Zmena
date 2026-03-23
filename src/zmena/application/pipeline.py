@@ -1,5 +1,6 @@
-from zmena.application import Engine
 from zmena.domain import (
+    BrickService,
+    ComponentService,
     Decision,
     Filter,
     HeuristicCompatibility,
@@ -15,7 +16,6 @@ from zmena.domain import (
     RuleSignature,
     Side,
 )
-from zmena.domain.services.component_service import ComponentService
 
 
 class Pipeline:
@@ -24,10 +24,10 @@ class Pipeline:
         self.after = after
 
     def run(self):
-        engine = Engine()
-        engine.build_bricks(self.before, self.after)
+        brick_service = BrickService()
+        bricks = brick_service.build(self.before, self.after)
 
-        filtered_bricks = Filter(engine.bricks)
+        filtered_bricks = Filter(bricks)
         bricks_left = filtered_bricks.by_side(Side.LEFT)
         bricks_right = filtered_bricks.by_side(Side.RIGHT)
         matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
@@ -58,7 +58,7 @@ class Pipeline:
             selected_links.append(decision.make())
 
         return {
-            "bricks": engine.bricks,
+            "bricks": bricks,
             "hypotheses": hypotheses,
             "components": components,
             "all_links": all_links,
