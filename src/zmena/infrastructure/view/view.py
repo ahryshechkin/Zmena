@@ -137,9 +137,9 @@ class View:
                 print(hypothesis)
 
             print(
-                f"\n### Component {i}: "
+                f"\n#### Component {i}: "
                 f"hypotheses={len(component.hypotheses)}, bricks={len(component.bricks)} "
-                f"{'#' * 37} \n"
+                f"{'#' * 36} \n"
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )
