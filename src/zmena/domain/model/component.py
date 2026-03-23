@@ -6,6 +6,9 @@ class Component:
         self.hypotheses = set()
         self.bricks = set()
 
+    def __repr__(self):
+        return f"Component(hypothesis={len(self.hypotheses)},bricks={len(self.bricks)})"
+
     def add(self, hypothesis):
         self.hypotheses.add(hypothesis)
         self.bricks.add(hypothesis.left)
