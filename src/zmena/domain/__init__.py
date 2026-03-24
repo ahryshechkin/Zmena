@@ -24,7 +24,7 @@ from .rules import (
     RulePosition,
     RuleSignature,
 )
-from .services import Color, Filter, Matcher, RuleId, Side, Tag
+from .services import Color, Matcher, RuleId, Side, Tag
 
 __all__ = [
     "BrickLeft",
@@ -34,7 +34,6 @@ __all__ = [
     "Color",
     "ComponentService",
     "Decision",
-    "Filter",
     "HeuristicCompatibility",
     "HeuristicName",
     "HeuristicPosition",
