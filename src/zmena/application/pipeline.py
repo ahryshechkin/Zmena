@@ -6,15 +6,9 @@ from zmena.domain import (
     HeuristicName,
     HeuristicPosition,
     HeuristicSignature,
-    Matcher,
-    RuleDelete,
-    RuleInsert,
-    RuleName,
-    RuleOverflow,
-    RulePosition,
-    RuleSignature,
 )
 from zmena.domain.model.brick_bundle import BrickBundle
+from zmena.domain.services.hypothesis_service import HypothesisService
 
 
 class Pipeline:
@@ -27,17 +21,9 @@ class Pipeline:
         bricks = brick_service.build(self.before, self.after)
 
         brick_bundle = BrickBundle(bricks)
-        matcher = Matcher(brick_bundle.left(), brick_bundle.right())
-        hypotheses = []
-        for rule in [
-            RuleDelete(),
-            RuleInsert(),
-            RuleName(),
-            RuleOverflow(),
-            RulePosition(),
-            RuleSignature(),
-        ]:
-            hypotheses.extend(matcher.match(rule))
+
+        hypothesis_service = HypothesisService(brick_bundle)
+        hypotheses = hypothesis_service.propose()
 
         component_service = ComponentService(hypotheses)
         components = component_service.compose()
