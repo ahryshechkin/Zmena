@@ -2,7 +2,6 @@ from zmena.domain import (
     BrickService,
     ComponentService,
     Decision,
-    Filter,
     HeuristicCompatibility,
     HeuristicName,
     HeuristicPosition,
@@ -14,8 +13,8 @@ from zmena.domain import (
     RuleOverflow,
     RulePosition,
     RuleSignature,
-    Side,
 )
+from zmena.domain.model.brick_bundle import BrickBundle
 
 
 class Pipeline:
@@ -27,10 +26,8 @@ class Pipeline:
         brick_service = BrickService()
         bricks = brick_service.build(self.before, self.after)
 
-        filtered_bricks = Filter(bricks)
-        bricks_left = filtered_bricks.by_side(Side.LEFT)
-        bricks_right = filtered_bricks.by_side(Side.RIGHT)
-        matcher = Matcher(bricks_left.bricks, bricks_right.bricks)
+        brick_bundle = BrickBundle(bricks)
+        matcher = Matcher(brick_bundle.left(), brick_bundle.right())
         hypotheses = []
         for rule in [
             RuleDelete(),
