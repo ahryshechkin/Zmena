@@ -8,8 +8,8 @@ class RuleDelete(Rule):
     def __init__(self):
         super().__init__(RuleId.DELETE)
 
-    def apply(self, scopes):
-        bricks = scopes[0]
+    def apply(self, brick_bundle):
+        bricks = brick_bundle.left()
 
         hypotheses = []
         for brick in bricks:
