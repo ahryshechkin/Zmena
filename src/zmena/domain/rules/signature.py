@@ -8,8 +8,8 @@ class RuleSignature(Rule):
     def __init__(self):
         super().__init__(RuleId.SIGNATURE)
 
-    def apply(self, scopes):
-        bricks_left, bricks_right = scopes[:2]
+    def apply(self, brick_bundle):
+        bricks_left, bricks_right = brick_bundle.left(), brick_bundle.right()
 
         hypotheses = []
         for left in bricks_left:

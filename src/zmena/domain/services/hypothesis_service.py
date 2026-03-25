@@ -7,16 +7,12 @@ from zmena.domain.rules import (
     RuleSignature,
 )
 
-from .matcher import Matcher
-
 
 class HypothesisService:
     def __init__(self, brick_bundle):
         self.brick_bundle = brick_bundle
 
     def propose(self):
-        matcher = Matcher(self.brick_bundle.left(), self.brick_bundle.right())
-
         hypotheses = []
         for rule in [
             RuleDelete(),
@@ -26,6 +22,6 @@ class HypothesisService:
             RulePosition(),
             RuleSignature(),
         ]:
-            hypotheses.extend(matcher.match(rule))
+            hypotheses.extend(rule.apply(self.brick_bundle))
 
         return hypotheses

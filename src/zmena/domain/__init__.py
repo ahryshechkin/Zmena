@@ -24,7 +24,7 @@ from .rules import (
     RulePosition,
     RuleSignature,
 )
-from .services import Color, Matcher, RuleId, Side, Tag
+from .services import Color, RuleId, Side, Tag
 
 __all__ = [
     "BrickLeft",
@@ -40,7 +40,6 @@ __all__ = [
     "HeuristicSignature",
     "Hunk",
     "Hypothesis",
-    "Matcher",
     "RuleDelete",
     "RuleId",
     "RuleInsert",
