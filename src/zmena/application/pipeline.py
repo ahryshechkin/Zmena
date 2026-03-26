@@ -9,6 +9,7 @@ from zmena.domain import (
 )
 from zmena.domain.model.brick_bundle import BrickBundle
 from zmena.domain.services.hypothesis_service import HypothesisService
+from zmena.domain.services.rule_registry import RuleRegistry
 
 
 class Pipeline:
@@ -20,10 +21,11 @@ class Pipeline:
         brick_service = BrickService()
         bricks = brick_service.build(self.before, self.after)
 
+        registry = RuleRegistry()
         bundle = BrickBundle(bricks)
 
-        hypothesis_service = HypothesisService(bundle)
-        hypotheses = hypothesis_service.propose()
+        hypothesis_service = HypothesisService(registry)
+        hypotheses = hypothesis_service.propose(bundle)
 
         component_service = ComponentService(hypotheses)
         components = component_service.compose()
