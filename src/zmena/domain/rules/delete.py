@@ -8,7 +8,7 @@ class RuleDelete(Rule):
     def __init__(self):
         super().__init__(RuleId.DELETE)
 
-    def apply(self, bundle):
+    def generate(self, bundle):
         hypotheses = []
         for brick in bundle.left():
             if brick.is_delete():

@@ -22,6 +22,6 @@ class HypothesisService:
             RulePosition(),
             RuleSignature(),
         ]:
-            hypotheses.extend(rule.apply(self.bundle))
+            hypotheses.extend(rule.generate(self.bundle))
 
         return hypotheses

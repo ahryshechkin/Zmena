@@ -8,7 +8,7 @@ class RuleOverflow(Rule):
     def __init__(self):
         super().__init__(RuleId.OVERFLOW)
 
-    def apply(self, bundle):
+    def generate(self, bundle):
         bundle.right()
 
         bricks_left_by_segment = {}
