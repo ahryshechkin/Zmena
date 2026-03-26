@@ -6,5 +6,5 @@ class Rule(ABC):
         self.rule_id = rule_id
 
     @abstractmethod
-    def apply(self, bundle):
+    def generate(self, bundle):
         pass

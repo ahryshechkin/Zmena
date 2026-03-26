@@ -8,7 +8,7 @@ class RuleSignature(Rule):
     def __init__(self):
         super().__init__(RuleId.SIGNATURE)
 
-    def apply(self, bundle):
+    def generate(self, bundle):
         hypotheses = []
         for left in bundle.left():
             for right in bundle.right():
