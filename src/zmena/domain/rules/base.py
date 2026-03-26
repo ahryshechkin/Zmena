@@ -6,5 +6,5 @@ class Rule(ABC):
         self.rule_id = rule_id
 
     @abstractmethod
-    def apply(self, brick_bundle):
+    def apply(self, bundle):
         pass

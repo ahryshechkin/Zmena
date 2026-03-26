@@ -9,8 +9,8 @@ from zmena.domain.rules import (
 
 
 class HypothesisService:
-    def __init__(self, brick_bundle):
-        self.brick_bundle = brick_bundle
+    def __init__(self, bundle):
+        self.bundle = bundle
 
     def propose(self):
         hypotheses = []
@@ -22,6 +22,6 @@ class HypothesisService:
             RulePosition(),
             RuleSignature(),
         ]:
-            hypotheses.extend(rule.apply(self.brick_bundle))
+            hypotheses.extend(rule.apply(self.bundle))
 
         return hypotheses
