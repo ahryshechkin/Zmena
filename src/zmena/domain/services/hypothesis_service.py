@@ -1,27 +1,10 @@
-from zmena.domain.rules import (
-    RuleDelete,
-    RuleInsert,
-    RuleName,
-    RuleOverflow,
-    RulePosition,
-    RuleSignature,
-)
-
-
 class HypothesisService:
-    def __init__(self, bundle):
-        self.bundle = bundle
+    def __init__(self, registry):
+        self.registry = registry
 
-    def propose(self):
+    def propose(self, bundle):
         hypotheses = []
-        for rule in [
-            RuleDelete(),
-            RuleInsert(),
-            RuleName(),
-            RuleOverflow(),
-            RulePosition(),
-            RuleSignature(),
-        ]:
-            hypotheses.extend(rule.generate(self.bundle))
+        for rule in self.registry.default_rules():
+            hypotheses.extend(rule.generate(bundle))
 
         return hypotheses
