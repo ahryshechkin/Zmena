@@ -20,9 +20,9 @@ class Pipeline:
         brick_service = BrickService()
         bricks = brick_service.build(self.before, self.after)
 
-        brick_bundle = BrickBundle(bricks)
+        bundle = BrickBundle(bricks)
 
-        hypothesis_service = HypothesisService(brick_bundle)
+        hypothesis_service = HypothesisService(bundle)
         hypotheses = hypothesis_service.propose()
 
         component_service = ComponentService(hypotheses)

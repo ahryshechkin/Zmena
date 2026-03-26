@@ -8,15 +8,15 @@ class RuleOverflow(Rule):
     def __init__(self):
         super().__init__(RuleId.OVERFLOW)
 
-    def apply(self, brick_bundle):
-        bricks_left, bricks_right = brick_bundle.left(), brick_bundle.right()
+    def apply(self, bundle):
+        bundle.right()
 
         bricks_left_by_segment = {}
-        for brick in bricks_left:
+        for brick in bundle.left():
             bricks_left_by_segment.setdefault(brick.segment, []).append(brick)
 
         bricks_right_by_segment = {}
-        for brick in bricks_right:
+        for brick in bundle.right():
             bricks_right_by_segment.setdefault(brick.segment, []).append(brick)
 
         hypotheses = []

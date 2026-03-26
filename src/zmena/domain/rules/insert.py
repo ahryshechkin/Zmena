@@ -8,11 +8,9 @@ class RuleInsert(Rule):
     def __init__(self):
         super().__init__(RuleId.INSERT)
 
-    def apply(self, brick_bundle):
-        bricks = brick_bundle.right()
-
+    def apply(self, bundle):
         hypotheses = []
-        for brick in bricks:
+        for brick in bundle.right():
             if brick.is_insert():
                 brick_stub = BrickStub(Side.LEFT)
                 hypothesis = Hypothesis(self.rule_id, brick_stub, brick)
