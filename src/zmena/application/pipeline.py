@@ -1,9 +1,9 @@
 from zmena.domain import (
     BrickService,
     ComponentService,
-    Decision,
 )
 from zmena.domain.model.brick_bundle import BrickBundle
+from zmena.domain.services.decision_service import DecisionService
 from zmena.domain.services.heuristic_registry import HeuristicRegistry
 from zmena.domain.services.hypothesis_service import HypothesisService
 from zmena.domain.services.rule_registry import RuleRegistry
@@ -18,27 +18,20 @@ class Pipeline:
         brick_service = BrickService()
         bricks = brick_service.build(self.before, self.after)
 
-        rule_registry = RuleRegistry()
         bundle = BrickBundle(bricks)
-
-        hypothesis_service = HypothesisService(rule_registry)
+        hypothesis_service = HypothesisService(RuleRegistry())
         hypotheses = hypothesis_service.propose(bundle)
 
         component_service = ComponentService(hypotheses)
         components = component_service.compose()
 
-        selected_links, all_links = [], []
-        heuristic_registry = HeuristicRegistry()
-        heuristics = heuristic_registry.default_heuristics()
-        for component in components:
-            all_links.append(component.assess(heuristics))
-            decision = Decision(component, heuristics)
-            selected_links.append(decision.make())
+        decision_service = DecisionService(HeuristicRegistry())
+        links = decision_service.decide(components)
 
         return {
             "bricks": bricks,
             "hypotheses": hypotheses,
             "components": components,
-            "all_links": all_links,
-            "selected_links": selected_links,
+            # "all_links": all_links,
+            "selected_links": links,
         }
