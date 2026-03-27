@@ -1,4 +1,4 @@
-from zmena.domain.services.constant import Side
+from zmena.domain.types.side import Side
 
 
 class BrickBundle:

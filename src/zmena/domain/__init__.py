@@ -16,7 +16,7 @@ from .model import (
     Decision,
     Hypothesis,
 )
-from .services import Color, Side, Tag
+from .services import Color, Tag
 
 __all__ = [
     "BrickLeft",
@@ -32,7 +32,6 @@ __all__ = [
     "HeuristicSignature",
     "Hunk",
     "Hypothesis",
-    "Side",
     "Span",
     "Tag",
 ]
