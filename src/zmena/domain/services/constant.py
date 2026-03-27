@@ -20,12 +20,3 @@ class Color(StrEnum):
 class Side(StrEnum):
     LEFT = "L"
     RIGHT = "R"
-
-
-class RuleId(StrEnum):
-    NAME = "name"
-    POSITION = "position"
-    DELETE = "delete"
-    INSERT = "insert"
-    SIGNATURE = "signature"
-    OVERFLOW = "overflow"

@@ -1,11 +1,11 @@
 from zmena.domain.model.evidence import Evidence
-from zmena.domain.services.constant import RuleId
+from zmena.domain.types.rule_label import RuleLabel
 
 from .base import Heuristic
 
 
 class HeuristicPosition(Heuristic):
     def evaluate(self, hypothesis):
-        if hypothesis.rule_id == RuleId.POSITION:
+        if hypothesis.rule_id == RuleLabel.POSITION:
             return [Evidence(self.__class__.__name__, hypothesis, 30)]
         return []

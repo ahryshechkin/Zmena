@@ -1,12 +1,12 @@
 from zmena.domain.model import Hypothesis
-from zmena.domain.services.constant import RuleId
+from zmena.domain.types.rule_label import RuleLabel
 
 from .base import Rule
 
 
 class RulePosition(Rule):
     def __init__(self):
-        super().__init__(RuleId.POSITION)
+        super().__init__(RuleLabel.POSITION)
 
     def generate(self, bundle):
         hypotheses = []

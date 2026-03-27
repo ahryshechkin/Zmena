@@ -1,12 +1,13 @@
 from zmena.domain.model import BrickStub, Hypothesis
-from zmena.domain.services.constant import RuleId, Side, Tag
+from zmena.domain.services.constant import Side, Tag
+from zmena.domain.types.rule_label import RuleLabel
 
 from .base import Rule
 
 
 class RuleOverflow(Rule):
     def __init__(self):
-        super().__init__(RuleId.OVERFLOW)
+        super().__init__(RuleLabel.OVERFLOW)
 
     def generate(self, bundle):
         bundle.right()
