@@ -1,12 +1,13 @@
 from zmena.domain.model import BrickStub, Hypothesis
-from zmena.domain.services.constant import RuleId, Side
+from zmena.domain.services.constant import Side
+from zmena.domain.types.rule_label import RuleLabel
 
 from .base import Rule
 
 
 class RuleInsert(Rule):
     def __init__(self):
-        super().__init__(RuleId.INSERT)
+        super().__init__(RuleLabel.INSERT)
 
     def generate(self, bundle):
         hypotheses = []

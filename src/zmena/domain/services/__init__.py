@@ -1,8 +1,7 @@
-from .constant import Color, RuleId, Side, Tag
+from .constant import Color, Side, Tag
 
 __all__ = [
     "Color",
-    "RuleId",
     "Side",
     "Tag",
 ]
