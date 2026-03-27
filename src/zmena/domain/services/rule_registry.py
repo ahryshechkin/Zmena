@@ -1,11 +1,9 @@
-from zmena.domain.rules import (
-    RuleDelete,
-    RuleInsert,
-    RuleName,
-    RuleOverflow,
-    RulePosition,
-    RuleSignature,
-)
+from zmena.domain.rules.delete import RuleDelete
+from zmena.domain.rules.insert import RuleInsert
+from zmena.domain.rules.name import RuleName
+from zmena.domain.rules.overflow import RuleOverflow
+from zmena.domain.rules.position import RulePosition
+from zmena.domain.rules.signature import RuleSignature
 
 
 class RuleRegistry:

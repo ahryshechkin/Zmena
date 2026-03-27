@@ -2,11 +2,11 @@ from zmena.domain import (
     BrickService,
     ComponentService,
     Decision,
-    HeuristicCompatibility,
-    HeuristicName,
-    HeuristicPosition,
-    HeuristicSignature,
 )
+from zmena.domain.heuristics.compatibility import HeuristicCompatibility
+from zmena.domain.heuristics.name import HeuristicName
+from zmena.domain.heuristics.position import HeuristicPosition
+from zmena.domain.heuristics.signature import HeuristicSignature
 from zmena.domain.model.brick_bundle import BrickBundle
 from zmena.domain.services.hypothesis_service import HypothesisService
 from zmena.domain.services.rule_registry import RuleRegistry
