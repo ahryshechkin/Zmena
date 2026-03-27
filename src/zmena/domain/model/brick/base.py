@@ -1,4 +1,5 @@
-from zmena.domain.services.constant import Side, Tag
+from zmena.domain.services.constant import Tag
+from zmena.domain.types.side import Side
 
 
 class Brick:

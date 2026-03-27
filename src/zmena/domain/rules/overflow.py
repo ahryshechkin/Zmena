@@ -1,6 +1,7 @@
 from zmena.domain.model import BrickStub, Hypothesis
-from zmena.domain.services.constant import Side, Tag
+from zmena.domain.services.constant import Tag
 from zmena.domain.types.rule_label import RuleLabel
+from zmena.domain.types.side import Side
 
 from .base import Rule
 

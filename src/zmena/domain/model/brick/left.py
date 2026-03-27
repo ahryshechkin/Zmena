@@ -1,5 +1,5 @@
 from zmena.domain.model.lexeme import Lexeme
-from zmena.domain.services.constant import Side
+from zmena.domain.types.side import Side
 
 from .base import Brick
 
