@@ -3,12 +3,6 @@ from zmena.domain.model.span import Span
 from zmena.domain.services.brick_service import BrickService
 from zmena.domain.services.component_service import ComponentService
 
-from .heuristics import (
-    HeuristicCompatibility,
-    HeuristicName,
-    HeuristicPosition,
-    HeuristicSignature,
-)
 from .model import (
     BrickLeft,
     BrickRight,
@@ -24,10 +18,6 @@ __all__ = [
     "BrickStub",
     "ComponentService",
     "Decision",
-    "HeuristicCompatibility",
-    "HeuristicName",
-    "HeuristicPosition",
-    "HeuristicSignature",
     "Hunk",
     "Hypothesis",
     "Span",
