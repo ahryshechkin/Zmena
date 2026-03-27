@@ -16,14 +16,12 @@ from .model import (
     Decision,
     Hypothesis,
 )
-from .services import Color
 
 __all__ = [
     "BrickLeft",
     "BrickRight",
     "BrickService",
     "BrickStub",
-    "Color",
     "ComponentService",
     "Decision",
     "HeuristicCompatibility",

@@ -1,7 +1,8 @@
 from difflib import SequenceMatcher
 
-from zmena.domain import Color, Hunk, Span
+from zmena.domain import Hunk, Span
 from zmena.domain.types.tag import Tag
+from zmena.infrastructure.view.color import Color
 
 
 class View:
