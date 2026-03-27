@@ -1,4 +1,4 @@
-from zmena.domain.services.constant import Tag
+from zmena.domain.types.tag import Tag
 
 
 class Hunk:

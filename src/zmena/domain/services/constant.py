@@ -1,14 +1,6 @@
 from enum import StrEnum
 
 
-class Tag(StrEnum):
-    DELETE = "delete"
-    EQUAL = "equal"
-    INSERT = "insert"
-    REPLACE = "replace"
-    STUB = "stub"
-
-
 class Color(StrEnum):
     GRAY = "\033[38;5;250m"
     RED = "\033[91m"

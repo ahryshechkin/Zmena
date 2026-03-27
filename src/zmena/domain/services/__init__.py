@@ -1,6 +1,5 @@
-from .constant import Color, Tag
+from .constant import Color
 
 __all__ = [
     "Color",
-    "Tag",
 ]
