@@ -6,6 +6,6 @@ from .base import Heuristic
 
 class HeuristicPosition(Heuristic):
     def evaluate(self, hypothesis):
-        if hypothesis.rule_id == RuleLabel.POSITION:
+        if hypothesis.rule_label == RuleLabel.POSITION:
             return [Evidence(self.__class__.__name__, hypothesis, 30)]
         return []

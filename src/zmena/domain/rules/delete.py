@@ -15,7 +15,7 @@ class RuleDelete(Rule):
         for brick in bundle.left():
             if brick.is_delete():
                 brick_stub = BrickStub(Side.RIGHT)
-                hypothesis = Hypothesis(self.rule_id, brick, brick_stub)
+                hypothesis = Hypothesis(self.label, brick, brick_stub)
                 hypotheses.append(hypothesis)
 
         return hypotheses
