@@ -1,6 +1,7 @@
 from difflib import SequenceMatcher
 
-from zmena.domain.model.brick import BrickLeft, BrickRight
+from zmena.domain.model.brick.left import BrickLeft
+from zmena.domain.model.brick.right import BrickRight
 from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag

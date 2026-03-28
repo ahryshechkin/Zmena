@@ -1,4 +1,5 @@
-from zmena.domain.model import BrickStub, Hypothesis
+from zmena.domain.model.brick.stub import BrickStub
+from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
 from zmena.domain.types.tag import Tag
