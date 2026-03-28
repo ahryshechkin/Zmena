@@ -11,6 +11,9 @@ class BrickService:
     def __init__(self):
         self.sm = SequenceMatcher()
 
+    def __repr__(self):
+        return "BrickService"
+
     def build(self, before, after):
         self.sm.set_seqs(before, after)
 

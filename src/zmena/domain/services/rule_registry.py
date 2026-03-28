@@ -15,6 +15,9 @@ class RuleRegistry:
         self.position = RulePosition()
         self.signature = RuleSignature()
 
+    def __repr__(self):
+        return "Registry(type=rule)"
+
     def default_rules(self):
         return [
             self.delete,

@@ -11,6 +11,9 @@ class HeuristicRegistry:
         self.position = HeuristicPosition()
         self.signature = HeuristicSignature()
 
+    def __repr__(self):
+        return "Registry(type=heuristic)"
+
     def default_heuristics(self):
         return [
             self.compatibility,
