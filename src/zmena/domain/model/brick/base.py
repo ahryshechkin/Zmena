@@ -21,13 +21,7 @@ class Brick:
         )
 
     def __repr__(self):
-        return (
-            f"Brick("
-            f"tag={self.tag.value},side={self.side.value},"
-            f"segment={self.segment},position={self.position},"
-            f"name={self.name},data_type={self.data_type},"
-            f"constraint={self.constraint})"
-        )
+        return f"Brick(tag={self.tag.value},name={self.name})"
 
     def same_name_as(self, brick):
         return self.name == brick.name

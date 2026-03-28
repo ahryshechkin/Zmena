@@ -5,6 +5,9 @@ class DecisionService:
     def __init__(self, registry):
         self.registry = registry
 
+    def __repr__(self):
+        return "DecisionService(registry=heuristic)"
+
     def decide(self, components):
         links = []
         for component in components:

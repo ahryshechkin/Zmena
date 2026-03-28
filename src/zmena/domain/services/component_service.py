@@ -7,6 +7,9 @@ class ComponentService:
     def __init__(self, hypotheses):
         self.hypotheses = hypotheses
 
+    def __repr__(self):
+        return f"ComponentService(hypotheses={len(self.hypotheses)})"
+
     def compose(self):
         components = []
 

@@ -90,7 +90,7 @@ class View:
         print(
             f"\n#### Hypotheses "
             f"{'#' * 165} \n"
-            f"{'rules':>9} | "
+            f"{'rule':>9} | "
             f"{'####'} | "
             f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
             f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
