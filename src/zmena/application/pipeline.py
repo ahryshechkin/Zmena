@@ -1,8 +1,6 @@
-from zmena.domain import (
-    BrickService,
-    ComponentService,
-)
 from zmena.domain.model.brick_bundle import BrickBundle
+from zmena.domain.services.brick_service import BrickService
+from zmena.domain.services.component_service import ComponentService
 from zmena.domain.services.decision_service import DecisionService
 from zmena.domain.services.heuristic_registry import HeuristicRegistry
 from zmena.domain.services.hypothesis_service import HypothesisService
