@@ -13,7 +13,7 @@ class RuleName(Rule):
         for left in bundle.left():
             for right in bundle.right():
                 if left is not right and left.same_name_as(right):
-                    hypothesis = Hypothesis(self.rule_id, left, right)
+                    hypothesis = Hypothesis(self.label, left, right)
                     hypotheses.append(hypothesis)
 
         return hypotheses

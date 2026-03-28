@@ -6,6 +6,6 @@ from .base import Heuristic
 
 class HeuristicSignature(Heuristic):
     def evaluate(self, hypothesis):
-        if hypothesis.rule_id == RuleLabel.SIGNATURE:
+        if hypothesis.rule_label == RuleLabel.SIGNATURE:
             return [Evidence(self.__class__.__name__, hypothesis, 40)]
         return []

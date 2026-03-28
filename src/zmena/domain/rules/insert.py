@@ -15,7 +15,7 @@ class RuleInsert(Rule):
         for brick in bundle.right():
             if brick.is_insert():
                 brick_stub = BrickStub(Side.LEFT)
-                hypothesis = Hypothesis(self.rule_id, brick_stub, brick)
+                hypothesis = Hypothesis(self.label, brick_stub, brick)
                 hypotheses.append(hypothesis)
 
         return hypotheses
