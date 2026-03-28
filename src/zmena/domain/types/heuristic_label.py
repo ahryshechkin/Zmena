@@ -1,10 +1,8 @@
 from enum import StrEnum
 
 
-class RuleLabel(StrEnum):
-    DELETE = "delete"
-    INSERT = "insert"
+class HeuristicLabel(StrEnum):
+    COMPATIBILITY = "compatibility"
     NAME = "name"
-    OVERFLOW = "overflow"
     POSITION = "position"
     SIGNATURE = "signature"
