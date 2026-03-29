@@ -1,3 +1,3 @@
-     65 |      name | #### | replace |    L | 02050205 |        3 | col_03  | varchar(200)  |            | #### | replace |    R | 02050205 |        3 | col_03  | varchar(20)   |            |
-     70 |  position | #### | replace |    L | 02050205 |        4 | col_04  | varchar(50)   |   not null | #### | replace |    R | 02050205 |        4 | col_44  | varchar(50)   |   not null |
-     70 | signature | #### | replace |    L | 02050205 |        5 | col_05  | varchar(50)   |            | #### | replace |    R | 02050205 |        5 | col_55  | varchar(50)   |            |
+     65 | #### | replace |    L | 02050205 |        3 | col_03  | varchar(200)  |            | #### | replace |    R | 02050205 |        3 | col_03  | varchar(20)   |            |
+     70 | #### | replace |    L | 02050205 |        4 | col_04  | varchar(50)   |   not null | #### | replace |    R | 02050205 |        4 | col_44  | varchar(50)   |   not null |
+     70 | #### | replace |    L | 02050205 |        5 | col_05  | varchar(50)   |            | #### | replace |    R | 02050205 |        5 | col_55  | varchar(50)   |            |

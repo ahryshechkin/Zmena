@@ -1,1 +1,1 @@
-      0 |    delete | #### |  delete |    L | 05060505 |        6 | col_06  | int           |            | #### |    stub |    R |          |          |         |               |            |
+      0 | #### |  delete |    L | 05060505 |        6 | col_06  | int           |            | #### |    stub |    R |          |          |         |               |            |
