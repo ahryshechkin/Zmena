@@ -86,7 +86,7 @@ class View:
         for brick in bricks:
             print(brick)
 
-    def show_hypotheses(self, links):
+    def show_hypotheses(self, hypotheses):
         print(
             f"\n#### Hypotheses "
             f"{'#' * 165} \n"
@@ -108,8 +108,8 @@ class View:
             f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
         )
 
-        for link in links:
-            print(link)
+        for hypothesis in hypotheses:
+            print(hypothesis)
 
     def show_components(self, components):
         for i, component in enumerate(components, 1):
@@ -157,8 +157,8 @@ class View:
         for i, decision in enumerate(decisions, 1):
             print(
                 f"\n#### Decision {i} "
-                f"{'#' * 175} \n"
-                f"{'score':>7} | {'rule':>9} | "
+                f"{'#' * 163} \n"
+                f"{'score':>7} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
@@ -167,7 +167,7 @@ class View:
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | ",
             )
             print(
-                f"{'-' * 7}-+-{'-' * 9}-+"
+                f"{'-' * 7}-+"
                 f"{'-' * 5}-+"
                 f"{'-' * 8}-+-{'-' * 4}-+-{'-' * 8}-+-"
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+"
@@ -176,5 +176,5 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
-            for scored_link in decision:
-                print(scored_link)
+            for link in decision:
+                print(link)
