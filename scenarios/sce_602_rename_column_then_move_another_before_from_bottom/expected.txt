@@ -1,2 +1,2 @@
-     40 | signature | #### | replace |    L |     2324 |        3 | col_03  | varchar(200)  |            | #### | replace |    R |     2324 |        4 | col_33  | varchar(200)  |            |
-     35 |      name | #### |  delete |    L |     6777 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R |     2324 |        3 | col_07  | varchar(1)    |   not null |
+     40 | signature | #### | replace |    L | 02030204 |        3 | col_03  | varchar(200)  |            | #### | replace |    R | 02030204 |        4 | col_33  | varchar(200)  |            |
+     35 |      name | #### |  delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R | 02030204 |        3 | col_07  | varchar(1)    |   not null |
