@@ -11,7 +11,7 @@ class Link:
 
     def __repr__(self):
         score = sum(evidence.score for evidence in self.evidences)
-        return f"Link(score={score})"
+        return f"Link(score={score},evidences={len(self.evidences)})"
 
     def __lt__(self, other):
         score_self = sum(evidence.score for evidence in self.evidences)
