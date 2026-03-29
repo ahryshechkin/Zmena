@@ -7,11 +7,14 @@ class Hunk:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return f"Hunk(tag={self.opcode})"
+
     def tag(self):
         return self.opcode
 
-    def uid(self):
-        return f"{self.left.uid()}{self.right.uid()}"
+    def fingerprint(self):
+        return f"{self.left.fingerprint()}{self.right.fingerprint()}"
 
     def left_lineno(self, offset):
         if offset < self.left_range():

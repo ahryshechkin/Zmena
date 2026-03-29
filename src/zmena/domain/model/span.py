@@ -4,7 +4,10 @@ class Span:
         self.low = low
         self.high = high
 
-    def uid(self):
+    def __repr__(self):
+        return f"Span(lines={len(self.lines)},low={self.low},high={self.high})"
+
+    def fingerprint(self):
         return f"{self.low}{self.high}"
 
     def lineno(self, offset):
