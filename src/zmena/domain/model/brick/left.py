@@ -10,7 +10,7 @@ class BrickLeft(Brick):
         super().__init__(
             hunk.tag(),
             Side.LEFT,
-            hunk.uid(),
+            hunk.fingerprint(),
             hunk.left_lineno(offset),
             lexeme.name(),
             lexeme.type(),
