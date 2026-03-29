@@ -20,6 +20,9 @@ class TestSpan(unittest.TestCase):
 
         self.span = Span(self.before, 2, 5)
 
+    def test_fingerprint(self):
+        self.assertEqual(self.span.fingerprint(), "25")
+
     def test_line(self):
         self.assertEqual(self.span.line(0), self.before[2])
 
@@ -28,6 +31,3 @@ class TestSpan(unittest.TestCase):
 
     def test_range(self):
         self.assertEqual(self.span.range(), 3)
-
-    def test_fingerprint(self):
-        self.assertEqual(self.span.fingerprint(), "25")

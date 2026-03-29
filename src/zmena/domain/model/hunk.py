@@ -2,16 +2,16 @@ from zmena.domain.types.tag import Tag
 
 
 class Hunk:
-    def __init__(self, opcode, left, right):
-        self.opcode = Tag(opcode)
+    def __init__(self, tag, left, right):
+        self.tag = Tag(tag)
         self.left = left
         self.right = right
 
     def __repr__(self):
-        return f"Hunk(tag={self.opcode})"
+        return f"Hunk(tag={self.tag})"
 
-    def tag(self):
-        return self.opcode
+    def kind(self):
+        return self.tag
 
     def fingerprint(self):
         return f"{self.left.fingerprint()}{self.right.fingerprint()}"

@@ -8,7 +8,7 @@ class BrickRight(Brick):
     def __init__(self, offset, hunk):
         lexeme = Lexeme(hunk.right_line(offset))
         super().__init__(
-            hunk.tag(),
+            hunk.kind(),
             Side.RIGHT,
             hunk.fingerprint(),
             hunk.right_lineno(offset),
