@@ -8,7 +8,7 @@ class Hypothesis:
         return f"{self.rule_label.value:>9} | #### | {self.left} #### | {self.right}"
 
     def __repr__(self):
-        return f"Hypothesis(rule_label={self.rule_label.value})"
+        return f"Hypothesis(rule={self.rule_label.value})"
 
     def key(self):
         return self.left, self.right
