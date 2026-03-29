@@ -1,7 +1,7 @@
 from zmena.application import Pipeline, ScenarioCatalog
 from zmena.infrastructure import View
 
-sce_ids = ["604"]
+sce_ids = ["011"]
 catalog = ScenarioCatalog()
 # for scenario in catalog.get_all():
 for scenario in catalog.get_many(sce_ids):
