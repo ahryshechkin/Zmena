@@ -8,7 +8,7 @@ class Span:
         return f"Span(lines={len(self.lines)},low={self.low},high={self.high})"
 
     def fingerprint(self):
-        return f"{self.low}{self.high}"
+        return f"{str(self.low).zfill(2)}{str(self.high).zfill(2)}"
 
     def lineno(self, offset):
         return self.low + offset
