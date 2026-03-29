@@ -1,2 +1,2 @@
-      0 |  overflow | #### |    stub |    L |          |          |         |               |            | #### | replace |    R |     2324 |        4 | col_33  | varchar(200)  |            |
-     35 |      name | #### | replace |    L |     2324 |        3 | col_03  | varchar(200)  |            | #### | replace |    R |     2324 |        3 | col_03  | varchar(200)  |   not null |
+      0 |  overflow | #### |    stub |    L |          |          |         |               |            | #### | replace |    R | 02030204 |        4 | col_33  | varchar(200)  |            |
+     65 |  position | #### | replace |    L | 02030204 |        3 | col_03  | varchar(200)  |            | #### | replace |    R | 02030204 |        3 | col_03  | varchar(200)  |   not null |

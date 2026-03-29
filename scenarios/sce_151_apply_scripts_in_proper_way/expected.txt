@@ -1,4 +1,4 @@
-     40 | signature | #### | replace |    L |     1212 |        2 | col_02  | varchar(50)   |   not null | #### | replace |    R |     1212 |        2 | col_05  | varchar(50)   |   not null |
-      0 |    delete | #### |  delete |    L |     4544 |        5 | col_05  | varchar(50)   |            | #### |    stub |    R |          |          |         |               |            |
-     40 | signature | #### | replace |    L |     7878 |        8 | col_08  | date          |   not null | #### | replace |    R |     7878 |        8 | col_88  | date          |   not null |
-      0 |    insert | #### |    stub |    L |          |          |         |               |            | #### |  insert |    R |     6656 |        6 | col_08  | int           |            |
+     70 | signature | #### | replace |    L | 01020102 |        2 | col_02  | varchar(50)   |   not null | #### | replace |    R | 01020102 |        2 | col_05  | varchar(50)   |   not null |
+      0 |    delete | #### |  delete |    L | 04050404 |        5 | col_05  | varchar(50)   |            | #### |    stub |    R |          |          |         |               |            |
+     70 | signature | #### | replace |    L | 07080708 |        8 | col_08  | date          |   not null | #### | replace |    R | 07080708 |        8 | col_88  | date          |   not null |
+      0 |    insert | #### |    stub |    L |          |          |         |               |            | #### |  insert |    R | 06060506 |        6 | col_08  | int           |            |
