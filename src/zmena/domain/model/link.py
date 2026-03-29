@@ -1,13 +1,12 @@
 class Link:
     def __init__(self, hypothesis):
-        self.rule_label = hypothesis.rule_label
         self.left = hypothesis.left
         self.right = hypothesis.right
         self.evidences = []
 
     def __str__(self):
         score = sum(evidence.score for evidence in self.evidences)
-        return f"{score:>7} | {self.rule_label.value:>9} | #### | {self.left} #### | {self.right}"
+        return f"{score:>7} | #### | {self.left} #### | {self.right}"
 
     def __repr__(self):
         score = sum(evidence.score for evidence in self.evidences)
