@@ -29,5 +29,5 @@ class TestSpan(unittest.TestCase):
     def test_range(self):
         self.assertEqual(self.span.range(), 3)
 
-    def test_uid(self):
-        self.assertEqual(self.span.uid(), "25")
+    def test_fingerprint(self):
+        self.assertEqual(self.span.fingerprint(), "25")
