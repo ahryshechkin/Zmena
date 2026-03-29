@@ -37,22 +37,22 @@ class View:
                     self.print_report_line(idx, hunk)
 
     def print_report_header(self):
-        total_len = self.width_left + self.width_right - len(self.name) + 28
+        total_len = self.width_left + self.width_right - len(self.name) + 31
 
         print(
             f"\n#### {self.sce_id} - {self.name} {'#' * total_len}\n"
-            f"{'action':>7} | {'opcode':>8} | "
+            f"{'action':>7} | {'fingerprint':>11} | "
             f"{'lineno':>6} | {'left':<{self.width_left}} | "
             f"{'lineno':>6} | {'right':<{self.width_right}} | ",
         )
         print(
-            f"{'-' * 7}-+-{'-' * 8}-+-{'-' * 6}-+-"
+            f"{'-' * 7}-+-{'-' * 11}-+-{'-' * 6}-+-"
             f"{'-' * self.width_left}-+-{'-' * 6}-+-{'-' * self.width_right}-+",
         )
 
     def print_report_line(self, offset, hunk):
         line = (
-            f"{hunk.kind().value:>7} | {hunk.fingerprint():>8} | "
+            f"{hunk.kind().value:>7} | {hunk.fingerprint():>11} | "
             f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.width_left}} | "
             f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.width_right}} | "
         )
