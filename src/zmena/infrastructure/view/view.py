@@ -52,12 +52,12 @@ class View:
 
     def print_report_line(self, offset, hunk):
         line = (
-            f"{hunk.tag().value:>7} | {hunk.fingerprint():>8} | "
+            f"{hunk.kind().value:>7} | {hunk.fingerprint():>8} | "
             f"{hunk.left_lineno(offset):>6} | {hunk.left_line(offset):<{self.width_left}} | "
             f"{hunk.right_lineno(offset):>6} | {hunk.right_line(offset):<{self.width_right}} | "
         )
 
-        print(self.colorize(hunk.tag(), line))
+        print(self.colorize(hunk.kind(), line))
 
     def colorize(self, tag, text):
         colors = {
@@ -117,7 +117,7 @@ class View:
                 f"\n#### Component {i}: "
                 f"hypotheses={len(component.hypotheses)}, bricks={len(component.bricks)} "
                 f"{'#' * 140} \n"
-                f"{'rules':>9} | "
+                f"{'rule':>9} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
@@ -158,7 +158,7 @@ class View:
             print(
                 f"\n#### Decision {i} "
                 f"{'#' * 175} \n"
-                f"{'score':>7} | {'rules':>9} | "
+                f"{'score':>7} | {'rule':>9} | "
                 f"{'####'} | "
                 f"{'tag':>7} | {'side':>4} | {'segment':<8} | {'position':>8} | "
                 f"{'name':<7} | {'type':<13} | {'constraint':<10} | "
