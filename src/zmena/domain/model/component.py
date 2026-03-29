@@ -7,7 +7,7 @@ class Component:
         self.bricks = set()
 
     def __repr__(self):
-        return f"Component(hypothesis={len(self.hypotheses)},bricks={len(self.bricks)})"
+        return f"Component(hypotheses={len(self.hypotheses)},bricks={len(self.bricks)})"
 
     def add(self, hypothesis):
         self.hypotheses.add(hypothesis)

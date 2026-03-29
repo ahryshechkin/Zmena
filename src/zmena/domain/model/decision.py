@@ -4,17 +4,17 @@ class Decision:
         self.heuristics = heuristics
 
     def make(self):
-        selected_links = []
         used_bricks = set()
+        links = []
 
-        links = self.component.assess(self.heuristics)
-        for candidate in sorted(links, reverse=True):
+        candidates = self.component.assess(self.heuristics)
+        for candidate in sorted(candidates, reverse=True):
             if candidate.conflicts_with(used_bricks):
                 continue
 
             left, right = candidate.bricks()
             used_bricks.add(left)
             used_bricks.add(right)
-            selected_links.append(candidate)
+            links.append(candidate)
 
-        return selected_links
+        return links
