@@ -14,7 +14,7 @@ There must be a better way!
 
 ## Overview
 
-Zmena understands semantic changes in SQL schemas and generates corresponding SQL migrations.
+Understands SQL schema evolution from Git history and turns DDL diffs into explainable migration proposals.
 
 
 ## Key Idea
