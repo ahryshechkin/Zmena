@@ -177,5 +177,5 @@ class View:
                 f"{'-' * 8}-+-{'-' * 7}-+-{'-' * 13}-+-{'-' * 10}-+",
             )
 
-            for link in decision:
+            for link in decision.chosen():
                 print(link)
