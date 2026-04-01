@@ -14,7 +14,7 @@ There must be a better way!
 
 ## Overview
 
-Understands SQL schema evolution from Git history and turns DDL diffs into explainable migration proposals.
+Understands SQL schema evolution from Git history and turns DDL diffs into SQL migrations.
 
 
 ## Key Idea
