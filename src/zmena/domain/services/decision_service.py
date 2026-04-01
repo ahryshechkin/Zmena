@@ -9,9 +9,9 @@ class DecisionService:
         return "DecisionService(registry=heuristic)"
 
     def decide(self, components):
-        links = []
+        decisions = []
         for component in components:
             decision = Decision(component, self.registry.default_heuristics())
-            links.append(decision.make())
+            decisions.append(decision)
 
-        return links
+        return decisions
