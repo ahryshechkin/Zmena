@@ -3,6 +3,9 @@ class Decision:
         self.component = component
         self.heuristics = heuristics
 
+    def __repr__(self):
+        return f"Decision(chosen={len(self.chosen())})"
+
     def candidates(self):
         return self.component.assess(self.heuristics)
 
