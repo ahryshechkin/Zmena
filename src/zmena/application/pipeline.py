@@ -24,12 +24,11 @@ class Pipeline:
         components = component_service.compose()
 
         decision_service = DecisionService(HeuristicRegistry())
-        links = decision_service.decide(components)
+        decisions = decision_service.decide(components)
 
         return {
             "bricks": bricks,
             "hypotheses": hypotheses,
             "components": components,
-            # "all_links": all_links,
-            "selected_links": links,
+            "decisions": decisions,
         }
