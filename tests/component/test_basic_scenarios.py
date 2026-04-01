@@ -13,8 +13,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -24,8 +24,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -35,8 +35,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -46,8 +46,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -57,8 +57,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -68,8 +68,8 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
 
@@ -79,7 +79,7 @@ class TestBasicScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for links in result["selected_links"]:
-            actual.extend([str(link) for link in links])
+        for decision in result["decisions"]:
+            actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
