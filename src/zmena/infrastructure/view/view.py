@@ -157,7 +157,8 @@ class View:
     def show_decisions(self, decisions):
         for i, decision in enumerate(decisions, 1):
             print(
-                f"\n#### Decision {i} "
+                f"\n#### Decision {i}: "
+                f"links={len(decision.chosen())} "
                 f"{'#' * 163} \n"
                 f"{'score':>7} | "
                 f"{'####'} | "
