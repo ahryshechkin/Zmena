@@ -8,11 +8,11 @@ for scenario in catalog.get_many(sce_ids):
     result = pipeline.run()
 
     view = View(scenario)
-    view.show_report()
-    view.show_bricks(result["bricks"])
-    view.show_hypotheses(result["hypotheses"])
-    view.show_components(result["components"])
-    view.show_decisions(result["decisions"])
+    # view.show_report()
+    # view.show_bricks(result["bricks"])
+    # view.show_hypotheses(result["hypotheses"])
+    # view.show_components(result["components"])
+    # view.show_decisions(result["decisions"])
 
 
 # print("")
