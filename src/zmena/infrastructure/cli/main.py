@@ -8,7 +8,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = Pipeline(scenario.before, scenario.after)
     result = pipeline.run()
 
-    BrickReport().render()
+    BrickReport(result["bricks"]).render()
 
     view = View(scenario)
     # view.show_report()

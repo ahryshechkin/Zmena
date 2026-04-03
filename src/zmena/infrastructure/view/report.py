@@ -1,4 +1,7 @@
-class Report:
+from abc import ABC, abstractmethod
+
+
+class Report(ABC):
     def __init__(self, schema):
         self.schema = schema
 
@@ -7,17 +10,20 @@ class Report:
         self.header()
         self.separator()
         self.body()
+        self.separator()
 
+    @abstractmethod
     def title(self):
         pass
 
     def header(self):
         row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
-        print(f"|{row} |")
+        print(f"| {row} |")
 
     def separator(self):
         sep = "-+-".join("-" * int(w) for _, _, w in self.schema)
-        print(f"+{sep} +")
+        print(f"+-{sep}-+")
 
+    @abstractmethod
     def body(self):
         pass

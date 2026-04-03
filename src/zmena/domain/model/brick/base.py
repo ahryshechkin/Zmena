@@ -15,9 +15,9 @@ class Brick:
     def __str__(self):
         constraint = self.constraint or ""
         return (
-            f"{self.tag.value:>7} | {self.side.value:>4} | "
+            f"{self.tag.value:>8} | {self.side.value:>4} | "
             f"{self.segment:>8} | {self.position:>8} | "
-            f"{self.name:<7} | {self.data_type:<13} | {constraint:>10} |"
+            f"{self.name:<7} | {self.data_type:<13} | {constraint:>10}"
         )
 
     def __repr__(self):
