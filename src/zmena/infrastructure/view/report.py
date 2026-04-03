@@ -12,7 +12,8 @@ class Report:
         pass
 
     def header(self):
-        print(" | ".join(f"{h:{a}{w}}" for h, a, w in self.schema))
+        row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
+        print(f"|{row} |")
 
     def separator(self):
         pass
