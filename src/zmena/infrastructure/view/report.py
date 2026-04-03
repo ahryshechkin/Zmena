@@ -16,7 +16,8 @@ class Report:
         print(f"|{row} |")
 
     def separator(self):
-        pass
+        sep = "-+-".join("-" * int(w) for _, _, w in self.schema)
+        print(f"+{sep} +")
 
     def body(self):
         pass
