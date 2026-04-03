@@ -12,9 +12,8 @@ class Report(ABC):
         self.body()
         self.separator()
 
-    @abstractmethod
     def title(self):
-        pass
+        return sum(int(w) + 3 for _, _, w in self.schema) + 2
 
     def header(self):
         row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
