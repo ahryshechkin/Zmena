@@ -3,7 +3,6 @@ from zmena.infrastructure.view.report import Report
 
 class BrickReport(Report):
     def __init__(self, bricks):
-        self.bricks = bricks
         super().__init__(
             [
                 ("tag", ">", "8"),
@@ -15,10 +14,11 @@ class BrickReport(Report):
                 ("constraint", "<", "10"),
             ]
         )
+        self.bricks = bricks
 
     def title(self):
-        prefix = "#### Bricks "
-        width = sum(int(w) + 3 for _, _, w in self.schema) - len(prefix) + 1
+        prefix = "\n#### Bricks "
+        width = super().title() - len(prefix)
         print(f"{prefix}" + "#" * width)
 
     def body(self):

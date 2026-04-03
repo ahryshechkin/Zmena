@@ -5,7 +5,7 @@ class Hypothesis:
         self.right = right
 
     def __str__(self):
-        return f"{self.rule_label.value:>9} | #### | {self.left} #### | {self.right}"
+        return f"{self.rule_label.value:>9} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
         return f"Hypothesis(rule={self.rule_label.value})"
