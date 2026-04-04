@@ -1,7 +1,7 @@
 from zmena.infrastructure.view.report import Report
 
 
-class BrickReport(Report):
+class ReportBrick(Report):
     def __init__(self, bricks):
         super().__init__(
             [

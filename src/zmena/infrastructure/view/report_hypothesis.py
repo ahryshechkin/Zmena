@@ -1,7 +1,7 @@
 from zmena.infrastructure.view.report import Report
 
 
-class HypothesisReport(Report):
+class ReportHypothesis(Report):
     def __init__(self, hypotheses):
         super().__init__(
             [
