@@ -6,7 +6,7 @@ class Link:
 
     def __str__(self):
         score = sum(evidence.score for evidence in self.evidences)
-        return f"{score:>7} | #### | {self.left} #### | {self.right}"
+        return f"{score:>7} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
         score = sum(evidence.score for evidence in self.evidences)
