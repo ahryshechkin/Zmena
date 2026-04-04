@@ -2,8 +2,9 @@ from zmena.infrastructure.view.report import Report
 
 
 class ReportLink(Report):
-    def __init__(self, links):
+    def __init__(self, links, desc="Links"):
         super().__init__(
+            desc,
             [
                 ("score", ">", "7"),
                 ("####", ">", "4"),
@@ -22,15 +23,6 @@ class ReportLink(Report):
                 ("name", "<", "7"),
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
-            ]
+            ],
+            links,
         )
-        self.links = links
-
-    def title(self, alias=None):
-        prefix = alias or "\n#### Links "
-        width = self.length() - len(prefix)
-        print(f"{prefix}" + "#" * width)
-
-    def body(self):
-        for link in self.links:
-            print(f"| {link} |")
