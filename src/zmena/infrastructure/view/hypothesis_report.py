@@ -26,9 +26,9 @@ class HypothesisReport(Report):
         )
         self.hypotheses = hypotheses
 
-    def title(self):
-        prefix = "\n#### Hypotheses "
-        width = sum(int(w) + 3 for _, _, w in self.schema) - len(prefix) + 2
+    def title(self, alias=None):
+        prefix = alias or "\n#### Hypotheses "
+        width = self.length() - len(prefix)
         print(f"{prefix}" + "#" * width)
 
     def body(self):
