@@ -1,7 +1,7 @@
 ## Zmena
 
 [![Lines of Code](https://img.shields.io/endpoint?url=https://tokei.kojix2.net/badge/github/ahryshechkin/Zmena/lines)](https://tokei.kojix2.net/github/ahryshechkin/Zmena)
-[![Hits of Code](https://hitsofcode.com/github/ahryshechkin/Zmena)](https://hitsofcode.com/github/ahryshechkin/Zmena/view)
+[![Hits-of-Code](https://hitsofcode.com/github/ahryshechkin/Zmena?branch=main)](https://hitsofcode.com/github/ahryshechkin/Zmena/view?branch=main)
 [![Coverage](https://codecov.io/gh/ahryshechkin/Zmena/branch/main/graph/badge.svg)](https://codecov.io/gh/ahryshechkin/Zmena)
 
 Writing SQL migrations by hand... again?
