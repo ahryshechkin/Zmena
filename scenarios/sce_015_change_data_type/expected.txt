@@ -1,1 +1,1 @@
-     65 | #### | replace |    L | 07080708 |        8 | col_08  | date          |   not null | #### | replace |    R | 07080708 |        8 | col_08  | datetime2     |   not null |
+     65 | #### |  replace |    L | 07080708 |        8 | col_08  | date          |   not null | #### |  replace |    R | 07080708 |        8 | col_08  | datetime2     |   not null

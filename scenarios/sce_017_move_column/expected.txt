@@ -1,1 +1,1 @@
-     35 | #### |  delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |  insert |    R | 03030304 |        4 | col_07  | varchar(1)    |   not null |
+     35 | #### |   delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |   insert |    R | 03030304 |        4 | col_07  | varchar(1)    |   not null
