@@ -1,8 +1,9 @@
 from zmena.application import Pipeline, ScenarioCatalog
-from zmena.infrastructure.view.brick_report import BrickReport
-from zmena.infrastructure.view.component_report import ComponentReport
-from zmena.infrastructure.view.hypothesis_report import HypothesisReport
+from zmena.infrastructure.view.report_brick import ReportBrick
+from zmena.infrastructure.view.report_component import ReportComponent
 from zmena.infrastructure.view.report_decision import ReportDecision
+from zmena.infrastructure.view.report_hypothesis import ReportHypothesis
+from zmena.infrastructure.view.report_link import ReportLink
 from zmena.infrastructure.view.view import View
 
 sce_ids = ["313"]
@@ -14,10 +15,10 @@ for scenario in catalog.get_many(sce_ids):
     view = View(scenario)
     view.show_report()
 
-    BrickReport(result["bricks"]).render()
-    HypothesisReport(result["hypotheses"]).render()
-    ComponentReport(result["components"]).render()
-    # ReportLink(result["decisions"][0].chosen()).render()
+    ReportBrick(result["bricks"]).render()
+    ReportHypothesis(result["hypotheses"]).render()
+    ReportComponent(result["components"]).render()
+    ReportLink(result["decisions"][0].chosen()).render()
     ReportDecision(result["decisions"]).render()
 
     # view.show_bricks(result["bricks"])

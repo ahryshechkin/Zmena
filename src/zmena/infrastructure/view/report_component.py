@@ -1,8 +1,8 @@
-from zmena.infrastructure.view.brick_report import BrickReport
-from zmena.infrastructure.view.hypothesis_report import HypothesisReport
+from zmena.infrastructure.view.report_brick import ReportBrick
+from zmena.infrastructure.view.report_hypothesis import ReportHypothesis
 
 
-class ComponentReport:
+class ReportComponent:
     def __init__(self, components):
         self.components = components
 
@@ -16,5 +16,5 @@ class ComponentReport:
                 f"hypotheses={len(component.hypotheses)}, bricks={len(component.bricks)} "
             )
 
-            HypothesisReport(component.hypotheses).render(title)
-            BrickReport(component.bricks).render(title)
+            ReportHypothesis(component.hypotheses).render(title)
+            ReportBrick(component.bricks).render(title)
