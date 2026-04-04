@@ -16,9 +16,9 @@ class BrickReport(Report):
         )
         self.bricks = bricks
 
-    def title(self):
-        prefix = "\n#### Bricks "
-        width = super().title() - len(prefix)
+    def title(self, alias=None):
+        prefix = alias or "\n#### Bricks "
+        width = self.length() - len(prefix)
         print(f"{prefix}" + "#" * width)
 
     def body(self):

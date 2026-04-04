@@ -5,15 +5,16 @@ class Report(ABC):
     def __init__(self, schema):
         self.schema = schema
 
-    def render(self):
-        self.title()
+    def render(self, alias=None):
+        self.title(alias)
         self.header()
         self.separator()
         self.body()
         self.separator()
 
-    def title(self):
-        return sum(int(w) + 3 for _, _, w in self.schema) + 2
+    @abstractmethod
+    def title(self, alias):
+        pass
 
     def header(self):
         row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
@@ -26,3 +27,6 @@ class Report(ABC):
     @abstractmethod
     def body(self):
         pass
+
+    def length(self):
+        return sum(int(w) + 3 for _, _, w in self.schema) + 2
