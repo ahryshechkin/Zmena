@@ -1,1 +1,1 @@
-      0 | #### |    stub |    L |          |          |         |               |            | #### |  insert |    R | 08080809 |        9 | col_88  | date          |   not null |
+      0 | #### |     stub |    L |          |          |         |               |            | #### |   insert |    R | 08080809 |        9 | col_88  | date          |   not null

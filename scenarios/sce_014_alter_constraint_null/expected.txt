@@ -1,1 +1,1 @@
-     65 | #### | replace |    L | 06070607 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R | 06070607 |        7 | col_07  | varchar(1)    |            |
+     65 | #### |  replace |    L | 06070607 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 06070607 |        7 | col_07  | varchar(1)    |           
