@@ -1,20 +1,20 @@
-from abc import ABC, abstractmethod
-
-
-class Report(ABC):
-    def __init__(self, schema):
+class Report:
+    def __init__(self, desc, schema, rows):
+        self.desc = desc
         self.schema = schema
+        self.rows = rows
 
-    def render(self, alias=None):
-        self.title(alias)
+    def render(self):
+        self.title()
         self.header()
         self.separator()
         self.body()
         self.separator()
 
-    @abstractmethod
-    def title(self, alias):
-        pass
+    def title(self):
+        prefix = f"\n#### {self.desc} "
+        width = self.length() - len(prefix)
+        print(f"{prefix}" + "#" * width)
 
     def header(self):
         row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
@@ -24,9 +24,9 @@ class Report(ABC):
         sep = "-+-".join("-" * int(w) for _, _, w in self.schema)
         print(f"+-{sep}-+")
 
-    @abstractmethod
     def body(self):
-        pass
+        for row in self.rows:
+            print(f"| {row} |")
 
     def length(self):
         return sum(int(w) + 3 for _, _, w in self.schema) + 2

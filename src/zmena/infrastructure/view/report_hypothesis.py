@@ -2,8 +2,9 @@ from zmena.infrastructure.view.report import Report
 
 
 class ReportHypothesis(Report):
-    def __init__(self, hypotheses):
+    def __init__(self, hypotheses, desc="Hypotheses"):
         super().__init__(
+            desc,
             [
                 ("rule", ">", "9"),
                 ("####", ">", "4"),
@@ -22,15 +23,6 @@ class ReportHypothesis(Report):
                 ("name", "<", "7"),
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
-            ]
+            ],
+            hypotheses,
         )
-        self.hypotheses = hypotheses
-
-    def title(self, alias=None):
-        prefix = alias or "\n#### Hypotheses "
-        width = self.length() - len(prefix)
-        print(f"{prefix}" + "#" * width)
-
-    def body(self):
-        for hypothesis in self.hypotheses:
-            print(f"| {hypothesis} |")

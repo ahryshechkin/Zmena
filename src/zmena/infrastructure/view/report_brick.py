@@ -2,8 +2,9 @@ from zmena.infrastructure.view.report import Report
 
 
 class ReportBrick(Report):
-    def __init__(self, bricks):
+    def __init__(self, bricks, desc="Bricks"):
         super().__init__(
+            desc,
             [
                 ("tag", ">", "8"),
                 ("side", ">", "4"),
@@ -12,15 +13,6 @@ class ReportBrick(Report):
                 ("name", "<", "7"),
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
-            ]
+            ],
+            bricks,
         )
-        self.bricks = bricks
-
-    def title(self, alias=None):
-        prefix = alias or "\n#### Bricks "
-        width = self.length() - len(prefix)
-        print(f"{prefix}" + "#" * width)
-
-    def body(self):
-        for brick in self.bricks:
-            print(f"| {brick} |")
