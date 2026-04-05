@@ -1,9 +1,9 @@
 from zmena.application import Pipeline, ScenarioCatalog
-from zmena.infrastructure.representation.report_brick import ReportBrick
-from zmena.infrastructure.representation.report_component import ReportComponent
-from zmena.infrastructure.representation.report_decision import ReportDecision
-from zmena.infrastructure.representation.report_hypothesis import ReportHypothesis
-from zmena.infrastructure.representation.report_link import ReportLink
+from zmena.infrastructure.representation.composite.component import ReportComponent
+from zmena.infrastructure.representation.composite.decision import ReportDecision
+from zmena.infrastructure.representation.simple.brick import ReportBrick
+from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
+from zmena.infrastructure.representation.simple.link import ReportLink
 from zmena.infrastructure.representation.view import View
 
 sce_ids = ["313"]
