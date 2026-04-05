@@ -1,7 +1,7 @@
-from zmena.infrastructure.view.report import Report
+from zmena.infrastructure.view.report_simple import ReportSimple
 
 
-class ReportBrick(Report):
+class ReportBrick(ReportSimple):
     def __init__(self, bricks, desc="Bricks"):
         super().__init__(
             desc,
