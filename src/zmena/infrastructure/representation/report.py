@@ -4,8 +4,8 @@ from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
 from zmena.infrastructure.representation.color import Color
-from zmena.infrastructure.representation.composite.component import ReportComponent
-from zmena.infrastructure.representation.composite.decision import ReportDecision
+from zmena.infrastructure.representation.composite.components import ReportComponents
+from zmena.infrastructure.representation.composite.decisions import ReportDecisions
 from zmena.infrastructure.representation.simple.brick import ReportBrick
 from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
 
@@ -85,9 +85,9 @@ class Report:
         report.render()
 
     def show_components(self, components):
-        report = ReportComponent(components)
+        report = ReportComponents(components)
         report.render()
 
     def show_decisions(self, decisions):
-        report = ReportDecision(decisions)
+        report = ReportDecisions(decisions)
         report.render()
