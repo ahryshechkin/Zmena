@@ -1,7 +1,7 @@
-from zmena.infrastructure.view.report import Report
+from zmena.infrastructure.view.report_simple import ReportSimple
 
 
-class ReportLink(Report):
+class ReportLink(ReportSimple):
     def __init__(self, links, desc="Links"):
         super().__init__(
             desc,
