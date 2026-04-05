@@ -8,8 +8,7 @@ for scenario in catalog.get_many(sce_ids):
     result = pipeline.run()
 
     report = Report(scenario)
-    report.show_report()
-
+    report.show_scenario()
     report.show_bricks(result["bricks"])
     report.show_hypotheses(result["hypotheses"])
     report.show_components(result["components"])
