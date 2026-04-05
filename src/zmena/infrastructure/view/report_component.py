@@ -5,16 +5,15 @@ from zmena.infrastructure.view.report_hypothesis import ReportHypothesis
 
 class ReportComponent(ReportComposite):
     def __init__(self, components):
+        super().__init__("Component")
         self.components = components
 
-    def body(self):
+    def render(self):
         for i, component in enumerate(self.components, 1):
-            desc = self.title(
-                "Component", i, hypotheses=len(component.hypotheses), bricks=len(component.bricks)
-            )
+            name = self.title(i, hypotheses=len(component.hypotheses), bricks=len(component.bricks))
 
-            report_hypothesis = ReportHypothesis(component.hypotheses, desc)
+            report_hypothesis = ReportHypothesis(component.hypotheses, name)
             report_hypothesis.render()
 
-            report_brick = ReportBrick(component.bricks, desc)
+            report_brick = ReportBrick(component.bricks, name)
             report_brick.render()

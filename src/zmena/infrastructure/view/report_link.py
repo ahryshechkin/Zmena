@@ -2,9 +2,9 @@ from zmena.infrastructure.view.report_simple import ReportSimple
 
 
 class ReportLink(ReportSimple):
-    def __init__(self, links, desc="Links"):
+    def __init__(self, links, name="Links"):
         super().__init__(
-            desc,
+            name,
             [
                 ("score", ">", "7"),
                 ("####", ">", "4"),

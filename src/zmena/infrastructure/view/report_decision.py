@@ -4,11 +4,12 @@ from zmena.infrastructure.view.report_link import ReportLink
 
 class ReportDecision(ReportComposite):
     def __init__(self, decisions):
+        super().__init__("Decision")
         self.decisions = decisions
 
-    def body(self):
+    def render(self):
         for i, decision in enumerate(self.decisions, 1):
-            title = f"Decision {i}: links={len(decision.chosen())}"
+            name = f"Decision {i}: links={len(decision.chosen())}"
 
-            report_link = ReportLink(decision.chosen(), title)
+            report_link = ReportLink(decision.chosen(), name)
             report_link.render()
