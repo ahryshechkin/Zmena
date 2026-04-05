@@ -1,6 +1,6 @@
 class ReportSimple:
-    def __init__(self, desc, schema, rows):
-        self.desc = desc
+    def __init__(self, name, schema, rows):
+        self.name = name
         self.schema = schema
         self.rows = rows
 
@@ -12,7 +12,7 @@ class ReportSimple:
         self.separator()
 
     def title(self):
-        prefix = f"\n#### {self.desc} "
+        prefix = f"\n#### {self.name} "
         width = self.length() - len(prefix)
         print(f"{prefix}" + "#" * width)
 

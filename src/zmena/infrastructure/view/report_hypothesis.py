@@ -2,9 +2,9 @@ from zmena.infrastructure.view.report_simple import ReportSimple
 
 
 class ReportHypothesis(ReportSimple):
-    def __init__(self, hypotheses, desc="Hypotheses"):
+    def __init__(self, hypotheses, name="Hypotheses"):
         super().__init__(
-            desc,
+            name,
             [
                 ("rule", ">", "9"),
                 ("####", ">", "4"),

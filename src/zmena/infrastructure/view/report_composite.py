@@ -1,7 +1,14 @@
-class ReportComposite:
-    def render(self):
-        self.body()
+from abc import ABC, abstractmethod
 
-    def title(self, name, idx, **metrics):
-        text = ", ".join(f"{key}={value}" for key, value in metrics.items())
-        return f"{name} {idx}: {text}"
+
+class ReportComposite(ABC):
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def render(self):
+        pass
+
+    def title(self, idx, **metrics):
+        desc = ", ".join(f"{key}={value}" for key, value in metrics.items())
+        return f"{self.name} {idx}: {desc}"
