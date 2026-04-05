@@ -3,7 +3,7 @@ from zmena.infrastructure.representation.simple.brick import ReportBrick
 from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
 
 
-class ReportComponent(ReportComposite):
+class ReportComponents(ReportComposite):
     def __init__(self, components):
         super().__init__("Component")
         self.components = components
