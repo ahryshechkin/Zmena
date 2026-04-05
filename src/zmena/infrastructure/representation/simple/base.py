@@ -17,8 +17,8 @@ class ReportSimple:
         print(f"{prefix}" + "#" * width)
 
     def header(self):
-        row = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
-        print(f"| {row} |")
+        col = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
+        print(f"| {col} |")
 
     def separator(self):
         sep = "-+-".join("-" * int(w) for _, _, w in self.schema)
