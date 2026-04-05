@@ -9,6 +9,6 @@ class ReportComposite(ABC):
     def render(self):
         pass
 
-    def title(self, idx, **metrics):
+    def compose(self, idx, **metrics):
         desc = ", ".join(f"{key}={value}" for key, value in metrics.items())
         return f"{self.name} {idx}: {desc}"

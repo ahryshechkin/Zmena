@@ -10,7 +10,9 @@ class ReportComponent(ReportComposite):
 
     def render(self):
         for i, component in enumerate(self.components, 1):
-            name = self.title(i, hypotheses=len(component.hypotheses), bricks=len(component.bricks))
+            name = self.compose(
+                i, hypotheses=len(component.hypotheses), bricks=len(component.bricks)
+            )
 
             report_hypothesis = ReportHypothesis(component.hypotheses, name)
             report_hypothesis.render()
