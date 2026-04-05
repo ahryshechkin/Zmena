@@ -1,6 +1,6 @@
-     35 | #### |  delete |    L | 06080808 |        7 | col_07  | varchar(1)    |   not null | #### | replace |    R | 03040306 |        4 | col_07  | varchar(1)    |   not null |
-     35 | #### | replace |    L | 03040306 |        4 | col_04  | varchar(50)   |   not null | #### | replace |    R | 03040306 |        6 | col_04  | varchar(51)   |   not null |
-     35 | #### |  delete |    L | 06080808 |        8 | col_08  | date          |   not null | #### | replace |    R | 03040306 |        5 | col_08  | date          |   not null |
-     35 | #### |  delete |    L | 16181818 |       17 | col_17  | varchar(1)    |   not null | #### | replace |    R | 13141316 |       14 | col_17  | varchar(1)    |   not null |
-     35 | #### | replace |    L | 13141316 |       14 | col_14  | varchar(50)   |   not null | #### | replace |    R | 13141316 |       16 | col_14  | varchar(51)   |   not null |
-     35 | #### |  delete |    L | 16181818 |       18 | col_18  | date          |   not null | #### | replace |    R | 13141316 |       15 | col_18  | date          |   not null |
+     35 | #### |   delete |    L | 06080808 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 03040306 |        4 | col_07  | varchar(1)    |   not null
+     35 | #### |  replace |    L | 03040306 |        4 | col_04  | varchar(50)   |   not null | #### |  replace |    R | 03040306 |        6 | col_04  | varchar(51)   |   not null
+     35 | #### |   delete |    L | 06080808 |        8 | col_08  | date          |   not null | #### |  replace |    R | 03040306 |        5 | col_08  | date          |   not null
+     35 | #### |   delete |    L | 16181818 |       17 | col_17  | varchar(1)    |   not null | #### |  replace |    R | 13141316 |       14 | col_17  | varchar(1)    |   not null
+     35 | #### |  replace |    L | 13141316 |       14 | col_14  | varchar(50)   |   not null | #### |  replace |    R | 13141316 |       16 | col_14  | varchar(51)   |   not null
+     35 | #### |   delete |    L | 16181818 |       18 | col_18  | date          |   not null | #### |  replace |    R | 13141316 |       15 | col_18  | date          |   not null
