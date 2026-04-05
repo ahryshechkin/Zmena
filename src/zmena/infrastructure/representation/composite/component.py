@@ -1,6 +1,6 @@
-from zmena.infrastructure.representation.report_brick import ReportBrick
-from zmena.infrastructure.representation.report_composite import ReportComposite
-from zmena.infrastructure.representation.report_hypothesis import ReportHypothesis
+from zmena.infrastructure.representation.composite.base import ReportComposite
+from zmena.infrastructure.representation.simple.brick import ReportBrick
+from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
 
 
 class ReportComponent(ReportComposite):
