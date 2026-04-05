@@ -1,4 +1,4 @@
-from zmena.infrastructure.view.report_simple import ReportSimple
+from zmena.infrastructure.representation.report_simple import ReportSimple
 
 
 class ReportBrick(ReportSimple):

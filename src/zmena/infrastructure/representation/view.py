@@ -3,7 +3,7 @@ from difflib import SequenceMatcher
 from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
-from zmena.infrastructure.view.color import Color
+from zmena.infrastructure.representation.color import Color
 
 
 class View:

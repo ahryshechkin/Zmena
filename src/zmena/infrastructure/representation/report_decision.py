@@ -1,5 +1,5 @@
-from zmena.infrastructure.view.report_composite import ReportComposite
-from zmena.infrastructure.view.report_link import ReportLink
+from zmena.infrastructure.representation.report_composite import ReportComposite
+from zmena.infrastructure.representation.report_link import ReportLink
 
 
 class ReportDecision(ReportComposite):
