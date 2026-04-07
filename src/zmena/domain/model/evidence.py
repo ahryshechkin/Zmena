@@ -1,8 +1,12 @@
-class Evidence:
-    def __init__(self, heuristic_label, hypothesis, score):
-        self.heuristic_label = heuristic_label
-        self.hypothesis = hypothesis
-        self.score = score
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
-    def __repr__(self):
-        return f"Evidence(heuristic={self.heuristic_label},score={self.score})"
+if TYPE_CHECKING:
+    from zmena.domain.model.hypothesis import Hypothesis
+
+
+@dataclass
+class Evidence:
+    hypothesis: Hypothesis
+    score: int
+    reason: str

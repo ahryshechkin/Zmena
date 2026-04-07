@@ -11,5 +11,5 @@ class HeuristicPosition(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.rule_label == RuleLabel.POSITION:
-            return [Evidence(self.label, hypothesis, 30)]
+            return [Evidence(hypothesis, 30, self.label)]
         return []
