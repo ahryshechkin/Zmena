@@ -1,9 +1,15 @@
 class ReportExplanation:
-    def __init__(self, explanations):
-        self.explanations = explanations
+    def __init__(self, explanation):
+        self.explanation = explanation
 
     def render(self):
-        for explanation in self.explanations:
-            left, right = explanation["bricks"]
-            evidences = "\n".join([evidence["reason"] for evidence in explanation["evidences"]])
-            print(f"Chosen link: {left.name} {right.name}\nbecause of:\n  {evidences}")
+        for link in self.explanation.links:
+            left, right = link.bricks
+            score = link.score
+            evidences = "\n".join(
+                [f"{evidence.reason}    {evidence.score}" for evidence in link.evidences]
+            )
+
+            print(
+                f"Chosen Link: {left.name} -> {right.name}\nScore: {score}\nEvidences:\n{evidences}"
+            )
