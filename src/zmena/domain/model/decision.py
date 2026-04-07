@@ -1,3 +1,6 @@
+from zmena.domain.explanations.decision import ExplanationDecision
+
+
 class Decision:
     def __init__(self, component, heuristics):
         self.component = component
@@ -25,4 +28,4 @@ class Decision:
         return links
 
     def explain(self):
-        return [link.justification() for link in self.chosen()]
+        return ExplanationDecision([link.justification() for link in self.chosen()])

@@ -10,3 +10,6 @@ class Evidence:
     hypothesis: Hypothesis
     score: int
     reason: str
+
+    def __repr__(self):
+        return f"Evidence(score={self.score}reason={self.reason})"

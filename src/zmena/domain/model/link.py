@@ -1,3 +1,6 @@
+from zmena.domain.explanations.link import ExplanationLink
+
+
 class Link:
     def __init__(self, hypothesis):
         self.left = hypothesis.left
@@ -17,19 +20,6 @@ class Link:
         score_other = sum(evidence.score for evidence in other.evidences)
         return score_self < score_other
 
-    def justification(self):
-        return {
-            "bricks": self.bricks(),
-            "total_score": sum(evidence.score for evidence in self.evidences),
-            "evidences": [
-                {
-                    "score": evidence.score,
-                    "reason": str(evidence.reason),
-                }
-                for evidence in self.evidences
-            ],
-        }
-
     def bricks(self):
         return self.left, self.right
 
@@ -38,3 +28,10 @@ class Link:
 
     def conflicts_with(self, used_bricks):
         return self.left in used_bricks or self.right in used_bricks
+
+    def justification(self):
+        return ExplanationLink(
+            bricks=self.bricks(),
+            score=sum(evidence.score for evidence in self.evidences),
+            evidences=list(self.evidences),
+        )
