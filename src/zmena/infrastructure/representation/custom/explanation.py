@@ -5,11 +5,16 @@ class ReportExplanation:
     def render(self):
         for link in self.explanation.links:
             left, right = link.bricks
-            score = link.score
-            evidences = "\n".join(
-                [f"{evidence.reason}    {evidence.score}" for evidence in link.evidences]
-            )
+
+            evidences = []
+            for evi in link.evidences:
+                sign = "✔  +" if evi.score >= 0 else "✖  -"
+                filler = " "
+                evidence = f"{filler:<3}{sign}{abs(evi.score):<4}{evi.reason}\n"
+                evidences.append(evidence)
 
             print(
-                f"Chosen Link: {left.name} -> {right.name}\nScore: {score}\nEvidences:\n{evidences}"
+                f"Link: {left.name} -> {right.name}\n"
+                f"Score: {link.score}\n"
+                f"Evidences:\n{''.join(evidences)}"
             )
