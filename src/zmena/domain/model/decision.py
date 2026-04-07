@@ -23,3 +23,6 @@ class Decision:
             links.append(candidate)
 
         return links
+
+    def explain(self):
+        return [link.justification() for link in self.chosen()]

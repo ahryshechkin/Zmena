@@ -1,4 +1,5 @@
 from zmena.infrastructure.representation.composite.base import ReportComposite
+from zmena.infrastructure.representation.custom.explanation import ReportExplanation
 from zmena.infrastructure.representation.simple.link import ReportLink
 
 
@@ -16,3 +17,6 @@ class ReportDecisions(ReportComposite):
             name_chosen = self.compose(i, links=len(decision.chosen()))
             report_chosen = ReportLink(decision.chosen(), name_chosen)
             report_chosen.render()
+
+            report_explanation = ReportExplanation(decision.explain())
+            report_explanation.render()

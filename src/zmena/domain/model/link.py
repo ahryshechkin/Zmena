@@ -17,6 +17,19 @@ class Link:
         score_other = sum(evidence.score for evidence in other.evidences)
         return score_self < score_other
 
+    def justification(self):
+        return {
+            "bricks": self.bricks(),
+            "total_score": sum(evidence.score for evidence in self.evidences),
+            "evidences": [
+                {
+                    "score": evidence.score,
+                    "reason": str(evidence.reason),
+                }
+                for evidence in self.evidences
+            ],
+        }
+
     def bricks(self):
         return self.left, self.right
 
