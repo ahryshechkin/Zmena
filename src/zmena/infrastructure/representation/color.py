@@ -16,7 +16,7 @@ class Color:
             Tag.REPLACE: self.YELLOW,
         }
 
-        return f"{colors[tag].value}{text}{self.RESET.value}"
+        return f"{colors[tag]}{text}{self.RESET}"
 
     def style_sign(self, sign):
         colors = {
