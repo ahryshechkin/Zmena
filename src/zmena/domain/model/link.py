@@ -8,17 +8,16 @@ class Link:
         self.evidences = []
 
     def __str__(self):
-        score = sum(evidence.score for evidence in self.evidences)
-        return f"{score:>7} | #### | {self.left} | #### | {self.right}"
+        return f"{self.score():>7} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
-        score = sum(evidence.score for evidence in self.evidences)
-        return f"Link(score={score},evidences={len(self.evidences)})"
+        return f"Link(score={self.score()},evidences={len(self.evidences)})"
 
     def __lt__(self, other):
-        score_self = sum(evidence.score for evidence in self.evidences)
-        score_other = sum(evidence.score for evidence in other.evidences)
-        return score_self < score_other
+        return self.score() < other.score()
+
+    def score(self):
+        return sum(evidence.score for evidence in self.evidences)
 
     def bricks(self):
         return self.left, self.right
@@ -32,6 +31,6 @@ class Link:
     def justification(self):
         return ExplanationLink(
             bricks=self.bricks(),
-            score=sum(evidence.score for evidence in self.evidences),
+            score=self.score(),
             evidences=list(self.evidences),
         )
