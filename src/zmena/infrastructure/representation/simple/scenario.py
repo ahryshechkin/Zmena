@@ -22,6 +22,7 @@ class ReportScenario(ReportSimple):
             [],
         )
         self.scenario = scenario
+        self.color = Color()
         self.sm = SequenceMatcher()
 
     def body(self):
@@ -44,26 +45,16 @@ class ReportScenario(ReportSimple):
                     self.show_line(idx, hunk)
 
     def show_line(self, offset, hunk):
-        # line = (
-        #     f"{hunk.kind().value:>7} | "
-        #     f"{hunk.fingerprint():>11} | "
-        #     f"{hunk.left_lineno(offset):>6} | "
-        #     f"{hunk.left_line(offset):<{self.width_left()}} | "
-        #     f"{hunk.right_lineno(offset):>6} | "
-        #     f"{hunk.right_line(offset):<{self.width_right()}}"
-        # )
-        pass
-        # print(self.colorize(hunk.kind(), f"| {line} |"))
+        line = (
+            f"{hunk.kind().value:>7} | "
+            f"{hunk.fingerprint():>11} | "
+            f"{hunk.left_lineno(offset):>6} | "
+            f"{hunk.left_line(offset):<{self.width_left()}} | "
+            f"{hunk.right_lineno(offset):>6} | "
+            f"{hunk.right_line(offset):<{self.width_right()}}"
+        )
 
-    def colorize(self, tag, text):
-        colors = {
-            Tag.DELETE: Color.RED,
-            Tag.EQUAL: Color.GRAY,
-            Tag.INSERT: Color.GREEN,
-            Tag.REPLACE: Color.YELLOW,
-        }
-
-        return f"{colors[tag].value}{text}{Color.RESET.value}"
+        print(self.color.style_text(hunk.kind(), f"| {line} |"))
 
     def width_left(self):
         return len(max(self.scenario.before, key=len, default=None))
