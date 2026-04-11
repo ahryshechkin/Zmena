@@ -8,7 +8,7 @@ class Color:
     YELLOW = "\033[93m"
     RESET = "\033[0m"
 
-    def colorize_text(self, tag, text):
+    def style_text(self, tag, text):
         colors = {
             Tag.DELETE: self.RED,
             Tag.EQUAL: self.GRAY,
@@ -18,10 +18,12 @@ class Color:
 
         return f"{colors[tag].value}{text}{self.RESET.value}"
 
-    def colorize_sign(self, sign, text):
+    def style_sign(self, sign):
         colors = {
-            "-": self.RED,
-            "+": self.GREEN,
+            "-": ("✖", self.RED),
+            "+": ("✔", self.GREEN),
         }
 
-        return f"{colors[sign]}{text}{self.RESET}"
+        mark, color = colors[sign]
+
+        return f"{color}{mark}{self.RESET}"
