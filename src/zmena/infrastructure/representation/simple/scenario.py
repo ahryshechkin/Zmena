@@ -44,16 +44,16 @@ class ReportScenario(ReportSimple):
                     self.show_line(idx, hunk)
 
     def show_line(self, offset, hunk):
-        line = (
-            f"{hunk.kind().value:>7} | "
-            f"{hunk.fingerprint():>11} | "
-            f"{hunk.left_lineno(offset):>6} | "
-            f"{hunk.left_line(offset):<{self.width_left()}} | "
-            f"{hunk.right_lineno(offset):>6} | "
-            f"{hunk.right_line(offset):<{self.width_right()}}"
-        )
-
-        print(self.colorize(hunk.kind(), f"| {line} |"))
+        # line = (
+        #     f"{hunk.kind().value:>7} | "
+        #     f"{hunk.fingerprint():>11} | "
+        #     f"{hunk.left_lineno(offset):>6} | "
+        #     f"{hunk.left_line(offset):<{self.width_left()}} | "
+        #     f"{hunk.right_lineno(offset):>6} | "
+        #     f"{hunk.right_line(offset):<{self.width_right()}}"
+        # )
+        pass
+        # print(self.colorize(hunk.kind(), f"| {line} |"))
 
     def colorize(self, tag, text):
         colors = {

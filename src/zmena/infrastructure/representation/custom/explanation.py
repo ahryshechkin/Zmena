@@ -1,6 +1,10 @@
+from zmena.infrastructure.representation.color import Color
+
+
 class ReportExplanation:
     def __init__(self, explanation):
         self.explanation = explanation
+        self.color = Color()
 
     def render(self):
         for link in self.explanation.links:
@@ -8,9 +12,14 @@ class ReportExplanation:
 
             evidences = []
             for evi in link.evidences:
-                sign = "✔  +" if evi.score >= 0 else "✖  -"
                 filler = " "
-                evidence = f"{filler:<3}{sign}{abs(evi.score):<4}{evi.reason}\n"
+                if evi.score >= 0:
+                    sign = "+"
+                    mark = self.color.colorize_sign(sign, "✔")
+                else:
+                    sign = "-"
+                    mark = self.color.colorize_sign(sign, "✖")
+                evidence = f"{filler:<3}{mark}{sign:>3}{abs(evi.score):<4}{evi.reason}\n"
                 evidences.append(evidence)
 
             print(
