@@ -12,13 +12,13 @@ class ReportSimple:
         self.separator()
 
     def title(self):
-        prefix = f"\n#### {self.name} "
+        prefix = f"#### {self.name} "
         width = self.length() - len(prefix)
-        print(f"{prefix}" + "#" * width)
+        print(f"\n{prefix}" + "#" * width)
 
     def header(self):
-        col = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
-        print(f"| {col} |")
+        cols = " | ".join(f"{h:{a}{w}}" for h, a, w in self.schema)
+        print(f"| {cols} |")
 
     def separator(self):
         sep = "-+-".join("-" * int(w) for _, _, w in self.schema)
@@ -29,4 +29,4 @@ class ReportSimple:
             print(f"| {row} |")
 
     def length(self):
-        return sum(int(w) + 3 for _, _, w in self.schema) + 2
+        return sum(int(w) + 3 for _, _, w in self.schema) + 1
