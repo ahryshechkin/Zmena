@@ -10,13 +10,13 @@ class ReportDecisions(ReportComposite):
 
     def render(self):
         for i, decision in enumerate(self.decisions, 1):
-            name_candidate = self.compose(i, candidates=len(decision.candidates()))
-            report_candidate = ReportLink(decision.candidates(), name_candidate)
+            title_candidate = self.compose(i, candidates=len(decision.candidates()))
+            report_candidate = ReportLink(decision.candidates(), title_candidate)
             report_candidate.render()
 
-            name_chosen = self.compose(i, links=len(decision.chosen()))
-            report_chosen = ReportLink(decision.chosen(), name_chosen)
+            title_chosen = self.compose(i, links=len(decision.chosen()))
+            report_chosen = ReportLink(decision.chosen(), title_chosen)
             report_chosen.render()
 
-            report_explanation = ReportExplanation(decision.explain())
+            report_explanation = ReportExplanation(decision.explain(), title_chosen)
             report_explanation.render()
