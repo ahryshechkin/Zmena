@@ -17,7 +17,7 @@ class Link:
         return self.score() < other.score()
 
     def score(self):
-        return sum(evidence.score for evidence in self.evidences)
+        return round(sum(evidence.score() for evidence in self.evidences), 1)
 
     def bricks(self):
         return self.left, self.right

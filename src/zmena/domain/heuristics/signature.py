@@ -11,5 +11,5 @@ class HeuristicSignature(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.rule_label == RuleLabel.SIGNATURE:
-            return [Evidence(hypothesis, 40, self.label)]
+            return [Evidence(hypothesis, 1.0, 0.9, self.label)]
         return []
