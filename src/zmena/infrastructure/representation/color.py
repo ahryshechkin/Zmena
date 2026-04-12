@@ -7,6 +7,7 @@ class Color:
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
     RESET = "\033[0m"
+    BOLD = "\033[1m"
 
     def style_text(self, tag, text):
         colors = {
@@ -20,10 +21,10 @@ class Color:
 
     def style_sign(self, sign):
         colors = {
-            "-": ("✖", self.RED),
-            "+": ("✔", self.GREEN),
+            "-": ("x", self.RED),
+            "+": ("v", self.GREEN),
         }
 
         mark, color = colors[sign]
 
-        return f"{color}{mark}{self.RESET}"
+        return f"{color}{self.BOLD}{mark}{self.RESET}"
