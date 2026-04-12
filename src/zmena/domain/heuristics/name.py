@@ -11,5 +11,5 @@ class HeuristicName(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.rule_label == RuleLabel.NAME:
-            return [Evidence(hypothesis, 50, self.label)]
+            return [Evidence(hypothesis, 1.0, 1.0, self.label)]
         return []
