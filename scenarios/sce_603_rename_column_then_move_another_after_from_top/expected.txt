@@ -1,2 +1,2 @@
-     40 | #### |  replace |    L | 06070507 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 06070507 |        6 | col_77  | varchar(1)    |   not null
-     35 | #### |   delete |    L | 02030202 |        3 | col_03  | varchar(200)  |            | #### |  replace |    R | 06070507 |        7 | col_03  | varchar(200)  |           
+    0.9 | #### |  replace |    L | 06070507 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 06070507 |        6 | col_77  | varchar(1)    |   not null
+    0.6 | #### |   delete |    L | 02030202 |        3 | col_03  | varchar(200)  |            | #### |  replace |    R | 06070507 |        7 | col_03  | varchar(200)  |           

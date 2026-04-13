@@ -1,2 +1,2 @@
-     65 | #### |  replace |    L | 03040305 |        4 | col_04  | varchar(50)   |   not null | #### |  replace |    R | 03040305 |        4 | col_04  | date          |           
-     35 | #### |   delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 03040305 |        5 | col_07  | varchar(1)    |   not null
+    1.1 | #### |  replace |    L | 03040305 |        4 | col_04  | varchar(50)   |   not null | #### |  replace |    R | 03040305 |        4 | col_04  | date          |           
+    0.6 | #### |   delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 03040305 |        5 | col_07  | varchar(1)    |   not null

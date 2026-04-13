@@ -1,1 +1,1 @@
-     65 | #### |  replace |    L | 05060506 |        6 | col_06  | int           |            | #### |  replace |    R | 05060506 |        6 | col_06  | int           |   not null
+    1.1 | #### |  replace |    L | 05060506 |        6 | col_06  | int           |            | #### |  replace |    R | 05060506 |        6 | col_06  | int           |   not null
