@@ -50,7 +50,7 @@ class ReportExplanation:
         filler = " " * 3
         sign = "+" if evidence.score() >= 0 else "-"
         mark = self.color.style_sign(sign)
-        return f"{filler}{mark}{sign:>3}{abs(evidence.score()):<4}{evidence.reason}"
+        return f"{filler}{mark}{sign:>3}{abs(evidence.score()):<5}{evidence.reason}"
 
     def separator(self):
         sep = "-" * self.length()
