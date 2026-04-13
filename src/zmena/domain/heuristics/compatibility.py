@@ -11,5 +11,5 @@ class HeuristicCompatibility(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.rule_label == RuleLabel.NAME and hypothesis.signature_mismatch():
-            return [Evidence(hypothesis, -1.0, 0.7, self.label)]
+            return [Evidence(hypothesis, -1.0, 0.4, self.label)]
         return []
