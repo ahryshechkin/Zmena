@@ -9,7 +9,6 @@ class HeuristicSignature(Heuristic):
         super().__init__(HeuristicLabel.SIGNATURE)
 
     def evaluate(self, hypothesis):
-        left, right = hypothesis.key()
-        if left.same_signature_as(right):
+        if hypothesis.has_same_signature():
             return [Evidence(hypothesis, 1.0, 0.9, self.label)]
         return []

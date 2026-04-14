@@ -9,7 +9,6 @@ class HeuristicCompatibility(Heuristic):
         super().__init__(HeuristicLabel.COMPATIBILITY)
 
     def evaluate(self, hypothesis):
-        left, right = hypothesis.key()
-        if left.same_name_as(right) and hypothesis.signature_mismatch():
+        if hypothesis.has_same_name() and not hypothesis.has_same_signature():
             return [Evidence(hypothesis, -1.0, 0.4, self.label)]
         return []
