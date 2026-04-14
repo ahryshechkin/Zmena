@@ -19,14 +19,14 @@ class Component:
 
         for hypothesis in self.hypotheses:
             key = hypothesis.key()
+            if key in links:
+                continue
 
-            link = links.get(key)
-            if link is None:
-                link = Link(hypothesis)
-                links[key] = link
-
+            link = Link(hypothesis)
             for heuristic in heuristics:
                 for evidence in heuristic.evaluate(hypothesis):
                     link.add_evidence(evidence)
+
+            links[key] = link
 
         return list(links.values())
