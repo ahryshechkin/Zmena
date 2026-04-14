@@ -1,6 +1,5 @@
 from zmena.domain.explanations.evidence import Evidence
 from zmena.domain.types.heuristic_label import HeuristicLabel
-from zmena.domain.types.rule_label import RuleLabel
 
 from .base import Heuristic
 
@@ -10,6 +9,7 @@ class HeuristicPosition(Heuristic):
         super().__init__(HeuristicLabel.POSITION)
 
     def evaluate(self, hypothesis):
-        if hypothesis.rule_label == RuleLabel.POSITION:
+        left, right = hypothesis.key()
+        if left.same_position_as(right):
             return [Evidence(hypothesis, 1.0, 0.5, self.label)]
         return []
