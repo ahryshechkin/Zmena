@@ -9,7 +9,6 @@ class HeuristicName(Heuristic):
         super().__init__(HeuristicLabel.NAME)
 
     def evaluate(self, hypothesis):
-        left, right = hypothesis.key()
-        if left.same_name_as(right):
+        if hypothesis.has_same_name():
             return [Evidence(hypothesis, 1.0, 1.0, self.label)]
         return []

@@ -9,7 +9,6 @@ class HeuristicPosition(Heuristic):
         super().__init__(HeuristicLabel.POSITION)
 
     def evaluate(self, hypothesis):
-        left, right = hypothesis.key()
-        if left.same_position_as(right):
+        if hypothesis.has_same_position():
             return [Evidence(hypothesis, 1.0, 0.5, self.label)]
         return []
