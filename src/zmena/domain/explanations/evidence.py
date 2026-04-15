@@ -8,12 +8,12 @@ if TYPE_CHECKING:
 @dataclass
 class Evidence:
     hypothesis: Hypothesis
-    feature: float
-    weight: float
+    signal: float
+    confidence: float
     reason: str
 
     def __repr__(self):
-        return f"Evidence(feature={self.feature},weight={self.weight},reason={self.reason})"
+        return f"Evidence(signal={self.signal},confidence={self.confidence},reason={self.reason})"
 
     def score(self):
-        return self.feature * self.weight
+        return self.signal * self.confidence
