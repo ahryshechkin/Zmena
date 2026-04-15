@@ -36,6 +36,9 @@ class Brick:
             and self.constraint == brick.constraint
         )
 
+    def same_name_but_different_segment_as(self, other):
+        return self.segment != other.name and self.name == other.name
+
     def is_delete(self):
         return self.tag == Tag.DELETE and self.side == Side.LEFT
 
