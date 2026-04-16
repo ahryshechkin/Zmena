@@ -6,7 +6,7 @@ from .base import Heuristic
 
 class HeuristicSegmentMismatch(Heuristic):
     def __init__(self):
-        super().__init__(HeuristicLabel.COMPATIBILITY)
+        super().__init__(HeuristicLabel.SEGMENT_MISMATCH)
 
     def evaluate(self, hypothesis):
         if hypothesis.has_segment_mismatch():
