@@ -10,5 +10,5 @@ class HeuristicSignature(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.has_same_signature():
-            return [Evidence(hypothesis, 1.0, 0.9, self.label)]
+            return [Evidence(hypothesis, 1.0, 0.5, self.label)]
         return []
