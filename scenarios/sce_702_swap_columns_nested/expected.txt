@@ -1,4 +1,4 @@
-    0.6 | #### |  replace |    L | 08090809 |        9 | col_09  | datetime2     |   not null | #### |  replace |    R | 01020102 |        2 | col_09  | datetime2     |   not null
-    0.6 | #### |  replace |    L | 01020102 |        2 | col_02  | varchar(50)   |   not null | #### |  replace |    R | 08090809 |        9 | col_02  | varchar(50)   |   not null
-    1.1 | #### |   delete |    L | 04060606 |        5 | col_05  | varchar(50)   |            | #### |   insert |    R | 03030305 |        5 | col_05  | varchar(50)   |           
-    0.6 | #### |   delete |    L | 04060606 |        6 | col_06  | int           |            | #### |   insert |    R | 03030305 |        4 | col_06  | int           |           
+    0.4 | #### |  replace |    L | 08090809 |        9 | col_09  | datetime2     |   not null | #### |  replace |    R | 01020102 |        2 | col_09  | datetime2     |   not null
+    0.4 | #### |  replace |    L | 01020102 |        2 | col_02  | varchar(50)   |   not null | #### |  replace |    R | 08090809 |        9 | col_02  | varchar(50)   |   not null
+    0.7 | #### |   delete |    L | 04060606 |        5 | col_05  | varchar(50)   |            | #### |   insert |    R | 03030305 |        5 | col_05  | varchar(50)   |           
+    0.4 | #### |   delete |    L | 04060606 |        6 | col_06  | int           |            | #### |   insert |    R | 03030305 |        4 | col_06  | int           |           

@@ -1,2 +1,2 @@
-    0.9 | #### |  replace |    L | 02030204 |        3 | col_03  | varchar(200)  |            | #### |  replace |    R | 02030204 |        4 | col_33  | varchar(200)  |           
-    0.6 | #### |   delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 02030204 |        3 | col_07  | varchar(1)    |   not null
+    0.5 | #### |  replace |    L | 02030204 |        3 | col_03  | varchar(200)  |            | #### |  replace |    R | 02030204 |        4 | col_33  | varchar(200)  |           
+    0.4 | #### |   delete |    L | 06070707 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 02030204 |        3 | col_07  | varchar(1)    |   not null
