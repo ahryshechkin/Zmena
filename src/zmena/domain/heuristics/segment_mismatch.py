@@ -4,11 +4,11 @@ from zmena.domain.types.heuristic_label import HeuristicLabel
 from .base import Heuristic
 
 
-class HeuristicCompatibility(Heuristic):
+class HeuristicSegmentMismatch(Heuristic):
     def __init__(self):
         super().__init__(HeuristicLabel.COMPATIBILITY)
 
     def evaluate(self, hypothesis):
-        if hypothesis.has_same_name() and not hypothesis.has_same_signature():
-            return [Evidence(hypothesis, -1.0, 0.4, self.label)]
+        if hypothesis.has_segment_mismatch():
+            return [Evidence(hypothesis, -1.0, 0.6, self.label)]
         return []

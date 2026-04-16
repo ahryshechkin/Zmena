@@ -2,7 +2,7 @@ from enum import StrEnum
 
 
 class HeuristicLabel(StrEnum):
-    COMPATIBILITY = "compatibility"
+    COMPATIBILITY = "segment mismatch"
     NAME = "name"
     POSITION = "position"
     SIGNATURE = "signature"
