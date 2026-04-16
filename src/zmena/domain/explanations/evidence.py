@@ -9,11 +9,11 @@ if TYPE_CHECKING:
 class Evidence:
     hypothesis: Hypothesis
     signal: float
-    confidence: float
+    weight: float
     reason: str
 
     def __repr__(self):
-        return f"Evidence(signal={self.signal},confidence={self.confidence},reason={self.reason})"
+        return f"Evidence(signal={self.signal},weight={self.weight},reason={self.reason})"
 
     def score(self):
-        return self.signal * self.confidence
+        return self.signal * self.weight
