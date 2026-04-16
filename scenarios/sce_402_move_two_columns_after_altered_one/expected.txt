@@ -1,3 +1,3 @@
-    1.1 | #### |  replace |    L | 03040306 |        4 | col_04  | varchar(50)   |   not null | #### |  replace |    R | 03040306 |        4 | col_04  | varchar(50)   |           
-    0.6 | #### |   delete |    L | 06080808 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 03040306 |        5 | col_07  | varchar(1)    |   not null
-    0.6 | #### |   delete |    L | 06080808 |        8 | col_08  | date          |   not null | #### |  replace |    R | 03040306 |        6 | col_08  | date          |   not null
+    1.3 | #### |  replace |    L | 03040306 |        4 | col_04  | varchar(50)   |   not null | #### |  replace |    R | 03040306 |        4 | col_04  | varchar(50)   |           
+    0.4 | #### |   delete |    L | 06080808 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 03040306 |        5 | col_07  | varchar(1)    |   not null
+    0.4 | #### |   delete |    L | 06080808 |        8 | col_08  | date          |   not null | #### |  replace |    R | 03040306 |        6 | col_08  | date          |   not null
