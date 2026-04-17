@@ -2,9 +2,9 @@ from zmena.domain.explanations.link import ExplanationLink
 
 
 class Link:
-    def __init__(self, hypothesis):
-        self.left = hypothesis.left
-        self.right = hypothesis.right
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
         self.evidences = []
 
     def __str__(self):
