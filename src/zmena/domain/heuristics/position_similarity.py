@@ -4,11 +4,11 @@ from zmena.domain.types.heuristic_label import HeuristicLabel
 from .base import Heuristic
 
 
-class HeuristicSignature(Heuristic):
+class HeuristicPositionSimilarity(Heuristic):
     def __init__(self):
-        super().__init__(HeuristicLabel.SIGNATURE)
+        super().__init__(HeuristicLabel.POSITION_SIMILARITY)
 
     def evaluate(self, hypothesis):
-        if hypothesis.has_same_signature():
-            return [Evidence(hypothesis, 1.0, 0.5, self.label)]
+        if hypothesis.has_same_position():
+            return [Evidence(hypothesis, 1.0, 0.3, self.label)]
         return []
