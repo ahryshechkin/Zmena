@@ -23,17 +23,17 @@ class Brick:
     def __repr__(self):
         return f"Brick(tag={self.tag.value},name={self.name})"
 
-    def same_name_as(self, brick):
-        return self.name == brick.name
+    def same_name_as(self, other):
+        return self.name == other.name
 
-    def same_position_as(self, brick):
-        return self.position == brick.position
+    def same_position_as(self, other):
+        return self.position == other.position
 
-    def same_signature_as(self, brick):
+    def same_signature_as(self, other):
         return (
-            self.segment == brick.segment
-            and self.data_type == brick.data_type
-            and self.constraint == brick.constraint
+            self.segment == other.segment
+            and self.data_type == other.data_type
+            and self.constraint == other.constraint
         )
 
     def same_name_but_different_segment_as(self, other):
