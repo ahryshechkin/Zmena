@@ -22,7 +22,7 @@ class Component:
             if key in links:
                 continue
 
-            link = Link(hypothesis)
+            link = Link(*key)
             for heuristic in heuristics:
                 for evidence in heuristic.evaluate(hypothesis):
                     link.add_evidence(evidence)
