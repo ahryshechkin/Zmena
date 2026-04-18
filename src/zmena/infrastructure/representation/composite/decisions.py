@@ -20,6 +20,6 @@ class ReportDecisions(ReportComposite):
             report_chosen.render()
 
             report_explanation = ReportExplanation(
-                ExplanationDecision(decision.explain()), title_chosen
+                ExplanationDecision(decision.chosen()), title_chosen
             )
             report_explanation.render()
