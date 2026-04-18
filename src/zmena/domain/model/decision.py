@@ -1,6 +1,3 @@
-from zmena.domain.explanations.link import ExplanationLink
-
-
 class Decision:
     def __init__(self, component, heuristics):
         self.component = component
@@ -26,6 +23,3 @@ class Decision:
             links.append(candidate)
 
         return links
-
-    def explain(self):
-        return [ExplanationLink(link) for link in self.chosen()]

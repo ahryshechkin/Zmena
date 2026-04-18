@@ -2,7 +2,7 @@ class ExplanationLink:
     def __init__(self, link):
         self.link = link
 
-    def summary(self):
+    def formatted_header(self):
         left, right = self.link.bricks()
 
         return (
@@ -12,8 +12,8 @@ class ExplanationLink:
             f"{right.name} ({right.side}:{right.position})"
         )
 
-    def score(self):
-        return self.link.score()
+    def formatted_score(self):
+        return f"Score: {self.link.score()}"
 
-    def justification(self):
+    def evidences(self):
         return self.link.justification()
