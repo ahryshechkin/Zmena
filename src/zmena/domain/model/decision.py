@@ -1,4 +1,4 @@
-from zmena.domain.explanations.decision import ExplanationDecision
+from zmena.domain.explanations.link import ExplanationLink
 
 
 class Decision:
@@ -28,4 +28,4 @@ class Decision:
         return links
 
     def explain(self):
-        return ExplanationDecision([link.justification() for link in self.chosen()])
+        return [ExplanationLink(link) for link in self.chosen()]

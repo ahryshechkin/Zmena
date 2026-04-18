@@ -12,4 +12,7 @@ class Evidence:
         return self.signal * self.weight
 
     def describe(self):
-        return self.reason
+        return f"{abs(self.score()):<5}{self.reason}"
+
+    def sign(self):
+        return "+" if self.score() >= 0 else "-"
