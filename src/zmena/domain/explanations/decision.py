@@ -1,10 +1,6 @@
-from dataclasses import dataclass
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from zmena.domain.explanations.link import ExplanationLink
-
-
-@dataclass
 class ExplanationDecision:
-    links: list[ExplanationLink]
+    def __init__(self, links):
+        self.links = links
+
+    def length(self):
+        return max(len(link.summary()) for link in self.links)

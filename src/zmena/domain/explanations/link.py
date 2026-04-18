@@ -1,13 +1,19 @@
-from dataclasses import dataclass
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from zmena.domain.model.brick.base import Brick
-    from zmena.domain.model.evidence import Evidence
-
-
-@dataclass
 class ExplanationLink:
-    bricks: tuple[Brick, Brick]
-    score: int
-    evidences: list[Evidence]
+    def __init__(self, link):
+        self.link = link
+
+    def summary(self):
+        left, right = self.link.bricks()
+
+        return (
+            f"Link: "
+            f"{left.name} ({left.side}:{left.position})"
+            f" -> "
+            f"{right.name} ({right.side}:{right.position})"
+        )
+
+    def score(self):
+        return self.link.score()
+
+    def justification(self):
+        return self.link.justification()

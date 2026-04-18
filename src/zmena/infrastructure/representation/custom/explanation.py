@@ -17,41 +17,30 @@ class ReportExplanation:
 
     def title(self):
         prefix = f"#### {self.name} "
-        width = self.length() - len(prefix) + 4
+        width = self.explanation.length() - len(prefix) + 4
         print(f"\n{prefix}" + "#" * width)
 
     def body(self):
-        for link in self.explanation.links:
-            print(self.normalize(self.reference_line(*link.bricks)))
-            print(self.normalize(f"Score: {link.score}"))
+        for explanation_link in self.explanation.links:
+            print(self.normalize(explanation_link.summary()))
+            print(self.normalize(f"Score: {explanation_link.score()}"))
             print(self.normalize("Evidences:"))
 
-            for evidence in link.evidences:
+            for evidence in explanation_link.justification():
                 print(self.normalize(self.format(evidence)))
 
             self.separator()
 
-    def length(self):
-        return max(len(self.reference_line(*link.bricks)) for link in self.explanation.links)
-
-    def reference_line(self, left, right):
-        return (
-            f"Link: "
-            f"{left.name} ({left.side}:{left.position})"
-            f" -> "
-            f"{right.name} ({right.side}:{right.position})"
-        )
-
     def normalize(self, line):
-        padding = " " * (self.length() - len(self.ANSI_RE.sub("", line)))
+        padding = " " * (self.explanation.length() - len(self.ANSI_RE.sub("", line)))
         return f"| {line}{padding} |"
 
     def format(self, evidence):
         filler = " " * 3
-        sign = "+" if evidence.score() >= 0 else "-"
+        sign = evidence.sign()
         mark = self.color.style_sign(sign)
-        return f"{filler}{mark}{sign:>3}{abs(evidence.score()):<5}{evidence.describe()}"
+        return f"{filler}{mark}{sign:>3}{evidence.describe()}"
 
     def separator(self):
-        sep = "-" * self.length()
+        sep = "-" * self.explanation.length()
         print(f"+-{sep}-+")
