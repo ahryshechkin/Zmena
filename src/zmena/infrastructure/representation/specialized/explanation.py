@@ -1,6 +1,6 @@
 import re
 
-from zmena.infrastructure.representation.color import Color
+from zmena.infrastructure.representation.ansi_color import ANSIColor
 
 
 class ExplanationReport:
@@ -9,7 +9,7 @@ class ExplanationReport:
     def __init__(self, name, decision_explanation):
         self.name = name
         self.decision_explanation = decision_explanation
-        self.color = Color()
+        self.color = ANSIColor()
 
     def render(self):
         self.title()

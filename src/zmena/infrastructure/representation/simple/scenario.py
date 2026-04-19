@@ -3,7 +3,7 @@ from difflib import SequenceMatcher
 from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
-from zmena.infrastructure.representation.color import Color
+from zmena.infrastructure.representation.ansi_color import ANSIColor
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
@@ -22,7 +22,7 @@ class ScenarioReport(ReportSimple):
             [],
         )
         self.scenario = scenario
-        self.color = Color()
+        self.color = ANSIColor()
         self.sm = SequenceMatcher()
 
     def body(self):
