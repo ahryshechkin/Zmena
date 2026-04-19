@@ -1,8 +1,8 @@
-from zmena.infrastructure.representation.composite.components import ReportComponents
-from zmena.infrastructure.representation.composite.decisions import ReportDecisions
-from zmena.infrastructure.representation.simple.fragment import ReportFragment
-from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
-from zmena.infrastructure.representation.simple.scenario import ReportScenario
+from zmena.infrastructure.representation.composite.component import ComponentReport
+from zmena.infrastructure.representation.composite.decision import DecisionReport
+from zmena.infrastructure.representation.simple.fragment import FragmentReport
+from zmena.infrastructure.representation.simple.hypothesis import HypothesisReport
+from zmena.infrastructure.representation.simple.scenario import ScenarioReport
 
 
 class Report:
@@ -10,21 +10,21 @@ class Report:
         self.scenario = scenario
 
     def show_scenario(self):
-        report = ReportScenario(self.scenario)
+        report = ScenarioReport(self.scenario)
         report.render()
 
     def show_fragments(self, fragments):
-        report = ReportFragment(fragments)
+        report = FragmentReport("Fragments", fragments)
         report.render()
 
     def show_hypotheses(self, hypotheses):
-        report = ReportHypothesis(hypotheses)
+        report = HypothesisReport("Hypotheses", hypotheses)
         report.render()
 
     def show_components(self, components):
-        report = ReportComponents(components)
+        report = ComponentReport(components)
         report.render()
 
     def show_decisions(self, decisions):
-        report = ReportDecisions(decisions)
+        report = DecisionReport(decisions)
         report.render()

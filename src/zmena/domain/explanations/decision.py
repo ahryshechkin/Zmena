@@ -1,12 +1,12 @@
-from src.zmena.domain.explanations.link import ExplanationLink
+from src.zmena.domain.explanations.link import LinkExplanation
 
 
-class ExplanationDecision:
+class DecisionExplanation:
     def __init__(self, links):
-        self.explanation_links = [ExplanationLink(link) for link in links]
+        self.link_explanations = [LinkExplanation(link) for link in links]
 
     def explain(self):
-        return self.explanation_links
+        return self.link_explanations
 
     def width(self):
         return max(len(link.formatted_header()) for link in self.explain())

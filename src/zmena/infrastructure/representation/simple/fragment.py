@@ -1,8 +1,8 @@
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
-class ReportFragment(ReportSimple):
-    def __init__(self, fragments, name="Fragments"):
+class FragmentReport(ReportSimple):
+    def __init__(self, name, fragments):
         super().__init__(
             name,
             [

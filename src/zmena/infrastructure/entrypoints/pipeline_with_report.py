@@ -11,5 +11,5 @@ for scenario in catalog.get_many(sce_ids):
     report.show_scenario()
     report.show_fragments(result["fragments"])
     report.show_hypotheses(result["hypotheses"])
-    # report.show_components(result["components"])
+    report.show_components(result["components"])
     report.show_decisions(result["decisions"])

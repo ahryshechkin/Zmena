@@ -7,7 +7,7 @@ from zmena.infrastructure.representation.color import Color
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
-class ReportScenario(ReportSimple):
+class ScenarioReport(ReportSimple):
     def __init__(self, scenario):
         super().__init__(
             f"SCE-{scenario.sce_id} - {scenario.name.upper()}",
