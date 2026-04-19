@@ -13,27 +13,27 @@ class ComponentService:
     def compose(self):
         components = []
 
-        brick_to_hypotheses = defaultdict(set)
+        fragment_to_hypotheses = defaultdict(set)
         for hypothesis in self.hypotheses:
-            brick_to_hypotheses[hypothesis.left].add(hypothesis)
-            brick_to_hypotheses[hypothesis.right].add(hypothesis)
+            fragment_to_hypotheses[hypothesis.left].add(hypothesis)
+            fragment_to_hypotheses[hypothesis.right].add(hypothesis)
 
-        visited_bricks = set()
-        for brick in brick_to_hypotheses:
-            if brick in visited_bricks:
+        visited_fragments = set()
+        for fragment in fragment_to_hypotheses:
+            if fragment in visited_fragments:
                 continue
 
             component = Component()
 
-            stack = [brick]
+            stack = [fragment]
             while stack:
-                current_brick = stack.pop()
-                if current_brick in visited_bricks:
+                current_fragment = stack.pop()
+                if current_fragment in visited_fragments:
                     continue
-                visited_bricks.add(current_brick)
-                for hypothesis in brick_to_hypotheses[current_brick]:
+                visited_fragments.add(current_fragment)
+                for hypothesis in fragment_to_hypotheses[current_fragment]:
                     component.add(hypothesis)
-                    if current_brick == hypothesis.left:
+                    if current_fragment == hypothesis.left:
                         neighbor = hypothesis.right
                     else:
                         neighbor = hypothesis.left

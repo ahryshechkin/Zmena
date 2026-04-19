@@ -1,8 +1,8 @@
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
-class ReportBrick(ReportSimple):
-    def __init__(self, bricks, name="Bricks"):
+class ReportFragment(ReportSimple):
+    def __init__(self, fragments, name="Fragments"):
         super().__init__(
             name,
             [
@@ -14,5 +14,5 @@ class ReportBrick(ReportSimple):
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
             ],
-            bricks,
+            fragments,
         )

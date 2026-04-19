@@ -3,7 +3,7 @@ class ExplanationLink:
         self.link = link
 
     def formatted_header(self):
-        left, right = self.link.bricks()
+        left, right = self.link.fragments()
 
         return (
             f"Link: "
