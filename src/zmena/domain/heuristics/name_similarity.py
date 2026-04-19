@@ -1,7 +1,7 @@
 from zmena.domain.model.evidence import Evidence
 from zmena.domain.types.heuristic_label import HeuristicLabel
 
-from .base import Heuristic
+from .heuristic import Heuristic
 
 
 class NameSimilarityHeuristic(Heuristic):

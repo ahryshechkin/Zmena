@@ -4,7 +4,7 @@ from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
 from zmena.domain.types.tag import Tag
 
-from .base import Rule
+from .rule import Rule
 
 
 class OverflowRule(Rule):

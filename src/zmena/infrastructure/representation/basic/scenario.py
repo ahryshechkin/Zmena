@@ -4,7 +4,7 @@ from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
 from zmena.infrastructure.representation.ansi_color import ANSIColor
-from zmena.infrastructure.representation.basic.base import BasicReport
+from zmena.infrastructure.representation.basic.basic_report import BasicReport
 
 
 class ScenarioReport(BasicReport):

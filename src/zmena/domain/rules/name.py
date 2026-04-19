@@ -1,7 +1,7 @@
 from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 
-from .base import Rule
+from .rule import Rule
 
 
 class NameRule(Rule):
