@@ -6,7 +6,7 @@ from zmena.domain.types.side import Side
 from .base import Rule
 
 
-class RuleDelete(Rule):
+class DeleteRule(Rule):
     def __init__(self):
         super().__init__(RuleLabel.DELETE)
 
