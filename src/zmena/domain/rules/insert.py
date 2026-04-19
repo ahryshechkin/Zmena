@@ -6,7 +6,7 @@ from zmena.domain.types.side import Side
 from .base import Rule
 
 
-class RuleInsert(Rule):
+class InsertRule(Rule):
     def __init__(self):
         super().__init__(RuleLabel.INSERT)
 

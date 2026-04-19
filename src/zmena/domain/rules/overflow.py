@@ -7,7 +7,7 @@ from zmena.domain.types.tag import Tag
 from .base import Rule
 
 
-class RuleOverflow(Rule):
+class OverflowRule(Rule):
     def __init__(self):
         super().__init__(RuleLabel.OVERFLOW)
 

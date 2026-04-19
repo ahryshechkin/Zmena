@@ -4,7 +4,7 @@ from zmena.domain.types.rule_label import RuleLabel
 from .base import Rule
 
 
-class RuleSignature(Rule):
+class SignatureRule(Rule):
     def __init__(self):
         super().__init__(RuleLabel.SIGNATURE)
 

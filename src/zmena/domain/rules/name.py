@@ -4,7 +4,7 @@ from zmena.domain.types.rule_label import RuleLabel
 from .base import Rule
 
 
-class RuleName(Rule):
+class NameRule(Rule):
     def __init__(self):
         super().__init__(RuleLabel.NAME)
 

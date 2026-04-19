@@ -1,19 +1,19 @@
-from zmena.domain.rules.delete import RuleDelete
-from zmena.domain.rules.insert import RuleInsert
-from zmena.domain.rules.name import RuleName
-from zmena.domain.rules.overflow import RuleOverflow
-from zmena.domain.rules.position import RulePosition
-from zmena.domain.rules.signature import RuleSignature
+from zmena.domain.rules.delete import DeleteRule
+from zmena.domain.rules.insert import InsertRule
+from zmena.domain.rules.name import NameRule
+from zmena.domain.rules.overflow import OverflowRule
+from zmena.domain.rules.position import PositionRule
+from zmena.domain.rules.signature import SignatureRule
 
 
 class RuleRegistry:
     def __init__(self):
-        self.delete = RuleDelete()
-        self.insert = RuleInsert()
-        self.name = RuleName()
-        self.overflow = RuleOverflow()
-        self.position = RulePosition()
-        self.signature = RuleSignature()
+        self.delete = DeleteRule()
+        self.insert = InsertRule()
+        self.name = NameRule()
+        self.overflow = OverflowRule()
+        self.position = PositionRule()
+        self.signature = SignatureRule()
 
     def __repr__(self):
         return "Registry(type=rule)"
