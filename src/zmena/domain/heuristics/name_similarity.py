@@ -4,7 +4,7 @@ from zmena.domain.types.heuristic_label import HeuristicLabel
 from .base import Heuristic
 
 
-class HeuristicNameSimilarity(Heuristic):
+class NameSimilarityHeuristic(Heuristic):
     def __init__(self):
         super().__init__(HeuristicLabel.NAME_SIMILARITY)
 
