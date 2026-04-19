@@ -11,16 +11,14 @@ class DecisionReport(CompositeReport):
 
     def render(self):
         for i, decision in enumerate(self.decisions, 1):
-            candidate_title = self.title(i, candidates=len(decision.candidates()))
-            chosen_title = self.title(i, chosen=len(decision.chosen()))
-
-            candidate_report = LinkReport(candidate_title, decision.candidates())
+            title = self.title(i, candidates=len(decision.candidates()))
+            candidate_report = LinkReport(title, decision.candidates())
             candidate_report.render()
 
-            chosen_report = LinkReport(chosen_title, decision.chosen())
+            title = self.title(i, chosen=len(decision.chosen()))
+            chosen_report = LinkReport(title, decision.chosen())
             chosen_report.render()
 
-            explanation_report = ExplanationReport(
-                chosen_title, DecisionExplanation(decision.chosen())
-            )
+            title = self.title(i, links=len(decision.chosen()))
+            explanation_report = ExplanationReport(title, DecisionExplanation(decision.chosen()))
             explanation_report.render()
