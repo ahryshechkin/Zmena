@@ -4,10 +4,10 @@ from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
 from zmena.infrastructure.representation.ansi_color import ANSIColor
-from zmena.infrastructure.representation.simple.base import ReportSimple
+from zmena.infrastructure.representation.basic.base import BasicReport
 
 
-class ScenarioReport(ReportSimple):
+class ScenarioReport(BasicReport):
     def __init__(self, scenario):
         super().__init__(
             f"SCE-{scenario.sce_id} - {scenario.name.upper()}",
