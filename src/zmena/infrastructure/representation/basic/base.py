@@ -4,6 +4,10 @@ class BasicReport:
         self.schema = schema
         self.rows = rows
 
+    def __repr__(self):
+        name = self.__class__.__name__.replace("Report", "")
+        return f"Report(basic={name})"
+
     def render(self):
         self.title()
         self.header()

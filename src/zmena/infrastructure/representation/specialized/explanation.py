@@ -11,6 +11,9 @@ class ExplanationReport:
         self.decision_explanation = decision_explanation
         self.color = ANSIColor()
 
+    def __repr__(self):
+        return "Report(specialized=Explanation)"
+
     def render(self):
         self.title()
         self.body()

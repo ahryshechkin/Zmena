@@ -10,6 +10,9 @@ class Scenario:
     after: list[str]
     expected: list[str]
 
+    def __repr__(self):
+        return f"Scenario(sce_id={self.sce_id})"
+
 
 class ScenarioCatalog:
     def __init__(self):
