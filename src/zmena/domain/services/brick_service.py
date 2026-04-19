@@ -1,7 +1,7 @@
 from difflib import SequenceMatcher
 
-from zmena.domain.model.brick.left import BrickLeft
-from zmena.domain.model.brick.right import BrickRight
+from zmena.domain.model.fragments.left import LeftFragment
+from zmena.domain.model.fragments.right import RightFragment
 from zmena.domain.model.hunk import Hunk
 from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
@@ -25,18 +25,18 @@ class BrickService:
             if tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
-                        brick = BrickLeft(idx, hunk)
+                        brick = LeftFragment(idx, hunk)
                         bricks.append(brick)
                     if idx < hunk.right_range():
-                        brick = BrickRight(idx, hunk)
+                        brick = RightFragment(idx, hunk)
                         bricks.append(brick)
             elif tag == Tag.INSERT:
                 for idx in range(hunk.right_range()):
-                    brick = BrickRight(idx, hunk)
+                    brick = RightFragment(idx, hunk)
                     bricks.append(brick)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
-                    brick = BrickLeft(idx, hunk)
+                    brick = LeftFragment(idx, hunk)
                     bricks.append(brick)
 
         return bricks

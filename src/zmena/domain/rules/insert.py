@@ -1,4 +1,4 @@
-from zmena.domain.model.brick.stub import BrickStub
+from zmena.domain.model.fragments.stub import StubFragment
 from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
@@ -14,7 +14,7 @@ class RuleInsert(Rule):
         hypotheses = []
         for brick in bundle.right():
             if brick.is_insert():
-                brick_stub = BrickStub(Side.LEFT)
+                brick_stub = StubFragment(Side.LEFT)
                 hypothesis = Hypothesis(self.label, brick_stub, brick)
                 hypotheses.append(hypothesis)
 
