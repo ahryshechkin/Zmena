@@ -1,4 +1,4 @@
-from zmena.domain.model.brick.stub import BrickStub
+from zmena.domain.model.fragments.stub import StubFragment
 from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
@@ -14,7 +14,7 @@ class RuleDelete(Rule):
         hypotheses = []
         for brick in bundle.left():
             if brick.is_delete():
-                brick_stub = BrickStub(Side.RIGHT)
+                brick_stub = StubFragment(Side.RIGHT)
                 hypothesis = Hypothesis(self.label, brick, brick_stub)
                 hypotheses.append(hypothesis)
 

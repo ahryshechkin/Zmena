@@ -2,7 +2,7 @@ from zmena.domain.types.side import Side
 from zmena.domain.types.tag import Tag
 
 
-class Brick:
+class Fragment:
     def __init__(self, tag, side, segment, position, name, data_type, constraint):
         self.tag = tag
         self.side = side
@@ -21,7 +21,7 @@ class Brick:
         )
 
     def __repr__(self):
-        return f"Brick(tag={self.tag.value},name={self.name})"
+        return f"Fragment(tag={self.tag.value},name={self.name})"
 
     def same_name_as(self, other):
         return self.name == other.name
