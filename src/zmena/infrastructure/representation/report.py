@@ -1,8 +1,8 @@
+from zmena.infrastructure.representation.basic.fragment import FragmentReport
+from zmena.infrastructure.representation.basic.hypothesis import HypothesisReport
+from zmena.infrastructure.representation.basic.scenario import ScenarioReport
 from zmena.infrastructure.representation.composite.component import ComponentReport
 from zmena.infrastructure.representation.composite.decision import DecisionReport
-from zmena.infrastructure.representation.simple.fragment import FragmentReport
-from zmena.infrastructure.representation.simple.hypothesis import HypothesisReport
-from zmena.infrastructure.representation.simple.scenario import ScenarioReport
 
 
 class Report:

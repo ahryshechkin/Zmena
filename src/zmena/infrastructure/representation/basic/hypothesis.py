@@ -1,12 +1,12 @@
-from zmena.infrastructure.representation.simple.base import ReportSimple
+from zmena.infrastructure.representation.basic.base import BasicReport
 
 
-class LinkReport(ReportSimple):
-    def __init__(self, name, links):
+class HypothesisReport(BasicReport):
+    def __init__(self, name, hypotheses):
         super().__init__(
             name,
             [
-                ("score", ">", "7"),
+                ("rule", ">", "9"),
                 ("####", ">", "4"),
                 ("tag", ">", "8"),
                 ("side", ">", "4"),
@@ -24,5 +24,5 @@ class LinkReport(ReportSimple):
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
             ],
-            links,
+            hypotheses,
         )

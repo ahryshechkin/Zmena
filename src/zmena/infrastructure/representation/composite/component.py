@@ -1,6 +1,6 @@
+from zmena.infrastructure.representation.basic.fragment import FragmentReport
+from zmena.infrastructure.representation.basic.hypothesis import HypothesisReport
 from zmena.infrastructure.representation.composite.base import CompositeReport
-from zmena.infrastructure.representation.simple.fragment import FragmentReport
-from zmena.infrastructure.representation.simple.hypothesis import HypothesisReport
 
 
 class ComponentReport(CompositeReport):

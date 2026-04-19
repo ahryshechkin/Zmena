@@ -1,4 +1,4 @@
-class ReportSimple:
+class BasicReport:
     def __init__(self, name, schema, rows):
         self.name = name
         self.schema = schema
