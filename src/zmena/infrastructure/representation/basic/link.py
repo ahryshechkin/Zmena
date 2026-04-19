@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.basic.base import BasicReport
+from zmena.infrastructure.representation.basic.basic_report import BasicReport
 
 
 class LinkReport(BasicReport):

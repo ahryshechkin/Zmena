@@ -1,6 +1,6 @@
 from zmena.domain.explanations.decision import DecisionExplanation
 from zmena.infrastructure.representation.basic.link import LinkReport
-from zmena.infrastructure.representation.composite.base import CompositeReport
+from zmena.infrastructure.representation.composite.composite_report import CompositeReport
 from zmena.infrastructure.representation.specialized.explanation import ExplanationReport
 
 

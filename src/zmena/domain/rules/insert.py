@@ -3,7 +3,7 @@ from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
 
-from .base import Rule
+from .rule import Rule
 
 
 class InsertRule(Rule):
