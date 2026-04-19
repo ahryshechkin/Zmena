@@ -1,8 +1,8 @@
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
-class ReportHypothesis(ReportSimple):
-    def __init__(self, hypotheses, name="Hypotheses"):
+class HypothesisReport(ReportSimple):
+    def __init__(self, name, hypotheses):
         super().__init__(
             name,
             [

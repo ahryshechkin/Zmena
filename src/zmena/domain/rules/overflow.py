@@ -12,8 +12,6 @@ class OverflowRule(Rule):
         super().__init__(RuleLabel.OVERFLOW)
 
     def generate(self, bundle):
-        bundle.right()
-
         fragments_left_by_segment = {}
         for fragment in bundle.left():
             fragments_left_by_segment.setdefault(fragment.segment, []).append(fragment)

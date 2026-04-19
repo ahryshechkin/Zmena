@@ -1,8 +1,8 @@
 from zmena.infrastructure.representation.simple.base import ReportSimple
 
 
-class ReportLink(ReportSimple):
-    def __init__(self, links, name="Links"):
+class LinkReport(ReportSimple):
+    def __init__(self, name, links):
         super().__init__(
             name,
             [
