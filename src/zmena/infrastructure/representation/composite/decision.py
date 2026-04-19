@@ -1,18 +1,18 @@
 from zmena.domain.explanations.decision import DecisionExplanation
-from zmena.infrastructure.representation.composite.base import ReportComposite
-from zmena.infrastructure.representation.custom.explanation import ExplanationReport
+from zmena.infrastructure.representation.composite.base import CompositeReport
 from zmena.infrastructure.representation.simple.link import LinkReport
+from zmena.infrastructure.representation.specialized.explanation import ExplanationReport
 
 
-class DecisionReport(ReportComposite):
+class DecisionReport(CompositeReport):
     def __init__(self, decisions):
         super().__init__("Decision")
         self.decisions = decisions
 
     def render(self):
         for i, decision in enumerate(self.decisions, 1):
-            candidate_title = self.compose(i, candidates=len(decision.candidates()))
-            chosen_title = self.compose(i, chosen=len(decision.chosen()))
+            candidate_title = self.title(i, candidates=len(decision.candidates()))
+            chosen_title = self.title(i, chosen=len(decision.chosen()))
 
             candidate_report = LinkReport(candidate_title, decision.candidates())
             candidate_report.render()

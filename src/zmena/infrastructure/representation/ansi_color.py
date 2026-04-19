@@ -1,7 +1,7 @@
 from zmena.domain.types.tag import Tag
 
 
-class Color:
+class ANSIColor:
     GRAY = "\033[38;5;250m"
     RED = "\033[91m"
     GREEN = "\033[92m"
