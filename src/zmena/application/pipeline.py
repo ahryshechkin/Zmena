@@ -1,4 +1,4 @@
-from zmena.domain.model.brick_bundle import BrickBundle
+from zmena.domain.model.fragment_bundle import FragmentBundle
 from zmena.domain.services.brick_service import BrickService
 from zmena.domain.services.component_service import ComponentService
 from zmena.domain.services.decision_service import DecisionService
@@ -16,7 +16,7 @@ class Pipeline:
         brick_service = BrickService()
         bricks = brick_service.build(self.before, self.after)
 
-        bundle = BrickBundle(bricks)
+        bundle = FragmentBundle(bricks)
         hypothesis_service = HypothesisService(RuleRegistry())
         hypotheses = hypothesis_service.propose(bundle)
 
