@@ -14,9 +14,9 @@ class Pipeline:
 
     def run(self):
         fragment_service = FragmentService()
-        bricks = fragment_service.build(self.before, self.after)
+        fragments = fragment_service.build(self.before, self.after)
 
-        bundle = FragmentBundle(bricks)
+        bundle = FragmentBundle(fragments)
         hypothesis_service = HypothesisService(RuleRegistry())
         hypotheses = hypothesis_service.propose(bundle)
 
@@ -27,7 +27,7 @@ class Pipeline:
         decisions = decision_service.decide(components)
 
         return {
-            "bricks": bricks,
+            "fragments": fragments,
             "hypotheses": hypotheses,
             "components": components,
             "decisions": decisions,

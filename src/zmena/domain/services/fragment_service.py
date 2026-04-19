@@ -17,7 +17,7 @@ class FragmentService:
     def build(self, before, after):
         self.sm.set_seqs(before, after)
 
-        bricks = []
+        fragments = []
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
             left = Span(before, slo, shi)
             right = Span(after, tlo, thi)
@@ -25,18 +25,18 @@ class FragmentService:
             if tag == Tag.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
-                        brick = LeftFragment(idx, hunk)
-                        bricks.append(brick)
+                        fragment = LeftFragment(idx, hunk)
+                        fragments.append(fragment)
                     if idx < hunk.right_range():
-                        brick = RightFragment(idx, hunk)
-                        bricks.append(brick)
+                        fragment = RightFragment(idx, hunk)
+                        fragments.append(fragment)
             elif tag == Tag.INSERT:
                 for idx in range(hunk.right_range()):
-                    brick = RightFragment(idx, hunk)
-                    bricks.append(brick)
+                    fragment = RightFragment(idx, hunk)
+                    fragments.append(fragment)
             elif tag == Tag.DELETE:
                 for idx in range(hunk.left_range()):
-                    brick = LeftFragment(idx, hunk)
-                    bricks.append(brick)
+                    fragment = LeftFragment(idx, hunk)
+                    fragments.append(fragment)
 
-        return bricks
+        return fragments

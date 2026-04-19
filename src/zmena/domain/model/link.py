@@ -13,7 +13,7 @@ class Link:
     def __lt__(self, other):
         return self.score() < other.score()
 
-    def bricks(self):
+    def fragments(self):
         return self.left, self.right
 
     def justification(self):
@@ -25,5 +25,5 @@ class Link:
     def add_evidence(self, evidence):
         self.evidences.append(evidence)
 
-    def conflicts_with(self, used_bricks):
-        return self.left in used_bricks or self.right in used_bricks
+    def conflicts_with(self, used_fragments):
+        return self.left in used_fragments or self.right in used_fragments

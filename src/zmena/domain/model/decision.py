@@ -10,16 +10,16 @@ class Decision:
         return self.component.assess(self.heuristics)
 
     def chosen(self):
-        used_bricks = set()
+        used_fragments = set()
         links = []
 
         for candidate in sorted(self.candidates(), reverse=True):
-            if candidate.conflicts_with(used_bricks):
+            if candidate.conflicts_with(used_fragments):
                 continue
 
-            left, right = candidate.bricks()
-            used_bricks.add(left)
-            used_bricks.add(right)
+            left, right = candidate.fragments()
+            used_fragments.add(left)
+            used_fragments.add(right)
             links.append(candidate)
 
         return links

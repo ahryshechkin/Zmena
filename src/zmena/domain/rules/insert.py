@@ -12,10 +12,10 @@ class RuleInsert(Rule):
 
     def generate(self, bundle):
         hypotheses = []
-        for brick in bundle.right():
-            if brick.is_insert():
-                brick_stub = StubFragment(Side.LEFT)
-                hypothesis = Hypothesis(self.label, brick_stub, brick)
+        for fragment in bundle.right():
+            if fragment.is_insert():
+                stub_fragment = StubFragment(Side.LEFT)
+                hypothesis = Hypothesis(self.label, stub_fragment, fragment)
                 hypotheses.append(hypothesis)
 
         return hypotheses

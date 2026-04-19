@@ -1,6 +1,6 @@
 from zmena.infrastructure.representation.composite.components import ReportComponents
 from zmena.infrastructure.representation.composite.decisions import ReportDecisions
-from zmena.infrastructure.representation.simple.brick import ReportBrick
+from zmena.infrastructure.representation.simple.fragment import ReportFragment
 from zmena.infrastructure.representation.simple.hypothesis import ReportHypothesis
 from zmena.infrastructure.representation.simple.scenario import ReportScenario
 
@@ -13,8 +13,8 @@ class Report:
         report = ReportScenario(self.scenario)
         report.render()
 
-    def show_bricks(self, bricks):
-        report = ReportBrick(bricks)
+    def show_fragments(self, fragments):
+        report = ReportFragment(fragments)
         report.render()
 
     def show_hypotheses(self, hypotheses):

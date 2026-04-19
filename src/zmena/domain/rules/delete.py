@@ -12,10 +12,10 @@ class RuleDelete(Rule):
 
     def generate(self, bundle):
         hypotheses = []
-        for brick in bundle.left():
-            if brick.is_delete():
-                brick_stub = StubFragment(Side.RIGHT)
-                hypothesis = Hypothesis(self.label, brick, brick_stub)
+        for fragment in bundle.left():
+            if fragment.is_delete():
+                stub_fragment = StubFragment(Side.RIGHT)
+                hypothesis = Hypothesis(self.label, fragment, stub_fragment)
                 hypotheses.append(hypothesis)
 
         return hypotheses
