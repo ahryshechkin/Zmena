@@ -11,7 +11,7 @@ class ComponentReport(CompositeReport):
     def render(self):
         for i, component in enumerate(self.components, 1):
             title = self.title(
-                i, hypotheses=len(component.hypotheses), fragments=len(component.fragments)
+                i, fragments=len(component.fragments), hypotheses=len(component.hypotheses)
             )
 
             hypothesis_report = HypothesisReport(title, component.hypotheses)

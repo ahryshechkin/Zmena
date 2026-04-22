@@ -3,16 +3,17 @@ from zmena.domain.model.link import Link
 
 class Component:
     def __init__(self):
-        self.hypotheses = set()
         self.fragments = set()
+        self.hypotheses = set()
 
     def __repr__(self):
-        return f"Component(hypotheses={len(self.hypotheses)},fragments={len(self.fragments)})"
+        return f"Component(fragments={len(self.fragments)},hypotheses={len(self.hypotheses)})"
 
     def add(self, hypothesis):
+        left, right = hypothesis.key()
+        self.fragments.add(left)
+        self.fragments.add(right)
         self.hypotheses.add(hypothesis)
-        self.fragments.add(hypothesis.left)
-        self.fragments.add(hypothesis.right)
 
     def assess(self, heuristics):
         links = {}
