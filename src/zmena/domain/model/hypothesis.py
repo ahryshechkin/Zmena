@@ -13,6 +13,9 @@ class Hypothesis:
     def key(self):
         return self.left, self.right
 
+    def neighbor(self, fragment):
+        return self.right if fragment == self.left else self.left
+
     def has_same_name(self):
         return self.left.same_name_as(self.right)
 
