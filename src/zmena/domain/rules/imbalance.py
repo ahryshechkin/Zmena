@@ -7,9 +7,9 @@ from zmena.domain.types.tag import Tag
 from .rule import Rule
 
 
-class OverflowRule(Rule):
+class ImbalanceRule(Rule):
     def __init__(self):
-        super().__init__(RuleLabel.OVERFLOW)
+        super().__init__(RuleLabel.IMBALANCE)
 
     def generate(self, bundle):
         fragments_left_by_segment = {}
