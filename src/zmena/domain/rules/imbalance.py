@@ -2,7 +2,6 @@ from zmena.domain.model.fragments.stub import StubFragment
 from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
-from zmena.domain.types.tag import Tag
 
 from .rule import Rule
 
@@ -12,25 +11,19 @@ class ImbalanceRule(Rule):
         super().__init__(RuleLabel.IMBALANCE)
 
     def generate(self, bundle):
-        fragments_left_by_segment = {}
-        for fragment in bundle.left():
-            fragments_left_by_segment.setdefault(fragment.segment, []).append(fragment)
-
-        fragments_right_by_segment = {}
-        for fragment in bundle.right():
-            fragments_right_by_segment.setdefault(fragment.segment, []).append(fragment)
+        left_fragments_by_segment = bundle.left_by_segment()
 
         hypotheses = []
-        for segment, rights in fragments_right_by_segment.items():
-            lefts = fragments_left_by_segment.get(segment, [])
+        for segment, rights in bundle.right_by_segment().items():
+            lefts = left_fragments_by_segment.get(segment, [])
 
             if len(lefts) >= len(rights):
                 continue
 
-            if not all(fragment.tag == Tag.REPLACE for fragment in lefts):
+            if not all(fragment.is_replace() for fragment in lefts):
                 continue
 
-            if not all(fragment.tag == Tag.REPLACE for fragment in rights):
+            if not all(fragment.is_replace() for fragment in rights):
                 continue
 
             for fragment in rights:
