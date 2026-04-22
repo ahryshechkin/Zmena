@@ -16,11 +16,12 @@ class Component:
         self.hypotheses.add(hypothesis)
 
     def assess(self, heuristics):
-        links = {}
+        seen_keys = set()
+        links = []
 
         for hypothesis in self.hypotheses:
             key = hypothesis.key()
-            if key in links:
+            if key in seen_keys:
                 continue
 
             link = Link(*key)
@@ -28,6 +29,7 @@ class Component:
                 for evidence in heuristic.evaluate(hypothesis):
                     link.add_evidence(evidence)
 
-            links[key] = link
+            seen_keys.add(key)
+            links.append(link)
 
-        return list(links.values())
+        return links
