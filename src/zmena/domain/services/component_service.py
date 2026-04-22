@@ -11,20 +11,19 @@ class ComponentService:
         return f"ComponentService(hypotheses={len(self.hypotheses)})"
 
     def compose(self):
-        components = []
-
         fragment_to_hypotheses = defaultdict(set)
         for hypothesis in self.hypotheses:
-            fragment_to_hypotheses[hypothesis.left].add(hypothesis)
-            fragment_to_hypotheses[hypothesis.right].add(hypothesis)
+            left, right = hypothesis.key()
+            fragment_to_hypotheses[left].add(hypothesis)
+            fragment_to_hypotheses[right].add(hypothesis)
 
+        components = []
         visited_fragments = set()
         for fragment in fragment_to_hypotheses:
             if fragment in visited_fragments:
                 continue
 
             component = Component()
-
             stack = [fragment]
             while stack:
                 current_fragment = stack.pop()
@@ -33,10 +32,7 @@ class ComponentService:
                 visited_fragments.add(current_fragment)
                 for hypothesis in fragment_to_hypotheses[current_fragment]:
                     component.add(hypothesis)
-                    if current_fragment == hypothesis.left:
-                        neighbor = hypothesis.right
-                    else:
-                        neighbor = hypothesis.left
+                    neighbor = hypothesis.neighbor(current_fragment)
                     stack.append(neighbor)
 
             components.append(component)
