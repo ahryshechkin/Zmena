@@ -44,3 +44,6 @@ class Fragment:
 
     def is_insert(self):
         return self.tag == Tag.INSERT and self.side == Side.RIGHT
+
+    def is_replace(self):
+        return self.tag == Tag.REPLACE
