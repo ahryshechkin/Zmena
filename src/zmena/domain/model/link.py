@@ -24,6 +24,3 @@ class Link:
 
     def add_evidence(self, evidence):
         self.evidences.append(evidence)
-
-    def conflicts_with(self, used_fragments):
-        return self.left in used_fragments or self.right in used_fragments

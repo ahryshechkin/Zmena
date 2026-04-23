@@ -14,10 +14,10 @@ class Decision:
         links = []
 
         for candidate in sorted(self.candidates(), reverse=True):
-            if candidate.conflicts_with(occupied_fragments):
+            left, right = candidate.fragments()
+            if left in occupied_fragments or right in occupied_fragments:
                 continue
 
-            left, right = candidate.fragments()
             occupied_fragments.add(left)
             occupied_fragments.add(right)
             links.append(candidate)
