@@ -2,13 +2,13 @@ class Decision:
     def __init__(self, component, heuristics):
         self.component = component
         self.heuristics = heuristics
-        self.cached_candidates = None
+        self.cached_candidates = []
 
     def __repr__(self):
         return f"Decision(chosen={len(self.chosen())})"
 
     def candidates(self):
-        if self.cached_candidates is None:
+        if not self.cached_candidates:
             self.cached_candidates = self.component.assess(self.heuristics)
         return self.cached_candidates
 
