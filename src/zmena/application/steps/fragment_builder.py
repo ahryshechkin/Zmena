@@ -7,12 +7,12 @@ from zmena.domain.model.span import Span
 from zmena.domain.types.tag import Tag
 
 
-class FragmentService:
+class FragmentBuilder:
     def __init__(self):
         self.sm = SequenceMatcher()
 
     def __repr__(self):
-        return "FragmentService"
+        return "FragmentBuilder"
 
     def build(self, before, after):
         self.sm.set_seqs(before, after)
