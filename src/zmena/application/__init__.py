@@ -1,5 +1,6 @@
+from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
+
 from .analysis_pipeline import AnalysisPipeline
-from .scenario import ScenarioCatalog
 
 __all__ = [
     "AnalysisPipeline",
