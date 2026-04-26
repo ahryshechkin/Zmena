@@ -1,3 +1,4 @@
+from zmena.application.analysis_result import AnalysisResult
 from zmena.application.steps.component_composer import ComponentComposer
 from zmena.application.steps.decision_resolver import DecisionResolver
 from zmena.application.steps.fragment_builder import FragmentBuilder
@@ -26,9 +27,4 @@ class AnalysisPipeline:
         decision_resolver = DecisionResolver(HeuristicRegistry())
         decisions = decision_resolver.resolve(components)
 
-        return {
-            "fragments": fragments,
-            "hypotheses": hypotheses,
-            "components": components,
-            "decisions": decisions,
-        }
+        return AnalysisResult(fragments, hypotheses, components, decisions)
