@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application import Pipeline, ScenarioCatalog
+from zmena.application import AnalysisPipeline, ScenarioCatalog
 
 
 class TestBasicScenarios(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_011_add_column_not_null(self):
         scenario = self.catalog.get("011")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -20,7 +20,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_012_add_column_null(self):
         scenario = self.catalog.get("012")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -31,7 +31,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_013_alter_constraint_not_null(self):
         scenario = self.catalog.get("013")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -42,7 +42,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_014_alter_constraint_null(self):
         scenario = self.catalog.get("014")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -53,7 +53,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_015_change_data_type(self):
         scenario = self.catalog.get("015")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -64,7 +64,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_016_drop_column(self):
         scenario = self.catalog.get("016")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -75,7 +75,7 @@ class TestBasicScenarios(unittest.TestCase):
 
     def test_sce_017_move_column(self):
         scenario = self.catalog.get("017")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []

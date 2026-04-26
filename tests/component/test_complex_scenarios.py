@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application import Pipeline, ScenarioCatalog
+from zmena.application import AnalysisPipeline, ScenarioCatalog
 
 
 class TestComplexScenarios(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_051_alter_column_then_add_another_before(self):
         scenario = self.catalog.get("051")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -20,7 +20,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_052_alter_column_then_add_another_after(self):
         scenario = self.catalog.get("052")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -31,7 +31,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_053_alter_column_then_rename_two_adjacent_ones(self):
         scenario = self.catalog.get("053")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -42,7 +42,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_151_apply_scripts_in_proper_order(self):
         scenario = self.catalog.get("151")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -53,7 +53,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_301_move_column_before_single_signature_alter(self):
         scenario = self.catalog.get("301")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -64,7 +64,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_302_move_column_after_single_signature_alter(self):
         scenario = self.catalog.get("302")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -75,7 +75,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_303_move_column_before_single_constraint_alter(self):
         scenario = self.catalog.get("303")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -86,7 +86,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_304_move_column_before_single_type_alter(self):
         scenario = self.catalog.get("304")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -97,7 +97,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_311_move_column_before_two_signature_alter(self):
         scenario = self.catalog.get("311")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -108,7 +108,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_312_move_column_after_two_signature_alter(self):
         scenario = self.catalog.get("312")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -119,7 +119,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_313_move_column_before_two_constraint_alter(self):
         scenario = self.catalog.get("313")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -130,7 +130,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_314_move_column_before_two_type_alter(self):
         scenario = self.catalog.get("314")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -141,7 +141,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_401_move_two_columns_before_altered_one(self):
         scenario = self.catalog.get("401")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -152,7 +152,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_402_move_two_columns_after_altered_one(self):
         scenario = self.catalog.get("402")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -163,7 +163,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_403_move_two_columns_before_altered_one_twice(self):
         scenario = self.catalog.get("403")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -174,7 +174,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_501_perform_several_simple_changes(self):
         scenario = self.catalog.get("501")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -185,7 +185,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_601_rename_column_then_move_another_before_from_top(self):
         scenario = self.catalog.get("601")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -196,7 +196,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_602_rename_column_then_move_another_before_from_bottom(self):
         scenario = self.catalog.get("602")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -207,7 +207,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_603_rename_column_then_move_another_after_from_top(self):
         scenario = self.catalog.get("603")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -218,7 +218,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_604_rename_column_then_move_another_after_from_bottom(self):
         scenario = self.catalog.get("604")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -229,7 +229,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_651_reuse_free_name_from_top(self):
         scenario = self.catalog.get("651")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -240,7 +240,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_652_reuse_free_name_from_bottom(self):
         scenario = self.catalog.get("652")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -251,7 +251,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_701_swap_columns(self):
         scenario = self.catalog.get("701")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -262,7 +262,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_702_swap_columns_nested(self):
         scenario = self.catalog.get("702")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
@@ -273,7 +273,7 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_703_swap_columns_with_overlap(self):
         scenario = self.catalog.get("703")
-        pipeline = Pipeline(scenario.before, scenario.after)
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         actual = []
