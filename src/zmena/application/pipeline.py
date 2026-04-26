@@ -1,9 +1,9 @@
+from zmena.application.steps.component_service import ComponentService
+from zmena.application.steps.decision_service import DecisionService
+from zmena.application.steps.fragment_service import FragmentService
+from zmena.application.steps.hypothesis_service import HypothesisService
 from zmena.domain.model.fragment_bundle import FragmentBundle
-from zmena.domain.services.component_service import ComponentService
-from zmena.domain.services.decision_service import DecisionService
-from zmena.domain.services.fragment_service import FragmentService
 from zmena.domain.services.heuristic_registry import HeuristicRegistry
-from zmena.domain.services.hypothesis_service import HypothesisService
 from zmena.domain.services.rule_registry import RuleRegistry
 
 
