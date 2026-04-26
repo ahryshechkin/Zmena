@@ -1,7 +1,7 @@
-from .pipeline import Pipeline
+from .analysis_pipeline import AnalysisPipeline
 from .scenario import ScenarioCatalog
 
 __all__ = [
-    "Pipeline",
+    "AnalysisPipeline",
     "ScenarioCatalog",
 ]

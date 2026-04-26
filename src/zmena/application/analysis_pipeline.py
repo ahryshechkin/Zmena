@@ -7,7 +7,7 @@ from zmena.domain.services.heuristic_registry import HeuristicRegistry
 from zmena.domain.services.rule_registry import RuleRegistry
 
 
-class Pipeline:
+class AnalysisPipeline:
     def __init__(self, before, after):
         self.before = before
         self.after = after
