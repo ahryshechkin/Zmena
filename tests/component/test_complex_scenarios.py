@@ -1,6 +1,7 @@
 import unittest
 
-from zmena.application import AnalysisPipeline, ScenarioCatalog
+from zmena.application import AnalysisPipeline
+from zmena.infrastructure import ScenarioCatalog
 
 
 class TestComplexScenarios(unittest.TestCase):

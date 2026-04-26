@@ -1,5 +1,5 @@
-from zmena.application import AnalysisPipeline, ScenarioCatalog
-from zmena.infrastructure.representation.report import Report
+from zmena.application import AnalysisPipeline
+from zmena.infrastructure import Report, ScenarioCatalog
 
 sce_ids = ["313"]
 catalog = ScenarioCatalog()
