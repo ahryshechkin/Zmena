@@ -3,12 +3,12 @@ from collections import defaultdict
 from zmena.domain.model.component import Component
 
 
-class ComponentService:
+class ComponentComposer:
     def __init__(self, hypotheses):
         self.hypotheses = hypotheses
 
     def __repr__(self):
-        return f"ComponentService(hypotheses={len(self.hypotheses)})"
+        return f"ComponentComposer(hypotheses={len(self.hypotheses)})"
 
     def compose(self):
         fragment_to_hypotheses = defaultdict(set)

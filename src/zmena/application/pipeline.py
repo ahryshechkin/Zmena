@@ -1,7 +1,7 @@
-from zmena.application.steps.component_service import ComponentService
-from zmena.application.steps.decision_service import DecisionService
-from zmena.application.steps.fragment_service import FragmentService
-from zmena.application.steps.hypothesis_service import HypothesisService
+from zmena.application.steps.component_composer import ComponentComposer
+from zmena.application.steps.decision_resolver import DecisionResolver
+from zmena.application.steps.fragment_builder import FragmentBuilder
+from zmena.application.steps.hypothesis_proposer import HypothesisProposer
 from zmena.domain.model.fragment_bundle import FragmentBundle
 from zmena.domain.services.heuristic_registry import HeuristicRegistry
 from zmena.domain.services.rule_registry import RuleRegistry
@@ -13,18 +13,18 @@ class Pipeline:
         self.after = after
 
     def run(self):
-        fragment_service = FragmentService()
-        fragments = fragment_service.build(self.before, self.after)
+        fragment_builder = FragmentBuilder()
+        fragments = fragment_builder.build(self.before, self.after)
 
         bundle = FragmentBundle(fragments)
-        hypothesis_service = HypothesisService(RuleRegistry())
-        hypotheses = hypothesis_service.propose(bundle)
+        hypothesis_proposer = HypothesisProposer(RuleRegistry())
+        hypotheses = hypothesis_proposer.propose(bundle)
 
-        component_service = ComponentService(hypotheses)
-        components = component_service.compose()
+        component_composer = ComponentComposer(hypotheses)
+        components = component_composer.compose()
 
-        decision_service = DecisionService(HeuristicRegistry())
-        decisions = decision_service.decide(components)
+        decision_resolver = DecisionResolver(HeuristicRegistry())
+        decisions = decision_resolver.resolve(components)
 
         return {
             "fragments": fragments,
