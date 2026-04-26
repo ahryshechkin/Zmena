@@ -46,8 +46,3 @@ class ScenarioCatalog:
             scenarios.append(scenario)
 
         return scenarios
-
-    def print_scenarios(self):
-        for path in self.root_dir.iterdir():
-            prefix, sce_id, name = path.name.upper().split("_", maxsplit=2)
-            print(f"{prefix}-{sce_id} - {name}")
