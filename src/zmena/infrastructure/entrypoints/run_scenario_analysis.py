@@ -1,5 +1,6 @@
 from zmena.application import AnalysisPipeline
-from zmena.infrastructure import Report, ScenarioCatalog
+from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
+from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
 sce_ids = ["313"]
 catalog = ScenarioCatalog()
@@ -7,9 +8,9 @@ for scenario in catalog.get_many(sce_ids):
     analysis_pipeline = AnalysisPipeline(scenario.before, scenario.after)
     result = analysis_pipeline.run()
 
-    report = Report(scenario)
+    report = AnalysisReport(scenario, result)
     report.show_scenario()
-    report.show_fragments(result.fragments)
-    report.show_hypotheses(result.hypotheses)
-    report.show_components(result.components)
-    report.show_decisions(result.decisions)
+    report.show_fragments()
+    report.show_hypotheses()
+    report.show_components()
+    report.show_decisions()

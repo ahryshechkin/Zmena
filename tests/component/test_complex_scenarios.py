@@ -14,7 +14,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -25,7 +25,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -36,7 +36,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -47,7 +47,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -58,7 +58,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -69,7 +69,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -80,7 +80,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -91,7 +91,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -102,7 +102,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -113,7 +113,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -124,7 +124,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -135,7 +135,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -146,7 +146,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -157,7 +157,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -168,7 +168,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -179,7 +179,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -190,7 +190,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -201,7 +201,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -212,7 +212,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -223,7 +223,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -234,7 +234,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -245,7 +245,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -256,7 +256,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -267,7 +267,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
@@ -278,7 +278,7 @@ class TestComplexScenarios(unittest.TestCase):
         result = pipeline.run()
 
         actual = []
-        for decision in result["decisions"]:
+        for decision in result.decisions:
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
