@@ -1,7 +1,7 @@
-from zmena.infrastructure.representation.basic.link import LinkReport
-from zmena.infrastructure.representation.composite.composite_report import CompositeReport
+from zmena.infrastructure.representation.layout.composite import CompositeReport
 from zmena.infrastructure.representation.projections.decision import DecisionProjection
-from zmena.infrastructure.representation.specialized.explanation import ExplanationReport
+from zmena.infrastructure.representation.reports.explanation import ExplanationReport
+from zmena.infrastructure.representation.reports.link import LinkReport
 
 
 class DecisionReport(CompositeReport):
