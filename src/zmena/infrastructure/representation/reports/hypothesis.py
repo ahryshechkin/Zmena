@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.layout.basic import BasicReport
+from zmena.infrastructure.representation.layouts.basic import BasicReport
 
 
 class HypothesisReport(BasicReport):

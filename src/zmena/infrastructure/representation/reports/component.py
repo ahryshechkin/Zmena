@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.layout.composite import CompositeReport
+from zmena.infrastructure.representation.layouts.composite import CompositeReport
 from zmena.infrastructure.representation.reports.fragment import FragmentReport
 from zmena.infrastructure.representation.reports.hypothesis import HypothesisReport
 

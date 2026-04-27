@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.layout.composite import CompositeReport
+from zmena.infrastructure.representation.layouts.composite import CompositeReport
 from zmena.infrastructure.representation.projections.decision import DecisionProjection
 from zmena.infrastructure.representation.reports.explanation import ExplanationReport
 from zmena.infrastructure.representation.reports.link import LinkReport
