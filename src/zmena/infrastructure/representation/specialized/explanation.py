@@ -6,9 +6,9 @@ from zmena.infrastructure.representation.ansi_color import ANSIColor
 class ExplanationReport:
     ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
-    def __init__(self, name, decision_explanation):
+    def __init__(self, name, decision_projection):
         self.name = name
-        self.decision_explanation = decision_explanation
+        self.decision_projection = decision_projection
         self.color = ANSIColor()
 
     def __repr__(self):
@@ -20,22 +20,22 @@ class ExplanationReport:
 
     def title(self):
         prefix = f"#### {self.name} "
-        width = self.decision_explanation.width() - len(prefix) + 4
+        width = self.decision_projection.width() - len(prefix) + 4
         print(f"\n{prefix}" + "#" * width)
 
     def body(self):
-        for link_explanation in self.decision_explanation.explain():
-            print(self.normalize(link_explanation.formatted_header()))
-            print(self.normalize(link_explanation.formatted_score()))
+        for link_projection in self.decision_projection.links():
+            print(self.normalize(link_projection.formatted_header()))
+            print(self.normalize(link_projection.formatted_score()))
 
             print(self.normalize("Evidences:"))
-            for evidence in link_explanation.evidences():
+            for evidence in link_projection.evidences():
                 print(self.normalize(self.format(evidence)))
 
             self.separator()
 
     def normalize(self, line):
-        padding = " " * (self.decision_explanation.width() - len(self.ANSI_RE.sub("", line)))
+        padding = " " * (self.decision_projection.width() - len(self.ANSI_RE.sub("", line)))
         return f"| {line}{padding} |"
 
     def format(self, evidence):
@@ -45,5 +45,5 @@ class ExplanationReport:
         return f"{filler}{mark}{sign:>3}{evidence.describe()}"
 
     def separator(self):
-        sep = "-" * self.decision_explanation.width()
+        sep = "-" * self.decision_projection.width()
         print(f"+-{sep}-+")
