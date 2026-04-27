@@ -1,11 +1,11 @@
 from zmena.application.analysis_result import AnalysisResult
+from zmena.application.presets.heuristic_registry import HeuristicRegistry
+from zmena.application.presets.rule_registry import RuleRegistry
 from zmena.application.steps.component_composer import ComponentComposer
 from zmena.application.steps.decision_resolver import DecisionResolver
 from zmena.application.steps.fragment_builder import FragmentBuilder
 from zmena.application.steps.hypothesis_proposer import HypothesisProposer
 from zmena.domain.model.fragment_bundle import FragmentBundle
-from zmena.domain.services.heuristic_registry import HeuristicRegistry
-from zmena.domain.services.rule_registry import RuleRegistry
 
 
 class AnalysisPipeline:
