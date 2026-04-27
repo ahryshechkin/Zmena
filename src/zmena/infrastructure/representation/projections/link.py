@@ -1,4 +1,4 @@
-class LinkExplanation:
+class LinkProjection:
     def __init__(self, link):
         self.link = link
 

@@ -1,6 +1,6 @@
-from zmena.domain.explanations.decision import DecisionExplanation
 from zmena.infrastructure.representation.basic.link import LinkReport
 from zmena.infrastructure.representation.composite.composite_report import CompositeReport
+from zmena.infrastructure.representation.projections.decision import DecisionProjection
 from zmena.infrastructure.representation.specialized.explanation import ExplanationReport
 
 
@@ -20,5 +20,5 @@ class DecisionReport(CompositeReport):
             chosen_report.render()
 
             title = self.title(i, links=len(decision.chosen()))
-            explanation_report = ExplanationReport(title, DecisionExplanation(decision.chosen()))
+            explanation_report = ExplanationReport(title, DecisionProjection(decision.chosen()))
             explanation_report.render()
