@@ -4,7 +4,7 @@ from zmena.domain.heuristics.segment_mismatch import SegmentMismatchHeuristic
 from zmena.domain.heuristics.signature_similarity import SignatureSimilarityHeuristic
 
 
-class HeuristicRegistry:
+class HeuristicPreset:
     def __init__(self):
         self.name_similarity = NameSimilarityHeuristic()
         self.position_similarity = PositionSimilarityHeuristic()
@@ -12,7 +12,7 @@ class HeuristicRegistry:
         self.signature_similarity = SignatureSimilarityHeuristic()
 
     def __repr__(self):
-        return "Registry(type=heuristic)"
+        return "Preset(type=heuristics)"
 
     def default_heuristics(self):
         return [

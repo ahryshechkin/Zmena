@@ -6,7 +6,7 @@ from zmena.domain.rules.position import PositionRule
 from zmena.domain.rules.signature import SignatureRule
 
 
-class RuleRegistry:
+class RulePreset:
     def __init__(self):
         self.delete = DeleteRule()
         self.imbalance = ImbalanceRule()
@@ -16,7 +16,7 @@ class RuleRegistry:
         self.signature = SignatureRule()
 
     def __repr__(self):
-        return "Registry(type=rule)"
+        return "Preset(type=rules)"
 
     def default_rules(self):
         return [
