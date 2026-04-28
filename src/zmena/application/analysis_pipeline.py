@@ -17,14 +17,16 @@ class AnalysisPipeline:
         fragment_builder = FragmentBuilder()
         fragments = fragment_builder.build(self.before, self.after)
 
+        rule_preset = RulePreset()
         bundle = FragmentBundle(fragments)
-        hypothesis_proposer = HypothesisProposer(RulePreset())
+        hypothesis_proposer = HypothesisProposer(rule_preset.default())
         hypotheses = hypothesis_proposer.propose(bundle)
 
         component_composer = ComponentComposer(hypotheses)
         components = component_composer.compose()
 
-        decision_resolver = DecisionResolver(HeuristicPreset())
+        heuristic_preset = HeuristicPreset()
+        decision_resolver = DecisionResolver(heuristic_preset.default())
         decisions = decision_resolver.resolve(components)
 
         return AnalysisResult(fragments, hypotheses, components, decisions)
