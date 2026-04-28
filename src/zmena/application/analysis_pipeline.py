@@ -29,4 +29,6 @@ class AnalysisPipeline:
         decision_resolver = DecisionResolver(heuristic_preset.default())
         decisions = decision_resolver.resolve(components)
 
-        return AnalysisResult(fragments, hypotheses, components, decisions)
+        return AnalysisResult(
+            fragments=fragments, hypotheses=hypotheses, components=components, decisions=decisions
+        )
