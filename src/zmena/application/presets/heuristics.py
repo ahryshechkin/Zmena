@@ -14,7 +14,7 @@ class HeuristicPreset:
     def __repr__(self):
         return "Preset(type=heuristics)"
 
-    def default_heuristics(self):
+    def default(self):
         return [
             self.name_similarity,
             self.position_similarity,

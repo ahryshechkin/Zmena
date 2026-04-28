@@ -18,7 +18,7 @@ class RulePreset:
     def __repr__(self):
         return "Preset(type=rules)"
 
-    def default_rules(self):
+    def default(self):
         return [
             self.delete,
             self.imbalance,
