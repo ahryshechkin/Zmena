@@ -1,7 +1,7 @@
 import re
 
 
-class Lexeme:
+class ColumnSpec:
     pattern = r"^(\w+)\s+((\w+)\s*(\(\d+\))?)(\s*(not)?\s+(null)?)?"
 
     def __init__(self, line):
