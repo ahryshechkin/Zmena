@@ -1,7 +1,6 @@
+from zmena.domain.heuristics.heuristic import Heuristic
 from zmena.domain.model.evidence import Evidence
 from zmena.domain.types.heuristic_label import HeuristicLabel
-
-from .heuristic import Heuristic
 
 
 class PositionSimilarityHeuristic(Heuristic):

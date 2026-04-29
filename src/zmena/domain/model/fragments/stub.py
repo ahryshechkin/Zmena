@@ -1,6 +1,5 @@
+from zmena.domain.model.fragments.fragment import Fragment
 from zmena.domain.types.tag import Tag
-
-from .fragment import Fragment
 
 
 class StubFragment(Fragment):

@@ -1,7 +1,6 @@
 from zmena.domain.model.column_spec import ColumnSpec
+from zmena.domain.model.fragments.fragment import Fragment
 from zmena.domain.types.side import Side
-
-from .fragment import Fragment
 
 
 class LeftFragment(Fragment):

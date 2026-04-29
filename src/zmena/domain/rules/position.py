@@ -1,7 +1,6 @@
 from zmena.domain.model.hypothesis import Hypothesis
+from zmena.domain.rules.rule import Rule
 from zmena.domain.types.rule_label import RuleLabel
-
-from .rule import Rule
 
 
 class PositionRule(Rule):
