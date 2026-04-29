@@ -1,9 +1,8 @@
 from zmena.domain.model.fragments.stub import StubFragment
 from zmena.domain.model.hypothesis import Hypothesis
+from zmena.domain.rules.rule import Rule
 from zmena.domain.types.rule_label import RuleLabel
 from zmena.domain.types.side import Side
-
-from .rule import Rule
 
 
 class InsertRule(Rule):
