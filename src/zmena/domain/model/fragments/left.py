@@ -1,4 +1,4 @@
-from zmena.domain.model.lexeme import Lexeme
+from zmena.domain.model.column_spec import ColumnSpec
 from zmena.domain.types.side import Side
 
 from .fragment import Fragment
@@ -6,13 +6,13 @@ from .fragment import Fragment
 
 class LeftFragment(Fragment):
     def __init__(self, offset, hunk):
-        lexeme = Lexeme(hunk.left_line(offset))
+        column_spec = ColumnSpec(hunk.left_line(offset))
         super().__init__(
             hunk.kind(),
             Side.LEFT,
             hunk.fingerprint(),
             hunk.left_lineno(offset),
-            lexeme.name(),
-            lexeme.type(),
-            lexeme.constraint(),
+            column_spec.name(),
+            column_spec.type(),
+            column_spec.constraint(),
         )
