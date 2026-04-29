@@ -2,17 +2,22 @@ import re
 
 
 class ColumnSpec:
-    pattern = r"^(\w+)\s+((\w+)\s*(\(\d+\))?)(\s*(not)?\s+(null)?)?"
+    PATTERN = re.compile(
+        r"^(?P<name>\w+)\s+"
+        r"(?P<data_type>\w+(?:\(\d+\))?)"
+        r"(?:\s+(?P<constraint>not\s+null|null))?$",
+        re.IGNORECASE,
+    )
 
     def __init__(self, line):
-        self.token = re.search(self.pattern, line, re.IGNORECASE)
+        self.match = self.PATTERN.search(line)
 
     def name(self):
-        return self.token.group(1)
+        return self.match.group("name")
 
-    def type(self):
-        return self.token.group(2).strip()
+    def data_type(self):
+        return self.match.group("data_type")
 
     def constraint(self):
-        c = self.token.group(5)
-        return c.strip() if c else None
+        c = self.match.group("constraint")
+        return " ".join(c.split()) if c else None
