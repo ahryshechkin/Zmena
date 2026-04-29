@@ -12,6 +12,6 @@ class LeftFragment(Fragment):
             hunk.fingerprint(),
             hunk.left_lineno(offset),
             column_spec.name(),
-            column_spec.type(),
+            column_spec.data_type(),
             column_spec.constraint(),
         )
