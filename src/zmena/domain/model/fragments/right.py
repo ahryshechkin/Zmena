@@ -8,9 +8,9 @@ class RightFragment(Fragment):
         column_spec = ColumnSpec(hunk.right_line(offset))
         super().__init__(
             hunk.kind(),
-            Side.RIGHT,
             hunk.fingerprint(),
             hunk.right_lineno(offset),
+            Side.RIGHT,
             column_spec.name(),
             column_spec.data_type(),
             column_spec.constraint(),

@@ -25,5 +25,5 @@ class Hypothesis:
     def has_same_signature(self):
         return self.left.same_signature_as(self.right)
 
-    def has_segment_mismatch(self):
-        return self.left.same_name_but_different_segment_as(self.right)
+    def has_block_mismatch(self):
+        return self.left.same_name_but_different_block_as(self.right)

@@ -12,6 +12,9 @@ class ColumnSpec:
     def __init__(self, line):
         self.match = self.PATTERN.search(line)
 
+    def __repr__(self):
+        return "ColumnSpec"
+
     def name(self):
         return self.match.group("name")
 

@@ -10,11 +10,11 @@ class ImbalanceRule(Rule):
         super().__init__(RuleLabel.IMBALANCE)
 
     def generate(self, bundle):
-        left_fragments_by_segment = bundle.left_by_segment()
+        left_fragments_by_block = bundle.left_by_block()
 
         hypotheses = []
-        for segment, rights in bundle.right_by_segment().items():
-            lefts = left_fragments_by_segment.get(segment, [])
+        for block, rights in bundle.right_by_block().items():
+            lefts = left_fragments_by_block.get(block, [])
 
             if len(lefts) >= len(rights):
                 continue
