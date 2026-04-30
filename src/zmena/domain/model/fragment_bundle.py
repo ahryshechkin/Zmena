@@ -14,16 +14,16 @@ class FragmentBundle:
     def right(self):
         return [f for f in self.fragments if f.side == Side.RIGHT]
 
-    def left_by_segment(self):
+    def left_by_block(self):
         fragments = {}
         for fragment in self.left():
-            fragments.setdefault(fragment.segment, []).append(fragment)
+            fragments.setdefault(fragment.block, []).append(fragment)
 
         return fragments
 
-    def right_by_segment(self):
+    def right_by_block(self):
         fragments = {}
         for fragment in self.right():
-            fragments.setdefault(fragment.segment, []).append(fragment)
+            fragments.setdefault(fragment.block, []).append(fragment)
 
         return fragments
