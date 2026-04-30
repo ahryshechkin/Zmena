@@ -7,6 +7,9 @@ class ScenarioCatalog:
     def __init__(self):
         self.root_dir = Path(__file__).resolve().parents[4] / "scenarios"
 
+    def __repr__(self):
+        return f"ScenarioCatalog(root_dir={self.root_dir})"
+
     def build_scenario_from(self, path):
         sce_id, name = path.name.split("_", maxsplit=2)[1:]
         before = (path / "before.sql").read_text(encoding="utf-8")
