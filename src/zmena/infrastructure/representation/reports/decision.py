@@ -19,6 +19,6 @@ class DecisionReport(CompositeReport):
             chosen_report = LinkReport(title, decision.chosen())
             chosen_report.render()
 
-            title = self.title(i, links=len(decision.chosen()))
+            title = self.title(i, explanations=len(decision.chosen()))
             explanation_report = ExplanationReport(title, DecisionProjection(decision.chosen()))
             explanation_report.render()

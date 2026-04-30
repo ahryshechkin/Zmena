@@ -10,12 +10,10 @@ class ComponentReport(CompositeReport):
 
     def render(self):
         for i, component in enumerate(self.components, 1):
-            title = self.title(
-                i, fragments=len(component.fragments), hypotheses=len(component.hypotheses)
-            )
-
+            title = self.title(i, hypotheses=len(component.hypotheses))
             hypothesis_report = HypothesisReport(title, component.hypotheses)
             hypothesis_report.render()
 
+            title = self.title(i, fragments=len(component.fragments))
             fragment_report = FragmentReport(title, component.fragments)
             fragment_report.render()
