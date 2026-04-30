@@ -15,9 +15,9 @@ class ScenarioReport(BasicReport):
                 ("action", ">", "7"),
                 ("fingerprint", ">", "11"),
                 ("lineno", ">", "6"),
-                ("left", "<", len(max(scenario.before, key=len, default=None))),
+                ("left", "<", len(max(scenario.before, key=len))),
                 ("lineno", ">", "6"),
-                ("right", "<", len(max(scenario.after, key=len, default=None))),
+                ("right", "<", len(max(scenario.after, key=len))),
             ],
             [],
         )
@@ -57,7 +57,7 @@ class ScenarioReport(BasicReport):
         print(self.color.style_text(hunk.kind(), f"| {line} |"))
 
     def width_left(self):
-        return len(max(self.scenario.before, key=len, default=None))
+        return len(max(self.scenario.before, key=len))
 
     def width_right(self):
-        return len(max(self.scenario.after, key=len, default=None))
+        return len(max(self.scenario.after, key=len))
