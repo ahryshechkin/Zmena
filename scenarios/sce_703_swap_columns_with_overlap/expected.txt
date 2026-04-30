@@ -1,4 +1,4 @@
-    0.4 | #### |  replace |    L | 11121112 |       12 | col_12  | varchar(50)   |   not null | #### |  replace |    R | 02030203 |        3 | col_12  | varchar(50)   |   not null
-    0.4 | #### |  replace |    L | 02030203 |        3 | col_03  | varchar(200)  |            | #### |  replace |    R | 11121112 |       12 | col_03  | varchar(200)  |           
-    0.4 | #### |  replace |    L | 15161516 |       16 | col_16  | int           |            | #### |  replace |    R | 06070607 |        7 | col_16  | int           |           
-    0.4 | #### |  replace |    L | 06070607 |        7 | col_07  | varchar(1)    |   not null | #### |  replace |    R | 15161516 |       16 | col_07  | varchar(1)    |   not null
+    0.4 | #### |  replace | 11121112 |       12 |    L | col_12  | varchar(50)   |   not null | #### |  replace | 02030203 |        3 |    R | col_12  | varchar(50)   |   not null
+    0.4 | #### |  replace | 02030203 |        3 |    L | col_03  | varchar(200)  |            | #### |  replace | 11121112 |       12 |    R | col_03  | varchar(200)  |           
+    0.4 | #### |  replace | 15161516 |       16 |    L | col_16  | int           |            | #### |  replace | 06070607 |        7 |    R | col_16  | int           |           
+    0.4 | #### |  replace | 06070607 |        7 |    L | col_07  | varchar(1)    |   not null | #### |  replace | 15161516 |       16 |    R | col_07  | varchar(1)    |   not null
