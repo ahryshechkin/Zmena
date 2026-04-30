@@ -6,7 +6,8 @@ class CompositeReport(ABC):
         self.name = name
 
     def __repr__(self):
-        return f"Report(composite={self.__class__.__name__.replace('Report', '')})"
+        name = self.__class__.__name__.replace("Report", "")
+        return f"Report(composite={name})"
 
     @abstractmethod
     def render(self):

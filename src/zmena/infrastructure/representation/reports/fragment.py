@@ -7,9 +7,9 @@ class FragmentReport(BasicReport):
             name,
             [
                 ("tag", ">", "8"),
-                ("side", ">", "4"),
-                ("segment", "<", "8"),
+                ("block", "<", "8"),
                 ("position", ">", "8"),
+                ("side", ">", "4"),
                 ("name", "<", "7"),
                 ("type", "<", "13"),
                 ("constraint", "<", "10"),
