@@ -10,6 +10,9 @@ class AnalysisReport:
         self.scenario = scenario
         self.result = result
 
+    def __repr__(self):
+        return "AnalysisReport"
+
     def show_scenario(self):
         report = ScenarioReport(self.scenario)
         report.render()

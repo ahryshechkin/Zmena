@@ -13,6 +13,9 @@ class AnalysisPipeline:
         self.before = before
         self.after = after
 
+    def __repr__(self):
+        return "AnalysisPipeline"
+
     def run(self):
         fragment_builder = FragmentBuilder()
         fragments = fragment_builder.build(self.before, self.after)
