@@ -11,7 +11,7 @@ class FragmentReport(BasicReport):
                 ("position", ">", "8"),
                 ("side", ">", "4"),
                 ("name", "<", "7"),
-                ("type", "<", "13"),
+                ("data_type", "<", "13"),
                 ("constraint", "<", "10"),
             ],
             fragments,
