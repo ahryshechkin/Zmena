@@ -283,7 +283,7 @@ class TestComplexScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_704_move_three_columns_cycle(self):
+    def test_sce_704_move_three_columns_in_cycle(self):
         scenario = self.catalog.get("704")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
