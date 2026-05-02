@@ -1,0 +1,3 @@
+    0.4 | #### |  replace | 08090809 |        9 |    L | col_09  | datetime2     |   not null | #### |  replace | 01020102 |        2 |    R | col_09  | datetime2     |   not null
+    0.4 | #### |  replace | 01020102 |        2 |    L | col_02  | varchar(50)   |   not null | #### |  replace | 05060506 |        6 |    R | col_02  | varchar(50)   |   not null
+    0.4 | #### |  replace | 05060506 |        6 |    L | col_06  | int           |            | #### |  replace | 08090809 |        9 |    R | col_06  | int           |           
