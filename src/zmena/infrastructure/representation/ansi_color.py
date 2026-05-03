@@ -9,6 +9,9 @@ class ANSIColor:
     RESET = "\033[0m"
     BOLD = "\033[1m"
 
+    def __repr__(self):
+        return "ANSIColor"
+
     def style_text(self, tag, text):
         colors = {
             Tag.DELETE: self.RED,
