@@ -6,6 +6,7 @@ from zmena.infrastructure import ScenarioCatalog
 
 class TestComplexScenarios(unittest.TestCase):
     def setUp(self):
+        self.maxDiff = None
         self.catalog = ScenarioCatalog()
 
     def test_sce_051_alter_column_then_add_another_before(self):
@@ -283,8 +284,41 @@ class TestComplexScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_704_move_three_columns_in_cycle(self):
+    def test_sce_704_swap_adjacent_columns_with_same_signature(self):
         scenario = self.catalog.get("704")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_705_swap_close_columns_with_same_signature(self):
+        scenario = self.catalog.get("705")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_706_swap_distant_columns_with_same_signature(self):
+        scenario = self.catalog.get("706")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_721_move_three_columns_in_cycle(self):
+        scenario = self.catalog.get("721")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
