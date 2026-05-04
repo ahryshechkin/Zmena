@@ -2,7 +2,7 @@ from zmena.application import AnalysisPipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["704"]
+sce_ids = ["706"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     analysis_pipeline = AnalysisPipeline(scenario.before, scenario.after)
