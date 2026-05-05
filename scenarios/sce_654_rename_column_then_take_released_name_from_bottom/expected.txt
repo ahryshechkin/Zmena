@@ -1,0 +1,2 @@
+    0.5 | #### |  replace | 05060607 |        6 |    L | col_06  | int           |            | #### |  replace | 05060607 |        7 |    R | col_66  | int           |           
+      0 | #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010102 |        2 |    R | col_06  | varchar(50)   |   not null
