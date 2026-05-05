@@ -229,7 +229,7 @@ class TestComplexScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_651_reuse_free_name_from_top(self):
+    def test_sce_651_drop_column_then_reuse_free_name_from_top(self):
         scenario = self.catalog.get("651")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
@@ -240,8 +240,30 @@ class TestComplexScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_652_reuse_free_name_from_bottom(self):
+    def test_sce_652_drop_column_then_reuse_free_name_from_bottom(self):
         scenario = self.catalog.get("652")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_653_rename_column_then_take_released_name_from_top(self):
+        scenario = self.catalog.get("653")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_654_rename_column_then_take_released_name_from_bottom(self):
+        scenario = self.catalog.get("654")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
@@ -308,6 +330,28 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_706_swap_distant_columns_with_same_signature(self):
         scenario = self.catalog.get("706")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_707_add_column_between_adjacent_swapped_ones(self):
+        scenario = self.catalog.get("707")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_708_add_column_between_non_adjacent_swapped_ones(self):
+        scenario = self.catalog.get("708")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
