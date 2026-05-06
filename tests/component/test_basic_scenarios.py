@@ -84,3 +84,14 @@ class TestBasicScenarios(unittest.TestCase):
             actual.extend([str(link) for link in decision.chosen()])
 
         self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_021_apply_multiple_primitive_changes(self):
+        scenario = self.catalog.get("021")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
