@@ -85,8 +85,41 @@ class TestBasicScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_021_apply_multiple_primitive_changes(self):
-        scenario = self.catalog.get("021")
+    def test_sce_018_rename_column(self):
+        scenario = self.catalog.get("018")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_019_rename_column_then_change_data_type(self):
+        scenario = self.catalog.get("019")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_020_rename_column_then_alter_constraint(self):
+        scenario = self.catalog.get("020")
+        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        result = pipeline.run()
+
+        actual = []
+        for decision in result.decisions:
+            actual.extend([str(link) for link in decision.chosen()])
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_041_apply_multiple_primitive_changes(self):
+        scenario = self.catalog.get("041")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
