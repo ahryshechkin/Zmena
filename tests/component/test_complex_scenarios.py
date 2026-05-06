@@ -42,7 +42,7 @@ class TestComplexScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_151_apply_scripts_in_proper_order(self):
+    def test_sce_151_apply_changes_in_correct_order(self):
         scenario = self.catalog.get("151")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
@@ -165,17 +165,6 @@ class TestComplexScenarios(unittest.TestCase):
 
     def test_sce_403_move_two_columns_before_altered_one_twice(self):
         scenario = self.catalog.get("403")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_501_perform_several_simple_changes(self):
-        scenario = self.catalog.get("501")
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 

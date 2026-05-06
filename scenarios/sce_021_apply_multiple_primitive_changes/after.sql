@@ -9,4 +9,3 @@ col_06 int
 col_07 varchar(10) not null
 col_08 date not null
 col_09 datetime2 not null
-col_10 datetime2 not null
