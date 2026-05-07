@@ -1,4 +1,4 @@
-    1.0 | #### |  replace | 06070809 |        7 |    L | col_07  | varchar(1)    |   not null | #### |  replace | 06070809 |        9 |    R | col_07  | varchar(10)   |   not null
-      0 | #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        2 |    R | col_11  | int           |           
-      0 | #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        3 |    R | col_22  | varchar(50)   |   not null
-      0 | #### |   delete | 09101111 |       10 |    L | col_10  | datetime2     |   not null | #### |     stub |          |          |    R |         |               |           
+ #### |  replace | 06070809 |        7 |    L | col_07  | varchar(1)    |   not null | #### |  replace | 06070809 |        9 |    R | col_07  | varchar(10)   |   not null
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        2 |    R | col_11  | int           |           
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        3 |    R | col_22  | varchar(50)   |   not null
+ #### |   delete | 09101111 |       10 |    L | col_10  | datetime2     |   not null | #### |     stub |          |          |    R |         |               |           
