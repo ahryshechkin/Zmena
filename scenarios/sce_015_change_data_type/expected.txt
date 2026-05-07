@@ -1,1 +1,1 @@
-    1.3 | #### |  replace | 07080708 |        8 |    L | col_08  | date          |   not null | #### |  replace | 07080708 |        8 |    R | col_08  | datetime2     |   not null
+ #### |  replace | 07080708 |        8 |    L | col_08  | date          |   not null | #### |  replace | 07080708 |        8 |    R | col_08  | datetime2     |   not null
