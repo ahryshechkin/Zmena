@@ -6,125 +6,84 @@ from zmena.infrastructure import ScenarioCatalog
 
 class TestBasicScenarios(unittest.TestCase):
     def setUp(self):
+        self.maxDiff = None
         self.catalog = ScenarioCatalog()
 
-    def test_sce_011_add_column_not_null(self):
-        scenario = self.catalog.get("011")
+    def normalize(self, link):
+        return str(link).split("|", 1)[1]
+
+    def collect_chosen_link(self, scenario):
         pipeline = AnalysisPipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
-        actual = []
+        chosen = []
         for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+            chosen.extend([self.normalize(link) for link in decision.chosen()])
+
+        return chosen
+
+    def test_sce_011_add_column_not_null(self):
+        scenario = self.catalog.get("011")
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_012_add_column_null(self):
         scenario = self.catalog.get("012")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_013_alter_constraint_not_null(self):
         scenario = self.catalog.get("013")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_014_alter_constraint_null(self):
         scenario = self.catalog.get("014")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_015_change_data_type(self):
         scenario = self.catalog.get("015")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_016_drop_column(self):
         scenario = self.catalog.get("016")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_017_move_column(self):
         scenario = self.catalog.get("017")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_018_rename_column(self):
         scenario = self.catalog.get("018")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_019_rename_column_then_change_data_type(self):
         scenario = self.catalog.get("019")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_020_rename_column_then_alter_constraint(self):
         scenario = self.catalog.get("020")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_041_apply_multiple_primitive_changes(self):
         scenario = self.catalog.get("041")
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
-
-        actual = []
-        for decision in result.decisions:
-            actual.extend([str(link) for link in decision.chosen()])
+        actual = self.collect_chosen_link(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
