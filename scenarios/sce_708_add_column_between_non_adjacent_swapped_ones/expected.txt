@@ -1,3 +1,3 @@
-    0.7 | #### |   delete | 02040505 |        3 |    L | col_03  | varchar(50)   |   not null | #### |   insert | 01010104 |        3 |    R | col_03  | varchar(50)   |   not null
-    0.4 | #### |   delete | 02040505 |        4 |    L | col_04  | varchar(50)   |   not null | #### |   insert | 01010104 |        2 |    R | col_04  | varchar(50)   |   not null
-      0 | #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010104 |        4 |    R | col_33  | varchar(50)   |   not null
+ #### |   delete | 02040505 |        3 |    L | col_03  | varchar(50)   |   not null | #### |   insert | 01010104 |        3 |    R | col_03  | varchar(50)   |   not null
+ #### |   delete | 02040505 |        4 |    L | col_04  | varchar(50)   |   not null | #### |   insert | 01010104 |        2 |    R | col_04  | varchar(50)   |   not null
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010104 |        4 |    R | col_33  | varchar(50)   |   not null

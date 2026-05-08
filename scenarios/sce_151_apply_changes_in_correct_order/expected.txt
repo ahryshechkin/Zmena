@@ -1,4 +1,4 @@
-    0.8 | #### |  replace | 01020102 |        2 |    L | col_02  | varchar(50)   |   not null | #### |  replace | 01020102 |        2 |    R | col_05  | varchar(50)   |   not null
-      0 | #### |   delete | 04050404 |        5 |    L | col_05  | varchar(50)   |            | #### |     stub |          |          |    R |         |               |           
-    0.8 | #### |  replace | 07080708 |        8 |    L | col_08  | date          |   not null | #### |  replace | 07080708 |        8 |    R | col_88  | date          |   not null
-      0 | #### |     stub |          |          |    L |         |               |            | #### |   insert | 06060506 |        6 |    R | col_08  | int           |           
+ #### |  replace | 01020102 |        2 |    L | col_02  | varchar(50)   |   not null | #### |  replace | 01020102 |        2 |    R | col_05  | varchar(50)   |   not null
+ #### |   delete | 04050404 |        5 |    L | col_05  | varchar(50)   |            | #### |     stub |          |          |    R |         |               |           
+ #### |  replace | 07080708 |        8 |    L | col_08  | date          |   not null | #### |  replace | 07080708 |        8 |    R | col_88  | date          |   not null
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 06060506 |        6 |    R | col_08  | int           |           

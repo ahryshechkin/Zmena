@@ -1,1 +1,1 @@
-    0.4 | #### |   delete | 04050505 |        5 |    L | col_05  | varchar(50)   |   not null | #### |   insert | 03030304 |        4 |    R | col_05  | varchar(50)   |   not null
+ #### |   delete | 04050505 |        5 |    L | col_05  | varchar(50)   |   not null | #### |   insert | 03030304 |        4 |    R | col_05  | varchar(50)   |   not null
