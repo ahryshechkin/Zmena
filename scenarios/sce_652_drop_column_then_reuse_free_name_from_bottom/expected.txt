@@ -1,2 +1,2 @@
-    0.8 | #### |  replace | 02030203 |        3 |    L | col_03  | varchar(200)  |            | #### |  replace | 02030203 |        3 |    R | col_07  | varchar(200)  |           
-      0 | #### |   delete | 06070606 |        7 |    L | col_07  | varchar(1)    |   not null | #### |     stub |          |          |    R |         |               |           
+ #### |  replace | 02030203 |        3 |    L | col_03  | varchar(200)  |            | #### |  replace | 02030203 |        3 |    R | col_07  | varchar(200)  |           
+ #### |   delete | 06070606 |        7 |    L | col_07  | varchar(1)    |   not null | #### |     stub |          |          |    R |         |               |           
