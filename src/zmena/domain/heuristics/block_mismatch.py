@@ -9,5 +9,5 @@ class BlockMismatchHeuristic(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.has_block_mismatch():
-            return [Evidence(hypothesis, -1.0, 0.6, self.label)]
+            return [Evidence(hypothesis, -1.0, 1.2, self.label)]
         return []
