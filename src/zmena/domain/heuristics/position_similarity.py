@@ -9,5 +9,5 @@ class PositionSimilarityHeuristic(Heuristic):
 
     def evaluate(self, hypothesis):
         if hypothesis.has_same_position():
-            return [Evidence(hypothesis, 1.0, 0.3, self.label)]
+            return [Evidence(hypothesis, 1.0, 0.6, self.label)]
         return []
