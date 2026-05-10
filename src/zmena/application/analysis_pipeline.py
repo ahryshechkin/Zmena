@@ -1,6 +1,4 @@
 from zmena.application.analysis_result import AnalysisResult
-from zmena.application.presets.heuristics import HeuristicPreset
-from zmena.application.presets.rules import RulePreset
 from zmena.application.steps.component_composer import ComponentComposer
 from zmena.application.steps.decision_resolver import DecisionResolver
 from zmena.application.steps.fragment_builder import FragmentBuilder
@@ -20,16 +18,14 @@ class AnalysisPipeline:
         fragment_builder = FragmentBuilder()
         fragments = fragment_builder.build(self.before, self.after)
 
-        rule_preset = RulePreset()
         bundle = FragmentBundle(fragments)
-        hypothesis_proposer = HypothesisProposer(rule_preset.default())
+        hypothesis_proposer = HypothesisProposer()
         hypotheses = hypothesis_proposer.propose(bundle)
 
         component_composer = ComponentComposer(hypotheses)
         components = component_composer.compose()
 
-        heuristic_preset = HeuristicPreset()
-        decision_resolver = DecisionResolver(heuristic_preset.default())
+        decision_resolver = DecisionResolver()
         decisions = decision_resolver.resolve(components)
 
         return AnalysisResult(
