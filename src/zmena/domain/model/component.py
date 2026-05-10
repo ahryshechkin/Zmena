@@ -33,6 +33,3 @@ class Component:
             links.append(link)
 
         return links
-
-    def reassess(self, evaluation_scope):
-        return evaluation_scope.links

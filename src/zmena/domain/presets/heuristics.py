@@ -22,5 +22,5 @@ class HeuristicPreset:
             self.signature_similarity,
         ]
 
-    def context(self):
-        pass
+    def overall(self):
+        return []
