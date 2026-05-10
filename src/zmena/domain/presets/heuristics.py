@@ -14,10 +14,13 @@ class HeuristicPreset:
     def __repr__(self):
         return "Preset(type=heuristics)"
 
-    def default(self):
+    def local(self):
         return [
             self.block_mismatch,
             self.name_similarity,
             self.position_similarity,
             self.signature_similarity,
         ]
+
+    def context(self):
+        pass

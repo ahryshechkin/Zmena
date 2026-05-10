@@ -2,9 +2,9 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class AssessContext:
+class EvaluationScope:
     heuristics: list
     links: list
 
     def __repr__(self):
-        return f"AssessContext(heuristics={len(self.heuristics)},links={len(self.links)})"
+        return f"EvaluationScope(heuristics={len(self.heuristics)},links={len(self.links)})"
