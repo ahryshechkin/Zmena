@@ -1,24 +1,22 @@
-from zmena.domain.model.evaluation_scope import EvaluationScope
+from zmena.domain.model.evaluation_context import EvaluationContext
 
 
 class Decision:
     def __init__(self, component, preset):
         self.component = component
         self.preset = preset
-        self.cached_candidates = []
+        self.final_candidates = []
 
     def __repr__(self):
         return f"Decision(chosen={len(self.chosen())})"
 
     def candidates(self):
-        if not self.cached_candidates:
-            scope = EvaluationScope(
-                heuristics=self.preset.context(),
-                links=self.component.assess(self.preset.local()),
-            )
-            self.cached_candidates = self.component.reassess(scope)
+        if not self.final_candidates:
+            draft_candidates = self.component.assess(self.preset.local())
+            context = EvaluationContext(self.preset.overall())
+            self.final_candidates = context.reassess(draft_candidates)
 
-        return self.cached_candidates
+        return self.final_candidates
 
     def chosen(self):
         occupied_fragments = set()
