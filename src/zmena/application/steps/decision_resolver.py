@@ -12,7 +12,7 @@ class DecisionResolver:
     def resolve(self, components):
         decisions = []
         for component in components:
-            decision = Decision(component, self.preset.default())
+            decision = Decision(component, self.preset)
             decisions.append(decision)
 
         return decisions
