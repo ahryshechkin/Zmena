@@ -1,22 +1,22 @@
-from zmena.domain.model.evaluation_context import EvaluationContext
+from zmena.domain.model.refinement import Refinement
 
 
 class Decision:
     def __init__(self, component, preset):
         self.component = component
         self.preset = preset
-        self.final_candidates = []
+        self.refined_links = []
 
     def __repr__(self):
         return f"Decision(chosen={len(self.chosen())})"
 
     def candidates(self):
-        if not self.final_candidates:
-            draft_candidates = self.component.assess(self.preset.local())
-            context = EvaluationContext(self.preset.overall())
-            self.final_candidates = context.reassess(draft_candidates)
+        if not self.refined_links:
+            initial_links = self.component.assess(self.preset.local())
+            refinement = Refinement(initial_links)
+            self.refined_links = refinement.reassess(self.preset.overall())
 
-        return self.final_candidates
+        return self.refined_links
 
     def chosen(self):
         occupied_fragments = set()
