@@ -1,12 +1,12 @@
 class Decision:
-    def __init__(self, refined_links):
-        self.refined_links = refined_links
+    def __init__(self, links):
+        self.links = links
 
     def __repr__(self):
         return f"Decision(chosen={len(self.chosen())})"
 
     def candidates(self):
-        return self.refined_links
+        return self.links
 
     def chosen(self):
         occupied_fragments = set()
