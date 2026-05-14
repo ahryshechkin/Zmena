@@ -13,10 +13,10 @@ class DecisionResolver:
     def resolve(self, components):
         decisions = []
         for component in components:
-            initial_links = component.assess(self.preset.local())
-            refinement = Refinement(initial_links)
-            refined_links = refinement.reassess(self.preset.overall())
-            decision = Decision(refined_links)
+            locally_scored_links = component.assess(self.preset.local())
+            refinement = Refinement(locally_scored_links)
+            globally_refined_links = refinement.reassess(self.preset.overall())
+            decision = Decision(globally_refined_links)
             decisions.append(decision)
 
         return decisions
