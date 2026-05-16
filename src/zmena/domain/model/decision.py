@@ -3,7 +3,7 @@ class Decision:
         self.links = links
 
     def __repr__(self):
-        return f"Decision(chosen={len(self.chosen())})"
+        return f"Decision(links={len(self.links)})"
 
     def candidates(self):
         return self.links

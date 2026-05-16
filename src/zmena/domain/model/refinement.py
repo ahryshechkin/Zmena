@@ -1,14 +1,14 @@
 class Refinement:
-    def __init__(self, links):
-        self.links = links
+    def __init__(self, heuristics):
+        self.heuristics = heuristics
 
     def __repr__(self):
-        return f"Refinement(links={len(self.links)})"
+        return "Refinement"
 
-    def reassess(self, heuristics):
-        for link in self.links:
-            for heuristic in heuristics:
-                for evidence in heuristic.evaluate(link, self.links):
+    def reassess(self, links):
+        for link in links:
+            for heuristic in self.heuristics:
+                for evidence in heuristic.evaluate(link, links):
                     link.add_evidence(evidence)
 
-        return self.links
+        return links
