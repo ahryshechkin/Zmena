@@ -19,8 +19,8 @@ class AnalysisPipeline:
         fragments = fragment_builder.build(self.before, self.after)
 
         bundle = FragmentBundle(fragments)
-        hypothesis_proposer = HypothesisProposer()
-        hypotheses = hypothesis_proposer.propose(bundle)
+        hypothesis_proposer = HypothesisProposer(bundle)
+        hypotheses = hypothesis_proposer.propose()
 
         component_composer = ComponentComposer(hypotheses)
         components = component_composer.compose()
