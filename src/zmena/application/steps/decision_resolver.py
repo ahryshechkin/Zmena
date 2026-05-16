@@ -9,14 +9,15 @@ class DecisionResolver:
         self.preset = HeuristicPreset()
 
     def __repr__(self):
-        return "DecisionResolver(preset=heuristics)"
+        return f"DecisionResolver(components={len(self.components)})"
 
     def resolve(self):
         decisions = []
+
+        refinement = Refinement(self.preset.contextual())
         for component in self.components:
             locally_scored_links = component.assess()
-            refinement = Refinement(locally_scored_links)
-            globally_refined_links = refinement.reassess(self.preset.contextual())
+            globally_refined_links = refinement.reassess(locally_scored_links)
             decision = Decision(globally_refined_links)
             decisions.append(decision)
 
