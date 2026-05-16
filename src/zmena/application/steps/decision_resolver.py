@@ -4,15 +4,16 @@ from zmena.domain.presets.heuristics import HeuristicPreset
 
 
 class DecisionResolver:
-    def __init__(self):
+    def __init__(self, components):
+        self.components = components
         self.preset = HeuristicPreset()
 
     def __repr__(self):
         return "DecisionResolver(preset=heuristics)"
 
-    def resolve(self, components):
+    def resolve(self):
         decisions = []
-        for component in components:
+        for component in self.components:
             locally_scored_links = component.assess()
             refinement = Refinement(locally_scored_links)
             globally_refined_links = refinement.reassess(self.preset.contextual())
