@@ -1,11 +1,13 @@
 from collections import defaultdict
 
 from zmena.domain.model.component import Component
+from zmena.domain.presets.heuristics import HeuristicPreset
 
 
 class ComponentComposer:
     def __init__(self, hypotheses):
         self.hypotheses = hypotheses
+        self.preset = HeuristicPreset()
 
     def __repr__(self):
         return f"ComponentComposer(hypotheses={len(self.hypotheses)})"
@@ -23,7 +25,7 @@ class ComponentComposer:
             if fragment in visited_fragments:
                 continue
 
-            component = Component()
+            component = Component(self.preset.default())
             stack = [fragment]
             while stack:
                 current_fragment = stack.pop()
