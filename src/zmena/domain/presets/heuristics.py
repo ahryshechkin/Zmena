@@ -14,7 +14,7 @@ class HeuristicPreset:
     def __repr__(self):
         return "Preset(type=heuristics)"
 
-    def local(self):
+    def default(self):
         return [
             self.block_mismatch,
             self.name_similarity,
@@ -22,5 +22,5 @@ class HeuristicPreset:
             self.signature_similarity,
         ]
 
-    def overall(self):
+    def contextual(self):
         return []
