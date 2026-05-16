@@ -25,8 +25,8 @@ class AnalysisPipeline:
         component_composer = ComponentComposer(hypotheses)
         components = component_composer.compose()
 
-        decision_resolver = DecisionResolver()
-        decisions = decision_resolver.resolve(components)
+        decision_resolver = DecisionResolver(components)
+        decisions = decision_resolver.resolve()
 
         return AnalysisResult(
             fragments=fragments, hypotheses=hypotheses, components=components, decisions=decisions
