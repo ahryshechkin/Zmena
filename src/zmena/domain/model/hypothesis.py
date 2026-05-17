@@ -5,10 +5,10 @@ class Hypothesis:
         self.right = right
 
     def __str__(self):
-        return f"{self.rule_kind.value:>9} | #### | {self.left} | #### | {self.right}"
+        return f"{self.rule_kind:>9} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
-        return f"Hypothesis(rule={self.rule_kind.value})"
+        return f"Hypothesis(rule={self.rule_kind})"
 
     def key(self):
         return self.left, self.right
