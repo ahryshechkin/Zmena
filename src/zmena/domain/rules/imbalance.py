@@ -1,13 +1,13 @@
 from zmena.domain.model.fragments.stub import StubFragment
 from zmena.domain.model.hypothesis import Hypothesis
 from zmena.domain.rules.rule import Rule
-from zmena.domain.types.rule_label import RuleLabel
+from zmena.domain.types.rule_kind import RuleKind
 from zmena.domain.types.side import Side
 
 
 class ImbalanceRule(Rule):
     def __init__(self):
-        super().__init__(RuleLabel.IMBALANCE)
+        super().__init__(RuleKind.IMBALANCE)
 
     def generate(self, bundle):
         left_fragments_by_block = bundle.left_by_block()
@@ -27,7 +27,7 @@ class ImbalanceRule(Rule):
 
             for fragment in rights:
                 stub_fragment = StubFragment(Side.LEFT)
-                hypothesis = Hypothesis(self.label, stub_fragment, fragment)
+                hypothesis = Hypothesis(self.kind, stub_fragment, fragment)
                 hypotheses.append(hypothesis)
 
         return hypotheses
