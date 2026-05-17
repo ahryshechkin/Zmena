@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class HeuristicLabel(StrEnum):
+class HeuristicKind(StrEnum):
     BLOCK_MISMATCH = "block mismatch"
     NAME_SIMILARITY = "name similarity"
     POSITION_SIMILARITY = "position similarity"

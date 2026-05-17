@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class RuleLabel(StrEnum):
+class RuleKind(StrEnum):
     DELETE = "delete"
     IMBALANCE = "imbalance"
     INSERT = "insert"
