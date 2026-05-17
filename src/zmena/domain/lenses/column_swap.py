@@ -1,10 +1,10 @@
 from zmena.domain.lenses.lens import Lens
-from zmena.domain.types.lens_label import LensLabel
+from zmena.domain.types.lens_kind import LensKind
 
 
 class ColumnSwapLens(Lens):
     def __init__(self):
-        super().__init__(LensLabel.COLUMN_SWAP)
+        super().__init__(LensKind.COLUMN_SWAP)
 
     def evaluate(self, link, context):
         pass

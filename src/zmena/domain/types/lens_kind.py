@@ -1,5 +1,5 @@
 from enum import StrEnum
 
 
-class LensLabel(StrEnum):
+class LensKind(StrEnum):
     COLUMN_SWAP = "column swap"
