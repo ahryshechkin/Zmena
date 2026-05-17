@@ -2,8 +2,8 @@ from zmena.domain.model.context import Context
 
 
 class Refinement:
-    def __init__(self, heuristics):
-        self.heuristics = heuristics
+    def __init__(self, lenses):
+        self.lenses = lenses
 
     def __repr__(self):
         return "Refinement"
@@ -13,8 +13,8 @@ class Refinement:
 
         links_for_reassessment = context.links_for_reassessment()
         for link in links_for_reassessment:
-            for heuristic in self.heuristics:
-                for evidence in heuristic.evaluate(link, context):
+            for lens in self.lenses:
+                for evidence in lens.evaluate():
                     link.add_evidence(evidence)
 
         return links_for_reassessment

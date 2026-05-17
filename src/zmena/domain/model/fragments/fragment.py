@@ -15,13 +15,13 @@ class Fragment:
     def __str__(self):
         constraint = self.constraint or ""
         return (
-            f"{self.tag.value:>8} | {self.block:>8} | "
-            f"{self.position:>8} | {self.side.value:>4} | "
+            f"{self.tag:>8} | {self.block:>8} | "
+            f"{self.position:>8} | {self.side:>4} | "
             f"{self.name:<7} | {self.data_type:<13} | {constraint:>10}"
         )
 
     def __repr__(self):
-        return f"Fragment(tag={self.tag.value},name={self.name})"
+        return f"Fragment(tag={self.tag},name={self.name})"
 
     def same_name_as(self, other):
         return self.name == other.name
