@@ -14,9 +14,6 @@ class HeuristicPreset(Preset):
         self.position_similarity = PositionSimilarityHeuristic()
         self.signature_similarity = SignatureSimilarityHeuristic()
 
-    def __repr__(self):
-        return f"Preset(kind={self.kind})"
-
     def default(self):
         return [
             self.block_mismatch,
