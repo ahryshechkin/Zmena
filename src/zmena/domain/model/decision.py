@@ -8,7 +8,7 @@ class Decision:
     def candidates(self):
         return self.links
 
-    def chosen(self):
+    def winners(self):
         occupied_fragments = set()
         links = []
 
