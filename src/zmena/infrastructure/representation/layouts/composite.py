@@ -14,5 +14,5 @@ class CompositeReport(ABC):
         pass
 
     def title(self, idx, **metrics):
-        desc = ", ".join(f"{key}={value}" for key, value in metrics.items())
+        desc = ", ".join(f"{k}={v}" for k, v in metrics.items())
         return f"{self.name} {idx}: {desc}"
