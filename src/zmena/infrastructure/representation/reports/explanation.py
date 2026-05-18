@@ -40,9 +40,9 @@ class ExplanationReport:
 
     def format(self, evidence):
         filler = " " * 3
-        sign = evidence.sign()
-        mark = self.color.style_sign(sign)
-        return f"{filler}{mark}{sign:>3}{evidence.describe()}"
+        polarity = evidence.polarity()
+        mark = self.color.style_sign(polarity)
+        return f"{filler}{mark}{polarity:>3}{evidence.description()}"
 
     def separator(self):
         sep = "-" * self.decision_projection.width()
