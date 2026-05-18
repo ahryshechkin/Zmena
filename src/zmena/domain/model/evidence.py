@@ -11,8 +11,8 @@ class Evidence:
     def score(self):
         return self.signal * self.weight
 
-    def describe(self):
+    def description(self):
         return f"{abs(self.score()):<5}{self.reason}"
 
-    def sign(self):
+    def polarity(self):
         return "+" if self.score() >= 0 else "-"
