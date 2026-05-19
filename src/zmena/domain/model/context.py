@@ -8,5 +8,5 @@ class Context:
     def original_links(self):
         return self.links
 
-    def links_for_reassessment(self):
+    def cloned_links(self):
         return deepcopy(self.links)
