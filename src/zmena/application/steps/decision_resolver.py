@@ -16,9 +16,9 @@ class DecisionResolver:
 
         refinement = Refinement(self.preset.default())
         for component in self.components:
-            locally_scored_links = component.assess()
-            globally_refined_links = refinement.reassess(locally_scored_links)
-            decision = Decision(globally_refined_links)
+            locally_accessed = component.assess()
+            globally_reassessed = refinement.reassess(locally_accessed)
+            decision = Decision(globally_reassessed)
             decisions.append(decision)
 
         return decisions
