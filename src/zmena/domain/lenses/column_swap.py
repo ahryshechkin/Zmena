@@ -6,5 +6,7 @@ class ColumnSwapLens(Lens):
     def __init__(self):
         super().__init__(LensKind.COLUMN_SWAP)
 
-    def evaluate(self):
+    def evaluate(self, link, context):
+        if not link and not context:
+            pass
         return []

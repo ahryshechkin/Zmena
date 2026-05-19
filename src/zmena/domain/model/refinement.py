@@ -11,10 +11,10 @@ class Refinement:
     def reassess(self, links):
         context = Context(links)
 
-        links_for_reassessment = context.links_for_reassessment()
-        for link in links_for_reassessment:
+        working_links = context.cloned_links()
+        for link in working_links:
             for lens in self.lenses:
-                for evidence in lens.evaluate():
+                for evidence in lens.evaluate(link, context):
                     link.add_evidence(evidence)
 
-        return links_for_reassessment
+        return working_links
