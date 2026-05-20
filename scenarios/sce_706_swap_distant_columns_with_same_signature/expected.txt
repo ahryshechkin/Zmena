@@ -1,2 +1,2 @@
- #### |  replace | 07080708 |        8 |    L | col_02  | varchar(50)   |   not null | #### |  replace | 07080708 |        8 |    R | col_02  | varchar(50)   |   not null
- #### |  replace | 01020102 |        2 |    L | col_08  | varchar(50)   |   not null | #### |  replace | 01020102 |        2 |    R | col_08  | varchar(50)   |   not null
+ #### |  replace | 01020102 |        2 |    L | col_02  | varchar(50)   |   not null | #### |  replace | 07080708 |        8 |    R | col_02  | varchar(50)   |   not null
+ #### |  replace | 07080708 |        8 |    L | col_08  | varchar(50)   |   not null | #### |  replace | 01020102 |        2 |    R | col_08  | varchar(50)   |   not null

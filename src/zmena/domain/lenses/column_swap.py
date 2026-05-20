@@ -1,4 +1,5 @@
 from zmena.domain.lenses.lens import Lens
+from zmena.domain.model.evidence import Evidence
 from zmena.domain.types.lens_kind import LensKind
 
 
@@ -15,5 +16,5 @@ class ColumnSwapLens(Lens):
                     for second in context.original_links():
                         s_left, s_right = second.fragments()
                         if f_left.same_name_as(s_right) and f_right.same_name_as(s_left):
-                            return []
+                            return [Evidence("", 1.0, 0.9, self.kind)]
         return []
