@@ -12,7 +12,7 @@ class EvidenceReport:
         self.color = ANSIColor()
 
     def __repr__(self):
-        return "Report(specialized=Explanation)"
+        return "Report(specialized=Evidence)"
 
     def render(self):
         self.title()
