@@ -1,15 +1,14 @@
+from zmena.infrastructure.representation.projections.fragment import FragmentProjection
+
+
 class LinkProjection:
     def __init__(self, link):
         self.link = link
 
     def formatted_header(self):
         left, right = self.link.fragments()
-
         return (
-            f"Link: "
-            f"{left.name} ({left.side}:{left.position})"
-            f" -> "
-            f"{right.name} ({right.side}:{right.position})"
+            f"Link: {FragmentProjection(left).caption()} -> {FragmentProjection(right).caption()}"
         )
 
     def formatted_score(self):

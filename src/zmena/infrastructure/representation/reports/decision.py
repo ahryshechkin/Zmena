@@ -15,12 +15,12 @@ class DecisionReport(CompositeReport):
             report = LinkReport(title, decision.candidates())
             report.render()
 
-            title = self.title(i, winners=len(decision.winners()))
-            report = LinkReport(title, decision.winners())
-            report.render()
-
             title = self.title(i, candidates=len(decision.candidates()))
             report = EvidenceReport(title, DecisionProjection(decision.candidates()))
+            report.render()
+
+            title = self.title(i, winners=len(decision.winners()))
+            report = LinkReport(title, decision.winners())
             report.render()
 
             title = self.title(i, winners=len(decision.winners()))
