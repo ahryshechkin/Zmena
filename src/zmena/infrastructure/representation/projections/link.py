@@ -15,4 +15,4 @@ class LinkProjection:
         return f"Score: {self.link.score()}"
 
     def evidences(self):
-        return self.link.justification()
+        return self.link.evidences
