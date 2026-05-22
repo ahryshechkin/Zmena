@@ -28,9 +28,13 @@ class ExplanationReport:
             print(self.normalize(link_projection.formatted_header()))
             print(self.normalize(link_projection.formatted_score()))
 
-            print(self.normalize("Evidences:"))
-            for evidence in link_projection.evidences():
-                print(self.normalize(self.format(evidence)))
+            evidences = link_projection.evidences()
+            if not evidences:
+                print(self.normalize("Evidences: No data"))
+            else:
+                print(self.normalize("Evidences:"))
+                for evidence in evidences:
+                    print(self.normalize(self.format(evidence)))
 
             self.separator()
 
