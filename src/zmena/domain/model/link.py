@@ -16,9 +16,6 @@ class Link:
     def fragments(self):
         return self.left, self.right
 
-    def justification(self):
-        return self.evidences
-
     def score(self):
         return round(sum(evidence.score() for evidence in self.evidences), 1)
 
