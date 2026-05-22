@@ -3,7 +3,7 @@ import re
 from zmena.infrastructure.representation.ansi_color import ANSIColor
 
 
-class ExplanationReport:
+class EvidenceReport:
     ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
     def __init__(self, name, decision_projection):
