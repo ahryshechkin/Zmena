@@ -5,9 +5,9 @@
 [![Coverage](https://codecov.io/gh/ahryshechkin/Zmena/branch/main/graph/badge.svg)](https://codecov.io/gh/ahryshechkin/Zmena)
 
 Writing SQL migrations by hand... again?
-- Multiple environments.
-- Multiple releases.
-- Endless ALTER TABLE statements.
+- Multiple environments
+- Multiple releases
+- Endless ALTER TABLE statements
 
 There must be a better way!
 
