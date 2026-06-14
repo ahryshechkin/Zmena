@@ -1,4 +1,4 @@
-## Project Context
+## Project
 
 Zmena is a project designed to understand schema evolution by tracking schema changes across Git commits.
 
