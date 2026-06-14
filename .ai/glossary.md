@@ -28,8 +28,8 @@ FragmentBundle is a collection of fragments used as the input state for analysis
 fragments.
 
 ### Rule
-Rule is a candidate generator that inspects fragments and proposes possible hypotheses. It proposes possible matches
-based on a specific matching strategy.
+Rule is a hypothesis generator that examines fragments and proposes candidate relations according to a specific
+matching strategy.
 
 ### Hypothesis
 Hypothesis is a single proposed correspondence between two fragments. Hypotheses is a pool of possible solutions
