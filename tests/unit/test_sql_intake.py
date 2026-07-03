@@ -26,14 +26,19 @@ class TestSQLIntake(unittest.TestCase):
         sql_intake = SQLIntake("""CREATE TABLE t ();""")
         self.assertEqual(sql_intake.columns(), [])
 
-    def test_single_column(self):
+    def test_one_line_definition(self):
         sql_intake = SQLIntake("""
-        CREATE TABLE t (
-            col_01 int not null
-        );
+        CREATE TABLE t (col_01 int not null, col_02 varchar(50) not null, col_03 varchar(200));
         """)
 
-        self.assertEqual(sql_intake.columns(), ["col_01 int not null"])
+        self.assertEqual(
+            sql_intake.columns(),
+            [
+                "col_01 int not null",
+                "col_02 varchar(50) not null",
+                "col_03 varchar(200)",
+            ],
+        )
 
     def test_rough_unaligned_definition(self):
         sql_intake = SQLIntake("""
@@ -53,16 +58,11 @@ class TestSQLIntake(unittest.TestCase):
             ],
         )
 
-    def test_one_line_definition(self):
+    def test_single_column(self):
         sql_intake = SQLIntake("""
-        CREATE TABLE t (col_01 int not null, col_02 varchar(50) not null, col_03 varchar(200));
+        CREATE TABLE t (
+            col_01 int not null
+        );
         """)
 
-        self.assertEqual(
-            sql_intake.columns(),
-            [
-                "col_01 int not null",
-                "col_02 varchar(50) not null",
-                "col_03 varchar(200)",
-            ],
-        )
+        self.assertEqual(sql_intake.columns(), ["col_01 int not null"])
