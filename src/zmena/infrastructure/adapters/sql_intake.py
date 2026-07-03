@@ -7,4 +7,4 @@ class SQLIntake:
 
     def columns(self):
         ast = sqlglot.parse_one(self.ddl)
-        return [col.sql() for col in ast.find_all(sqlglot.exp.ColumnDef)]
+        return [col.sql().lower() for col in ast.find_all(sqlglot.exp.ColumnDef)]
