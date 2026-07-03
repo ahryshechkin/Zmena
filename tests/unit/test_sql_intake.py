@@ -1,11 +1,11 @@
 import unittest
 
-from zmena.infrastructure.adapters.sql_intake import SQLIntake
+from zmena.domain.sql_intake.sql_column_profile import SQLColumnProfile
 
 
-class TestSQLIntake(unittest.TestCase):
+class TestSQLColumnProfile(unittest.TestCase):
     def test_all_columns_in_order(self):
-        sql_intake = SQLIntake("""
+        sql_column_profile = SQLColumnProfile("""
         CREATE TABLE t (
             col_01 int not null,
             col_02 varchar(50) not null,
@@ -14,7 +14,7 @@ class TestSQLIntake(unittest.TestCase):
         """)
 
         self.assertEqual(
-            sql_intake.columns(),
+            sql_column_profile.snapshot(),
             [
                 "col_01 int not null",
                 "col_02 varchar(50) not null",
@@ -23,16 +23,16 @@ class TestSQLIntake(unittest.TestCase):
         )
 
     def test_empty_table(self):
-        sql_intake = SQLIntake("""CREATE TABLE t ();""")
-        self.assertEqual(sql_intake.columns(), [])
+        sql_column_profile = SQLColumnProfile("""CREATE TABLE t ();""")
+        self.assertEqual(sql_column_profile.snapshot(), [])
 
     def test_one_line_definition(self):
-        sql_intake = SQLIntake("""
+        sql_column_profile = SQLColumnProfile("""
         CREATE TABLE t (col_01 int not null, col_02 varchar(50) not null, col_03 varchar(200));
         """)
 
         self.assertEqual(
-            sql_intake.columns(),
+            sql_column_profile.snapshot(),
             [
                 "col_01 int not null",
                 "col_02 varchar(50) not null",
@@ -41,7 +41,7 @@ class TestSQLIntake(unittest.TestCase):
         )
 
     def test_rough_unaligned_definition(self):
-        sql_intake = SQLIntake("""
+        sql_column_profile = SQLColumnProfile("""
         CREATE TABLE t (
             col_01 int        not null    ,
                              col_02 varchar             ( 50) not     null,
@@ -50,7 +50,7 @@ class TestSQLIntake(unittest.TestCase):
         """)
 
         self.assertEqual(
-            sql_intake.columns(),
+            sql_column_profile.snapshot(),
             [
                 "col_01 int not null",
                 "col_02 varchar(50) not null",
@@ -59,10 +59,10 @@ class TestSQLIntake(unittest.TestCase):
         )
 
     def test_single_column(self):
-        sql_intake = SQLIntake("""
+        sql_column_profile = SQLColumnProfile("""
         CREATE TABLE t (
             col_01 int not null
         );
         """)
 
-        self.assertEqual(sql_intake.columns(), ["col_01 int not null"])
+        self.assertEqual(sql_column_profile.snapshot(), ["col_01 int not null"])
