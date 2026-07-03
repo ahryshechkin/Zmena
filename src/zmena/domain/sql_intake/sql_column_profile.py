@@ -1,10 +1,10 @@
 import sqlglot
 
 
-class SQLIntake:
+class SQLColumnProfile:
     def __init__(self, ddl):
         self.ddl = ddl
 
-    def columns(self):
+    def snapshot(self):
         ast = sqlglot.parse_one(self.ddl)
         return [col.sql().lower() for col in ast.find_all(sqlglot.exp.ColumnDef)]
