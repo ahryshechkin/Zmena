@@ -1,7 +1,8 @@
 import unittest
 
-from zmena.application import SemanticEnginePipeline, SQLIntakePipeline
-from zmena.infrastructure import ScenarioCatalog
+from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
+from zmena.application.sql_intake_pipeline import SQLIntakePipeline
+from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
 
 class TestSQLIntakeScenarios(unittest.TestCase):
