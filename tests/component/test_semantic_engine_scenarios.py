@@ -4,7 +4,7 @@ from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
 
-class TestComplexScenarios(unittest.TestCase):
+class TestSemanticEngineScenarios(unittest.TestCase):
     def setUp(self):
         self.maxDiff = None
         self.catalog = ScenarioCatalog()
@@ -21,6 +21,72 @@ class TestComplexScenarios(unittest.TestCase):
             winners.extend([self.normalize(link) for link in decision.winners()])
 
         return winners
+
+    def test_sce_011_add_column_not_null(self):
+        scenario = self.catalog.get("011")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_012_add_column_null(self):
+        scenario = self.catalog.get("012")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_013_alter_constraint_not_null(self):
+        scenario = self.catalog.get("013")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_014_alter_constraint_null(self):
+        scenario = self.catalog.get("014")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_015_change_data_type(self):
+        scenario = self.catalog.get("015")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_016_drop_column(self):
+        scenario = self.catalog.get("016")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_017_move_column(self):
+        scenario = self.catalog.get("017")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_018_rename_column(self):
+        scenario = self.catalog.get("018")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_019_rename_column_then_change_data_type(self):
+        scenario = self.catalog.get("019")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_020_rename_column_then_alter_constraint(self):
+        scenario = self.catalog.get("020")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_041_apply_multiple_primitive_changes(self):
+        scenario = self.catalog.get("041")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
 
     def test_sce_051_alter_column_then_add_another_before(self):
         scenario = self.catalog.get("051")
