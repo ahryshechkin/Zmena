@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application import AnalysisPipeline
+from zmena.application import AnalysisPipeline, SQLIntakePipeline
 from zmena.infrastructure import ScenarioCatalog
 
 
@@ -13,8 +13,11 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
-        result = pipeline.run()
+        sqli = SQLIntakePipeline(scenario.before, scenario.after)
+        before, after = sqli.run()
+
+        sme = AnalysisPipeline(before, after)
+        result = sme.run()
 
         winners = []
         for decision in result.decisions:

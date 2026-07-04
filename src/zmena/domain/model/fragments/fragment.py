@@ -8,7 +8,7 @@ class Fragment:
         self.block = block
         self.position = position
         self.side = side
-        self.name = name
+        self.name = name.lower()
         self.data_type = data_type
         self.constraint = constraint
 

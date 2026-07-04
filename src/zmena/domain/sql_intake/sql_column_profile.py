@@ -7,4 +7,4 @@ class SQLColumnProfile:
 
     def snapshot(self):
         ast = sqlglot.parse_one(self.ddl)
-        return [col.sql().lower() for col in ast.find_all(sqlglot.exp.ColumnDef)]
+        return [col.sql().upper() for col in ast.find_all(sqlglot.exp.ColumnDef)]
