@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application import AnalysisPipeline
+from zmena.application import SemanticEnginePipeline
 from zmena.infrastructure import ScenarioCatalog
 
 
@@ -13,7 +13,7 @@ class TestComplexScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        pipeline = AnalysisPipeline(scenario.before, scenario.after)
+        pipeline = SemanticEnginePipeline(scenario.before, scenario.after)
         result = pipeline.run()
 
         winners = []
