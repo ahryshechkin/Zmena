@@ -1,4 +1,4 @@
-from zmena.domain.model.link import Link
+from zmena.domain.semantic_engine.model.link import Link
 
 
 class Component:

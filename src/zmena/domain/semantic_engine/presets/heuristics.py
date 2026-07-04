@@ -1,9 +1,11 @@
-from zmena.domain.heuristics.block_mismatch import BlockMismatchHeuristic
-from zmena.domain.heuristics.name_similarity import NameSimilarityHeuristic
-from zmena.domain.heuristics.position_similarity import PositionSimilarityHeuristic
-from zmena.domain.heuristics.signature_similarity import SignatureSimilarityHeuristic
-from zmena.domain.presets.preset import Preset
-from zmena.domain.types.preset_kind import PresetKind
+from zmena.domain.semantic_engine.heuristics.block_mismatch import BlockMismatchHeuristic
+from zmena.domain.semantic_engine.heuristics.name_similarity import NameSimilarityHeuristic
+from zmena.domain.semantic_engine.heuristics.position_similarity import PositionSimilarityHeuristic
+from zmena.domain.semantic_engine.heuristics.signature_similarity import (
+    SignatureSimilarityHeuristic,
+)
+from zmena.domain.semantic_engine.presets.preset import Preset
+from zmena.domain.semantic_engine.types.preset_kind import PresetKind
 
 
 class HeuristicPreset(Preset):

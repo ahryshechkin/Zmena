@@ -1,6 +1,6 @@
-from zmena.domain.model.decision import Decision
-from zmena.domain.model.refinement import Refinement
-from zmena.domain.presets.lenses import LensPreset
+from zmena.domain.semantic_engine.model.decision import Decision
+from zmena.domain.semantic_engine.model.refinement import Refinement
+from zmena.domain.semantic_engine.presets.lenses import LensPreset
 
 
 class DecisionResolver:

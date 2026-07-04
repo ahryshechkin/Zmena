@@ -1,10 +1,10 @@
 from difflib import SequenceMatcher
 
-from zmena.domain.model.fragments.left import LeftFragment
-from zmena.domain.model.fragments.right import RightFragment
-from zmena.domain.model.hunk import Hunk
-from zmena.domain.model.span import Span
-from zmena.domain.types.tag import Tag
+from zmena.domain.semantic_engine.model.fragments.left import LeftFragment
+from zmena.domain.semantic_engine.model.fragments.right import RightFragment
+from zmena.domain.semantic_engine.model.hunk import Hunk
+from zmena.domain.semantic_engine.model.span import Span
+from zmena.domain.semantic_engine.types.tag import Tag
 
 
 class FragmentBuilder:

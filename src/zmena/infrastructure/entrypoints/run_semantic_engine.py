@@ -1,4 +1,4 @@
-from zmena.application import SemanticEnginePipeline
+from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 

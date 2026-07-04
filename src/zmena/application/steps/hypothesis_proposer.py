@@ -1,4 +1,4 @@
-from zmena.domain.presets.rules import RulePreset
+from zmena.domain.semantic_engine.presets.rules import RulePreset
 
 
 class HypothesisProposer:
