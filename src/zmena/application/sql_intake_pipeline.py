@@ -13,4 +13,4 @@ class SQLIntakePipeline:
         sql_column_profile_before = SQLColumnProfile(self.before)
         sql_column_profile_after = SQLColumnProfile(self.after)
 
-        return [sql_column_profile_before.snapshot(), sql_column_profile_after.snapshot()]
+        return sql_column_profile_before.snapshot(), sql_column_profile_after.snapshot()
