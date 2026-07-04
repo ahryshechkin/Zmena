@@ -1,4 +1,4 @@
-from zmena.domain.types.tag import Tag
+from zmena.domain.semantic_engine.types.tag import Tag
 
 
 class ANSIColor:

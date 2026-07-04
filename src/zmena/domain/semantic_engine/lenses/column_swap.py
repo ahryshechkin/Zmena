@@ -1,6 +1,6 @@
-from zmena.domain.lenses.lens import Lens
-from zmena.domain.model.evidence import Evidence
-from zmena.domain.types.lens_kind import LensKind
+from zmena.domain.semantic_engine.lenses.lens import Lens
+from zmena.domain.semantic_engine.model.evidence import Evidence
+from zmena.domain.semantic_engine.types.lens_kind import LensKind
 
 
 class ColumnSwapLens(Lens):

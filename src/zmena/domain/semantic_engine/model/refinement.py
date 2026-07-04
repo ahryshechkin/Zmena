@@ -1,4 +1,4 @@
-from zmena.domain.model.context import Context
+from zmena.domain.semantic_engine.model.context import Context
 
 
 class Refinement:

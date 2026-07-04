@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-from zmena.domain.model.component import Component
-from zmena.domain.presets.heuristics import HeuristicPreset
+from zmena.domain.semantic_engine.model.component import Component
+from zmena.domain.semantic_engine.presets.heuristics import HeuristicPreset
 
 
 class ComponentComposer:

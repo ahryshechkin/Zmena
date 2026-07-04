@@ -1,4 +1,4 @@
-from zmena.domain.types.side import Side
+from zmena.domain.semantic_engine.types.side import Side
 
 
 class FragmentBundle:

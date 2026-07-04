@@ -1,6 +1,6 @@
-from zmena.domain.model.column_spec import ColumnSpec
-from zmena.domain.model.fragments.fragment import Fragment
-from zmena.domain.types.side import Side
+from zmena.domain.semantic_engine.model.column_spec import ColumnSpec
+from zmena.domain.semantic_engine.model.fragments.fragment import Fragment
+from zmena.domain.semantic_engine.types.side import Side
 
 
 class LeftFragment(Fragment):
