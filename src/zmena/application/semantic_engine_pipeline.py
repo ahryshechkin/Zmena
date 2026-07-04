@@ -6,7 +6,7 @@ from zmena.application.steps.hypothesis_proposer import HypothesisProposer
 from zmena.domain.model.fragment_bundle import FragmentBundle
 
 
-class AnalysisPipeline:
+class SemanticEnginePipeline:
     def __init__(self, before, after):
         self.before = before
         self.after = after
