@@ -1,7 +1,7 @@
 import unittest
 
-from zmena.application import SemanticEnginePipeline
-from zmena.infrastructure import ScenarioCatalog
+from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
+from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
 
 class TestComplexScenarios(unittest.TestCase):

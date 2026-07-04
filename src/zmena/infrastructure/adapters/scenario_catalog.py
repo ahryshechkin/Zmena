@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from zmena.application import Scenario
+from zmena.application.scenario import Scenario
 
 
 class ScenarioCatalog:
