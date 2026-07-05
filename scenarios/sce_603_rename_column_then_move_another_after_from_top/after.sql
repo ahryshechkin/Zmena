@@ -1,10 +1,10 @@
-col_01 int not null
-col_02 varchar(50) not null
-col_04 varchar(50) not null
-col_05 varchar(50)
-col_06 int
-col_77 varchar(1) not null
-col_03 varchar(200)
-col_08 date not null
-col_09 datetime2 not null
-col_10 datetime2 not null
+col_01 INT NOT NULL
+col_02 VARCHAR(50) NOT NULL
+col_04 VARCHAR(50) NOT NULL
+col_05 VARCHAR(50)
+col_06 INT
+col_77 VARCHAR(1) NOT NULL
+col_03 VARCHAR(200)
+col_08 DATE NOT NULL
+col_09 TIMESTAMP NOT NULL
+col_10 TIMESTAMP NOT NULL
