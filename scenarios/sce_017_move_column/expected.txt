@@ -1,1 +1,1 @@
- #### |   delete | 06070707 |        7 |    L | col_07  | varchar(1)    |   not null | #### |   insert | 03030304 |        4 |    R | col_07  | varchar(1)    |   not null
+ #### |   delete | 06070707 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |   insert | 03030304 |        4 |    R | col_07  | VARCHAR(1)    |   NOT NULL
