@@ -5,6 +5,9 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 sce_ids = ["011"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
+    scenario.before = scenario.before.splitlines()
+    scenario.after = scenario.after.splitlines()
+
     pipeline = SemanticEnginePipeline(scenario.before, scenario.after)
     result = pipeline.run()
 

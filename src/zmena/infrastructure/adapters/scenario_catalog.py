@@ -16,9 +16,6 @@ class ScenarioCatalog:
         after = (path / "after.sql").read_text(encoding="utf-8")
         expected = (path / "expected.txt").read_text(encoding="utf-8")
 
-        before = before if sce_id == "771" else before.splitlines()
-        after = after if sce_id == "771" else after.splitlines()
-
         return Scenario(
             sce_id=sce_id,
             name=name,

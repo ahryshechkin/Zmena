@@ -13,7 +13,10 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        pipeline = SemanticEnginePipeline(scenario.before, scenario.after)
+        before = scenario.before.splitlines()
+        after = scenario.after.splitlines()
+
+        pipeline = SemanticEnginePipeline(before, after)
         result = pipeline.run()
 
         winners = []
