@@ -1,0 +1,4 @@
+ #### |  replace | 08090809 |        9 |    L | col_09  | TIMESTAMP     |   NOT NULL | #### |  replace | 01020102 |        2 |    R | col_09  | TIMESTAMP     |   NOT NULL
+ #### |  replace | 01020102 |        2 |    L | col_02  | VARCHAR(50)   |   NOT NULL | #### |  replace | 08090809 |        9 |    R | col_02  | VARCHAR(50)   |   NOT NULL
+ #### |   delete | 04060606 |        5 |    L | col_05  | VARCHAR(50)   |            | #### |   insert | 03030305 |        5 |    R | col_05  | VARCHAR(50)   |           
+ #### |   delete | 04060606 |        6 |    L | col_06  | INT           |            | #### |   insert | 03030305 |        4 |    R | col_06  | INT           |           
