@@ -10,7 +10,7 @@ class SQLIntakePipeline:
         return "SQLIntakePipeline"
 
     def run(self):
-        sql_column_profile_before = SQLColumnProfile(self.before)
-        sql_column_profile_after = SQLColumnProfile(self.after)
+        before = SQLColumnProfile(self.before)
+        after = SQLColumnProfile(self.after)
 
-        return sql_column_profile_before.snapshot(), sql_column_profile_after.snapshot()
+        return before.snapshot(), after.snapshot()

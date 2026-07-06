@@ -12,8 +12,9 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(before, after)
     result = pipeline.run()
 
+    scenario.before, scenario.after = before, after
     report = AnalysisReport(scenario, result)
-    # report.show_scenario()
+    report.show_scenario()
     report.show_fragments()
     report.show_hypotheses()
     report.show_components()
