@@ -1,0 +1,2 @@
+ #### |  replace | 06070607 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |  replace | 02030203 |        3 |    R | col_07  | VARCHAR(1)    |   NOT NULL
+ #### |  replace | 02030203 |        3 |    L | col_03  | VARCHAR(200)  |            | #### |  replace | 06070607 |        7 |    R | col_03  | VARCHAR(200)  |           

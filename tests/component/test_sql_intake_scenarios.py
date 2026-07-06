@@ -27,7 +27,7 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         return winners
 
     def test_sce_701_add_column_neat_before_neat_after(self):
-        scenario = self.catalog.get("771")
+        scenario = self.catalog.get("701")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(actual, scenario.expected)

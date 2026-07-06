@@ -109,8 +109,62 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_151_apply_changes_in_correct_order(self):
-        scenario = self.catalog.get("151")
+    def test_sce_071_apply_changes_in_correct_order(self):
+        scenario = self.catalog.get("071")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_201_swap_columns(self):
+        scenario = self.catalog.get("201")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_202_swap_columns_nested(self):
+        scenario = self.catalog.get("202")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_203_swap_columns_with_overlap(self):
+        scenario = self.catalog.get("203")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_204_swap_adjacent_columns_with_same_signature(self):
+        scenario = self.catalog.get("204")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_205_swap_close_columns_with_same_signature(self):
+        scenario = self.catalog.get("205")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_206_swap_distant_columns_with_same_signature(self):
+        scenario = self.catalog.get("206")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_207_add_column_between_adjacent_swapped_ones(self):
+        scenario = self.catalog.get("207")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_208_add_column_between_non_adjacent_swapped_ones(self):
+        scenario = self.catalog.get("208")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_221_move_three_columns_in_cycle(self):
+        scenario = self.catalog.get("221")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
@@ -225,60 +279,6 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
     def test_sce_654_rename_column_then_take_released_name_from_bottom(self):
         scenario = self.catalog.get("654")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_701_swap_columns(self):
-        scenario = self.catalog.get("701")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_702_swap_columns_nested(self):
-        scenario = self.catalog.get("702")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_703_swap_columns_with_overlap(self):
-        scenario = self.catalog.get("703")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_704_swap_adjacent_columns_with_same_signature(self):
-        scenario = self.catalog.get("704")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_705_swap_close_columns_with_same_signature(self):
-        scenario = self.catalog.get("705")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_706_swap_distant_columns_with_same_signature(self):
-        scenario = self.catalog.get("706")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_707_add_column_between_adjacent_swapped_ones(self):
-        scenario = self.catalog.get("707")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_708_add_column_between_non_adjacent_swapped_ones(self):
-        scenario = self.catalog.get("708")
-        actual = self.collect_winners(scenario)
-
-        self.assertCountEqual(actual, scenario.expected)
-
-    def test_sce_721_move_three_columns_in_cycle(self):
-        scenario = self.catalog.get("721")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(actual, scenario.expected)

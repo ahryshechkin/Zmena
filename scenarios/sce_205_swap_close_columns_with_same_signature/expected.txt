@@ -1,0 +1,2 @@
+ #### |   delete | 02040404 |        3 |    L | col_03  | VARCHAR(200)  |            | #### |   insert | 01010103 |        3 |    R | col_03  | VARCHAR(200)  |           
+ #### |   delete | 02040404 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |   insert | 01010103 |        2 |    R | col_04  | VARCHAR(50)   |   NOT NULL
