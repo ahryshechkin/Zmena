@@ -7,7 +7,7 @@ class EvidenceReport:
     ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
     def __init__(self, name, decision_projection):
-        self.name = name
+        self.prefix = f"#### {name} "
         self.decision_projection = decision_projection
         self.color = ANSIColor()
 
@@ -19,9 +19,8 @@ class EvidenceReport:
         self.body()
 
     def title(self):
-        prefix = f"#### {self.name} "
-        width = self.decision_projection.width() - len(prefix) + 4
-        print(f"\n{prefix}" + "#" * width)
+        width = self.decision_projection.width(self.prefix) - len(self.prefix) + 4
+        print(f"\n{self.prefix}" + "#" * width)
 
     def body(self):
         for link_projection in self.decision_projection.links():
@@ -39,7 +38,9 @@ class EvidenceReport:
             self.separator()
 
     def normalize(self, line):
-        padding = " " * (self.decision_projection.width() - len(self.ANSI_RE.sub("", line)))
+        padding = " " * (
+            self.decision_projection.width(self.prefix) - len(self.ANSI_RE.sub("", line))
+        )
         return f"| {line}{padding} |"
 
     def format(self, evidence):
@@ -49,5 +50,5 @@ class EvidenceReport:
         return f"{filler}{mark}{polarity:>3}{evidence.description()}"
 
     def separator(self):
-        sep = "-" * self.decision_projection.width()
+        sep = "-" * self.decision_projection.width(self.prefix)
         print(f"+-{sep}-+")

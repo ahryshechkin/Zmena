@@ -17,7 +17,7 @@ class BasicReport:
 
     def title(self):
         prefix = f"#### {self.name} "
-        width = self.length() - len(prefix)
+        width = max(self.length() - len(prefix), 2)
         print(f"\n{prefix}" + "#" * width)
 
     def header(self):
