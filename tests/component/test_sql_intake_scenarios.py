@@ -43,3 +43,33 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_704_add_column_in_single_line_table(self):
+        scenario = self.catalog.get("704")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_705_add_column_neat_before_uppercase_after(self):
+        scenario = self.catalog.get("705")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_706_add_column_neat_before_lowercase_after(self):
+        scenario = self.catalog.get("706")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_707_add_column_neat_before_mixed_after(self):
+        scenario = self.catalog.get("707")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_708_rename_column_single_column_table(self):
+        scenario = self.catalog.get("708")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
