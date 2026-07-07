@@ -8,5 +8,8 @@ class DecisionProjection:
     def links(self):
         return self.link_projections
 
-    def width(self):
-        return max(len(link.formatted_header()) for link in self.links())
+    def width(self, prefix):
+        max_projection_width = max(
+            len(projection.formatted_header()) for projection in self.link_projections
+        )
+        return max(max_projection_width, len(prefix) - 2)
