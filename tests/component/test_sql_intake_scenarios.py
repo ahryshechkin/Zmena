@@ -44,7 +44,7 @@ class TestSQLIntakeScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_704_add_column_in_single_line_table(self):
+    def test_sce_704_add_column_single_line_table(self):
         scenario = self.catalog.get("704")
         actual = self.collect_winners(scenario)
 
@@ -68,8 +68,14 @@ class TestSQLIntakeScenarios(unittest.TestCase):
 
         self.assertCountEqual(actual, scenario.expected)
 
-    def test_sce_708_rename_column_single_column_table(self):
+    def test_sce_708_add_column_blank_lines(self):
         scenario = self.catalog.get("708")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(actual, scenario.expected)
+
+    def test_sce_709_rename_column_single_column_table(self):
+        scenario = self.catalog.get("709")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(actual, scenario.expected)

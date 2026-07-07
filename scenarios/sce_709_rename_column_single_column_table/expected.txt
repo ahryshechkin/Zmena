@@ -1,0 +1,1 @@
+ #### |  replace | 00010001 |        1 |    L | col_01  | INT           |   NOT NULL | #### |  replace | 00010001 |        1 |    R | col_11  | INT           |   NOT NULL

@@ -1,0 +1,3 @@
+CREATE TABLE t (
+    col_01 INT NOT NULL
+);
