@@ -1,9 +1,9 @@
 from zmena.application.analysis_result import AnalysisResult
-from zmena.application.steps.component_composer import ComponentComposer
-from zmena.application.steps.decision_resolver import DecisionResolver
-from zmena.application.steps.fragment_builder import FragmentBuilder
-from zmena.application.steps.hypothesis_proposer import HypothesisProposer
 from zmena.domain.semantic_engine.core.fragment_bundle import FragmentBundle
+from zmena.domain.semantic_engine.steps.component_composer import ComponentComposer
+from zmena.domain.semantic_engine.steps.decision_resolver import DecisionResolver
+from zmena.domain.semantic_engine.steps.fragment_builder import FragmentBuilder
+from zmena.domain.semantic_engine.steps.hypothesis_proposer import HypothesisProposer
 
 
 class SemanticEnginePipeline:
