@@ -1,5 +1,5 @@
-from zmena.domain.semantic_engine.model.decision import Decision
-from zmena.domain.semantic_engine.model.refinement import Refinement
+from zmena.domain.semantic_engine.core.decision import Decision
+from zmena.domain.semantic_engine.core.refinement import Refinement
 from zmena.domain.semantic_engine.presets.lenses import LensPreset
 
 

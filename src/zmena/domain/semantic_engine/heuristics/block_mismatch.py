@@ -1,5 +1,5 @@
+from zmena.domain.semantic_engine.core.evidence import Evidence
 from zmena.domain.semantic_engine.heuristics.heuristic import Heuristic
-from zmena.domain.semantic_engine.model.evidence import Evidence
 from zmena.domain.semantic_engine.types.heuristic_kind import HeuristicKind
 
 

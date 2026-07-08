@@ -1,7 +1,7 @@
 from difflib import SequenceMatcher
 
-from zmena.domain.semantic_engine.model.hunk import Hunk
-from zmena.domain.semantic_engine.model.span import Span
+from zmena.domain.semantic_engine.core.hunk import Hunk
+from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.types.tag import Tag
 from zmena.infrastructure.representation.ansi_color import ANSIColor
 from zmena.infrastructure.representation.layouts.basic import BasicReport
