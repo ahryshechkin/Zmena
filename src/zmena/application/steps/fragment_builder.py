@@ -1,9 +1,9 @@
 from difflib import SequenceMatcher
 
-from zmena.domain.semantic_engine.model.fragments.left import LeftFragment
-from zmena.domain.semantic_engine.model.fragments.right import RightFragment
-from zmena.domain.semantic_engine.model.hunk import Hunk
-from zmena.domain.semantic_engine.model.span import Span
+from zmena.domain.semantic_engine.core.fragments.left import LeftFragment
+from zmena.domain.semantic_engine.core.fragments.right import RightFragment
+from zmena.domain.semantic_engine.core.hunk import Hunk
+from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.types.tag import Tag
 
 

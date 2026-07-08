@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from zmena.domain.semantic_engine.model.component import Component
+from zmena.domain.semantic_engine.core.component import Component
 from zmena.domain.semantic_engine.presets.heuristics import HeuristicPreset
 
 

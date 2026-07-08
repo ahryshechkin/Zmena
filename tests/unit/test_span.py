@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.domain.semantic_engine.model.span import Span
+from zmena.domain.semantic_engine.core.span import Span
 
 
 class TestSpan(unittest.TestCase):
