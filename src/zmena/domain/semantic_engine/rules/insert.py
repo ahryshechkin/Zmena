@@ -1,5 +1,5 @@
-from zmena.domain.semantic_engine.core.fragments.stub import StubFragment
 from zmena.domain.semantic_engine.core.hypothesis import Hypothesis
+from zmena.domain.semantic_engine.fragments import StubFragment
 from zmena.domain.semantic_engine.rules.rule import Rule
 from zmena.domain.semantic_engine.types.rule_kind import RuleKind
 from zmena.domain.semantic_engine.types.side import Side

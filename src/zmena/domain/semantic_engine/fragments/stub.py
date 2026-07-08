@@ -1,4 +1,4 @@
-from zmena.domain.semantic_engine.core.fragments.fragment import Fragment
+from zmena.domain.semantic_engine.fragments.fragment import Fragment
 from zmena.domain.semantic_engine.types.tag import Tag
 
 
