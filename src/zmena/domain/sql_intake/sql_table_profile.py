@@ -1,5 +1,7 @@
 import sqlglot
 
+from zmena.domain.sql_intake.sql_column_profile import SQLColumnProfile
+
 
 class SQLTableProfile:
     def __init__(self, ddl):
@@ -8,9 +10,11 @@ class SQLTableProfile:
     def __repr__(self):
         return "SQLTableProfile"
 
-    def snapshot(self):
+    def column_profiles(self):
         ast = sqlglot.parse_one(self.ddl)
 
-        for col in ast.find_all(sqlglot.exp.ColumnDef):
-            print(col.sql())
-        return [col.sql().upper() for col in ast.find_all(sqlglot.exp.ColumnDef)]
+        profiles = [
+            SQLColumnProfile(definition) for definition in ast.find_all(sqlglot.exp.ColumnDef)
+        ]
+
+        return [profile.formatted_view() for profile in profiles]
