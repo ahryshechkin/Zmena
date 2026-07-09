@@ -13,4 +13,4 @@ class SQLIntakePipeline:
         before = SQLTableProfile(self.before)
         after = SQLTableProfile(self.after)
 
-        return before.snapshot(), after.snapshot()
+        return before.column_profiles(), after.column_profiles()
