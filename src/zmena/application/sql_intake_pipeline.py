@@ -1,4 +1,4 @@
-from zmena.domain.sql_intake.sql_column_profile import SQLColumnProfile
+from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 
 class SQLIntakePipeline:
@@ -10,7 +10,7 @@ class SQLIntakePipeline:
         return "SQLIntakePipeline"
 
     def run(self):
-        before = SQLColumnProfile(self.before)
-        after = SQLColumnProfile(self.after)
+        before = SQLTableProfile(self.before)
+        after = SQLTableProfile(self.after)
 
         return before.snapshot(), after.snapshot()

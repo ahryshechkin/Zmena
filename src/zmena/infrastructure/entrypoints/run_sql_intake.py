@@ -3,7 +3,7 @@ from zmena.application.sql_intake_pipeline import SQLIntakePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["708"]
+sce_ids = ["707"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     pipeline = SQLIntakePipeline(scenario.before, scenario.after)

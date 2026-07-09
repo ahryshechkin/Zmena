@@ -1,11 +1,11 @@
 import unittest
 
-from zmena.domain.sql_intake.sql_column_profile import SQLColumnProfile
+from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 
 class TestSQLColumnProfile(unittest.TestCase):
     def test_all_columns_in_order(self):
-        sql_column_profile = SQLColumnProfile("""
+        sql_column_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT NOT NULL,
             col_02 VARCHAR(50) NOT NULL,
@@ -23,11 +23,11 @@ class TestSQLColumnProfile(unittest.TestCase):
         )
 
     def test_empty_table(self):
-        sql_column_profile = SQLColumnProfile("""CREATE TABLE t ();""")
+        sql_column_profile = SQLTableProfile("""CREATE TABLE t ();""")
         self.assertEqual(sql_column_profile.snapshot(), [])
 
     def test_one_line_definition(self):
-        sql_column_profile = SQLColumnProfile("""
+        sql_column_profile = SQLTableProfile("""
         CREATE TABLE t (col_01 INT NOT NULL, col_02 VARCHAR(50) NOT NULL, col_03 VARCHAR(200));
         """)
 
@@ -41,7 +41,7 @@ class TestSQLColumnProfile(unittest.TestCase):
         )
 
     def test_rough_unaligned_definition(self):
-        sql_column_profile = SQLColumnProfile("""
+        sql_column_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT        NOT NULL    ,
                              col_02 VARCHAR             ( 50) not     null,
@@ -59,7 +59,7 @@ class TestSQLColumnProfile(unittest.TestCase):
         )
 
     def test_single_column(self):
-        sql_column_profile = SQLColumnProfile("""
+        sql_column_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT NOT NULL
         );
