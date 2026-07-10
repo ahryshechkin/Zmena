@@ -5,7 +5,7 @@ from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 class TestSQLColumnProfile(unittest.TestCase):
     def test_all_columns_in_order(self):
-        sql_column_profile = SQLTableProfile("""
+        sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT NOT NULL,
             col_02 VARCHAR(50) NOT NULL,
@@ -19,15 +19,15 @@ class TestSQLColumnProfile(unittest.TestCase):
                 "COL_02 VARCHAR(50) NOT NULL",
                 "COL_03 VARCHAR(200)",
             ],
-            sql_column_profile.snapshot(),
+            sql_table_profile.formatted_columns(),
         )
 
     def test_empty_table(self):
-        sql_column_profile = SQLTableProfile("""CREATE TABLE t ();""")
-        self.assertEqual(sql_column_profile.snapshot(), [])
+        sql_table_profile = SQLTableProfile("""CREATE TABLE t ();""")
+        self.assertEqual(sql_table_profile.formatted_columns(), [])
 
     def test_one_line_definition(self):
-        sql_column_profile = SQLTableProfile("""
+        sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (col_01 INT NOT NULL, col_02 VARCHAR(50) NOT NULL, col_03 VARCHAR(200));
         """)
 
@@ -37,11 +37,11 @@ class TestSQLColumnProfile(unittest.TestCase):
                 "COL_02 VARCHAR(50) NOT NULL",
                 "COL_03 VARCHAR(200)",
             ],
-            sql_column_profile.snapshot(),
+            sql_table_profile.formatted_columns(),
         )
 
     def test_rough_unaligned_definition(self):
-        sql_column_profile = SQLTableProfile("""
+        sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT        NOT NULL    ,
                              col_02 VARCHAR             ( 50) not     null,
@@ -55,14 +55,14 @@ class TestSQLColumnProfile(unittest.TestCase):
                 "COL_02 VARCHAR(50) NOT NULL",
                 "COL_03 VARCHAR(200)",
             ],
-            sql_column_profile.snapshot(),
+            sql_table_profile.formatted_columns(),
         )
 
     def test_single_column(self):
-        sql_column_profile = SQLTableProfile("""
+        sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (
             col_01 INT NOT NULL
         );
         """)
 
-        self.assertEqual(["COL_01 INT NOT NULL"], sql_column_profile.snapshot())
+        self.assertEqual(["COL_01 INT NOT NULL"], sql_table_profile.formatted_columns())
