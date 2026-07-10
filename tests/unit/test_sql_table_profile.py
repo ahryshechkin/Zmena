@@ -15,9 +15,9 @@ class TestSQLColumnProfile(unittest.TestCase):
 
         self.assertEqual(
             [
-                "COL_01 INT NOT NULL",
-                "COL_02 VARCHAR(50) NOT NULL",
-                "COL_03 VARCHAR(200)",
+                "col_01 INT NOT NULL",
+                "col_02 VARCHAR(50) NOT NULL",
+                "col_03 VARCHAR(200)",
             ],
             sql_table_profile.formatted_columns(),
         )
@@ -33,9 +33,9 @@ class TestSQLColumnProfile(unittest.TestCase):
 
         self.assertEqual(
             [
-                "COL_01 INT NOT NULL",
-                "COL_02 VARCHAR(50) NOT NULL",
-                "COL_03 VARCHAR(200)",
+                "col_01 INT NOT NULL",
+                "col_02 VARCHAR(50) NOT NULL",
+                "col_03 VARCHAR(200)",
             ],
             sql_table_profile.formatted_columns(),
         )
@@ -51,9 +51,9 @@ class TestSQLColumnProfile(unittest.TestCase):
 
         self.assertEqual(
             [
-                "COL_01 INT NOT NULL",
-                "COL_02 VARCHAR(50) NOT NULL",
-                "COL_03 VARCHAR(200)",
+                "col_01 INT NOT NULL",
+                "col_02 VARCHAR(50) NOT NULL",
+                "col_03 VARCHAR(200)",
             ],
             sql_table_profile.formatted_columns(),
         )
@@ -65,4 +65,4 @@ class TestSQLColumnProfile(unittest.TestCase):
         );
         """)
 
-        self.assertEqual(["COL_01 INT NOT NULL"], sql_table_profile.formatted_columns())
+        self.assertEqual(["col_01 INT NOT NULL"], sql_table_profile.formatted_columns())
