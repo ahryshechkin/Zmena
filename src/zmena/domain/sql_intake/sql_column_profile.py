@@ -6,4 +6,5 @@ class SQLColumnProfile:
         return f"SQLColumnProfile(definition={self.definition})"
 
     def formatted_view(self):
-        return self.definition.upper()
+        name, rest = self.definition.split(maxsplit=1)
+        return f"{name.lower()} {rest.upper()}"

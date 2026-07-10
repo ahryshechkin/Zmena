@@ -16,7 +16,7 @@ class ColumnSpec:
         return "ColumnSpec"
 
     def name(self):
-        return self.match.group("name").lower()
+        return self.match.group("name")
 
     def data_type(self):
         return self.match.group("data_type")
