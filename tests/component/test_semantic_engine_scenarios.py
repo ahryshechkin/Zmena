@@ -109,6 +109,12 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(scenario.expected, actual)
 
+    def test_sce_054_alter_column_then_drop_another_after(self):
+        scenario = self.catalog.get("054")
+        actual = self.collect_winners(scenario)
+
+        self.assertCountEqual(scenario.expected, actual)
+
     def test_sce_061_alter_column_then_rename_two_adjacent_ones(self):
         scenario = self.catalog.get("061")
         actual = self.collect_winners(scenario)

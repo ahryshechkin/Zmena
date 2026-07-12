@@ -1,0 +1,2 @@
+ #### |  replace | 03050304 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 03050304 |        4 |    R | col_04  | VARCHAR(50)   |           
+ #### |  replace | 03050304 |        5 |    L | col_05  | VARCHAR(50)   |            | #### |     stub |          |          |    R |         |               |           
