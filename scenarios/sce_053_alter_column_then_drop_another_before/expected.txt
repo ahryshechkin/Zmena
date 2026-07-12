@@ -1,1 +1,2 @@
- #### |     stub |          |          |    L |         |               |            | #### |   insert | 08080809 |        9 |    R | col_88  | DATE          |   NOT NULL
+ #### |  replace | 02040203 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 02040203 |        3 |    R | col_04  | VARCHAR(50)   |           
+ #### |  replace | 02040203 |        3 |    L | col_03  | VARCHAR(200)  |            | #### |     stub |          |          |    R |         |               |           
