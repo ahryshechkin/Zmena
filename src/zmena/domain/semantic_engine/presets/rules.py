@@ -1,5 +1,6 @@
 from zmena.domain.semantic_engine.presets.preset import Preset
 from zmena.domain.semantic_engine.rules.delete import DeleteRule
+from zmena.domain.semantic_engine.rules.hunk_surplus_left import HunkSurplusLeftRule
 from zmena.domain.semantic_engine.rules.imbalance import ImbalanceRule
 from zmena.domain.semantic_engine.rules.insert import InsertRule
 from zmena.domain.semantic_engine.rules.name import NameRule
@@ -12,6 +13,7 @@ class RulePreset(Preset):
     def __init__(self):
         super().__init__(PresetKind.RULES)
         self.delete = DeleteRule()
+        self.hunk_surplus_left = HunkSurplusLeftRule()
         self.imbalance = ImbalanceRule()
         self.insert = InsertRule()
         self.name = NameRule()
@@ -21,6 +23,7 @@ class RulePreset(Preset):
     def default(self):
         return [
             self.delete,
+            self.hunk_surplus_left,
             self.imbalance,
             self.insert,
             self.name,
