@@ -1,0 +1,3 @@
+ #### |  replace | 02050205 |        3 |    L | col_03  | VARCHAR(200)  |            | #### |  replace | 02050205 |        3 |    R | col_03  | VARCHAR(20)   |           
+ #### |  replace | 02050205 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 02050205 |        4 |    R | col_44  | VARCHAR(50)   |   NOT NULL
+ #### |  replace | 02050205 |        5 |    L | col_05  | VARCHAR(50)   |            | #### |  replace | 02050205 |        5 |    R | col_55  | VARCHAR(50)   |           
