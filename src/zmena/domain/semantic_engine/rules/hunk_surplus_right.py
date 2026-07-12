@@ -5,9 +5,9 @@ from zmena.domain.semantic_engine.types.rule_kind import RuleKind
 from zmena.domain.semantic_engine.types.side import Side
 
 
-class ImbalanceRule(Rule):
+class HunkSurplusRightRule(Rule):
     def __init__(self):
-        super().__init__(RuleKind.IMBALANCE)
+        super().__init__(RuleKind.HUNK_SURPLUS_RIGHT)
 
     def generate(self, bundle):
         left_fragments_by_block = bundle.left_by_block()
