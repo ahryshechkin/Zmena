@@ -6,7 +6,7 @@ class HypothesisReport(BasicReport):
         super().__init__(
             name,
             [
-                ("rule", ">", "9"),
+                ("rule", ">", "18"),
                 ("####", ">", "4"),
                 ("tag", ">", "8"),
                 ("block", "<", "8"),
