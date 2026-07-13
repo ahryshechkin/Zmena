@@ -40,6 +40,10 @@ class TestSQLColumnProfile(unittest.TestCase):
             sql_table_profile.formatted_columns(),
         )
 
+    def test_repr(self):
+        sql_table_profile = SQLTableProfile("""CREATE TABLE t ();""")
+        self.assertEqual("SQLTableProfile", repr(sql_table_profile))
+
     def test_rough_unaligned_definition(self):
         sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (
