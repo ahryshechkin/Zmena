@@ -10,11 +10,11 @@ class Span:
     def fingerprint(self):
         return f"{str(self.low).zfill(2)}{str(self.high).zfill(2)}"
 
-    def lineno(self, offset):
-        return self.low + offset
-
     def line(self, offset):
         return self.lines[self.low + offset]
+
+    def lineno(self, offset):
+        return self.low + offset
 
     def range(self):
         return self.high - self.low
