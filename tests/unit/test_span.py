@@ -31,3 +31,6 @@ class TestSpan(unittest.TestCase):
 
     def test_range(self):
         self.assertEqual(3, self.span.range())
+
+    def test_repr(self):
+        self.assertEqual("Span(lines=10,low=2,high=5)", repr(self.span))
