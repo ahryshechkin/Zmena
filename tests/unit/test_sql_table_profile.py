@@ -3,7 +3,7 @@ import unittest
 from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 
-class TestSQLColumnProfile(unittest.TestCase):
+class TestSQLTableProfile(unittest.TestCase):
     def test_all_columns_in_order(self):
         sql_table_profile = SQLTableProfile("""
         CREATE TABLE t (
