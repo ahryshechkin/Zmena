@@ -36,3 +36,9 @@ class TestFragment(unittest.TestCase):
 
     def test_same_signature_as(self):
         self.assertFalse(self.fragment.same_signature_as(self.other))
+
+    def test_str(self):
+        self.assertEqual(
+            " replace | 03050306 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL",
+            str(self.fragment),
+        )
