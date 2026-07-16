@@ -5,6 +5,7 @@ from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.fragments.fragment import Fragment
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
+from zmena.domain.semantic_engine.fragments.stub import StubFragment
 from zmena.domain.semantic_engine.types.side import Side
 from zmena.domain.semantic_engine.types.tag import Tag
 
@@ -133,4 +134,28 @@ class TestRightFragment(unittest.TestCase):
         self.assertEqual(Side.RIGHT, fragment.side)
         self.assertEqual("col_04", fragment.name)
         self.assertEqual("DATE", fragment.data_type)
+        self.assertIsNone(fragment.constraint)
+
+
+class TestStubFragment(unittest.TestCase):
+    def test_init_left(self):
+        fragment = StubFragment(Side.LEFT)
+
+        self.assertEqual(Tag.STUB, fragment.tag)
+        self.assertEqual("", fragment.block)
+        self.assertEqual("", fragment.position)
+        self.assertEqual(Side.LEFT, fragment.side)
+        self.assertEqual("", fragment.name)
+        self.assertEqual("", fragment.data_type)
+        self.assertIsNone(fragment.constraint)
+
+    def test_init_right(self):
+        fragment = StubFragment(Side.RIGHT)
+
+        self.assertEqual(Tag.STUB, fragment.tag)
+        self.assertEqual("", fragment.block)
+        self.assertEqual("", fragment.position)
+        self.assertEqual(Side.RIGHT, fragment.side)
+        self.assertEqual("", fragment.name)
+        self.assertEqual("", fragment.data_type)
         self.assertIsNone(fragment.constraint)
