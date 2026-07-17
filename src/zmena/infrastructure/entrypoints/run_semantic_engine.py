@@ -14,6 +14,6 @@ for scenario in catalog.get_many(sce_ids):
     report = AnalysisReport(scenario, result)
     report.show_scenario()
     # report.show_fragments()
-    # report.show_hypotheses()
+    report.show_hypotheses()
     # report.show_components()
     # report.show_decisions()
