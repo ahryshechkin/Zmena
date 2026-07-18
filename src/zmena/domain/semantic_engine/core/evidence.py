@@ -8,11 +8,11 @@ class Evidence:
     def __repr__(self):
         return f"Evidence(signal={self.signal},weight={self.weight},reason={self.reason})"
 
-    def score(self):
-        return self.signal * self.weight
-
     def description(self):
         return f"{abs(self.score()):<5}{self.reason}"
 
     def polarity(self):
         return "+" if self.score() >= 0 else "-"
+
+    def score(self):
+        return self.signal * self.weight
