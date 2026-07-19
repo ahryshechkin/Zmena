@@ -13,7 +13,7 @@ dependencies = [
 
 [tool.coverage.run]
 source = ["src"]
-omit = ["tests/*", "tests/**"]
+omit = ["tests/*", "tests/**", "*/__init__.py"]
 [tool.coverage.report]
 omit = ["tests/*", "tests/**"]
 
