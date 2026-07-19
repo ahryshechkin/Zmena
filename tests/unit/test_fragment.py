@@ -1,7 +1,6 @@
 import unittest
+from unittest.mock import Mock
 
-from zmena.domain.semantic_engine.core.hunk import Hunk
-from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.fragments.fragment import Fragment
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
@@ -51,35 +50,11 @@ class TestFragment(unittest.TestCase):
 
 class TestLeftFragment(unittest.TestCase):
     def setUp(self):
-        self.before = [
-            "col_01 INT NOT NULL",
-            "col_02 VARCHAR(50) NOT NULL",
-            "col_03 VARCHAR(200)",
-            "col_04 VARCHAR(50) NOT NULL",
-            "col_05 VARCHAR(50)",
-            "col_06 INT",
-            "col_07 VARCHAR(1) NOT NULL",
-            "col_08 DATE NOT NULL",
-            "col_09 DATETIME2 NOT NULL",
-            "col_10 DATETIME2 NOT NULL",
-        ]
-
-        self.after = [
-            "col_01 INT NOT NULL",
-            "col_02 VARCHAR(50) NOT NULL",
-            "col_03 VARCHAR(200)",
-            "col_04 DATE",
-            "col_05 DATE NOT NULL",
-            "col_07 VARCHAR(1) NOT NULL",
-            "col_06 INT",
-            "col_08 DATE NOT NULL",
-            "col_09 DATETIME2 NOT NULL",
-            "col_10 DATETIME2 NOT NULL",
-        ]
-
-        self.left = Span(self.before, 3, 5)
-        self.right = Span(self.after, 3, 6)
-        self.hunk = Hunk(Tag.REPLACE, self.left, self.right)
+        self.hunk = Mock()
+        self.hunk.kind.return_value = Tag.REPLACE
+        self.hunk.fingerprint.return_value = "03050306"
+        self.hunk.left_line.return_value = "col_04 VARCHAR(50) NOT NULL"
+        self.hunk.left_lineno.return_value = 4
 
     def test_init(self):
         fragment = LeftFragment(0, self.hunk)
@@ -95,35 +70,11 @@ class TestLeftFragment(unittest.TestCase):
 
 class TestRightFragment(unittest.TestCase):
     def setUp(self):
-        self.before = [
-            "col_01 INT NOT NULL",
-            "col_02 VARCHAR(50) NOT NULL",
-            "col_03 VARCHAR(200)",
-            "col_04 VARCHAR(50) NOT NULL",
-            "col_05 VARCHAR(50)",
-            "col_06 INT",
-            "col_07 VARCHAR(1) NOT NULL",
-            "col_08 DATE NOT NULL",
-            "col_09 DATETIME2 NOT NULL",
-            "col_10 DATETIME2 NOT NULL",
-        ]
-
-        self.after = [
-            "col_01 INT NOT NULL",
-            "col_02 VARCHAR(50) NOT NULL",
-            "col_03 VARCHAR(200)",
-            "col_04 DATE",
-            "col_05 DATE NOT NULL",
-            "col_07 VARCHAR(1) NOT NULL",
-            "col_06 INT",
-            "col_08 DATE NOT NULL",
-            "col_09 DATETIME2 NOT NULL",
-            "col_10 DATETIME2 NOT NULL",
-        ]
-
-        self.left = Span(self.before, 3, 5)
-        self.right = Span(self.after, 3, 6)
-        self.hunk = Hunk(Tag.REPLACE, self.left, self.right)
+        self.hunk = Mock()
+        self.hunk.kind.return_value = Tag.REPLACE
+        self.hunk.fingerprint.return_value = "03050306"
+        self.hunk.right_line.return_value = "col_04 DATE"
+        self.hunk.right_lineno.return_value = 4
 
     def test_init(self):
         fragment = RightFragment(0, self.hunk)

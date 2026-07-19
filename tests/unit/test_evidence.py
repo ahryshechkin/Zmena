@@ -7,8 +7,7 @@ from zmena.domain.semantic_engine.types.heuristic_kind import HeuristicKind
 
 class TestEvidence(unittest.TestCase):
     def setUp(self):
-        hypothesis = Mock()
-        self.evidence = Evidence(hypothesis, 1.0, 2.0, HeuristicKind.NAME_SIMILARITY)
+        self.evidence = Evidence(Mock(), 1.0, 2.0, HeuristicKind.NAME_SIMILARITY)
 
     def test_description(self):
         self.assertEqual("2.0  name similarity", self.evidence.description())
