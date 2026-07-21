@@ -18,7 +18,7 @@ class TestLink(unittest.TestCase):
         pass
 
     def test_score(self):
-        pass
+        self.assertTrue(0)
 
     def test_str(self):
         pass
