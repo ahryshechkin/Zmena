@@ -1,0 +1,3 @@
+ #### |  replace | 03040306 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 03040306 |        4 |    R | col_04  | VARCHAR(50)   |           
+ #### |   delete | 06080808 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |  replace | 03040306 |        5 |    R | col_07  | VARCHAR(1)    |   NOT NULL
+ #### |   delete | 06080808 |        8 |    L | col_08  | DATE          |   NOT NULL | #### |  replace | 03040306 |        6 |    R | col_08  | DATE          |   NOT NULL

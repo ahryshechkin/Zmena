@@ -1,0 +1,4 @@
+ #### |  replace | 06070809 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |  replace | 06070809 |        9 |    R | col_07  | VARCHAR(10)   |   NOT NULL
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        2 |    R | col_11  | INT           |           
+ #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010103 |        3 |    R | col_22  | VARCHAR(50)   |   NOT NULL
+ #### |   delete | 09101111 |       10 |    L | col_10  | TIMESTAMP     |   NOT NULL | #### |     stub |          |          |    R |         |               |           

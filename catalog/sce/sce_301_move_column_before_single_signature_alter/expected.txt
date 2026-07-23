@@ -1,0 +1,2 @@
+ #### |  replace | 03040305 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 03040305 |        5 |    R | col_04  | DATE          |           
+ #### |   delete | 06070707 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |  replace | 03040305 |        4 |    R | col_07  | VARCHAR(1)    |   NOT NULL

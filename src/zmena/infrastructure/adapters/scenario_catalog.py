@@ -5,7 +5,7 @@ from zmena.application.scenario import Scenario
 
 class ScenarioCatalog:
     def __init__(self):
-        self.root_dir = Path(__file__).resolve().parents[4] / "scenarios"
+        self.root_dir = Path(__file__).resolve().parents[4] / "catalog/sce"
 
     def __repr__(self):
         return f"ScenarioCatalog(root_dir={self.root_dir})"
