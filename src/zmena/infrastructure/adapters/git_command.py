@@ -5,8 +5,17 @@ class GitCommand:
     def __init__(self, path):
         self.path = path
 
-    def init_repo(self):
-        subprocess.run([r"C:\Program Files\Git\bin\git.exe", "init"], check=True)
+    def init(self):
+        cmds = ["git", "init"]
+        subprocess.run(cmds, check=True)  # noqa: S603
 
-    def add_files(self):
+    def add(self):
+        cmds = ["git", "add", "."]
+        subprocess.run(cmds, check=True)  # noqa: S603
+
+    def diff(self):
         pass
+
+    def commit(self):
+        cmds = ["git", "commit", "-m", "Add files"]
+        subprocess.run(cmds, check=True)  # noqa: S603
