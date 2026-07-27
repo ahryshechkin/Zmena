@@ -1,29 +1,25 @@
-import os
-
 from zmena.infrastructure.adapters.commit_catalog import CommitCatalog
 from zmena.infrastructure.adapters.fs_command import FSCommand
 from zmena.infrastructure.adapters.git_command import GitCommand
 
 catalog = CommitCatalog()
-fs_command = FSCommand()
-fs_command.mkdir("repo")
-os.chdir("repo")
-git_command = GitCommand(".")
+fs_command = FSCommand("repo")
+git_command = GitCommand("repo")
+fs_command.mkdir()
 git_command.init()
-fs_command.copy("./../../../../../catalog/cmt/cmt_001_create_tab01", ".")
+fs_command.copy("./../../../../catalog/cmt/cmt_001_create_tab01")
 git_command.add()
 git_command.commit()
-fs_command.copy("./../../../../../catalog/cmt/cmt_002_add_column_tab01", ".")
+fs_command.copy("./../../../../catalog/cmt/cmt_002_add_column_tab01")
 git_command.add()
 git_command.commit()
-fs_command.copy("./../../../../../catalog/cmt/cmt_003_create_tab02", ".")
+fs_command.copy("./../../../../catalog/cmt/cmt_003_create_tab02")
 git_command.add()
 git_command.commit()
-fs_command.copy("./../../../../../catalog/cmt/cmt_004_rename_column_tab02", ".")
+fs_command.copy("./../../../../catalog/cmt/cmt_004_rename_column_tab02")
 git_command.add()
 git_command.commit()
-fs_command.copy("./../../../../../catalog/cmt/cmt_005_update_tab01_and_tab02", ".")
+fs_command.copy("./../../../../catalog/cmt/cmt_005_update_tab01_and_tab02")
 git_command.add()
 git_command.commit()
-# os.chdir("..")
-# fs_command.rmdir("repo")
+fs_command.rmdir()
