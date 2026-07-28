@@ -4,7 +4,7 @@ from zmena.infrastructure.project_directory import ProjectDirectory
 
 class ScenarioCatalog:
     def __init__(self):
-        self.root_dir = ProjectDirectory().sce_dir()
+        self.root_dir = ProjectDirectory().sce()
 
     def __repr__(self):
         return f"ScenarioCatalog(root_dir={self.root_dir})"
