@@ -1,11 +1,10 @@
-from pathlib import Path
-
 from zmena.application.scenario import Scenario
+from zmena.infrastructure.project_directory import ProjectDirectory
 
 
 class ScenarioCatalog:
     def __init__(self):
-        self.root_dir = Path(__file__).resolve().parents[4] / "catalog/sce"
+        self.root_dir = ProjectDirectory().sce_dir()
 
     def __repr__(self):
         return f"ScenarioCatalog(root_dir={self.root_dir})"
