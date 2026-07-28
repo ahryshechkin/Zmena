@@ -1,12 +1,22 @@
-from pathlib import Path
+from zmena.infrastructure.adapters.fs_command import FSCommand
+from zmena.infrastructure.adapters.git_command import GitCommand
+from zmena.infrastructure.project_directory import ProjectDirectory
 
 
 class CommitCatalog:
     def __init__(self):
-        self.root_dir = Path(__file__).resolve().parents[4] / "catalog/cmt"
+        self.directory = ProjectDirectory()
 
     def build_repo(self):
-        pass
+        fs = FSCommand(self.directory.test_repo())
+        git = GitCommand(self.directory.test_repo())
+
+        fs.mkdir()
+        git.init()
+        for files_to_commit in self.directory.cmt().iterdir():
+            fs.copy(files_to_commit)
+            git.add()
+            git.commit()
 
     def cleanup(self):
         pass
