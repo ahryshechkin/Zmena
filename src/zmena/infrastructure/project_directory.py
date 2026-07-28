@@ -19,3 +19,9 @@ class ProjectDirectory:
 
     def sce_dir(self):
         return self.root_dir() / "catalog/sce"
+
+    def test_repo_dir(self):
+        return self.root_dir() / "tests/integration/test_repo"
+
+    def demo_repo_dir(self):
+        return self.root_dir() / "tests/integration/demo_repo"
