@@ -7,21 +7,21 @@ class ProjectDirectory:
     def __init__(self, start=None):
         self.start = start or Path(__file__).resolve().parent
 
-    def root_dir(self):
+    def root(self):
         for current in [self.start, *self.start.parents]:
             if (current / "pyproject.toml").exists():
                 return current
 
         raise FileNotFoundError(self.ROOT_DIR_NOT_FOUND_MESSAGE)
 
-    def cmt_dir(self):
-        return self.root_dir() / "catalog/cmt"
+    def cmt(self):
+        return self.root() / "catalog/cmt"
 
-    def sce_dir(self):
-        return self.root_dir() / "catalog/sce"
+    def sce(self):
+        return self.root() / "catalog/sce"
 
-    def test_repo_dir(self):
-        return self.root_dir() / "tests/integration/test_repo"
+    def test_repo(self):
+        return self.root() / "tests/integration/test_repo"
 
-    def demo_repo_dir(self):
-        return self.root_dir() / "tests/integration/demo_repo"
+    def demo_repo(self):
+        return self.root() / "tests/integration/demo_repo"
