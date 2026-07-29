@@ -20,4 +20,5 @@ class CommitCatalog:
             git.commit(comment)
 
     def cleanup(self):
-        pass
+        fs = FSCommand(self.directory.test_repo())
+        fs.rmdir()
