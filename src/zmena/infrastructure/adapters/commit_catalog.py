@@ -13,10 +13,11 @@ class CommitCatalog:
 
         fs.mkdir()
         git.init()
-        for files_to_commit in self.directory.cmt().iterdir():
-            fs.copy(files_to_commit)
+        for path in self.directory.cmt().iterdir():
+            comment = f"feat: {' '.join(path.name.split('_')[2:])}"
+            fs.copy(src=path)
             git.add()
-            git.commit()
+            git.commit(comment)
 
     def cleanup(self):
         pass

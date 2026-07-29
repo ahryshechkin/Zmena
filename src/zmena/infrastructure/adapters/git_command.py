@@ -16,6 +16,6 @@ class GitCommand:
     def diff(self):
         pass
 
-    def commit(self):
-        cmds = ["git", "commit", "-m", "Add files"]
+    def commit(self, comment):
+        cmds = ["git", "commit", "-m", comment]
         subprocess.run(cmds, cwd=self.path, check=True, text=True)  # noqa: S603
