@@ -4,10 +4,10 @@ from zmena.infrastructure.project_directory import ProjectDirectory
 
 class ScenarioCatalog:
     def __init__(self):
-        self.root_dir = ProjectDirectory().sce()
+        self.directory = ProjectDirectory()
 
     def __repr__(self):
-        return f"ScenarioCatalog(root_dir={self.root_dir})"
+        return f"ScenarioCatalog(root_dir={self.directory.sce()})"
 
     def build_scenario_from(self, path):
         sce_id, name = path.name.split("_", maxsplit=2)[1:]
@@ -24,7 +24,7 @@ class ScenarioCatalog:
         )
 
     def get(self, sce_id):
-        for path in self.root_dir.iterdir():
+        for path in self.directory.sce().iterdir():
             if sce_id in path.name:
                 return self.build_scenario_from(path)
 
@@ -33,7 +33,7 @@ class ScenarioCatalog:
     def get_many(self, sce_ids):
         scenarios = []
 
-        for path in self.root_dir.iterdir():
+        for path in self.directory.sce().iterdir():
             if any(sce_id in path.name for sce_id in sce_ids):
                 scenario = self.build_scenario_from(path)
                 scenarios.append(scenario)
@@ -43,7 +43,7 @@ class ScenarioCatalog:
     def get_all(self):
         scenarios = []
 
-        for path in self.root_dir.iterdir():
+        for path in self.directory.sce().iterdir():
             scenario = self.build_scenario_from(path)
             scenarios.append(scenario)
 
