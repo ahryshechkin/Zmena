@@ -7,6 +7,9 @@ class CommitCatalog:
     def __init__(self):
         self.directory = ProjectDirectory()
 
+    def __repr__(self):
+        return f"CommitCatalog(root_dir={self.directory.cmt()})"
+
     def build_repo(self):
         fs = FSCommand(self.directory.test_repo())
         git = GitCommand(self.directory.test_repo())
