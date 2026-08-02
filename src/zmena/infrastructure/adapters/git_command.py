@@ -9,16 +9,18 @@ class GitCommand:
         return f"GitCommand(root_dir={self.root_dir})"
 
     def init(self):
-        cmds = ["git", "init"]
-        subprocess.run(cmds, cwd=self.root_dir, check=True, text=True)  # noqa: S603
+        args = ["git", "init"]
+        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
 
     def add(self):
-        cmds = ["git", "add", "."]
-        subprocess.run(cmds, cwd=self.root_dir, check=True, text=True)  # noqa: S603
+        args = ["git", "add", "."]
+        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
 
-    def diff(self):
-        pass
+    def diff(self, commit_from, commit_to):
+        args = ["git", "diff", "--name-only", commit_from, commit_to]
+        result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
+        return result.stdout.splitlines()
 
     def commit(self, comment):
-        cmds = ["git", "commit", "-m", comment]
-        subprocess.run(cmds, cwd=self.root_dir, check=True, text=True)  # noqa: S603
+        args = ["git", "commit", "-m", comment]
+        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
