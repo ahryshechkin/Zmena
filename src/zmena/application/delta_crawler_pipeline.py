@@ -11,4 +11,7 @@ class DeltaCrawlerPipeline:
 
     def run(self):
         git = GitCommand(self.directory.test_repo())
-        print(git.diff("3986206", "765d324"))
+        changed_paths = git.diff("3986206", "765d324")
+        for path in changed_paths:
+            desc = git.show("765d324", path)
+            print(desc)
