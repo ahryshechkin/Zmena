@@ -1,17 +1,15 @@
-from zmena.infrastructure.adapters.git_command import GitCommand
-from zmena.infrastructure.project_directory import ProjectDirectory
-
-
 class DeltaCrawlerPipeline:
-    def __init__(self):
-        self.directory = ProjectDirectory()
+    def __init__(self, commit_from, commit_to):
+        self.commit_from = commit_from
+        self.commit_to = commit_to
 
     def __repr__(self):
-        return "DeltaCrawlerPipeline"
+        return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
-    def run(self):
-        git = GitCommand(self.directory.test_repo())
-        changed_paths = git.diff("3986206", "765d324")
+    def run(self, command):
+        changed_paths = command.diff(self.commit_from, self.commit_to)
         for path in changed_paths:
-            desc = git.show("765d324", path)
-            print(desc)
+            before = command.show(self.commit_from, path)
+            after = command.show(self.commit_to, path)
+            print(before)
+            print(after)
