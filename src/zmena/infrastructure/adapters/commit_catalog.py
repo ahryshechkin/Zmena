@@ -10,7 +10,23 @@ class CommitCatalog:
     def __repr__(self):
         return f"CommitCatalog(root_dir={self.directory.cmt()})"
 
-    def build_repo(self):
+    def build_demo_repo(self):
+        fs = FSCommand(self.directory.demo_repo())
+        git = GitCommand(self.directory.demo_repo())
+
+        fs.mkdir()
+        git.init()
+        for path in self.directory.cmt().iterdir():
+            comment = f"feat: {' '.join(path.name.split('_')[2:])}"
+            fs.copy(src=path)
+            git.add()
+            git.commit(comment)
+
+    def cleanup_demo_repo(self):
+        fs = FSCommand(self.directory.demo_repo())
+        fs.rmdir()
+
+    def build_test_repo(self):
         fs = FSCommand(self.directory.test_repo())
         git = GitCommand(self.directory.test_repo())
 
@@ -22,6 +38,6 @@ class CommitCatalog:
             git.add()
             git.commit(comment)
 
-    def cleanup(self):
+    def cleanup_test_repo(self):
         fs = FSCommand(self.directory.test_repo())
         fs.rmdir()
