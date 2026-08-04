@@ -20,6 +20,10 @@ class GitCommand:
         args = ["git", "commit", "-m", comment]
         subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
 
+    def tag(self, label):
+        args = ["git", "tag", "-a", f"v0.1.{label}", "-m", f"Release version 0.1.{label}"]
+        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
+
     def diff(self, commit_from, commit_to):
         args = ["git", "diff", "--name-only", commit_from, commit_to]
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
