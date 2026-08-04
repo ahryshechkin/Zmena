@@ -7,9 +7,11 @@ class DeltaCrawlerPipeline:
         return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
     def run(self, command):
+        changed_files = []
         changed_paths = command.diff(self.commit_from, self.commit_to)
         for path in changed_paths:
             before = command.show(self.commit_from, path)
             after = command.show(self.commit_to, path)
-            print(before)
-            print(after)
+            changed_files.append((before, after))
+
+        return changed_files
