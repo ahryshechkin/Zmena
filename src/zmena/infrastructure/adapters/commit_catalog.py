@@ -18,10 +18,12 @@ class CommitCatalog:
         git.init()
 
         for path in self.directory.cmt().iterdir():
-            comment = f"feat: {' '.join(path.name.split('_')[2:])}"
+            parts = path.name.split("_")
+
             fs.copy(src=path)
             git.add()
-            git.commit(comment)
+            git.commit(f"feat: {' '.join(parts[2:])}")
+            git.tag(parts[1])
 
     def cleanup_demo_repo(self):
         fs = FSCommand(self.directory.demo_repo())
@@ -35,10 +37,12 @@ class CommitCatalog:
         git.init()
 
         for path in self.directory.cmt().iterdir():
-            comment = f"feat: {' '.join(path.name.split('_')[2:])}"
+            parts = path.name.split("_")
+
             fs.copy(src=path)
             git.add()
-            git.commit(comment)
+            git.commit(f"feat: {' '.join(parts[2:])}")
+            git.tag(parts[1])
 
     def cleanup_test_repo(self):
         fs = FSCommand(self.directory.test_repo())
