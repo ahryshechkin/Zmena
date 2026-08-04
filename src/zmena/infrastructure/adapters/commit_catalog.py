@@ -16,6 +16,7 @@ class CommitCatalog:
 
         fs.mkdir()
         git.init()
+
         for path in self.directory.cmt().iterdir():
             comment = f"feat: {' '.join(path.name.split('_')[2:])}"
             fs.copy(src=path)
@@ -32,6 +33,7 @@ class CommitCatalog:
 
         fs.mkdir()
         git.init()
+
         for path in self.directory.cmt().iterdir():
             comment = f"feat: {' '.join(path.name.split('_')[2:])}"
             fs.copy(src=path)
