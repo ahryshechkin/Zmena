@@ -2,15 +2,14 @@ from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 
 class SQLIntakePipeline:
-    def __init__(self, before, after):
-        self.before = before
-        self.after = after
+    def __init__(self, message):
+        self.message = message
 
     def __repr__(self):
-        return "SQLIntakePipeline"
+        return f"SQLIntakePipeline(path={self.message.path})"
 
     def run(self):
-        table_profile_before = SQLTableProfile(self.before)
-        table_profile_after = SQLTableProfile(self.after)
+        table_profile_before = SQLTableProfile(self.message.before)
+        table_profile_after = SQLTableProfile(self.message.after)
 
         return table_profile_before.formatted_columns(), table_profile_after.formatted_columns()

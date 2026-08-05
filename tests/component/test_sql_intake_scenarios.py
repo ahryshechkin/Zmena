@@ -1,5 +1,6 @@
 import unittest
 
+from zmena.application.messages.sql_intake import SQLIntakeMessage
 from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
 from zmena.application.sql_intake_pipeline import SQLIntakePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
@@ -14,7 +15,8 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        pipeline = SQLIntakePipeline(scenario.before, scenario.after)
+        message = SQLIntakeMessage("", scenario.before, scenario.after)
+        pipeline = SQLIntakePipeline(message)
         before, after = pipeline.run()
 
         pipeline = SemanticEnginePipeline(before, after)
