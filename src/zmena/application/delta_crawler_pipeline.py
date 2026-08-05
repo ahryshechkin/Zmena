@@ -1,3 +1,6 @@
+from zmena.application.messages.sql_intake import SQLIntakeMessage
+
+
 class DeltaCrawlerPipeline:
     def __init__(self, commit_from, commit_to):
         self.commit_from = commit_from
@@ -7,11 +10,11 @@ class DeltaCrawlerPipeline:
         return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
     def run(self, command):
-        changed_files = []
-        changed_paths = command.diff(self.commit_from, self.commit_to)
-        for path in changed_paths:
+        messages = []
+        for path in command.diff(self.commit_from, self.commit_to):
             before = command.show(self.commit_from, path)
             after = command.show(self.commit_to, path)
-            changed_files.append((before, after))
+            message = SQLIntakeMessage(path, before, after)
+            messages.append(message)
 
-        return changed_files
+        return messages
