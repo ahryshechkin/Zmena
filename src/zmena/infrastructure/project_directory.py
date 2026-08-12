@@ -7,6 +7,9 @@ class ProjectDirectory:
     def __init__(self, start=None):
         self.start = start or Path(__file__).resolve().parent
 
+    def __repr__(self):
+        return f"ProjectDirectory(start={self.start})"
+
     def root(self):
         for current in [self.start, *self.start.parents]:
             if (current / "pyproject.toml").exists():
