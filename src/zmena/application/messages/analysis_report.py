@@ -13,4 +13,4 @@ class AnalysisReportMessage:
     decisions: list
 
     def __repr__(self):
-        return "AnalysisReportMessage"
+        return f"AnalysisReportMessage(sce_id={self.sce_id})"

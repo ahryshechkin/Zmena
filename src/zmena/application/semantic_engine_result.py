@@ -9,4 +9,9 @@ class SemanticEngineResult:
     decisions: list
 
     def __repr__(self):
-        return "SemanticEngineResult"
+        return (
+            f"SemanticEngineResult("
+            f"fragments={len(self.fragments)},hypotheses={len(self.hypotheses)},"
+            f"components={len(self.components)},decisions={len(self.decisions)}"
+            f")"
+        )
