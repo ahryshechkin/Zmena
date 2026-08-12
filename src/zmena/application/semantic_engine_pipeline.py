@@ -11,7 +11,7 @@ class SemanticEnginePipeline:
         self.message = message
 
     def __repr__(self):
-        return "AnalysisPipeline"
+        return "SemanticEnginePipeline"
 
     def run(self):
         fragment_builder = FragmentBuilder()

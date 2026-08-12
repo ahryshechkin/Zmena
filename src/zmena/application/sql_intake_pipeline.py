@@ -1,3 +1,4 @@
+from zmena.application.messages.semantic_engine import SemanticEngineMessage
 from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
 
 
@@ -12,4 +13,7 @@ class SQLIntakePipeline:
         table_profile_before = SQLTableProfile(self.message.before)
         table_profile_after = SQLTableProfile(self.message.after)
 
-        return table_profile_before.formatted_columns(), table_profile_after.formatted_columns()
+        return SemanticEngineMessage(
+            before=table_profile_before.formatted_columns(),
+            after=table_profile_after.formatted_columns(),
+        )
