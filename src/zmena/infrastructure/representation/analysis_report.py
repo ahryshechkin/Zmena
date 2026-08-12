@@ -6,29 +6,28 @@ from zmena.infrastructure.representation.reports.scenario import ScenarioReport
 
 
 class AnalysisReport:
-    def __init__(self, scenario, result):
-        self.scenario = scenario
-        self.result = result
+    def __init__(self, message):
+        self.message = message
 
     def __repr__(self):
-        return "AnalysisReport"
+        return f"AnalysisReport(sce_id={self.message.sce_id},name={self.message.name})"
 
     def show_scenario(self):
-        report = ScenarioReport(self.scenario)
+        report = ScenarioReport(self.message)
         report.render()
 
     def show_fragments(self):
-        report = FragmentReport("Fragments", self.result.fragments)
+        report = FragmentReport("Fragments", self.message.fragments)
         report.render()
 
     def show_hypotheses(self):
-        report = HypothesisReport("Hypotheses", self.result.hypotheses)
+        report = HypothesisReport("Hypotheses", self.message.hypotheses)
         report.render()
 
     def show_components(self):
-        report = ComponentReport(self.result.components)
+        report = ComponentReport(self.message.components)
         report.render()
 
     def show_decisions(self):
-        report = DecisionReport(self.result.decisions)
+        report = DecisionReport(self.message.decisions)
         report.render()

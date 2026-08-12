@@ -8,28 +8,28 @@ from zmena.infrastructure.representation.layouts.basic import BasicReport
 
 
 class ScenarioReport(BasicReport):
-    def __init__(self, scenario):
+    def __init__(self, message):
         super().__init__(
-            f"SCE-{scenario.sce_id} - {scenario.name.upper()}",
+            f"SCE-{message.sce_id} - {message.name.upper()}",
             [
                 ("action", ">", "7"),
                 ("fingerprint", ">", "11"),
                 ("lineno", ">", "6"),
-                ("left", "<", len(max(scenario.before, key=len))),
+                ("left", "<", len(max(message.before, key=len))),
                 ("lineno", ">", "6"),
-                ("right", "<", len(max(scenario.after, key=len))),
+                ("right", "<", len(max(message.after, key=len))),
             ],
             [],
         )
-        self.scenario = scenario
+        self.message = message
         self.color = ANSIColor()
         self.sm = SequenceMatcher()
 
     def body(self):
-        self.sm.set_seqs(self.scenario.before, self.scenario.after)
+        self.sm.set_seqs(self.message.before, self.message.after)
         for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
-            left = Span(self.scenario.before, slo, shi)
-            right = Span(self.scenario.after, tlo, thi)
+            left = Span(self.message.before, slo, shi)
+            right = Span(self.message.after, tlo, thi)
             hunk = Hunk(tag, left, right)
             if tag == Tag.EQUAL:
                 for idx in range(hunk.left_range()):
@@ -57,7 +57,7 @@ class ScenarioReport(BasicReport):
         print(self.color.style_text(hunk.kind(), f"| {line} |"))
 
     def width_left(self):
-        return len(max(self.scenario.before, key=len))
+        return len(max(self.message.before, key=len))
 
     def width_right(self):
-        return len(max(self.scenario.after, key=len))
+        return len(max(self.message.after, key=len))
