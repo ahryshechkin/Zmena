@@ -33,3 +33,8 @@ class GitCommand:
         args = ["git", "show", f"{commit}:{path}"]
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
         return result.stdout
+
+    def show_annotation(self, tag):
+        args = ["git", "for-each-ref", f"refs/tags/{tag}", "--format='%(contents:subject)'"]
+        result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
+        return result.stdout
