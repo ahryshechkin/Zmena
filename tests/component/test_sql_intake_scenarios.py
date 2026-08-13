@@ -15,7 +15,9 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        si_message = SQLIntakeMessage("", scenario.before, scenario.after)
+        si_message = SQLIntakeMessage(
+            scenario.sce_id, scenario.name, scenario.before, scenario.after
+        )
 
         pipeline = SQLIntakePipeline(si_message)
         se_message = pipeline.run()
