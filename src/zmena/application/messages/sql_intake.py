@@ -4,6 +4,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class SQLIntakeMessage:
     path: str
+    annotation: str
     before: str
     after: str
 
