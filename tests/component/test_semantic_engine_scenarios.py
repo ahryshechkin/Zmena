@@ -1,5 +1,6 @@
 import unittest
 
+from zmena.application.messages.semantic_engine import SemanticEngineMessage
 from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
@@ -13,10 +14,9 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        before = scenario.before.splitlines()
-        after = scenario.after.splitlines()
+        message = SemanticEngineMessage(scenario.before.splitlines(), scenario.after.splitlines())
 
-        pipeline = SemanticEnginePipeline(before, after)
+        pipeline = SemanticEnginePipeline(message)
         result = pipeline.run()
 
         winners = []
