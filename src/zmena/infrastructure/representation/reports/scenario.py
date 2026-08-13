@@ -10,7 +10,7 @@ from zmena.infrastructure.representation.layouts.basic import BasicReport
 class ScenarioReport(BasicReport):
     def __init__(self, message):
         super().__init__(
-            f"SCE-{message.sce_id} - {message.name.upper()}",
+            f"{message.kind}-{message.label} - {message.name.upper()}",
             [
                 ("action", ">", "7"),
                 ("fingerprint", ">", "11"),

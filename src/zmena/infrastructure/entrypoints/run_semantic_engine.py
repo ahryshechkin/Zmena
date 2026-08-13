@@ -13,7 +13,8 @@ for scenario in catalog.get_many(sce_ids):
     result = pipeline.run()
 
     ar_message = AnalysisReportMessage(
-        sce_id=scenario.sce_id,
+        kind="SCE",
+        label=scenario.sce_id,
         name=scenario.name,
         before=scenario.before.splitlines(),
         after=scenario.after.splitlines(),

@@ -12,13 +12,11 @@ class DeltaCrawlerPipeline:
 
     def run(self, command):
         record = TagRecord(command.show_tag(self.commit_to))
-        annotation = record.annotation()
-
         messages = []
         for path in command.diff(self.commit_from, self.commit_to):
             before = command.show(self.commit_from, path)
             after = command.show(self.commit_to, path)
-            message = SQLIntakeMessage(path, annotation, before, after)
+            message = SQLIntakeMessage(record.name(), record.annotation(), before, after)
             messages.append(message)
 
         return messages

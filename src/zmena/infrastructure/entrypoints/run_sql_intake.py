@@ -8,7 +8,7 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 sce_ids = ["707"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    si_message = SQLIntakeMessage("", scenario.before, scenario.after)
+    si_message = SQLIntakeMessage(scenario.sce_id, scenario.name, scenario.before, scenario.after)
 
     pipeline = SQLIntakePipeline(si_message)
     se_message = pipeline.run()
@@ -17,8 +17,9 @@ for scenario in catalog.get_many(sce_ids):
     result = pipeline.run()
 
     ar_message = AnalysisReportMessage(
-        sce_id=scenario.sce_id,
-        name=scenario.name,
+        kind="SCE",
+        label=si_message.label,
+        name=si_message.name,
         before=se_message.before,
         after=se_message.after,
         fragments=result.fragments,
