@@ -10,7 +10,7 @@ class AnalysisReport:
         self.message = message
 
     def __repr__(self):
-        return f"AnalysisReport(sce_id={self.message.sce_id},name={self.message.name})"
+        return f"AnalysisReport(sce_id={self.message.label},name={self.message.name})"
 
     def show_scenario(self):
         report = ScenarioReport(self.message)
