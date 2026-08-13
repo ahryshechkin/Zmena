@@ -10,11 +10,13 @@ class DeltaCrawlerPipeline:
         return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
     def run(self, command):
+        annotation = command.show_annotation(self.commit_to)
+
         messages = []
         for path in command.diff(self.commit_from, self.commit_to):
             before = command.show(self.commit_from, path)
             after = command.show(self.commit_to, path)
-            message = SQLIntakeMessage(path, before, after)
+            message = SQLIntakeMessage(path, annotation, before, after)
             messages.append(message)
 
         return messages
