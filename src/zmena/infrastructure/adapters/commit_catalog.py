@@ -23,7 +23,7 @@ class CommitCatalog:
             fs.copy(src=path)
             git.add()
             git.commit(f"feat: {' '.join(parts[2:])}")
-            git.tag(parts[1])
+            git.add_tag(parts[1])
 
     def cleanup_demo_repo(self):
         fs = FSCommand(self.directory.demo_repo())
