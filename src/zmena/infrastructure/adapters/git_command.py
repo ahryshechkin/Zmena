@@ -20,10 +20,6 @@ class GitCommand:
         args = ["git", "commit", "-m", comment]
         subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
 
-    def tag(self, label):
-        args = ["git", "tag", "-a", f"v0.1.{label}", "-m", f"Release version 0.1.{label}"]
-        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
-
     def diff(self, commit_from, commit_to):
         args = ["git", "diff", "--name-only", commit_from, commit_to]
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
@@ -34,7 +30,11 @@ class GitCommand:
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
         return result.stdout
 
-    def show_annotation(self, tag):
-        args = ["git", "for-each-ref", f"refs/tags/{tag}", "--format='%(contents:subject)'"]
+    def add_tag(self, label):
+        args = ["git", "tag", "-a", f"v0.1.{label}", "-m", f"Release version 0.1.{label}"]
+        subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
+
+    def show_tag(self, name):
+        args = ["git", "tag", "-n", name]
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
         return result.stdout

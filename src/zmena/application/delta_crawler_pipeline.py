@@ -1,4 +1,5 @@
 from zmena.application.messages.sql_intake import SQLIntakeMessage
+from zmena.domain.delta_crawler.tag_record import TagRecord
 
 
 class DeltaCrawlerPipeline:
@@ -10,7 +11,8 @@ class DeltaCrawlerPipeline:
         return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
     def run(self, command):
-        annotation = command.show_annotation(self.commit_to)
+        record = TagRecord(command.show_tag(self.commit_to))
+        annotation = record.annotation()
 
         messages = []
         for path in command.diff(self.commit_from, self.commit_to):
