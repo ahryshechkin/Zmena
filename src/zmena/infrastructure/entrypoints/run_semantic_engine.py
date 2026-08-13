@@ -4,7 +4,7 @@ from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["202"]
+sce_ids = ["403"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     se_message = SemanticEngineMessage(scenario.before.splitlines(), scenario.after.splitlines())
