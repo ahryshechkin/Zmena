@@ -8,25 +8,26 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 sce_ids = ["707"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    message = SQLIntakeMessage("", scenario.before, scenario.after)
-    pipeline = SQLIntakePipeline(message)
-    message = pipeline.run()
+    si_message = SQLIntakeMessage("", scenario.before, scenario.after)
 
-    pipeline = SemanticEnginePipeline(message)
+    pipeline = SQLIntakePipeline(si_message)
+    se_message = pipeline.run()
+
+    pipeline = SemanticEnginePipeline(se_message)
     result = pipeline.run()
 
-    message = AnalysisReportMessage(
+    ar_message = AnalysisReportMessage(
         sce_id=scenario.sce_id,
         name=scenario.name,
-        before=message.before,
-        after=message.after,
+        before=se_message.before,
+        after=se_message.after,
         fragments=result.fragments,
         hypotheses=result.hypotheses,
         components=result.components,
         decisions=result.decisions,
     )
 
-    report = AnalysisReport(message)
+    report = AnalysisReport(ar_message)
     report.show_scenario()
     report.show_fragments()
     report.show_hypotheses()
