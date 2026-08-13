@@ -15,11 +15,12 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         return str(link).split("|", 1)[1]
 
     def collect_winners(self, scenario):
-        message = SQLIntakeMessage("", scenario.before, scenario.after)
-        pipeline = SQLIntakePipeline(message)
-        before, after = pipeline.run()
+        si_message = SQLIntakeMessage("", scenario.before, scenario.after)
 
-        pipeline = SemanticEnginePipeline(before, after)
+        pipeline = SQLIntakePipeline(si_message)
+        se_message = pipeline.run()
+
+        pipeline = SemanticEnginePipeline(se_message)
         result = pipeline.run()
 
         winners = []
