@@ -7,7 +7,7 @@ from zmena.infrastructure.representation.ansi_color import ANSIColor
 from zmena.infrastructure.representation.layouts.basic import BasicReport
 
 
-class ScenarioReport(BasicReport):
+class SQLDiffReport(BasicReport):
     def __init__(self, message):
         super().__init__(
             f"{message.kind}-{message.label} - {message.name.upper()}",

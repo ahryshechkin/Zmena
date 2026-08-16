@@ -2,7 +2,7 @@ from zmena.infrastructure.representation.reports.component import ComponentRepor
 from zmena.infrastructure.representation.reports.decision import DecisionReport
 from zmena.infrastructure.representation.reports.fragment import FragmentReport
 from zmena.infrastructure.representation.reports.hypothesis import HypothesisReport
-from zmena.infrastructure.representation.reports.scenario import ScenarioReport
+from zmena.infrastructure.representation.reports.sql_diff import SQLDiffReport
 
 
 class AnalysisReport:
@@ -12,8 +12,8 @@ class AnalysisReport:
     def __repr__(self):
         return f"AnalysisReport(sce_id={self.message.label},name={self.message.name})"
 
-    def show_scenario(self):
-        report = ScenarioReport(self.message)
+    def show_sql_diff(self):
+        report = SQLDiffReport(self.message)
         report.render()
 
     def show_fragments(self):
