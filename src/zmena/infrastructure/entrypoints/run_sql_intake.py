@@ -29,7 +29,7 @@ for scenario in catalog.get_many(sce_ids):
     )
 
     report = AnalysisReport(ar_message)
-    report.show_scenario()
+    report.show_sql_diff()
     report.show_fragments()
     report.show_hypotheses()
     report.show_components()

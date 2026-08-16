@@ -10,10 +10,11 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 catalog = CommitCatalog()
 catalog.cleanup_demo_repo()
 catalog.build_demo_repo()
+
 directory = ProjectDirectory()
 command = GitCommand(directory.demo_repo())
-pipeline = DeltaCrawlerPipeline("v0.1.004", "v0.1.005")
 
+pipeline = DeltaCrawlerPipeline("v0.1.004", "v0.1.005")
 for si_message in pipeline.run(command):
     pipeline = SQLIntakePipeline(si_message)
     se_message = pipeline.run()
@@ -34,7 +35,7 @@ for si_message in pipeline.run(command):
     )
 
     report = AnalysisReport(ar_message)
-    report.show_scenario()
+    report.show_sql_diff()
     report.show_fragments()
     report.show_hypotheses()
     report.show_components()
