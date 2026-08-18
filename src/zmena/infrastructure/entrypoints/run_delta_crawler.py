@@ -8,8 +8,8 @@ from zmena.infrastructure.project_directory import ProjectDirectory
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
 catalog = CommitCatalog()
-catalog.cleanup_demo_repo()
-catalog.build_demo_repo()
+# catalog.cleanup_demo_repo()
+# catalog.build_demo_repo()
 
 directory = ProjectDirectory()
 command = GitCommand(directory.demo_repo())
