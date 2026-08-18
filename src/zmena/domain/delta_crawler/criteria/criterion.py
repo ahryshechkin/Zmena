@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Criteria(ABC):
+class Criterion(ABC):
     def __init__(self, kind):
         self.kind = kind
 
