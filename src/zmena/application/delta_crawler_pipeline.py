@@ -16,7 +16,7 @@ class DeltaCrawlerPipeline:
 
         record = TagRecord(command.show_tag(self.commit_to))
         revision_paths = RevisionPaths(command.diff(self.commit_from, self.commit_to))
-        for path in revision_paths.filter([]):
+        for path in revision_paths.filter():
             before = command.show(self.commit_from, path)
             after = command.show(self.commit_to, path)
             message = SQLIntakeMessage(record.name(), record.annotation(), before, after)
