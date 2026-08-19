@@ -1,7 +1,7 @@
 import unittest
 
 from zmena.application.messages.semantic_engine import SemanticEngineMessage
-from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
+from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
 
