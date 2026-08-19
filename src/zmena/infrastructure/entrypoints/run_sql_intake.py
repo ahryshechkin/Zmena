@@ -1,7 +1,7 @@
 from zmena.application.messages.analysis_report import AnalysisReportMessage
 from zmena.application.messages.sql_intake import SQLIntakeMessage
-from zmena.application.semantic_engine_pipeline import SemanticEnginePipeline
-from zmena.application.sql_intake_pipeline import SQLIntakePipeline
+from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
+from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
