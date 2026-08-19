@@ -12,8 +12,9 @@ class DeltaCrawlerPipeline:
         return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
 
     def run(self, command):
-        record = TagRecord(command.show_tag(self.commit_to))
         messages = []
+
+        record = TagRecord(command.show_tag(self.commit_to))
         revision_paths = RevisionPaths(command.diff(self.commit_from, self.commit_to))
         for path in revision_paths.filter([]):
             before = command.show(self.commit_from, path)
