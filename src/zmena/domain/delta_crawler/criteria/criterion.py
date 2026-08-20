@@ -6,7 +6,7 @@ class Criterion(ABC):
         self.kind = kind
 
     def __repr__(self):
-        return f"Criteria(kind={self.kind})"
+        return f"Criterion(kind={self.kind})"
 
     @abstractmethod
     def apply(self, paths):
