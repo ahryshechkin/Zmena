@@ -12,21 +12,57 @@ class TestCriterion(unittest.TestCase):
 
 
 class TestExcludedDirectoriesCriterion(unittest.TestCase):
-    def test_apply(self):
-        criterion = ExcludedDirectoriesCriterion([""])
+    def setUp(self):
+        self.samples = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql/tab.sql",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
 
-        expected = []
-        actual = criterion.apply(
-            [
-                "code/scripts/script01.py",
-                "code/scripts/sql.txt",
-                "code/domain/sql.sql",
-                "infra/catalog/schema/tab01.sql",
-                "infra/catalog/sql/tab02.sql",
-                "infra/catalog/sql/script02.py",
-                "text01.txt",
-                "text02.sql",
-            ]
-        )
+    def test_apply_empty_filter(self):
+        expected = self.samples
+        criterion = ExcludedDirectoriesCriterion([])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_full_path(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["infra/catalog/sql"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_partial_path(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.txt",
+            "text.sql",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["sql"])
+        actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
