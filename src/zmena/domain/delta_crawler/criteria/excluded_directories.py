@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.kinds.criterion_kind import CriterionKind
 
@@ -11,5 +13,7 @@ class ExcludedDirectoriesCriterion(Criterion):
         return [
             path
             for path in paths
-            if not any(directory in path for directory in self.excluded_directories)
+            if not any(
+                directory in Path(path).parent.as_posix() for directory in self.excluded_directories
+            )
         ]
