@@ -19,6 +19,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
             "code/scripts/sql.sql",
             "code/sql/scripts/script.py",
             "infra/catalog/schema/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
             "infra/catalog/sql/tab.sql",
             "infra/catalog/sql/script.py",
             "infra/catalog/sql.py",
@@ -34,6 +35,24 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_apply_filter_with_backslash(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "infra/catalog/sql/tab.sql",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["catalog\\schema"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
     def test_apply_full_path(self):
         expected = [
             "code/scripts/script.py",
@@ -41,6 +60,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
             "code/scripts/sql.sql",
             "code/sql/scripts/script.py",
             "infra/catalog/schema/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
             "infra/catalog/sql.py",
             "sql.sql",
             "text.sql",
@@ -57,12 +77,49 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
             "code/scripts/sql.txt",
             "code/scripts/sql.sql",
             "infra/catalog/schema/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
             "infra/catalog/sql.py",
             "sql.sql",
             "text.txt",
             "text.sql",
         ]
         criterion = ExcludedDirectoriesCriterion(["sql"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_trailing_backslash(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "infra/catalog/sql/tab.sql",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["schema/"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_trailing_slash(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "infra/catalog/sql/tab.sql",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["schema\\"])
         actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
