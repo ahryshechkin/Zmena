@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.kinds.criterion_kind import CriterionKind
 
@@ -8,8 +10,14 @@ class IncludedExtensionsCriterion(Criterion):
         self.included_extensions = included_extensions
 
     def apply(self, paths):
+        if not self.included_extensions:
+            return paths
+
         return [
             path
             for path in paths
-            if any(path.endswith(extension) for extension in self.included_extensions)
+            if any(
+                Path(path).suffix.endswith(f".{extension.lstrip('.')}")
+                for extension in self.included_extensions
+            )
         ]
