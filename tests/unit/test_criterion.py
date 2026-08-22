@@ -4,6 +4,7 @@ from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
 from zmena.domain.delta_crawler.criteria.included_directories import IncludedDirectoriesCriterion
+from zmena.domain.delta_crawler.criteria.included_extensions import IncludedExtensionsCriterion
 from zmena.domain.delta_crawler.kinds.criterion_kind import CriterionKind
 
 
@@ -383,6 +384,83 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra\\catalog\\schema\\script.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["schema\\"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+
+class TestIncludedExtensionsCriterion(unittest.TestCase):
+    def setUp(self):
+        self.samples = [
+            "code/scripts/script.py",
+            "code/scripts/script.y",
+            "code/scripts/sql.sql",
+            "code/scripts/sql.txt",
+            "code/sql/scripts/script.py",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql.py",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+
+    def test_apply_empty_filter(self):
+        expected = self.samples
+        criterion = IncludedExtensionsCriterion([])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_partial_extension(self):
+        expected = [
+            "code/scripts/script.y",
+        ]
+        criterion = IncludedExtensionsCriterion(["y"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_several_extensions(self):
+        expected = [
+            "code/scripts/sql.sql",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
+            "sql.sql",
+            "text.sql",
+        ]
+        criterion = IncludedExtensionsCriterion([".sql"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_single_extension(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/sql/scripts/script.py",
+            "infra/catalog/sql.py",
+            "infra/catalog/sql/script.py",
+            "text.txt",
+        ]
+        criterion = IncludedExtensionsCriterion([".py", ".txt"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_suffix_only(self):
+        expected = [
+            "code/scripts/sql.sql",
+            "infra/catalog/schema/tab.sql",
+            "infra/catalog/sql/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
+            "sql.sql",
+            "text.sql",
+        ]
+        criterion = IncludedExtensionsCriterion(["sql"])
         actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
