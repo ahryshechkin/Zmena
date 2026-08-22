@@ -71,6 +71,37 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_apply_leading_backslash(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "code/sql/scripts/script.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["\\infra"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_leading_slash(self):
+        expected = [
+            "infra/catalog/schema/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
+            "infra/catalog/sql/tab.sql",
+            "infra/catalog/sql/script.py",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["/code"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
     def test_apply_partial_path(self):
         expected = [
             "code/scripts/script.py",
@@ -84,6 +115,23 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
             "text.sql",
         ]
         criterion = ExcludedDirectoriesCriterion(["sql"])
+        actual = criterion.apply(self.samples)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_apply_several_filters(self):
+        expected = [
+            "code/scripts/script.py",
+            "code/scripts/sql.txt",
+            "code/scripts/sql.sql",
+            "infra/catalog/schema/tab.sql",
+            "infra\\catalog\\schema\\script.sql",
+            "infra/catalog/sql.py",
+            "sql.sql",
+            "text.sql",
+            "text.txt",
+        ]
+        criterion = ExcludedDirectoriesCriterion(["catalog/sql", "sql\\"])
         actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
