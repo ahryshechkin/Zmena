@@ -17,7 +17,8 @@ class IncludedDirectoriesCriterion(Criterion):
             path
             for path in paths
             if any(
-                directory.replace("\\", "/").strip("/") in Path(path).parent.as_posix()
+                directory.replace("\\", "/").strip("/")
+                in Path(path.replace("\\", "/")).parent.as_posix()
                 for directory in self.included_directories
             )
         ]
