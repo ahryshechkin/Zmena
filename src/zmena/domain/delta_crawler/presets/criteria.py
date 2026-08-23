@@ -12,7 +12,7 @@ class CriterionPreset(Preset):
         self.excluded_directories = ExcludedDirectoriesCriterion([])
         self.excluded_extensions = ExcludedExtensionsCriterion([])
         self.included_directories = IncludedDirectoriesCriterion([])
-        self.included_extensions = IncludedExtensionsCriterion([])
+        self.included_extensions = IncludedExtensionsCriterion([".sql"])
 
     def default(self):
         return [
