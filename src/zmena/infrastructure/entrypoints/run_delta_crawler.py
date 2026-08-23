@@ -40,5 +40,3 @@ for si_message in pipeline.run(command):
     report.show_hypotheses()
     report.show_components()
     report.show_decisions()
-
-# catalog.cleanup_demo_repo()
