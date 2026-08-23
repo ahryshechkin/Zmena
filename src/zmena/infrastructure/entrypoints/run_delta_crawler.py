@@ -14,7 +14,7 @@ catalog = CommitCatalog()
 directory = ProjectDirectory()
 command = GitCommand(directory.demo_repo())
 
-pipeline = DeltaCrawlerPipeline("v0.1.004", "v0.1.005")
+pipeline = DeltaCrawlerPipeline("v0.1.007", "v0.1.008")
 for si_message in pipeline.run(command):
     pipeline = SQLIntakePipeline(si_message)
     se_message = pipeline.run()
