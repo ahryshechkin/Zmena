@@ -1,0 +1,13 @@
+CREATE TABLE tab_01 (
+    col_01 INT NOT NULL,
+    col_02 VARCHAR(50) NOT NULL,
+    col_03 VARCHAR(200),
+    col_04 VARCHAR(50) NOT NULL,
+    col_05 VARCHAR(50),
+    col_06 INT NOT NULL,
+    col_07 VARCHAR(1) NOT NULL,
+    col_08 DATE NOT NULL,
+    col_88 DATE NOT NULL,
+    col_09 TIMESTAMP NOT NULL,
+    col_10 TIMESTAMP NOT NULL
+);
