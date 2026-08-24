@@ -1,4 +1,4 @@
-from zmena.application.semantic_engine_result import SemanticEngineResult
+from zmena.application.outcomes.semantic_engine import SemanticEngineOutcome
 from zmena.domain.semantic_engine.core.fragment_bundle import FragmentBundle
 from zmena.domain.semantic_engine.steps.component_composer import ComponentComposer
 from zmena.domain.semantic_engine.steps.decision_resolver import DecisionResolver
@@ -27,6 +27,6 @@ class SemanticEnginePipeline:
         decision_resolver = DecisionResolver(components)
         decisions = decision_resolver.resolve()
 
-        return SemanticEngineResult(
+        return SemanticEngineOutcome(
             fragments=fragments, hypotheses=hypotheses, components=components, decisions=decisions
         )
