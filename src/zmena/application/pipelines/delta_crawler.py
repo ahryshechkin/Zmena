@@ -20,7 +20,9 @@ class DeltaCrawlerPipeline:
         for path in revision_paths.filter():
             before = command.show(self.message.commit_from, path)
             after = command.show(self.message.commit_to, path)
-            message = SQLIntakeMessage(record.name(), record.annotation(), before, after)
+            message = SQLIntakeMessage(
+                label=record.name(), name=record.annotation(), before=before, after=after
+            )
             messages.append(message)
 
         return messages
