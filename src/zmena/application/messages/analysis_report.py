@@ -14,4 +14,4 @@ class AnalysisReportMessage:
     decisions: list
 
     def __repr__(self):
-        return f"AnalysisReportMessage(sce_id={self.entity_id})"
+        return f"AnalysisReportMessage(kind={self.kind},label={self.label})"
