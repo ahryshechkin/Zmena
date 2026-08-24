@@ -10,7 +10,7 @@ for scenario in catalog.get_many(sce_ids):
     se_message = SemanticEngineMessage(scenario.before.splitlines(), scenario.after.splitlines())
 
     pipeline = SemanticEnginePipeline(se_message)
-    result = pipeline.run()
+    se_outcome = pipeline.run()
 
     ar_message = AnalysisReportMessage(
         kind="SCE",
@@ -18,10 +18,10 @@ for scenario in catalog.get_many(sce_ids):
         name=scenario.name,
         before=scenario.before.splitlines(),
         after=scenario.after.splitlines(),
-        fragments=result.fragments,
-        hypotheses=result.hypotheses,
-        components=result.components,
-        decisions=result.decisions,
+        fragments=se_outcome.fragments,
+        hypotheses=se_outcome.hypotheses,
+        components=se_outcome.components,
+        decisions=se_outcome.decisions,
     )
 
     report = AnalysisReport(ar_message)
