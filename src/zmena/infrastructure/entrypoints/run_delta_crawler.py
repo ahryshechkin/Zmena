@@ -1,4 +1,5 @@
 from zmena.application.messages.analysis_report import AnalysisReportMessage
+from zmena.application.messages.delta_crawler import DeltaCrawlerMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
@@ -14,7 +15,9 @@ catalog = CommitCatalog()
 directory = ProjectDirectory()
 command = GitCommand(directory.demo_repo())
 
-pipeline = DeltaCrawlerPipeline("v0.1.007", "v0.1.008")
+dc_message = DeltaCrawlerMessage(commit_from="v0.1.007", commit_to="v0.1.008")
+
+pipeline = DeltaCrawlerPipeline(dc_message)
 for si_message in pipeline.run(command):
     pipeline = SQLIntakePipeline(si_message)
     se_message = pipeline.run()
