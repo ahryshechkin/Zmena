@@ -4,21 +4,22 @@ from zmena.domain.delta_crawler.tag_record import TagRecord
 
 
 class DeltaCrawlerPipeline:
-    def __init__(self, commit_from, commit_to):
-        self.commit_from = commit_from
-        self.commit_to = commit_to
+    def __init__(self, message):
+        self.message = message
 
     def __repr__(self):
-        return f"DeltaCrawlerPipeline(commit_from={self.commit_from},commit_to={self.commit_to})"
+        return "DeltaCrawlerPipeline"
 
     def run(self, command):
         messages = []
 
-        record = TagRecord(command.show_tag(self.commit_to))
-        revision_paths = RevisionPaths(command.diff(self.commit_from, self.commit_to))
+        record = TagRecord(command.show_tag(self.message.commit_to))
+        revision_paths = RevisionPaths(
+            command.diff(self.message.commit_from, self.message.commit_to)
+        )
         for path in revision_paths.filter():
-            before = command.show(self.commit_from, path)
-            after = command.show(self.commit_to, path)
+            before = command.show(self.message.commit_from, path)
+            after = command.show(self.message.commit_to, path)
             message = SQLIntakeMessage(record.name(), record.annotation(), before, after)
             messages.append(message)
 
