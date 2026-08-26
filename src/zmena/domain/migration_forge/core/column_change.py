@@ -18,3 +18,15 @@ class ColumnChange:
 
     def is_unchanged(self):
         return self.kind == ColumnChangeKind.UNCHANGED
+
+    def has_data_type_change(self):
+        pass
+
+    def has_name_change(self):
+        pass
+
+    def has_nullability_change(self):
+        pass
+
+    def has_position_change(self):
+        pass
