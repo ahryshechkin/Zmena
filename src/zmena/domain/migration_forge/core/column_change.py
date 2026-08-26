@@ -1,0 +1,20 @@
+from zmena.domain.migration_forge.kinds.column_change_kind import ColumnChangeKind
+
+
+class ColumnChange:
+    def __init__(self, kind, before, after):
+        self.kind = kind
+        self.before = before
+        self.after = after
+
+    def is_add(self):
+        return self.kind == ColumnChangeKind.ADD
+
+    def is_drop(self):
+        return self.kind == ColumnChangeKind.DROP
+
+    def is_modify(self):
+        return self.kind == ColumnChangeKind.MODIFY
+
+    def is_unchanged(self):
+        return self.kind == ColumnChangeKind.UNCHANGED
