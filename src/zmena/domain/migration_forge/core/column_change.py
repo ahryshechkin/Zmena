@@ -7,6 +7,9 @@ class ColumnChange:
         self.before = before
         self.after = after
 
+    def __repr__(self):
+        return f"ColumnChange(kind={self.kind})"
+
     def is_add(self):
         return self.kind == ColumnChangeKind.ADD
 
