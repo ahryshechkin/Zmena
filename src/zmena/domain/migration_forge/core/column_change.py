@@ -23,13 +23,13 @@ class ColumnChange:
         return self.kind == ColumnChangeKind.UNCHANGED
 
     def has_data_type_change(self):
-        pass
+        return self.before.data_type != self.aftre.data_type
 
     def has_name_change(self):
-        pass
+        return self.before.name != self.after.name
 
     def has_nullability_change(self):
-        pass
+        return self.before.nullable != self.after.nullable
 
     def has_position_change(self):
-        pass
+        return self.before.position != self.after.position
