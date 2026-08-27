@@ -2,9 +2,9 @@ from zmena.domain.migration_forge.core.column_change import ColumnChange
 from zmena.domain.migration_forge.kinds.column_change_kind import ColumnChangeKind
 
 
-class ColumnEvolution:
+class ColumnEvalution:
     def __repr__(self):
-        return "ColumnEvolution"
+        return "ColumnEvalution"
 
     def between(self, before, after):
         if before is None:
