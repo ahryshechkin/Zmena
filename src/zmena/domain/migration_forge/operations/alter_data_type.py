@@ -2,5 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class SetNotNull:
+class AlterDataType:
     name: str
+    old_data_type: str
+    new_data_type: str
