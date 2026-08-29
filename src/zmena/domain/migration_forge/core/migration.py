@@ -1,7 +1,7 @@
-from zmena.domain.migration_forge.operations.add_column import AddColumn
-from zmena.domain.migration_forge.operations.alter_data_type import AlterDataType
-from zmena.domain.migration_forge.operations.drop_column import DropColumn
-from zmena.domain.migration_forge.operations.rename_column import RenameColumn
+from zmena.domain.migration_forge.actions.add_column import AddColumn
+from zmena.domain.migration_forge.actions.alter_data_type import AlterDataType
+from zmena.domain.migration_forge.actions.drop_column import DropColumn
+from zmena.domain.migration_forge.actions.rename_column import RenameColumn
 
 
 class Migration:

@@ -23,7 +23,7 @@ class ColumnChange:
         return self.kind == ColumnChangeKind.UNCHANGED
 
     def has_data_type_change(self):
-        return self.before.data_type != self.aftre.data_type
+        return self.before.data_type != self.after.data_type
 
     def has_name_change(self):
         return self.before.name != self.after.name
