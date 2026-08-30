@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 
-from zmena.domain.migration_forge.kinds.statement import StatementKind
+from zmena.domain.migration_forge.kinds.statements import StatementKind
+from zmena.domain.migration_forge.statements.statement import Statement
 
 
-@dataclass(frozen=True)
-class RenameColumnStatement:
+@dataclass
+class RenameColumnStatement(Statement):
     old_name: str
     new_name: str
 

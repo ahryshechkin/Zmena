@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 
-from zmena.domain.migration_forge.kinds.statement import StatementKind
+from zmena.domain.migration_forge.kinds.statements import StatementKind
+from zmena.domain.migration_forge.statements.statement import Statement
 
 
-@dataclass(frozen=True)
-class AlterDataTypeStatement:
+@dataclass
+class AlterDataTypeStatement(Statement):
     name: str
     old_data_type: str
     new_data_type: str
