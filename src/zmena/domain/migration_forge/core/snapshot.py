@@ -6,7 +6,6 @@ class Snapshot:
     name: str
     data_type: str
     nullable: bool
-    position: int
 
     def __repr__(self):
-        return f"Snapshot(name={self.name},position={self.position})"
+        return f"Snapshot(name={self.name},data_type={self.data_type},nullable={self.nullable})"
