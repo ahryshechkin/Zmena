@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from zmena.domain.delta_crawler.criteria.criterion import Criterion
-from zmena.domain.delta_crawler.kinds.criterion_kind import CriterionKind
+from zmena.domain.delta_crawler.kinds.criterion import CriterionKind
 
 
 class ExcludedDirectoriesCriterion(Criterion):

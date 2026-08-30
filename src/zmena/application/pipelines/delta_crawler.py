@@ -1,6 +1,6 @@
 from zmena.application.messages.sql_intake import SQLIntakeMessage
-from zmena.domain.delta_crawler.revision_paths import RevisionPaths
-from zmena.domain.delta_crawler.tag_record import TagRecord
+from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths
+from zmena.domain.delta_crawler.core.tag_record import TagRecord
 
 
 class DeltaCrawlerPipeline:
