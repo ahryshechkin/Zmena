@@ -16,10 +16,16 @@ class Change:
         return self.after is None
 
     def has_data_type_change(self):
-        return self.before.data_type != self.after.data_type
+        if self.before and self.after:
+            return self.before.data_type != self.after.data_type
+        return False
 
     def has_name_change(self):
-        return self.before.name != self.after.name
+        if self.before and self.after:
+            return self.before.name != self.after.name
+        return False
 
     def has_nullability_change(self):
-        return self.before.nullable != self.after.nullable
+        if self.before and self.after:
+            return self.before.nullable != self.after.nullable
+        return False
