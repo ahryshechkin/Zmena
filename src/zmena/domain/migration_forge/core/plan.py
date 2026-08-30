@@ -1,7 +1,8 @@
-from zmena.domain.migration_forge.statements.add_column import AddColumn
-from zmena.domain.migration_forge.statements.alter_data_type import AlterDataType
-from zmena.domain.migration_forge.statements.drop_column import DropColumn
-from zmena.domain.migration_forge.statements.rename_column import RenameColumn
+from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
+from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
+from zmena.domain.migration_forge.statements.drop_column import DropColumnStatement
+from zmena.domain.migration_forge.statements.rename_column import RenameColumnStatement
+from zmena.domain.migration_forge.statements.set_not_null import SetNotNullStatement
 
 
 class Plan:
@@ -10,21 +11,26 @@ class Plan:
 
     def derive(self):
         before, after = self.change.snapshots()
-        actions = []
+        statements = []
 
         if self.change.is_add():
-            actions.append(AddColumn(after))
+            statements.append(AddColumnStatement(after.name, after.data_type, after.nullable))
 
         if self.change.is_drop():
-            actions.append(DropColumn(before))
+            statements.append(DropColumnStatement(before.name))
 
         if self.change.has_name_change():
-            actions.append(RenameColumn(before, after))
+            statements.append(RenameColumnStatement(before.name, after.name))
 
         if self.change.has_data_type_change():
-            actions.append(AlterDataType(before, after))
+            statements.append(
+                AlterDataTypeStatement(before.name, before.data_type, after.data_type)
+            )
 
         if self.change.has_nullability_change():
-            actions.append()
+            if before.nullable:
+                statements.append(SetNotNullStatement(before.name))
+            else:
+                statements.append(DropColumnStatement(after.name))
 
-        return actions
+        return statements
