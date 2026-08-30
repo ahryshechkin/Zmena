@@ -1,6 +1,6 @@
 from zmena.domain.semantic_engine.core.evidence import Evidence
 from zmena.domain.semantic_engine.heuristics.heuristic import Heuristic
-from zmena.domain.semantic_engine.types.heuristic_kind import HeuristicKind
+from zmena.domain.semantic_engine.kinds.heuristic import HeuristicKind
 
 
 class NameSimilarityHeuristic(Heuristic):

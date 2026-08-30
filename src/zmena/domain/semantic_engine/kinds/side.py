@@ -1,6 +1,6 @@
 from enum import StrEnum
 
 
-class Side(StrEnum):
+class SideKind(StrEnum):
     LEFT = "L"
     RIGHT = "R"

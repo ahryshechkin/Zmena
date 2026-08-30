@@ -5,17 +5,19 @@ from zmena.domain.semantic_engine.fragments.fragment import Fragment
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
 from zmena.domain.semantic_engine.fragments.stub import StubFragment
-from zmena.domain.semantic_engine.types.side import Side
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.side import SideKind
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class TestFragment(unittest.TestCase):
     def setUp(self):
         self.fragment = Fragment(
-            Tag.REPLACE, "03050306", 4, Side.LEFT, "col_04", "VARCHAR(50)", "NOT NULL"
+            TagKind.REPLACE, "03050306", 4, SideKind.LEFT, "col_04", "VARCHAR(50)", "NOT NULL"
         )
 
-        self.other = Fragment(Tag.REPLACE, "03050306", 5, Side.LEFT, "col_05", "VARCHAR(50)", None)
+        self.other = Fragment(
+            TagKind.REPLACE, "03050306", 5, SideKind.LEFT, "col_05", "VARCHAR(50)", None
+        )
 
     def test_is_delete(self):
         self.assertFalse(self.fragment.is_delete())
@@ -51,7 +53,7 @@ class TestFragment(unittest.TestCase):
 class TestLeftFragment(unittest.TestCase):
     def setUp(self):
         self.hunk = Mock()
-        self.hunk.kind.return_value = Tag.REPLACE
+        self.hunk.kind.return_value = TagKind.REPLACE
         self.hunk.fingerprint.return_value = "03050306"
         self.hunk.left_line.return_value = "col_04 VARCHAR(50) NOT NULL"
         self.hunk.left_lineno.return_value = 4
@@ -59,10 +61,10 @@ class TestLeftFragment(unittest.TestCase):
     def test_init(self):
         fragment = LeftFragment(0, self.hunk)
 
-        self.assertEqual(Tag.REPLACE, fragment.tag)
+        self.assertEqual(TagKind.REPLACE, fragment.tag)
         self.assertEqual("03050306", fragment.block)
         self.assertEqual(4, fragment.position)
-        self.assertEqual(Side.LEFT, fragment.side)
+        self.assertEqual(SideKind.LEFT, fragment.side)
         self.assertEqual("col_04", fragment.name)
         self.assertEqual("VARCHAR(50)", fragment.data_type)
         self.assertEqual("NOT NULL", fragment.constraint)
@@ -71,7 +73,7 @@ class TestLeftFragment(unittest.TestCase):
 class TestRightFragment(unittest.TestCase):
     def setUp(self):
         self.hunk = Mock()
-        self.hunk.kind.return_value = Tag.REPLACE
+        self.hunk.kind.return_value = TagKind.REPLACE
         self.hunk.fingerprint.return_value = "03050306"
         self.hunk.right_line.return_value = "col_04 DATE"
         self.hunk.right_lineno.return_value = 4
@@ -79,10 +81,10 @@ class TestRightFragment(unittest.TestCase):
     def test_init(self):
         fragment = RightFragment(0, self.hunk)
 
-        self.assertEqual(Tag.REPLACE, fragment.tag)
+        self.assertEqual(TagKind.REPLACE, fragment.tag)
         self.assertEqual("03050306", fragment.block)
         self.assertEqual(4, fragment.position)
-        self.assertEqual(Side.RIGHT, fragment.side)
+        self.assertEqual(SideKind.RIGHT, fragment.side)
         self.assertEqual("col_04", fragment.name)
         self.assertEqual("DATE", fragment.data_type)
         self.assertIsNone(fragment.constraint)
@@ -90,23 +92,23 @@ class TestRightFragment(unittest.TestCase):
 
 class TestStubFragment(unittest.TestCase):
     def test_init_left(self):
-        fragment = StubFragment(Side.LEFT)
+        fragment = StubFragment(SideKind.LEFT)
 
-        self.assertEqual(Tag.STUB, fragment.tag)
+        self.assertEqual(TagKind.STUB, fragment.tag)
         self.assertEqual("", fragment.block)
         self.assertEqual("", fragment.position)
-        self.assertEqual(Side.LEFT, fragment.side)
+        self.assertEqual(SideKind.LEFT, fragment.side)
         self.assertEqual("", fragment.name)
         self.assertEqual("", fragment.data_type)
         self.assertIsNone(fragment.constraint)
 
     def test_init_right(self):
-        fragment = StubFragment(Side.RIGHT)
+        fragment = StubFragment(SideKind.RIGHT)
 
-        self.assertEqual(Tag.STUB, fragment.tag)
+        self.assertEqual(TagKind.STUB, fragment.tag)
         self.assertEqual("", fragment.block)
         self.assertEqual("", fragment.position)
-        self.assertEqual(Side.RIGHT, fragment.side)
+        self.assertEqual(SideKind.RIGHT, fragment.side)
         self.assertEqual("", fragment.name)
         self.assertEqual("", fragment.data_type)
         self.assertIsNone(fragment.constraint)

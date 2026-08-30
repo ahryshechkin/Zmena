@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class Tag(StrEnum):
+class TagKind(StrEnum):
     DELETE = "delete"
     EQUAL = "equal"
     INSERT = "insert"

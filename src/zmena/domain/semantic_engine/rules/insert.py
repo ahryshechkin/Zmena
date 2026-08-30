@@ -1,8 +1,8 @@
 from zmena.domain.semantic_engine.core.hypothesis import Hypothesis
 from zmena.domain.semantic_engine.fragments.stub import StubFragment
+from zmena.domain.semantic_engine.kinds.rule import RuleKind
+from zmena.domain.semantic_engine.kinds.side import SideKind
 from zmena.domain.semantic_engine.rules.rule import Rule
-from zmena.domain.semantic_engine.types.rule_kind import RuleKind
-from zmena.domain.semantic_engine.types.side import Side
 
 
 class InsertRule(Rule):
@@ -13,7 +13,7 @@ class InsertRule(Rule):
         hypotheses = []
         for fragment in bundle.right():
             if fragment.is_insert():
-                stub_fragment = StubFragment(Side.LEFT)
+                stub_fragment = StubFragment(SideKind.LEFT)
                 hypothesis = Hypothesis(self.kind, stub_fragment, fragment)
                 hypotheses.append(hypothesis)
 

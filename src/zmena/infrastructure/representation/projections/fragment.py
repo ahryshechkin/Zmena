@@ -1,4 +1,4 @@
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class FragmentProjection:
@@ -6,6 +6,6 @@ class FragmentProjection:
         self.fragment = fragment
 
     def caption(self):
-        if self.fragment.tag == Tag.STUB:
+        if self.fragment.tag == TagKind.STUB:
             return "Stub"
         return f"{self.fragment.name} ({self.fragment.side}:{self.fragment.position})"

@@ -1,5 +1,5 @@
-from zmena.domain.semantic_engine.types.side import Side
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.side import SideKind
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class Fragment:
@@ -40,10 +40,10 @@ class Fragment:
         return self.block != other.block and self.name == other.name
 
     def is_delete(self):
-        return self.tag == Tag.DELETE and self.side == Side.LEFT
+        return self.tag == TagKind.DELETE and self.side == SideKind.LEFT
 
     def is_insert(self):
-        return self.tag == Tag.INSERT and self.side == Side.RIGHT
+        return self.tag == TagKind.INSERT and self.side == SideKind.RIGHT
 
     def is_replace(self):
-        return self.tag == Tag.REPLACE
+        return self.tag == TagKind.REPLACE
