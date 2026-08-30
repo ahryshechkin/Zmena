@@ -2,5 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class DropNotNull:
+class AddColumnStatement:
     name: str
+    data_type: str
+    nullable: bool
