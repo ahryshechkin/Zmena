@@ -2,7 +2,7 @@ import unittest
 
 from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class TestHunk(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestHunk(unittest.TestCase):
 
         self.left = Span(self.before, 3, 5)
         self.right = Span(self.after, 3, 6)
-        self.hunk = Hunk(Tag.REPLACE, self.left, self.right)
+        self.hunk = Hunk(TagKind.REPLACE, self.left, self.right)
 
     def test_fingerprint(self):
         self.assertEqual("03050306", self.hunk.fingerprint())
@@ -44,7 +44,7 @@ class TestHunk(unittest.TestCase):
         self.assertEqual(3, self.hunk.height())
 
     def test_kind(self):
-        self.assertEqual(Tag.REPLACE, self.hunk.kind())
+        self.assertEqual(TagKind.REPLACE, self.hunk.kind())
 
     def test_left_line_in_range(self):
         self.assertEqual(self.before[3], self.hunk.left_line(0))

@@ -1,3 +1,4 @@
+from zmena.domain.semantic_engine.kinds.preset import PresetKind
 from zmena.domain.semantic_engine.presets.preset import Preset
 from zmena.domain.semantic_engine.rules.delete import DeleteRule
 from zmena.domain.semantic_engine.rules.hunk_surplus_left import HunkSurplusLeftRule
@@ -6,7 +7,6 @@ from zmena.domain.semantic_engine.rules.insert import InsertRule
 from zmena.domain.semantic_engine.rules.name import NameRule
 from zmena.domain.semantic_engine.rules.position import PositionRule
 from zmena.domain.semantic_engine.rules.signature import SignatureRule
-from zmena.domain.semantic_engine.types.preset_kind import PresetKind
 
 
 class RulePreset(Preset):

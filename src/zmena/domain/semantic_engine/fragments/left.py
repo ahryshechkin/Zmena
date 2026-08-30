@@ -1,6 +1,6 @@
 from zmena.domain.semantic_engine.core.column_spec import ColumnSpec
 from zmena.domain.semantic_engine.fragments.fragment import Fragment
-from zmena.domain.semantic_engine.types.side import Side
+from zmena.domain.semantic_engine.kinds.side import SideKind
 
 
 class LeftFragment(Fragment):
@@ -10,7 +10,7 @@ class LeftFragment(Fragment):
             hunk.kind(),
             hunk.fingerprint(),
             hunk.left_lineno(offset),
-            Side.LEFT,
+            SideKind.LEFT,
             column_spec.name(),
             column_spec.data_type(),
             column_spec.constraint(),

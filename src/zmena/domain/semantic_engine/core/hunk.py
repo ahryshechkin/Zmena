@@ -1,9 +1,9 @@
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class Hunk:
     def __init__(self, tag, left, right):
-        self.tag = Tag(tag)
+        self.tag = TagKind(tag)
         self.left = left
         self.right = right
 

@@ -4,8 +4,8 @@ from zmena.domain.semantic_engine.heuristics.position_similarity import Position
 from zmena.domain.semantic_engine.heuristics.signature_similarity import (
     SignatureSimilarityHeuristic,
 )
+from zmena.domain.semantic_engine.kinds.preset import PresetKind
 from zmena.domain.semantic_engine.presets.preset import Preset
-from zmena.domain.semantic_engine.types.preset_kind import PresetKind
 
 
 class HeuristicPreset(Preset):

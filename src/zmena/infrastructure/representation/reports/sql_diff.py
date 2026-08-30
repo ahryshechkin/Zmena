@@ -2,7 +2,7 @@ from difflib import SequenceMatcher
 
 from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 from zmena.infrastructure.representation.ansi_color import ANSIColor
 from zmena.infrastructure.representation.layouts.basic import BasicReport
 
@@ -31,16 +31,16 @@ class SQLDiffReport(BasicReport):
             left = Span(self.message.before, slo, shi)
             right = Span(self.message.after, tlo, thi)
             hunk = Hunk(tag, left, right)
-            if tag == Tag.EQUAL:
+            if tag == TagKind.EQUAL:
                 for idx in range(hunk.left_range()):
                     self.show_line(idx, hunk)
-            elif tag == Tag.REPLACE:
+            elif tag == TagKind.REPLACE:
                 for idx in range(hunk.height()):
                     self.show_line(idx, hunk)
-            elif tag == Tag.INSERT:
+            elif tag == TagKind.INSERT:
                 for idx in range(hunk.right_range()):
                     self.show_line(idx, hunk)
-            elif tag == Tag.DELETE:
+            elif tag == TagKind.DELETE:
                 for idx in range(hunk.left_range()):
                     self.show_line(idx, hunk)
 

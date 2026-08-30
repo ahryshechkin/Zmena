@@ -1,4 +1,4 @@
-from zmena.domain.semantic_engine.types.side import Side
+from zmena.domain.semantic_engine.kinds.side import SideKind
 
 
 class FragmentBundle:
@@ -9,10 +9,10 @@ class FragmentBundle:
         return f"FragmentBundle(fragments={len(self.fragments)})"
 
     def left(self):
-        return [f for f in self.fragments if f.side == Side.LEFT]
+        return [f for f in self.fragments if f.side == SideKind.LEFT]
 
     def right(self):
-        return [f for f in self.fragments if f.side == Side.RIGHT]
+        return [f for f in self.fragments if f.side == SideKind.RIGHT]
 
     def left_by_block(self):
         fragments = {}

@@ -4,7 +4,7 @@ from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
-from zmena.domain.semantic_engine.types.tag import Tag
+from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class FragmentBuilder:
@@ -22,7 +22,7 @@ class FragmentBuilder:
             left = Span(before, slo, shi)
             right = Span(after, tlo, thi)
             hunk = Hunk(tag, left, right)
-            if tag == Tag.REPLACE:
+            if tag == TagKind.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
                         fragment = LeftFragment(idx, hunk)
@@ -30,11 +30,11 @@ class FragmentBuilder:
                     if idx < hunk.right_range():
                         fragment = RightFragment(idx, hunk)
                         fragments.append(fragment)
-            elif tag == Tag.INSERT:
+            elif tag == TagKind.INSERT:
                 for idx in range(hunk.right_range()):
                     fragment = RightFragment(idx, hunk)
                     fragments.append(fragment)
-            elif tag == Tag.DELETE:
+            elif tag == TagKind.DELETE:
                 for idx in range(hunk.left_range()):
                     fragment = LeftFragment(idx, hunk)
                     fragments.append(fragment)
