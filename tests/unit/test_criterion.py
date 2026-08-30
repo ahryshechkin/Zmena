@@ -5,7 +5,7 @@ from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDir
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
 from zmena.domain.delta_crawler.criteria.included_directories import IncludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.included_extensions import IncludedExtensionsCriterion
-from zmena.domain.delta_crawler.kinds.criterion_kind import CriterionKind
+from zmena.domain.delta_crawler.kinds.criterion import CriterionKind
 
 
 class TestCriterion(unittest.TestCase):

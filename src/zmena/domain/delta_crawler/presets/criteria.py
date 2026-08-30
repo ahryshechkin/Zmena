@@ -2,7 +2,7 @@ from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDir
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
 from zmena.domain.delta_crawler.criteria.included_directories import IncludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.included_extensions import IncludedExtensionsCriterion
-from zmena.domain.delta_crawler.kinds.preset_kind import PresetKind
+from zmena.domain.delta_crawler.kinds.preset import PresetKind
 from zmena.domain.delta_crawler.presets.preset import Preset
 
 
