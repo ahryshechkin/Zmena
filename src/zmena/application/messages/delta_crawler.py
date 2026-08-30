@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True)
+@dataclass
 class DeltaCrawlerMessage:
     commit_from: str
     commit_to: str
