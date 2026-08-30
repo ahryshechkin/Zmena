@@ -1,11 +1,10 @@
-from zmena.domain.migration_forge.core.column_evalution import ColumnEvalution
-from zmena.domain.migration_forge.core.migration import Migration
-from zmena.domain.migration_forge.core.snapshot import ColumnState
+from zmena.domain.migration_forge.core.change import Change
+from zmena.domain.migration_forge.core.plan import Plan
+from zmena.domain.migration_forge.core.snapshot import Snapshot
 
-before = ColumnState(name="col_01", data_type="INT", nullable=True, position=5)
-after = ColumnState(name="col_02", data_type="INT", nullable=True, position=5)
+before = Snapshot(name="col_01", data_type="INT", nullable=True, position=5)
+after = Snapshot(name="col_02", data_type="INT", nullable=True, position=5)
 
-evaluation = ColumnEvalution()
-change = evaluation.between(before, after)
-migration = Migration()
-result = migration.plan(change)
+change = Change(before, after)
+plan = Plan(change)
+result = plan.derive()
