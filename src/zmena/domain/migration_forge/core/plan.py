@@ -1,6 +1,7 @@
 from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
 from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
 from zmena.domain.migration_forge.statements.drop_column import DropColumnStatement
+from zmena.domain.migration_forge.statements.drop_not_null import DropNotNullStatement
 from zmena.domain.migration_forge.statements.rename_column import RenameColumnStatement
 from zmena.domain.migration_forge.statements.set_not_null import SetNotNullStatement
 
@@ -23,14 +24,12 @@ class Plan:
             statements.append(RenameColumnStatement(before.name, after.name))
 
         if self.change.has_data_type_change():
-            statements.append(
-                AlterDataTypeStatement(before.name, before.data_type, after.data_type)
-            )
+            statements.append(AlterDataTypeStatement(after.name, before.data_type, after.data_type))
 
         if self.change.has_nullability_change():
             if before.nullable:
-                statements.append(SetNotNullStatement(before.name))
+                statements.append(SetNotNullStatement(after.name))
             else:
-                statements.append(DropColumnStatement(after.name))
+                statements.append(DropNotNullStatement(after.name))
 
         return statements

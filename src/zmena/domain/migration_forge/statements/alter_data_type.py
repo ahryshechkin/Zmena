@@ -10,5 +10,12 @@ class AlterDataTypeStatement(Statement):
     old_data_type: str
     new_data_type: str
 
+    def __repr__(self):
+        return (
+            f"AlterDataTypeStatement("
+            f"name={self.name},old_data_type={self.old_data_type},new_data_type={self.new_data_type}"
+            f")"
+        )
+
     def __post_init__(self):
         super().__init__(StatementKind.ALTER_DATA_TYPE)
