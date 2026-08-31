@@ -4,7 +4,7 @@ from zmena.domain.migration_forge.core.snapshot import Snapshot  # noqa: TC001
 
 
 @dataclass
-class MigrationForgeMessage:
+class MigrationForgeInboundMessage:
     before: Snapshot
     after: Snapshot
 
