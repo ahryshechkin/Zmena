@@ -3,9 +3,18 @@ from zmena.domain.migration_forge.core.plan import Plan
 from zmena.domain.migration_forge.core.snapshot import Snapshot
 
 before = Snapshot(name="col_01", data_type="INT", nullable=True)
-# after = Snapshot(name="col_02", data_type="DATE", nullable=False, position=5)
-after = None
+after = Snapshot(name="col_02", data_type="DATE", nullable=False)
 
-change = Change(before, after)
-plan = Plan(change)
-result = plan.derive()
+
+class MigrationForgePipeline:
+    def __init__(self, message):
+        self.message = message
+
+    def __repr__(self):
+        return "MigrationForgePipeline"
+
+    def run(self):
+        change = Change(before, after)
+        plan = Plan(change)
+
+        return plan.derive()

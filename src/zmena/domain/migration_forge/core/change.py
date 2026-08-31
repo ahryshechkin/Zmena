@@ -4,7 +4,7 @@ class Change:
         self.after = after
 
     def __repr__(self):
-        return "Change"
+        return f"Change(before={self.before is not None},after={self.after is not None})"
 
     def snapshots(self):
         return self.before, self.after

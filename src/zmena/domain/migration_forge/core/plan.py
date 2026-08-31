@@ -10,6 +10,9 @@ class Plan:
     def __init__(self, change):
         self.change = change
 
+    def __repr__(self):
+        return "Plan"
+
     def derive(self):
         before, after = self.change.snapshots()
         statements = []
