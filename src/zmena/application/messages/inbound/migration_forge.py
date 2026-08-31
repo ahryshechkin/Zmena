@@ -10,7 +10,7 @@ class MigrationForgeInboundMessage:
 
     def __repr__(self):
         return (
-            f"MigrationForgeMessage("
+            f"MigrationForgeInboundMessage("
             f"before={self.before is not None},after={self.after is not None}"
             f")"
         )

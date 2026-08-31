@@ -9,4 +9,4 @@ class SQLIntakeInboundMessage:
     after: str
 
     def __repr__(self):
-        return f"SQLIntakeMessage(label={self.label})"
+        return f"SQLIntakeInboundMessage(label={self.label},name={self.name})"
