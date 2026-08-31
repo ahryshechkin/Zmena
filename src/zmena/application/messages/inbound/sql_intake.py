@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class SQLIntakeMessage:
+class SQLIntakeInboundMessage:
     label: str
     name: str
     before: str

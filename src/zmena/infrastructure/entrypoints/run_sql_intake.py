@@ -1,5 +1,5 @@
 from zmena.application.messages.analysis_report import AnalysisReportMessage
-from zmena.application.messages.sql_intake import SQLIntakeMessage
+from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
@@ -8,7 +8,9 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 sce_ids = ["707"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    si_message = SQLIntakeMessage(scenario.sce_id, scenario.name, scenario.before, scenario.after)
+    si_message = SQLIntakeInboundMessage(
+        label=scenario.sce_id, name=scenario.name, before=scenario.before, after=scenario.after
+    )
 
     pipeline = SQLIntakePipeline(si_message)
     se_message = pipeline.run()

@@ -1,4 +1,4 @@
-from zmena.application.messages.sql_intake import SQLIntakeMessage
+from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths
 from zmena.domain.delta_crawler.core.tag_record import TagRecord
 
@@ -20,7 +20,7 @@ class DeltaCrawlerPipeline:
         for path in revision_paths.filter():
             before = command.show(self.message.commit_from, path)
             after = command.show(self.message.commit_to, path)
-            message = SQLIntakeMessage(
+            message = SQLIntakeInboundMessage(
                 label=record.name(), name=record.annotation(), before=before, after=after
             )
             messages.append(message)
