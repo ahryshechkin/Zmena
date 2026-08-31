@@ -1,5 +1,6 @@
 from zmena.application.messages.analysis_report import AnalysisReportMessage
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
+from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
@@ -18,19 +19,21 @@ command = GitCommand(directory.demo_repo())
 dci_message = DeltaCrawlerInboundMessage(commit_from="v0.1.007", commit_to="v0.1.008")
 
 pipeline = DeltaCrawlerPipeline(dci_message)
-for si_message in pipeline.run(command):
-    pipeline = SQLIntakePipeline(si_message)
-    se_message = pipeline.run()
+for sii_message in pipeline.run(command):
+    pipeline = SQLIntakePipeline(sii_message)
+    sio_message = pipeline.run()
 
-    pipeline = SemanticEnginePipeline(se_message)
+    sei_message = SemanticEngineInboundMessage(before=sio_message.before, after=sio_message.after)
+
+    pipeline = SemanticEnginePipeline(sei_message)
     se_outcome = pipeline.run()
 
     ar_message = AnalysisReportMessage(
         kind="CMT",
-        label=si_message.label,
-        name=si_message.name,
-        before=se_message.before,
-        after=se_message.after,
+        label=sii_message.label,
+        name=sii_message.name,
+        before=sio_message.before,
+        after=sio_message.after,
         fragments=se_outcome.fragments,
         hypotheses=se_outcome.hypotheses,
         components=se_outcome.components,

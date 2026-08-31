@@ -7,11 +7,11 @@ from zmena.infrastructure.representation.analysis_report import AnalysisReport
 sce_ids = ["403"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    se_message = SemanticEngineInboundMessage(
+    sei_message = SemanticEngineInboundMessage(
         before=scenario.before.splitlines(), after=scenario.after.splitlines()
     )
 
-    pipeline = SemanticEnginePipeline(se_message)
+    pipeline = SemanticEnginePipeline(sei_message)
     se_outcome = pipeline.run()
 
     ar_message = AnalysisReportMessage(
