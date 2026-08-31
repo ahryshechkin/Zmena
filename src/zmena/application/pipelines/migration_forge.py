@@ -1,9 +1,5 @@
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan
-from zmena.domain.migration_forge.core.snapshot import Snapshot
-
-before = Snapshot(name="col_01", data_type="INT", nullable=True)
-after = Snapshot(name="col_02", data_type="DATE", nullable=False)
 
 
 class MigrationForgePipeline:
@@ -14,7 +10,7 @@ class MigrationForgePipeline:
         return "MigrationForgePipeline"
 
     def run(self):
-        change = Change(before, after)
+        change = Change(self.message.before, self.message.after)
         plan = Plan(change)
 
         return plan.derive()
