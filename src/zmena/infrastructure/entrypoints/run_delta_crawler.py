@@ -1,4 +1,4 @@
-from zmena.application.messages.analysis_report import AnalysisReportMessage
+from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
@@ -26,16 +26,14 @@ for dco_message in pipeline.run(command):
         before=dco_message.before,
         after=dco_message.after,
     )
-
     pipeline = SQLIntakePipeline(sii_message)
     sio_message = pipeline.run()
 
     sei_message = SemanticEngineInboundMessage(before=sio_message.before, after=sio_message.after)
-
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    ar_message = AnalysisReportMessage(
+    ari_message = AnalysisReportInboundMessage(
         kind="CMT",
         label=sii_message.label,
         name=sii_message.name,
@@ -47,7 +45,7 @@ for dco_message in pipeline.run(command):
         decisions=seo_message.decisions,
     )
 
-    report = AnalysisReport(ar_message)
+    report = AnalysisReport(ari_message)
     report.show_sql_diff()
     report.show_fragments()
     report.show_hypotheses()

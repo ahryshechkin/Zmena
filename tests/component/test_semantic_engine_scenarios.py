@@ -17,7 +17,6 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         sei_message = SemanticEngineInboundMessage(
             before=scenario.before.splitlines(), after=scenario.after.splitlines()
         )
-
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
