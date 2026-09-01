@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class SemanticEngineOutcome:
+class SemanticEngineOutboundMessage:
     fragments: list
     hypotheses: list
     components: list
@@ -10,7 +10,7 @@ class SemanticEngineOutcome:
 
     def __repr__(self):
         return (
-            f"SemanticEngineOutcome("
+            f"SemanticEngineOutboundMessage("
             f"fragments={len(self.fragments)},hypotheses={len(self.hypotheses)},"
             f"components={len(self.components)},decisions={len(self.decisions)}"
             f")"
