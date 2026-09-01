@@ -19,14 +19,12 @@ class TestSQLIntakeScenarios(unittest.TestCase):
         sii_message = SQLIntakeInboundMessage(
             label=scenario.sce_id, name=scenario.name, before=scenario.before, after=scenario.after
         )
-
         pipeline = SQLIntakePipeline(sii_message)
         sio_message = pipeline.run()
 
         sei_message = SemanticEngineInboundMessage(
             before=sio_message.before, after=sio_message.after
         )
-
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
