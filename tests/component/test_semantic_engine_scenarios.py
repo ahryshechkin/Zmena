@@ -19,10 +19,10 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         )
 
         pipeline = SemanticEnginePipeline(sei_message)
-        result = pipeline.run()
+        seo_message = pipeline.run()
 
         winners = []
-        for decision in result.decisions:
+        for decision in seo_message.decisions:
             winners.extend([self.normalize(link) for link in decision.winners()])
 
         return winners
