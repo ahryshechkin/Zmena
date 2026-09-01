@@ -1,9 +1,13 @@
-class Criterion:
+from abc import ABC, abstractmethod
+
+
+class Criterion(ABC):
     def __init__(self, kind):
         self.kind = kind
 
     def __repr__(self):
         return f"Criterion(kind={self.kind})"
 
+    @abstractmethod
     def apply(self, paths):
-        pass
+        pass  # pragma: no cover
