@@ -1,17 +1,10 @@
 import unittest
 
-from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
 from zmena.domain.delta_crawler.criteria.included_directories import IncludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.included_extensions import IncludedExtensionsCriterion
 from zmena.domain.delta_crawler.kinds.criterion import CriterionKind
-
-
-class TestCriterion(unittest.TestCase):
-    def test_repr(self):
-        criterion = Criterion(CriterionKind.EXCLUDED_DIRECTORIES)
-        self.assertEqual("Criterion(kind=excluded directories)", repr(criterion))
 
 
 class TestExcludedDirectoriesCriterion(unittest.TestCase):
@@ -183,6 +176,10 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_repr(self):
+        criterion = ExcludedDirectoriesCriterion(CriterionKind.EXCLUDED_DIRECTORIES)
+        self.assertEqual("Criterion(kind=excluded directories)", repr(criterion))
+
 
 class TestExcludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
@@ -273,6 +270,10 @@ class TestExcludedExtensionsCriterion(unittest.TestCase):
         actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
+
+    def test_repr(self):
+        criterion = ExcludedExtensionsCriterion(CriterionKind.EXCLUDED_EXTENSIONS)
+        self.assertEqual("Criterion(kind=excluded extensions)", repr(criterion))
 
 
 class TestIncludedDirectoriesCriterion(unittest.TestCase):
@@ -388,6 +389,10 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_repr(self):
+        criterion = IncludedDirectoriesCriterion(CriterionKind.INCLUDED_DIRECTORIES)
+        self.assertEqual("Criterion(kind=included directories)", repr(criterion))
+
 
 class TestIncludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
@@ -464,3 +469,7 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
         actual = criterion.apply(self.samples)
 
         self.assertCountEqual(expected, actual)
+
+    def test_repr(self):
+        criterion = IncludedExtensionsCriterion(CriterionKind.INCLUDED_EXTENSIONS)
+        self.assertEqual("Criterion(kind=included extensions)", repr(criterion))
