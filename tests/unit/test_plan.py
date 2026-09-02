@@ -79,7 +79,9 @@ class TestPlan(unittest.TestCase):
         self.assertCountEqual(expected, actual)
 
     def test_derive_rename_column(self):
-        expected = [RenameColumnStatement(old_name="col_08", new_name="col_88")]
+        expected = [
+            RenameColumnStatement(old_name="col_08", new_name="col_88"),
+        ]
 
         before = Snapshot(name="col_08", data_type="DATE", nullable=False)
         after = Snapshot(name="col_88", data_type="DATE", nullable=False)
