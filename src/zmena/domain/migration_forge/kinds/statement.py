@@ -8,3 +8,4 @@ class StatementKind(StrEnum):
     DROP_NOT_NULL = "drop not null"
     RENAME_COLUMN = "rename column"
     SET_NOT_NULL = "set not null"
+    UNDEFINED = "undefined"
