@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
+from zmena.domain.sql_intake.core.sql_table_profile import SQLTableProfile
 
 
 class TestSQLTableProfile(unittest.TestCase):

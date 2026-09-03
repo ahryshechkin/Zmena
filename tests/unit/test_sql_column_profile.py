@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from zmena.domain.sql_intake.sql_column_profile import SQLColumnProfile
+from zmena.domain.sql_intake.core.sql_column_profile import SQLColumnProfile
 
 
 class TestSQLColumnProfile(unittest.TestCase):
