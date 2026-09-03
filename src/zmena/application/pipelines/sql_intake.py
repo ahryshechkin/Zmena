@@ -1,5 +1,5 @@
 from zmena.application.messages.outbound.sql_intake import SQLIntakeOutboundMessage
-from zmena.domain.sql_intake.sql_table_profile import SQLTableProfile
+from zmena.domain.sql_intake.core.sql_table_profile import SQLTableProfile
 
 
 class SQLIntakePipeline:
