@@ -13,14 +13,12 @@ class ScenarioCatalog:
         sce_id, name = path.name.split("_", maxsplit=2)[1:]
         before = (path / "before.sql").read_text(encoding="utf-8")
         after = (path / "after.sql").read_text(encoding="utf-8")
-        expected = (path / "expected.txt").read_text(encoding="utf-8")
 
         return Scenario(
             sce_id=sce_id,
             name=name,
             before=before,
             after=after,
-            expected=expected.splitlines(),
         )
 
     def get(self, sce_id):
