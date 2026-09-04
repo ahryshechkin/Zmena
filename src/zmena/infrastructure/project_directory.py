@@ -23,8 +23,8 @@ class ProjectDirectory:
     def sce(self):
         return self.root() / "catalog/sce"
 
-    def fixtures_se(self):
-        return self.root() / "tests/component/fixtures/se"
+    def se_fixtures(self):
+        return self.root() / "tests/component/fixtures/semantic_engine"
 
     def test_repo(self):
         return self.root() / "tests/integration/test_repo"
