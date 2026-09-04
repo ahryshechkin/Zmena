@@ -8,7 +8,7 @@ from zmena.infrastructure.adapters.fixture_se_catalog import FixtureSECatalog
 from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
 
 
-class TestSQLIntakeScenarios(unittest.TestCase):
+class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
     def setUp(self):
         self.maxDiff = None
         self.sce_catalog = ScenarioCatalog()
