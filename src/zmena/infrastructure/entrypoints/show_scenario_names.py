@@ -1,4 +1,4 @@
-from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
+from zmena.infrastructure.adapters.catalogs.scenario_catalog import ScenarioCatalog
 
 catalog = ScenarioCatalog()
 for scenario in catalog.get_all():

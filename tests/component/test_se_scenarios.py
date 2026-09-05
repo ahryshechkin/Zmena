@@ -2,8 +2,8 @@ import unittest
 
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
-from zmena.infrastructure.adapters.fixture_se_catalog import FixtureSECatalog
-from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
+from zmena.infrastructure.adapters.catalogs.fixture_se_catalog import FixtureSECatalog
+from zmena.infrastructure.adapters.catalogs.scenario_catalog import ScenarioCatalog
 
 
 class TestSemanticEngineScenarios(unittest.TestCase):

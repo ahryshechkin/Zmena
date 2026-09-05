@@ -5,8 +5,8 @@ from zmena.domain.migration_forge.core.snapshot import Snapshot  # noqa: TC001
 
 @dataclass
 class MigrationForgeInboundMessage:
-    before: Snapshot
-    after: Snapshot
+    before: Snapshot | None
+    after: Snapshot | None
 
     def __repr__(self):
         return (
