@@ -5,8 +5,8 @@ from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessag
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
-from zmena.infrastructure.adapters.catalogs.commit_catalog import CommitCatalog
-from zmena.infrastructure.adapters.commands.git_command import GitCommand
+from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
+from zmena.infrastructure.adapters.commands.git import GitCommand
 from zmena.infrastructure.project_directory import ProjectDirectory
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
