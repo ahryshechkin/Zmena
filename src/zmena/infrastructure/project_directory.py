@@ -23,6 +23,9 @@ class ProjectDirectory:
     def sce(self):
         return self.root() / "catalog/sce"
 
+    def mf_fixtures(self):
+        return self.root() / "tests/component/fixtures/migration_forge"
+
     def se_fixtures(self):
         return self.root() / "tests/component/fixtures/semantic_engine"
 
