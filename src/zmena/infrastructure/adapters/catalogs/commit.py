@@ -1,5 +1,5 @@
-from zmena.infrastructure.adapters.commands.fs_command import FSCommand
-from zmena.infrastructure.adapters.commands.git_command import GitCommand
+from zmena.infrastructure.adapters.commands.fs import FSCommand
+from zmena.infrastructure.adapters.commands.git import GitCommand
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 
