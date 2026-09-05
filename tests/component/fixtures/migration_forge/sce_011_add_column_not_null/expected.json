@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "AddColumnStatement",
+    "name": "col_88",
+    "data_type": "DATE",
+    "nullable": true
+  }
+]
