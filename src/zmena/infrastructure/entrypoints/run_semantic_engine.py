@@ -1,7 +1,7 @@
 from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
-from zmena.infrastructure.adapters.scenario_catalog import ScenarioCatalog
+from zmena.infrastructure.adapters.catalogs.scenario_catalog import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
 sce_ids = ["403"]
