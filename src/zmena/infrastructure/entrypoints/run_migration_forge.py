@@ -23,4 +23,3 @@ for scenario in catalog.get_many(sce_ids):
 
     pipeline = MigrationForgePipeline(message)
     result = pipeline.run()
-    print(result)
