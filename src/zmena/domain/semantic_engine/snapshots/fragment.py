@@ -8,7 +8,7 @@ from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 class FragmentSnapshot(Snapshot):
     name: str
     data_type: str
-    nullability: bool
+    nullable: bool
 
     def __repr__(self):
         return (

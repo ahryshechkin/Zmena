@@ -11,5 +11,5 @@ class FragmentProjection(Projection):
         return FragmentSnapshot(
             name=fragment.name,
             data_type=fragment.data_type,
-            nullability=fragment.constraint != "NOT NULL",
+            nullable=fragment.constraint != "NOT NULL",
         )
