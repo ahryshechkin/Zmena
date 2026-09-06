@@ -2,15 +2,15 @@ import unittest
 
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
-from zmena.infrastructure.adapters.catalogs.fixture_se import FixtureSECatalog
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
+from zmena.infrastructure.adapters.catalogs.se_fixture import SEFixtureCatalog
 
 
 class TestSemanticEngineScenarios(unittest.TestCase):
     def setUp(self):
         self.maxDiff = None
         self.sce_catalog = ScenarioCatalog()
-        self.fix_catalog = FixtureSECatalog()
+        self.fix_catalog = SEFixtureCatalog()
 
     def normalize(self, link):
         return str(link).split("|", 1)[1]
