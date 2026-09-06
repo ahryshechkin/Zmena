@@ -1,10 +1,11 @@
 from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
+from zmena.domain.semantic_engine.projections.fragment import FragmentProjection
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["403"]
+sce_ids = ["011"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     sei_message = SemanticEngineInboundMessage(
@@ -24,6 +25,10 @@ for scenario in catalog.get_many(sce_ids):
         components=seo_message.components,
         decisions=seo_message.decisions,
     )
+
+    fragment = seo_message.fragments[0]
+    projection = FragmentProjection()
+    snapshot = projection.from_domain(fragment)
 
     report = AnalysisReport(ari_message)
     report.show_sql_diff()
