@@ -1,6 +1,7 @@
 from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
+from zmena.domain.semantic_engine.projections.decision import DecisionProjection
 from zmena.domain.semantic_engine.projections.fragment import FragmentProjection
 from zmena.domain.semantic_engine.projections.link import LinkProjection
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -27,10 +28,9 @@ for scenario in catalog.get_many(sce_ids):
         decisions=seo_message.decisions,
     )
 
-    link = seo_message.decisions[0].links[0]
-    fragment_projection = FragmentProjection()
-    link_projection = LinkProjection(fragment_projection)
-    snapshot = link_projection.from_domain(link)
+    decision = seo_message.decisions[0]
+    projection = DecisionProjection(LinkProjection(FragmentProjection()))
+    snapshot = projection.from_domain(decision)
 
     report = AnalysisReport(ari_message)
     report.show_sql_diff()
