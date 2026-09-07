@@ -7,6 +7,7 @@ class SemanticEngineOutboundMessage:
     hypotheses: list
     components: list
     decisions: list
+    decisions_new: list
 
     def __repr__(self):
         return (

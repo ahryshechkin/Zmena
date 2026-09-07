@@ -1,5 +1,8 @@
 from zmena.application.messages.outbound.semantic_engine import SemanticEngineOutboundMessage
 from zmena.domain.semantic_engine.core.fragment_bundle import FragmentBundle
+from zmena.domain.semantic_engine.projections.decision import DecisionProjection
+from zmena.domain.semantic_engine.projections.fragment import FragmentProjection
+from zmena.domain.semantic_engine.projections.link import LinkProjection
 from zmena.domain.semantic_engine.steps.component_composer import ComponentComposer
 from zmena.domain.semantic_engine.steps.decision_resolver import DecisionResolver
 from zmena.domain.semantic_engine.steps.fragment_builder import FragmentBuilder
@@ -27,6 +30,13 @@ class SemanticEnginePipeline:
         decision_resolver = DecisionResolver(components)
         decisions = decision_resolver.resolve()
 
+        projection = DecisionProjection(LinkProjection(FragmentProjection()))
+        decisions_new = [projection.from_domain(decision) for decision in decisions]
+
         return SemanticEngineOutboundMessage(
-            fragments=fragments, hypotheses=hypotheses, components=components, decisions=decisions
+            fragments=fragments,
+            hypotheses=hypotheses,
+            components=components,
+            decisions=decisions,
+            decisions_new=decisions_new,
         )
