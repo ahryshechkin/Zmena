@@ -5,7 +5,7 @@ from zmena.domain.migration_forge.snapshots.snapshot import Snapshot
 
 
 @dataclass
-class State(Snapshot):
+class StateSnapshot(Snapshot):
     name: str
     data_type: str
     nullable: bool

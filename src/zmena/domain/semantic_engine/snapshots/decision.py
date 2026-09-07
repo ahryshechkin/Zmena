@@ -9,7 +9,7 @@ class DecisionSnapshot(Snapshot):
     selected_links: list
 
     def __repr__(self):
-        return f"DecisionSnapshot(selected_links={len(self.selected_links)}"
+        return f"DecisionSnapshot(selected_links={len(self.selected_links)})"
 
     def __post_init__(self):
         super().__init__(SnapshotKind.DECISION)
