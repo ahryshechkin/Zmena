@@ -9,6 +9,7 @@ class FragmentProjection(Projection):
 
     def from_domain(self, fragment):
         return FragmentSnapshot(
+            tag=fragment.tag,
             name=fragment.name,
             data_type=fragment.data_type,
             nullable=fragment.constraint != "NOT NULL",

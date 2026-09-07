@@ -6,6 +6,7 @@ from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 @dataclass
 class FragmentSnapshot(Snapshot):
+    tag: str
     name: str
     data_type: str
     nullable: bool
@@ -13,7 +14,7 @@ class FragmentSnapshot(Snapshot):
     def __repr__(self):
         return (
             f"FragmentSnapshot("
-            f"name={self.name},data_type={self.data_type},nullable={self.nullable}"
+            f"tag={self.tag},name={self.name},data_type={self.data_type},nullable={self.nullable}"
             f")"
         )
 
