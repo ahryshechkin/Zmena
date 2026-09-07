@@ -2,18 +2,13 @@ from dataclasses import dataclass
 
 from zmena.domain.migration_forge.kinds.snapshot import SnapshotKind
 from zmena.domain.migration_forge.snapshots.snapshot import Snapshot
+from zmena.domain.migration_forge.snapshots.state import StateSnapshot  # noqa: TC001
 
 
 @dataclass
 class MatchSnapshot(Snapshot):
-    before_tag: str
-    before_name: str
-    before_data_type: str
-    before_nullability: bool
-    after_tag: str
-    after_name: str
-    after_data_type: str
-    after_nullability: bool
+    before: StateSnapshot | None
+    after: StateSnapshot | None
 
     def __repr__(self):
         return "MatchSnapshot"
