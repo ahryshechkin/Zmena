@@ -1,7 +1,3 @@
-from zmena.domain.migration_forge.core.change import Change
-from zmena.domain.migration_forge.core.plan import Plan
-
-
 class MigrationForgePipeline:
     def __init__(self, message):
         self.message = message
@@ -10,7 +6,11 @@ class MigrationForgePipeline:
         return "MigrationForgePipeline"
 
     def run(self):
-        change = Change(self.message.before, self.message.after)
-        plan = Plan(change)
+        # statements = []
 
-        return plan.derive()
+        # for selected_link in self.message:
+        #     change = Change(self.message.before, self.message.after)
+        #     plan = Plan(change)
+        #     statements.append(plan.derive())
+
+        return []  # statements
