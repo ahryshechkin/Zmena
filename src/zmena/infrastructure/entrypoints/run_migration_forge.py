@@ -1,5 +1,5 @@
-from zmena.application.bridges.match import MatchProjection
-from zmena.application.bridges.state import StateProjection
+from zmena.application.bridges.match import MatchBridge
+from zmena.application.bridges.state import StateBridge
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -13,7 +13,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    projection = MatchProjection(StateProjection())
+    bridge = MatchBridge(StateBridge())
     matches = []
     for decision in seo_message.decisions_new:
         for selected_link in decision.selected_links:

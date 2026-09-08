@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class ProjectionKind(StrEnum):
+class BridgeKind(StrEnum):
     DECISION = "decision"
     FRAGMENT = "fragment"
     MATCH = "match"

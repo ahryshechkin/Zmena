@@ -1,13 +1,13 @@
-from zmena.domain.semantic_engine.kinds.projection import ProjectionKind
-from zmena.domain.semantic_engine.projections.projection import Projection
+from zmena.application.bridges.bridge import Bridge
+from zmena.application.kinds.bridge import BridgeKind
 from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot
 
 
-class FragmentProjection(Projection):
+class FragmentBridge(Bridge):
     def __init__(self):
-        super().__init__(ProjectionKind.FRAGMENT)
+        super().__init__(BridgeKind.FRAGMENT)
 
-    def from_domain(self, fragment):
+    def translate(self, fragment):
         return FragmentSnapshot(
             tag=fragment.tag,
             name=fragment.name,

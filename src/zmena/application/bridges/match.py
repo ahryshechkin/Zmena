@@ -1,19 +1,19 @@
-from zmena.application.bridges.projection import Projection
-from zmena.application.kinds.bridge import ProjectionKind
+from zmena.application.bridges.bridge import Bridge
+from zmena.application.kinds.bridge import BridgeKind
 from zmena.domain.migration_forge.snapshots.match import MatchSnapshot
 
 
-class MatchProjection(Projection):
-    def __init__(self, projection):
-        super().__init__(ProjectionKind.MATCH)
-        self.projection = projection
+class MatchBridge(Bridge):
+    def __init__(self, bridge):
+        super().__init__(BridgeKind.MATCH)
+        self.bridge = bridge
 
-    def from_infra(self, decision):
+    def translate(self, decision):
         matches = []
         for selected_link in decision.selected_links:
             match = MatchSnapshot(
-                before=self.projection.from_infra(selected_link.left),
-                after=self.projection.from_infra(selected_link.right),
+                before=self.bridge.translate(selected_link.left),
+                after=self.bridge.translate(selected_link.right),
             )
             matches.append(match)
 
