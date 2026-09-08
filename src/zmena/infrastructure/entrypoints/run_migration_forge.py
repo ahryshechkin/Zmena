@@ -1,5 +1,6 @@
 from zmena.application.bridges.match_bundle import MatchBundleBridge
 from zmena.application.bridges.state import StateBridge
+from zmena.application.messages.inbound.migration_forge import MigrationForgeInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -15,8 +16,7 @@ for scenario in catalog.get_many(sce_ids):
 
     bridge = MatchBundleBridge(StateBridge())
     matches = bridge.translate(seo_message.decisions_new)
-    # selected_links = [for decision in seo_message.decisions_new]
-    # message = MigrationForgeInboundMessage(before=before, after=after)
 
+    mfi_message = MigrationForgeInboundMessage(matches=matches)
     # pipeline = MigrationForgePipeline(message)
     # result = pipeline.run()
