@@ -1,13 +1,13 @@
-from zmena.application.bridges.projection import Projection
-from zmena.application.kinds.bridge import ProjectionKind
+from zmena.application.bridges.bridge import Bridge
+from zmena.application.kinds.bridge import BridgeKind
 from zmena.domain.migration_forge.snapshots.state import StateSnapshot
 
 
-class StateProjection(Projection):
+class StateBridge(Bridge):
     def __init__(self):
-        super().__init__(ProjectionKind.STATE)
+        super().__init__(BridgeKind.STATE)
 
-    def from_infra(self, fragment):
+    def translate(self, fragment):
         if fragment.tag == "stub":
             return None
 

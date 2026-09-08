@@ -1,17 +1,17 @@
-from zmena.domain.semantic_engine.kinds.projection import ProjectionKind
-from zmena.domain.semantic_engine.projections.projection import Projection
+from zmena.application.bridges.bridge import Bridge
+from zmena.application.kinds.bridge import BridgeKind
 from zmena.domain.semantic_engine.snapshots.link import LinkSnapshot
 
 
-class LinkProjection(Projection):
-    def __init__(self, projection):
-        super().__init__(ProjectionKind.LINK)
-        self.projection = projection
+class LinkBridge(Bridge):
+    def __init__(self, bridge):
+        super().__init__(BridgeKind.LINK)
+        self.bridge = bridge
 
-    def from_domain(self, link):
+    def translate(self, link):
         left, right = link.fragments()
 
         return LinkSnapshot(
-            left=self.projection.from_domain(left),
-            right=self.projection.from_domain(right),
+            left=self.bridge.translate(left),
+            right=self.bridge.translate(right),
         )
