@@ -1,16 +1,9 @@
 from dataclasses import dataclass
 
-from zmena.domain.migration_forge.snapshots.state import Snapshot  # noqa: TC001
-
 
 @dataclass
 class MigrationForgeInboundMessage:
-    before: Snapshot | None
-    after: Snapshot | None
+    matches: list
 
     def __repr__(self):
-        return (
-            f"MigrationForgeInboundMessage("
-            f"before={self.before is not None},after={self.after is not None}"
-            f")"
-        )
+        return f"MigrationForgeInboundMessage(matches={len(self.matches)})"
