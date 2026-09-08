@@ -11,7 +11,7 @@ class MatchSnapshot(Snapshot):
     after: StateSnapshot | None
 
     def __repr__(self):
-        return "MatchSnapshot"
+        return f"MatchSnapshot(before={self.before is not None},after={self.after is not None})"
 
     def __post_init__(self):
         super().__init__(SnapshotKind.MATCH)
