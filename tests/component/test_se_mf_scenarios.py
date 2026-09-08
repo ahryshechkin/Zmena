@@ -4,7 +4,7 @@ from zmena.application.messages.inbound.migration_forge import MigrationForgeInb
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
-from zmena.domain.migration_forge.core.snapshot import Snapshot
+from zmena.domain.migration_forge.snapshots.state import Snapshot
 from zmena.infrastructure.adapters.catalogs.mf_fixture import MFFixtureCatalog
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 

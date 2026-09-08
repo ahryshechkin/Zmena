@@ -3,7 +3,7 @@ from unittest.mock import Mock
 
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan
-from zmena.domain.migration_forge.core.snapshot import Snapshot
+from zmena.domain.migration_forge.snapshots.state import Snapshot
 from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
 from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
 from zmena.domain.migration_forge.statements.drop_column import DropColumnStatement

@@ -1,7 +1,7 @@
 import unittest
 
 from zmena.domain.migration_forge.core.change import Change
-from zmena.domain.migration_forge.core.snapshot import Snapshot
+from zmena.domain.migration_forge.snapshots.state import Snapshot
 
 
 class TestChange(unittest.TestCase):

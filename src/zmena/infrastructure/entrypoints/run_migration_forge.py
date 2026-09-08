@@ -1,11 +1,10 @@
-from zmena.application.messages.inbound.migration_forge import MigrationForgeInboundMessage
+from zmena.application.bridges.match import MatchProjection
+from zmena.application.bridges.state import StateProjection
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
-from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
-from zmena.domain.migration_forge.core.snapshot import Snapshot
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 
-sce_ids = ["011"]
+sce_ids = ["401"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     sei_message = SemanticEngineInboundMessage(
@@ -14,12 +13,15 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    left, right = seo_message.decisions[0].winners()[0].fragments()
-    before = None
-    after = Snapshot(
-        name=right.name, data_type=right.data_type, nullable=right.constraint != "NOT NULL"
-    )
-    message = MigrationForgeInboundMessage(before=before, after=after)
+    projection = MatchProjection(StateProjection())
+    matches = []
+    for decision in seo_message.decisions_new:
+        for selected_link in decision.selected_links:
+            t = selected_link
+        # matches.extend(projection.from_infra(decision))
 
-    pipeline = MigrationForgePipeline(message)
-    result = pipeline.run()
+    # selected_links = [for decision in seo_message.decisions_new]
+    # message = MigrationForgeInboundMessage(before=before, after=after)
+
+    # pipeline = MigrationForgePipeline(message)
+    # result = pipeline.run()
