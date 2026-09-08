@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from zmena.domain.migration_forge.core.snapshot import Snapshot  # noqa: TC001
+from zmena.domain.migration_forge.snapshots.state import Snapshot  # noqa: TC001
 
 
 @dataclass
