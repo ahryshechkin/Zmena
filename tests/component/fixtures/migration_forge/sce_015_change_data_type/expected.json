@@ -1,0 +1,8 @@
+[
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_08",
+    "old_data_type": "DATE",
+    "new_data_type": "TIMESTAMP"
+  }
+]
