@@ -1,3 +1,4 @@
+from zmena.application.messages.outbound.migration_forge import MigrationForgeOutboundMessage
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan
 
@@ -16,4 +17,4 @@ class MigrationForgePipeline:
             plan = Plan(change)
             statements.extend(plan.derive())
 
-        return statements
+        return MigrationForgeOutboundMessage(statements=statements)
