@@ -1,13 +1,13 @@
 import unittest
 
 from zmena.domain.migration_forge.core.change import Change
-from zmena.domain.migration_forge.snapshots.state import Snapshot
+from zmena.domain.migration_forge.snapshots.state import StateSnapshot
 
 
 class TestChange(unittest.TestCase):
     def setUp(self):
-        self.before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        self.after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
+        self.before = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
+        self.after = StateSnapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
         self.change = Change(self.before, self.after)
 
     def test_has_data_type_change(self):
