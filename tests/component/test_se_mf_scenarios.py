@@ -16,10 +16,7 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         self.sce_catalog = ScenarioCatalog()
         self.fix_catalog = MFFixtureCatalog()
 
-    def test_sce_011_add_column_not_null(self):
-        scenario = self.sce_catalog.get("011")
-        expected = self.fix_catalog.get("011")
-
+    def execute_pipeline(self, scenario):
         sei_message = SemanticEngineInboundMessage(
             before=scenario.before.splitlines(), after=scenario.after.splitlines()
         )
@@ -31,6 +28,13 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         mfi_message = MigrationForgeInboundMessage(matches=matches)
         pipeline = MigrationForgePipeline(mfi_message)
-        actual = pipeline.run()
+        mfo_message = pipeline.run()
+
+        return mfo_message.statements
+
+    def test_sce_011_add_column_not_null(self):
+        scenario = self.sce_catalog.get("011")
+        expected = self.fix_catalog.get("011")
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
