@@ -38,3 +38,52 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
+
+    def test_sce_012_add_column_null(self):
+        scenario = self.sce_catalog.get("012")
+        expected = self.fix_catalog.get("012")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_013_alter_constraint_not_null(self):
+        scenario = self.sce_catalog.get("013")
+        expected = self.fix_catalog.get("013")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_014_alter_constraint_null(self):
+        scenario = self.sce_catalog.get("014")
+        expected = self.fix_catalog.get("014")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_015_change_data_type(self):
+        scenario = self.sce_catalog.get("015")
+        expected = self.fix_catalog.get("015")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_016_drop_column(self):
+        scenario = self.sce_catalog.get("016")
+        expected = self.fix_catalog.get("016")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_017_move_column(self):
+        scenario = self.sce_catalog.get("017")
+        expected = self.fix_catalog.get("017")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_018_rename_column(self):
+        scenario = self.sce_catalog.get("018")
+        expected = self.fix_catalog.get("018")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
