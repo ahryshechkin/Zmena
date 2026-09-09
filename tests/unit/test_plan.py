@@ -18,8 +18,8 @@ class TestPlan(unittest.TestCase):
             AddColumnStatement(name="col_08", data_type="DATE", nullable=False),
         ]
 
-        snapshot = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
-        change = Change(None, snapshot)
+        state = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
+        change = Change(None, state)
         plan = Plan(change)
         actual = plan.derive()
 
@@ -43,8 +43,8 @@ class TestPlan(unittest.TestCase):
             DropColumnStatement(name="col_08"),
         ]
 
-        snapshot = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
-        change = Change(snapshot, None)
+        state = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
+        change = Change(state, None)
         plan = Plan(change)
         actual = plan.derive()
 
