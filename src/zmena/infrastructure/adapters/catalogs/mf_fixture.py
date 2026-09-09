@@ -1,10 +1,20 @@
 import json
 
 from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
+from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
+from zmena.domain.migration_forge.statements.drop_column import DropColumnStatement
+from zmena.domain.migration_forge.statements.drop_not_null import DropNotNullStatement
+from zmena.domain.migration_forge.statements.rename_column import RenameColumnStatement
+from zmena.domain.migration_forge.statements.set_not_null import SetNotNullStatement
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 STATEMENT_KINDS = {
     "AddColumnStatement": AddColumnStatement,
+    "AlterDataTypeStatement": AlterDataTypeStatement,
+    "DropColumnStatement": DropColumnStatement,
+    "DropNotNullStatement": DropNotNullStatement,
+    "RenameColumnStatement": RenameColumnStatement,
+    "SetNotNullStatement": SetNotNullStatement,
 }
 
 
