@@ -12,9 +12,9 @@ class DecisionResolver:
         return f"DecisionResolver(components={len(self.components)})"
 
     def resolve(self):
-        decisions = []
-
         refinement = Refinement(self.preset.default())
+
+        decisions = []
         for component in self.components:
             locally_accessed = component.assess()
             globally_reassessed = refinement.reassess(locally_accessed)
