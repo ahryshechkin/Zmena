@@ -88,9 +88,65 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_019_rename_column_then_change_data_type(self):
+    def test_sce_019_rename_column_then_alter_data_type(self):
         scenario = self.sce_catalog.get("019")
         expected = self.fix_catalog.get("019")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_020_rename_column_then_drop_not_null(self):
+        scenario = self.sce_catalog.get("020")
+        expected = self.fix_catalog.get("020")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_041_apply_multiple_primitive_changes(self):
+        scenario = self.sce_catalog.get("041")
+        expected = self.fix_catalog.get("041")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_051_alter_column_then_add_another_before(self):
+        scenario = self.sce_catalog.get("051")
+        expected = self.fix_catalog.get("051")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_052_alter_column_then_add_another_after(self):
+        scenario = self.sce_catalog.get("052")
+        expected = self.fix_catalog.get("052")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_053_alter_column_then_drop_another_before(self):
+        scenario = self.sce_catalog.get("053")
+        expected = self.fix_catalog.get("053")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_054_alter_column_then_drop_another_after(self):
+        scenario = self.sce_catalog.get("054")
+        expected = self.fix_catalog.get("054")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_061_alter_column_then_rename_two_adjacent_ones(self):
+        scenario = self.sce_catalog.get("061")
+        expected = self.fix_catalog.get("061")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_071_apply_changes_in_correct_order(self):
+        scenario = self.sce_catalog.get("071")
+        expected = self.fix_catalog.get("071")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)

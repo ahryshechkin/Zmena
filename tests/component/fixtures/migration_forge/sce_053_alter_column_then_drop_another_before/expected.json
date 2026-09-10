@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "DropColumnStatement",
+    "name": "col_03"
+  },
+  {
+    "kind": "DropNotNullStatement",
+    "name": "col_04"
+  }
+]
