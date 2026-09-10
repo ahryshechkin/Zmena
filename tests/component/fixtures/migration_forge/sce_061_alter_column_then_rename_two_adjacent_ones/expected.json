@@ -2,8 +2,7 @@
   {
     "kind": "AlterDataTypeStatement",
     "name": "col_03",
-    "old_data_type": "VARCHAR(200)",
-    "new_data_type": "VARCHAR(20)"
+    "data_type": "VARCHAR(20)"
   },
   {
     "kind": "RenameColumnStatement",

@@ -28,19 +28,16 @@ class TestAddColumnStatement(unittest.TestCase):
 
 class TestAlterDataTypeStatement(unittest.TestCase):
     def setUp(self):
-        self.statement = AlterDataTypeStatement(
-            name="col_08", old_data_type="DATE", new_data_type="TIMESTAMP"
-        )
+        self.statement = AlterDataTypeStatement(name="col_08", data_type="TIMESTAMP")
 
     def test_init(self):
         self.assertEqual(StatementKind.ALTER_DATA_TYPE, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
-        self.assertEqual("DATE", self.statement.old_data_type)
-        self.assertEqual("TIMESTAMP", self.statement.new_data_type)
+        self.assertEqual("TIMESTAMP", self.statement.data_type)
 
     def test_repr(self):
         self.assertEqual(
-            "AlterDataTypeStatement(name=col_08,old_data_type=DATE,new_data_type=TIMESTAMP)",
+            "AlterDataTypeStatement(name=col_08,data_type=TIMESTAMP)",
             repr(self.statement),
         )
 
