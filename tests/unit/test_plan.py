@@ -27,7 +27,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_alter_data_type(self):
         expected = [
-            AlterDataTypeStatement(name="col_08", old_data_type="DATE", new_data_type="TIMESTAMP"),
+            AlterDataTypeStatement(name="col_08", data_type="TIMESTAMP"),
         ]
 
         before = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
@@ -65,7 +65,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_multiple_changes(self):
         expected = [
-            AlterDataTypeStatement(name="col_88", old_data_type="DATE", new_data_type="TIMESTAMP"),
+            AlterDataTypeStatement(name="col_88", data_type="TIMESTAMP"),
             DropNotNullStatement(name="col_88"),
             RenameColumnStatement(old_name="col_08", new_name="col_88"),
         ]

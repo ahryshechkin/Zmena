@@ -27,7 +27,7 @@ class Plan:
             statements.append(RenameColumnStatement(before.name, after.name))
 
         if self.change.has_data_type_change():
-            statements.append(AlterDataTypeStatement(after.name, before.data_type, after.data_type))
+            statements.append(AlterDataTypeStatement(after.name, after.data_type))
 
         if self.change.has_nullability_change():
             if before.nullable:
