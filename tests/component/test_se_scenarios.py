@@ -42,21 +42,21 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_013_alter_constraint_not_null(self):
+    def test_sce_013_set_not_null(self):
         scenario = self.sce_catalog.get("013")
         expected = self.fix_catalog.get("013")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_014_alter_constraint_null(self):
+    def test_sce_014_drop_not_null(self):
         scenario = self.sce_catalog.get("014")
         expected = self.fix_catalog.get("014")
         actual = self.collect_winners(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_015_change_data_type(self):
+    def test_sce_015_alter_data_type(self):
         scenario = self.sce_catalog.get("015")
         expected = self.fix_catalog.get("015")
         actual = self.collect_winners(scenario)

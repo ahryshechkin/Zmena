@@ -1,0 +1,13 @@
+[
+  {
+    "kind": "RenameColumnStatement",
+    "old_name": "col_04",
+    "new_name": "col_44"
+  },
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_44",
+    "old_data_type": "VARCHAR(50)",
+    "new_data_type": "DATE"
+  }
+]
