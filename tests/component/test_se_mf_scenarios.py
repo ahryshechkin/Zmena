@@ -150,3 +150,66 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
+
+    def test_sce_201_swap_columns(self):
+        scenario = self.sce_catalog.get("201")
+        expected = self.fix_catalog.get("201")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_202_swap_columns_nested(self):
+        scenario = self.sce_catalog.get("202")
+        expected = self.fix_catalog.get("202")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_203_swap_columns_with_overlap(self):
+        scenario = self.sce_catalog.get("203")
+        expected = self.fix_catalog.get("203")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_204_swap_adjacent_columns_with_same_signature(self):
+        scenario = self.sce_catalog.get("204")
+        expected = self.fix_catalog.get("204")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_205_swap_close_columns_with_same_signature(self):
+        scenario = self.sce_catalog.get("205")
+        expected = self.fix_catalog.get("205")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_206_swap_distant_columns_with_same_signature(self):
+        scenario = self.sce_catalog.get("206")
+        expected = self.fix_catalog.get("206")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_207_add_column_between_adjacent_swapped_ones(self):
+        scenario = self.sce_catalog.get("207")
+        expected = self.fix_catalog.get("207")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_208_add_column_between_non_adjacent_swapped_ones(self):
+        scenario = self.sce_catalog.get("208")
+        expected = self.fix_catalog.get("208")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_221_move_three_columns_in_cycle(self):
+        scenario = self.sce_catalog.get("221")
+        expected = self.fix_catalog.get("221")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
