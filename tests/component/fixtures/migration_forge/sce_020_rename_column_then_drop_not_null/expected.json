@@ -1,0 +1,11 @@
+[
+  {
+    "kind": "RenameColumnStatement",
+    "old_name": "col_04",
+    "new_name": "col_44"
+  },
+  {
+    "kind": "DropNotNullStatement",
+    "name": "col_44"
+  }
+]

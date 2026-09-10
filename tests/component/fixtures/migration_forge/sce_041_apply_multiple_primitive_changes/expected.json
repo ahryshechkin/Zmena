@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "AddColumnStatement",
+    "name": "col_11",
+    "data_type": "INT",
+    "nullable": true
+  },
+  {
+    "kind": "AddColumnStatement",
+    "name": "col_22",
+    "data_type": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_07",
+    "old_data_type": "VARCHAR(1)",
+    "new_data_type": "VARCHAR(10)"
+  },
+  {
+    "kind": "DropColumnStatement",
+    "name": "col_10"
+  }
+]

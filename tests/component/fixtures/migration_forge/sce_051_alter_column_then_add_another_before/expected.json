@@ -1,0 +1,12 @@
+[
+  {
+    "kind": "AddColumnStatement",
+    "name": "col_22",
+    "data_type": "VARCHAR(50)",
+    "nullable": false
+  },
+  {
+    "kind": "SetNotNullStatement",
+    "name": "col_03"
+  }
+]
