@@ -109,35 +109,35 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_051_alter_column_then_add_another_before(self):
+    def test_sce_051_drop_not_null_then_add_column_before(self):
         scenario = self.sce_catalog.get("051")
         expected = self.fix_catalog.get("051")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_052_alter_column_then_add_another_after(self):
+    def test_sce_052_drop_not_null_then_add_column_after(self):
         scenario = self.sce_catalog.get("052")
         expected = self.fix_catalog.get("052")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_053_alter_column_then_drop_another_before(self):
+    def test_sce_053_drop_not_null_then_drop_column_before(self):
         scenario = self.sce_catalog.get("053")
         expected = self.fix_catalog.get("053")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_054_alter_column_then_drop_another_after(self):
+    def test_sce_054_drop_not_null_then_drop_column_after(self):
         scenario = self.sce_catalog.get("054")
         expected = self.fix_catalog.get("054")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_061_alter_column_then_rename_two_adjacent_ones(self):
+    def test_sce_061_alter_data_type_then_rename_two_adjacent_columns(self):
         scenario = self.sce_catalog.get("061")
         expected = self.fix_catalog.get("061")
         actual = self.execute_pipeline(scenario)
@@ -214,77 +214,77 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_301_move_column_before_single_signature_alter(self):
+    def test_sce_301_move_column_before_single_signature_change(self):
         scenario = self.sce_catalog.get("301")
         expected = self.fix_catalog.get("301")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_302_move_column_after_single_signature_alter(self):
+    def test_sce_302_move_column_after_single_signature_change(self):
         scenario = self.sce_catalog.get("302")
         expected = self.fix_catalog.get("302")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_303_move_column_before_single_constraint_alter(self):
+    def test_sce_303_move_column_before_single_drop_not_null(self):
         scenario = self.sce_catalog.get("303")
         expected = self.fix_catalog.get("303")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_304_move_column_before_single_type_alter(self):
+    def test_sce_304_move_column_before_single_alter_data_type(self):
         scenario = self.sce_catalog.get("304")
         expected = self.fix_catalog.get("304")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_311_move_column_before_two_signature_alter(self):
+    def test_sce_311_move_column_before_two_signature_change(self):
         scenario = self.sce_catalog.get("311")
         expected = self.fix_catalog.get("311")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_312_move_column_after_two_signature_alter(self):
+    def test_sce_312_move_column_after_two_signature_change(self):
         scenario = self.sce_catalog.get("312")
         expected = self.fix_catalog.get("312")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_313_move_column_before_two_constraint_alter(self):
+    def test_sce_313_move_column_before_two_nullability_change(self):
         scenario = self.sce_catalog.get("313")
         expected = self.fix_catalog.get("313")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_314_move_column_before_two_type_alter(self):
+    def test_sce_314_move_column_before_two_alter_data_type(self):
         scenario = self.sce_catalog.get("314")
         expected = self.fix_catalog.get("314")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_401_move_two_columns_before_altered_one(self):
+    def test_sce_401_move_two_columns_before_drop_not_null(self):
         scenario = self.sce_catalog.get("401")
         expected = self.fix_catalog.get("401")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_402_move_two_columns_after_altered_one(self):
+    def test_sce_402_move_two_columns_after_drop_not_null(self):
         scenario = self.sce_catalog.get("402")
         expected = self.fix_catalog.get("402")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_403_move_two_columns_before_altered_one_twice(self):
+    def test_sce_403_move_two_columns_before_alter_data_type_twice(self):
         scenario = self.sce_catalog.get("403")
         expected = self.fix_catalog.get("403")
         actual = self.execute_pipeline(scenario)
