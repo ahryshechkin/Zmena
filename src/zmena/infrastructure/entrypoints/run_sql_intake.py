@@ -6,7 +6,7 @@ from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["707"]
+sce_ids = ["709"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     sii_message = SQLIntakeInboundMessage(
@@ -33,7 +33,7 @@ for scenario in catalog.get_many(sce_ids):
 
     report = AnalysisReport(ari_message)
     report.show_sql_diff()
-    report.show_fragments()
-    report.show_hypotheses()
-    report.show_components()
-    report.show_decisions()
+    # report.show_fragments()
+    # report.show_hypotheses()
+    # report.show_components()
+    # report.show_decisions()
