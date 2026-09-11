@@ -1,14 +1,14 @@
+from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.messages.outbound.delta_crawler import DeltaCrawlerOutboundMessage
+from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths
 from zmena.domain.delta_crawler.core.tag_record import TagRecord
 
 
-class DeltaCrawlerPipeline:
+class DeltaCrawlerPipeline(Pipeline):
     def __init__(self, message):
+        super().__init__(PipelineKind.DELTA_CRAWLER)
         self.message = message
-
-    def __repr__(self):
-        return "DeltaCrawlerPipeline"
 
     def run(self, command):
         messages = []

@@ -1,7 +1,9 @@
 from zmena.application.bridges.decision import DecisionBridge
 from zmena.application.bridges.fragment import FragmentBridge
 from zmena.application.bridges.link import LinkBridge
+from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.messages.outbound.semantic_engine import SemanticEngineOutboundMessage
+from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.semantic_engine.core.fragment_bundle import FragmentBundle
 from zmena.domain.semantic_engine.steps.component_composer import ComponentComposer
 from zmena.domain.semantic_engine.steps.decision_resolver import DecisionResolver
@@ -9,12 +11,10 @@ from zmena.domain.semantic_engine.steps.fragment_builder import FragmentBuilder
 from zmena.domain.semantic_engine.steps.hypothesis_proposer import HypothesisProposer
 
 
-class SemanticEnginePipeline:
+class SemanticEnginePipeline(Pipeline):
     def __init__(self, message):
+        super().__init__(PipelineKind.SEMANTIC_ENGINE)
         self.message = message
-
-    def __repr__(self):
-        return "SemanticEnginePipeline"
 
     def run(self):
         fragment_builder = FragmentBuilder()
