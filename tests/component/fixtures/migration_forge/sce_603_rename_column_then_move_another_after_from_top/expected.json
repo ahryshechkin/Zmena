@@ -1,0 +1,7 @@
+[
+  {
+    "kind": "RenameColumnStatement",
+    "old_name": "col_07",
+    "new_name": "col_77"
+  }
+]

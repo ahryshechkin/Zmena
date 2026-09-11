@@ -1,0 +1,13 @@
+[
+  {
+    "kind": "RenameColumnStatement",
+    "old_name": "col_02",
+    "new_name": "col_22"
+  },
+  {
+    "kind": "AddColumnStatement",
+    "name": "col_02",
+    "data_type": "INT",
+    "nullable": true
+  }
+]
