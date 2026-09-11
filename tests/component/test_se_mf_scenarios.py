@@ -290,3 +290,59 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
+
+    def test_sce_601_rename_column_then_move_another_before_from_top(self):
+        scenario = self.sce_catalog.get("601")
+        expected = self.fix_catalog.get("601")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_602_rename_column_then_move_another_before_from_bottom(self):
+        scenario = self.sce_catalog.get("602")
+        expected = self.fix_catalog.get("602")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_603_rename_column_then_move_another_after_from_top(self):
+        scenario = self.sce_catalog.get("603")
+        expected = self.fix_catalog.get("603")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_604_rename_column_then_move_another_after_from_bottom(self):
+        scenario = self.sce_catalog.get("604")
+        expected = self.fix_catalog.get("604")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_651_drop_column_then_reuse_free_name_from_top(self):
+        scenario = self.sce_catalog.get("651")
+        expected = self.fix_catalog.get("651")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_652_drop_column_then_reuse_free_name_from_bottom(self):
+        scenario = self.sce_catalog.get("652")
+        expected = self.fix_catalog.get("652")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_653_rename_column_then_take_released_name_from_top(self):
+        scenario = self.sce_catalog.get("653")
+        expected = self.fix_catalog.get("653")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_654_rename_column_then_take_released_name_from_bottom(self):
+        scenario = self.sce_catalog.get("654")
+        expected = self.fix_catalog.get("654")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
