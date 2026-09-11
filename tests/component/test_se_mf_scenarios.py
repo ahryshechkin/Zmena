@@ -213,3 +213,80 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
+
+    def test_sce_301_move_column_before_single_signature_alter(self):
+        scenario = self.sce_catalog.get("301")
+        expected = self.fix_catalog.get("301")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_302_move_column_after_single_signature_alter(self):
+        scenario = self.sce_catalog.get("302")
+        expected = self.fix_catalog.get("302")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_303_move_column_before_single_constraint_alter(self):
+        scenario = self.sce_catalog.get("303")
+        expected = self.fix_catalog.get("303")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_304_move_column_before_single_type_alter(self):
+        scenario = self.sce_catalog.get("304")
+        expected = self.fix_catalog.get("304")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_311_move_column_before_two_signature_alter(self):
+        scenario = self.sce_catalog.get("311")
+        expected = self.fix_catalog.get("311")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_312_move_column_after_two_signature_alter(self):
+        scenario = self.sce_catalog.get("312")
+        expected = self.fix_catalog.get("312")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_313_move_column_before_two_constraint_alter(self):
+        scenario = self.sce_catalog.get("313")
+        expected = self.fix_catalog.get("313")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_314_move_column_before_two_type_alter(self):
+        scenario = self.sce_catalog.get("314")
+        expected = self.fix_catalog.get("314")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_401_move_two_columns_before_altered_one(self):
+        scenario = self.sce_catalog.get("401")
+        expected = self.fix_catalog.get("401")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_402_move_two_columns_after_altered_one(self):
+        scenario = self.sce_catalog.get("402")
+        expected = self.fix_catalog.get("402")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)
+
+    def test_sce_403_move_two_columns_before_altered_one_twice(self):
+        scenario = self.sce_catalog.get("403")
+        expected = self.fix_catalog.get("403")
+        actual = self.execute_pipeline(scenario)
+
+        self.assertCountEqual(expected, actual)

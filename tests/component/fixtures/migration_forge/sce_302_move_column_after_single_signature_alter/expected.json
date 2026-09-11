@@ -1,0 +1,11 @@
+[
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_04",
+    "data_type": "DATE"
+  },
+  {
+    "kind": "DropNotNullStatement",
+    "name": "col_04"
+  }
+]

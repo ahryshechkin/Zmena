@@ -1,0 +1,12 @@
+[
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_04",
+    "data_type": "DATE"
+  },
+  {
+    "kind": "AlterDataTypeStatement",
+    "name": "col_05",
+    "data_type": "DATE"
+  }
+]
