@@ -242,21 +242,21 @@ class TestSemanticEngineScenarios(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_311_move_column_before_two_signature_change(self):
+    def test_sce_311_move_column_before_two_signature_changes(self):
         scenario = self.sce_catalog.get("311")
         expected = self.fix_catalog.get("311")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_312_move_column_after_two_signature_change(self):
+    def test_sce_312_move_column_after_two_signature_changes(self):
         scenario = self.sce_catalog.get("312")
         expected = self.fix_catalog.get("312")
         actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
-    def test_sce_313_move_column_before_two_nullability_change(self):
+    def test_sce_313_move_column_before_two_nullability_changes(self):
         scenario = self.sce_catalog.get("313")
         expected = self.fix_catalog.get("313")
         actual = self.execute_pipeline(scenario)
