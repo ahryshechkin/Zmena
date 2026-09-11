@@ -17,7 +17,7 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
     def normalize(self, link):
         return str(link).split("|", 1)[1]
 
-    def collect_winners(self, scenario):
+    def execute_pipeline(self, scenario):
         sii_message = SQLIntakeInboundMessage(
             label=scenario.sce_id, name=scenario.name, before=scenario.before, after=scenario.after
         )
@@ -39,62 +39,62 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
     def test_sce_701_add_column_neat_before_neat_after(self):
         scenario = self.sce_catalog.get("701")
         expected = self.fix_catalog.get("701")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_702_add_column_neat_before_chaotic_after(self):
         scenario = self.sce_catalog.get("702")
         expected = self.fix_catalog.get("702")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_703_add_column_chaotic_before_neat_after(self):
         scenario = self.sce_catalog.get("703")
         expected = self.fix_catalog.get("703")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_704_add_column_single_line_table(self):
         scenario = self.sce_catalog.get("704")
         expected = self.fix_catalog.get("704")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_705_add_column_neat_before_uppercase_after(self):
         scenario = self.sce_catalog.get("705")
         expected = self.fix_catalog.get("705")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_706_add_column_neat_before_lowercase_after(self):
         scenario = self.sce_catalog.get("706")
         expected = self.fix_catalog.get("706")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_707_add_column_neat_before_mixed_after(self):
         scenario = self.sce_catalog.get("707")
         expected = self.fix_catalog.get("707")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_708_add_column_blank_lines(self):
         scenario = self.sce_catalog.get("708")
         expected = self.fix_catalog.get("708")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
 
     def test_sce_709_rename_column_single_column_table(self):
         scenario = self.sce_catalog.get("709")
         expected = self.fix_catalog.get("709")
-        actual = self.collect_winners(scenario)
+        actual = self.execute_pipeline(scenario)
 
         self.assertCountEqual(expected, actual)
