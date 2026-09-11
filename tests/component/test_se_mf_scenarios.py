@@ -10,7 +10,7 @@ from zmena.infrastructure.adapters.catalogs.mf_fixture import MFFixtureCatalog
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 
 
-class TestSemanticEngineScenarios(unittest.TestCase):
+class TestSemanticEngineMigrationForgeScenarios(unittest.TestCase):
     def setUp(self):
         self.maxDiff = None
         self.sce_catalog = ScenarioCatalog()
