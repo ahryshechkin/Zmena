@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "stub",
+      "block": "",
+      "position": "",
+      "side": "L",
+      "name": "",
+      "data_type": "",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "08080809",
+      "position": 9,
+      "side": "R",
+      "name": "col_88",
+      "data_type": "DATE",
+      "nullable": false
+    }
+  }
+]

@@ -26,7 +26,11 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         for decision in seo_message.decisions:
             winners.extend([self.normalize(link) for link in decision.winners()])
 
-        return winners
+        selected_links = []
+        for decision in seo_message.decisions_snap:
+            selected_links.extend(decision.selected_links)
+
+        return selected_links
 
     def test_sce_011_add_column_not_null(self):
         scenario = self.sce_catalog.get("011")

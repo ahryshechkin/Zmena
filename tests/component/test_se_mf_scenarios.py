@@ -24,7 +24,7 @@ class TestSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         seo_message = pipeline.run()
 
         bridge = MatchBundleBridge(StateBridge())
-        matches = bridge.translate(seo_message.decisions_new)
+        matches = bridge.translate(seo_message.decisions_snap)
 
         mfi_message = MigrationForgeInboundMessage(matches=matches)
         pipeline = MigrationForgePipeline(mfi_message)

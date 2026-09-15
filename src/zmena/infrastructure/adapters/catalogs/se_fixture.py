@@ -1,3 +1,7 @@
+import json
+
+from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot
+from zmena.domain.semantic_engine.snapshots.link import LinkSnapshot
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 
@@ -6,7 +10,15 @@ class SEFixtureCatalog:
         self.directory = ProjectDirectory()
 
     def build_fixture_from(self, path):
-        return (path / "expected.txt").read_text(encoding="utf-8").splitlines()
+        with (path / "expected.json").open(encoding="utf-8") as file:
+            items = json.load(file)
+
+        links = []
+        for item in items:
+            link = LinkSnapshot(FragmentSnapshot(**item["left"]), FragmentSnapshot(**item["right"]))
+            links.append(link)
+
+        return links
 
     def get(self, sce_id):
         for path in self.directory.se_fixtures().iterdir():
