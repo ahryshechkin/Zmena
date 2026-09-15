@@ -12,6 +12,7 @@ class LinkBridge(Bridge):
         left, right = link.fragments()
 
         return LinkSnapshot(
+            score=link.score(),
             left=self.bridge.translate(left),
             right=self.bridge.translate(right),
         )
