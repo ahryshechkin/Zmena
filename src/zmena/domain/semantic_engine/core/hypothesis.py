@@ -4,9 +4,6 @@ class Hypothesis:
         self.left = left
         self.right = right
 
-    def __str__(self):
-        return f"{self.rule_kind:>18} | #### | {self.left} | #### | {self.right}"
-
     def __repr__(self):
         return f"Hypothesis(rule={self.rule_kind})"
 
