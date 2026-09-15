@@ -4,9 +4,6 @@ class Link:
         self.right = right
         self.evidences = []
 
-    def __str__(self):
-        return f"{self.score():>7} | #### | {self.left} | #### | {self.right}"
-
     def __repr__(self):
         return f"Link(score={self.score()},evidences={len(self.evidences)})"
 

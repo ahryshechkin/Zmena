@@ -7,8 +7,12 @@ from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 @dataclass
 class LinkSnapshot(Snapshot):
+    score: int
     left: FragmentSnapshot | None
     right: FragmentSnapshot | None
+
+    def __str__(self):
+        return f"{self.score:>7} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
         return f"LinkSnapshot(left={self.left is not None},right={self.right is not None})"
