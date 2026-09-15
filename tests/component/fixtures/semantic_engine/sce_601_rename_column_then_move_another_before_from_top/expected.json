@@ -1,0 +1,42 @@
+[
+  {
+    "left": {
+      "tag": "delete",
+      "block": "02030202",
+      "position": 3,
+      "side": "L",
+      "name": "col_03",
+      "data_type": "VARCHAR(200)",
+      "nullable": true
+    },
+    "right": {
+      "tag": "replace",
+      "block": "06070507",
+      "position": 6,
+      "side": "R",
+      "name": "col_03",
+      "data_type": "VARCHAR(200)",
+      "nullable": true
+    }
+  },
+  {
+    "left": {
+      "tag": "replace",
+      "block": "06070507",
+      "position": 7,
+      "side": "L",
+      "name": "col_07",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "06070507",
+      "position": 7,
+      "side": "R",
+      "name": "col_77",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    }
+  }
+]

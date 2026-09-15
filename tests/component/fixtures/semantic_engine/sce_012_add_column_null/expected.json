@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "stub",
+      "block": "",
+      "position": "",
+      "side": "L",
+      "name": "",
+      "data_type": "",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "03030304",
+      "position": 4,
+      "side": "R",
+      "name": "col_33",
+      "data_type": "VARCHAR(200)",
+      "nullable": true
+    }
+  }
+]

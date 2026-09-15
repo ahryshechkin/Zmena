@@ -1,0 +1,42 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "01020102",
+      "position": 2,
+      "side": "L",
+      "name": "col_02",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "01020102",
+      "position": 2,
+      "side": "R",
+      "name": "col_22",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "stub",
+      "block": "",
+      "position": "",
+      "side": "L",
+      "name": "",
+      "data_type": "",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "05050506",
+      "position": 6,
+      "side": "R",
+      "name": "col_02",
+      "data_type": "INT",
+      "nullable": true
+    }
+  }
+]

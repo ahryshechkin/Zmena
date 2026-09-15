@@ -1,2 +1,0 @@
- #### |  replace | 05060607 |        6 |    L | col_06  | INT           |            | #### |  replace | 05060607 |        7 |    R | col_66  | INT           |           
- #### |     stub |          |          |    L |         |               |            | #### |   insert | 01010102 |        2 |    R | col_06  | VARCHAR(50)   |   NOT NULL

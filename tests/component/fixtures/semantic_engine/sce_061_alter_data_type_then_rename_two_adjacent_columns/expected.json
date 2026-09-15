@@ -1,0 +1,62 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 3,
+      "side": "L",
+      "name": "col_03",
+      "data_type": "VARCHAR(200)",
+      "nullable": true
+    },
+    "right": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 3,
+      "side": "R",
+      "name": "col_03",
+      "data_type": "VARCHAR(20)",
+      "nullable": true
+    }
+  },
+  {
+    "left": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 4,
+      "side": "L",
+      "name": "col_04",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 4,
+      "side": "R",
+      "name": "col_44",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 5,
+      "side": "L",
+      "name": "col_05",
+      "data_type": "VARCHAR(50)",
+      "nullable": true
+    },
+    "right": {
+      "tag": "replace",
+      "block": "02050205",
+      "position": 5,
+      "side": "R",
+      "name": "col_55",
+      "data_type": "VARCHAR(50)",
+      "nullable": true
+    }
+  }
+]

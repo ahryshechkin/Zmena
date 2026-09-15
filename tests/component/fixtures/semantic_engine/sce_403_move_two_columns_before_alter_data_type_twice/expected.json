@@ -1,0 +1,122 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "03040306",
+      "position": 4,
+      "side": "L",
+      "name": "col_04",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "03040306",
+      "position": 6,
+      "side": "R",
+      "name": "col_04",
+      "data_type": "VARCHAR(51)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "06080808",
+      "position": 7,
+      "side": "L",
+      "name": "col_07",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "03040306",
+      "position": 4,
+      "side": "R",
+      "name": "col_07",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "06080808",
+      "position": 8,
+      "side": "L",
+      "name": "col_08",
+      "data_type": "DATE",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "03040306",
+      "position": 5,
+      "side": "R",
+      "name": "col_08",
+      "data_type": "DATE",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "replace",
+      "block": "13141316",
+      "position": 14,
+      "side": "L",
+      "name": "col_14",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "13141316",
+      "position": 16,
+      "side": "R",
+      "name": "col_14",
+      "data_type": "VARCHAR(51)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "16181818",
+      "position": 17,
+      "side": "L",
+      "name": "col_17",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "13141316",
+      "position": 14,
+      "side": "R",
+      "name": "col_17",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "16181818",
+      "position": 18,
+      "side": "L",
+      "name": "col_18",
+      "data_type": "DATE",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "13141316",
+      "position": 15,
+      "side": "R",
+      "name": "col_18",
+      "data_type": "DATE",
+      "nullable": false
+    }
+  }
+]

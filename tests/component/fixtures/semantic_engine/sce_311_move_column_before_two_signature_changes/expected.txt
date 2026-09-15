@@ -1,3 +1,0 @@
- #### |   delete | 06070707 |        7 |    L | col_07  | VARCHAR(1)    |   NOT NULL | #### |  replace | 03050306 |        4 |    R | col_07  | VARCHAR(1)    |   NOT NULL
- #### |  replace | 03050306 |        5 |    L | col_05  | VARCHAR(50)   |            | #### |  replace | 03050306 |        6 |    R | col_05  | DATE          |   NOT NULL
- #### |  replace | 03050306 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | #### |  replace | 03050306 |        5 |    R | col_04  | DATE          |           

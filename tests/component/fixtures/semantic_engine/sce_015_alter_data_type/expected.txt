@@ -1,1 +1,0 @@
- #### |  replace | 07080708 |        8 |    L | col_08  | DATE          |   NOT NULL | #### |  replace | 07080708 |        8 |    R | col_08  | TIMESTAMP     |   NOT NULL

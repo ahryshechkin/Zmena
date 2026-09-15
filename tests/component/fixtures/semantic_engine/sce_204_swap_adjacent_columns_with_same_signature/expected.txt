@@ -1,1 +1,0 @@
- #### |   delete | 04050505 |        5 |    L | col_05  | VARCHAR(50)   |   NOT NULL | #### |   insert | 03030304 |        4 |    R | col_05  | VARCHAR(50)   |   NOT NULL

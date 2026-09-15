@@ -1,0 +1,62 @@
+[
+  {
+    "left": {
+      "tag": "delete",
+      "block": "02040505",
+      "position": 3,
+      "side": "L",
+      "name": "col_03",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "insert",
+      "block": "01010104",
+      "position": 3,
+      "side": "R",
+      "name": "col_03",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "stub",
+      "block": "",
+      "position": "",
+      "side": "L",
+      "name": "",
+      "data_type": "",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "01010104",
+      "position": 4,
+      "side": "R",
+      "name": "col_33",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "02040505",
+      "position": 4,
+      "side": "L",
+      "name": "col_04",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "insert",
+      "block": "01010104",
+      "position": 2,
+      "side": "R",
+      "name": "col_04",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  }
+]

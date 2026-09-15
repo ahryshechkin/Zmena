@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "delete",
+      "block": "04050505",
+      "position": 5,
+      "side": "L",
+      "name": "col_05",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "insert",
+      "block": "03030304",
+      "position": 4,
+      "side": "R",
+      "name": "col_05",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  }
+]
