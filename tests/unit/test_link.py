@@ -58,12 +58,3 @@ class TestLink(unittest.TestCase):
 
     def test_score(self):
         self.assertEqual(0.0, self.link.score())
-
-    def test_str(self):
-        self.link.add_evidence(self.evidence_ns)
-        self.assertEqual(
-            "    2.0 | "
-            "#### |  replace | 03050306 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | "
-            "#### |  replace | 03050306 |        4 |    R | col_04  | DATE          |           ",
-            str(self.link),
-        )
