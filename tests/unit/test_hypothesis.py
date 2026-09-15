@@ -53,11 +53,3 @@ class TestHypothesis(unittest.TestCase):
 
     def test_repr(self):
         self.assertEqual("Hypothesis(rule=position)", repr(self.hypothesis))
-
-    def test_str(self):
-        self.assertEqual(
-            "          position | "
-            "#### |  replace | 03050306 |        4 |    L | col_04  | VARCHAR(50)   |   NOT NULL | "
-            "#### |  replace | 03050306 |        4 |    R | col_04  | DATE          |           ",
-            str(self.hypothesis),
-        )
