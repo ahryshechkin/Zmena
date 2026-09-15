@@ -30,11 +30,11 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        winners = []
+        selected_links = []
         for decision in seo_message.decisions:
-            winners.extend([self.normalize(link) for link in decision.winners()])
+            selected_links.extend(decision.selected_links)
 
-        return winners
+        return selected_links
 
     def test_sce_701_add_column_neat_before_neat_after(self):
         scenario = self.sce_catalog.get("701")
