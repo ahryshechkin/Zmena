@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "06070607",
+      "position": 7,
+      "side": "L",
+      "name": "col_07",
+      "data_type": "VARCHAR(1)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "06070607",
+      "position": 7,
+      "side": "R",
+      "name": "col_07",
+      "data_type": "VARCHAR(1)",
+      "nullable": true
+    }
+  }
+]

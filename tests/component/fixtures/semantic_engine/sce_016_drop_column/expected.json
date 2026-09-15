@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "delete",
+      "block": "05060505",
+      "position": 6,
+      "side": "L",
+      "name": "col_06",
+      "data_type": "INT",
+      "nullable": true
+    },
+    "right": {
+      "tag": "stub",
+      "block": "",
+      "position": "",
+      "side": "R",
+      "name": "",
+      "data_type": "",
+      "nullable": true
+    }
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "07080708",
+      "position": 8,
+      "side": "L",
+      "name": "col_08",
+      "data_type": "DATE",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "07080708",
+      "position": 8,
+      "side": "R",
+      "name": "col_08",
+      "data_type": "TIMESTAMP",
+      "nullable": false
+    }
+  }
+]

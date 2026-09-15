@@ -1,0 +1,82 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "01020102",
+      "position": 2,
+      "side": "L",
+      "name": "col_02",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "08090809",
+      "position": 9,
+      "side": "R",
+      "name": "col_02",
+      "data_type": "VARCHAR(50)",
+      "nullable": false
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "04060606",
+      "position": 5,
+      "side": "L",
+      "name": "col_05",
+      "data_type": "VARCHAR(50)",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "03030305",
+      "position": 5,
+      "side": "R",
+      "name": "col_05",
+      "data_type": "VARCHAR(50)",
+      "nullable": true
+    }
+  },
+  {
+    "left": {
+      "tag": "delete",
+      "block": "04060606",
+      "position": 6,
+      "side": "L",
+      "name": "col_06",
+      "data_type": "INT",
+      "nullable": true
+    },
+    "right": {
+      "tag": "insert",
+      "block": "03030305",
+      "position": 4,
+      "side": "R",
+      "name": "col_06",
+      "data_type": "INT",
+      "nullable": true
+    }
+  },
+  {
+    "left": {
+      "tag": "replace",
+      "block": "08090809",
+      "position": 9,
+      "side": "L",
+      "name": "col_09",
+      "data_type": "TIMESTAMP",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "01020102",
+      "position": 2,
+      "side": "R",
+      "name": "col_09",
+      "data_type": "TIMESTAMP",
+      "nullable": false
+    }
+  }
+]
