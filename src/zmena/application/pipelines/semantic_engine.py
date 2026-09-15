@@ -34,15 +34,15 @@ class SemanticEnginePipeline(Pipeline):
         fragment_bridge = FragmentBridge()
         hypothesis_bridge = HypothesisBridge(fragment_bridge)
         decision_bridge = DecisionBridge(LinkBridge(fragment_bridge))
-        fragments_snap = [fragment_bridge.translate(fragment) for fragment in fragments]
-        hypotheses_snap = [hypothesis_bridge.translate(hypothesis) for hypothesis in hypotheses]
-        decisions_snap = [decision_bridge.translate(decision) for decision in decisions]
+        fragment_snapshots = [fragment_bridge.translate(fragment) for fragment in fragments]
+        hypothesis_snapshots = [
+            hypothesis_bridge.translate(hypothesis) for hypothesis in hypotheses
+        ]
+        decision_snapshots = [decision_bridge.translate(decision) for decision in decisions]
 
         return SemanticEngineOutboundMessage(
-            fragments=fragments,
-            fragments_snap=fragments_snap,
-            hypotheses=hypotheses_snap,
+            fragments=fragment_snapshots,
+            hypotheses=hypothesis_snapshots,
             components=components,
-            decisions=decisions,
-            decisions_snap=decisions_snap,
+            decisions=decision_snapshots,
         )
