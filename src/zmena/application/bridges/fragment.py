@@ -12,7 +12,7 @@ class FragmentBridge(Bridge):
             tag=fragment.tag.value,
             block=fragment.block,
             position=fragment.position,
-            side=fragment.side,
+            side=fragment.side.value,
             name=fragment.name,
             data_type=fragment.data_type,
             nullable=fragment.constraint != "NOT NULL",

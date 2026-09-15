@@ -1,5 +1,6 @@
 from zmena.application.bridges.decision import DecisionBridge
 from zmena.application.bridges.fragment import FragmentBridge
+from zmena.application.bridges.hypothesis import HypothesisBridge
 from zmena.application.bridges.link import LinkBridge
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.messages.outbound.semantic_engine import SemanticEngineOutboundMessage
@@ -30,13 +31,18 @@ class SemanticEnginePipeline(Pipeline):
         decision_resolver = DecisionResolver(components)
         decisions = decision_resolver.resolve()
 
-        bridge = DecisionBridge(LinkBridge(FragmentBridge()))
-        decisions_new = [bridge.translate(decision) for decision in decisions]
+        fragment_bridge = FragmentBridge()
+        hypothesis_bridge = HypothesisBridge(fragment_bridge)
+        decision_bridge = DecisionBridge(LinkBridge(fragment_bridge))
+        fragments_snap = [fragment_bridge.translate(fragment) for fragment in fragments]
+        hypotheses_snap = [hypothesis_bridge.translate(hypothesis) for hypothesis in hypotheses]
+        decisions_snap = [decision_bridge.translate(decision) for decision in decisions]
 
         return SemanticEngineOutboundMessage(
             fragments=fragments,
-            hypotheses=hypotheses,
+            fragments_snap=fragments_snap,
+            hypotheses=hypotheses_snap,
             components=components,
             decisions=decisions,
-            decisions_new=decisions_new,
+            decisions_snap=decisions_snap,
         )

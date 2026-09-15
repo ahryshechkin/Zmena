@@ -12,14 +12,6 @@ class Fragment:
         self.data_type = data_type
         self.constraint = constraint
 
-    def __str__(self):
-        constraint = self.constraint or ""
-        return (
-            f"{self.tag:>8} | {self.block:>8} | "
-            f"{self.position:>8} | {self.side:>4} | "
-            f"{self.name:<7} | {self.data_type:<13} | {constraint:>10}"
-        )
-
     def __repr__(self):
         return f"Fragment(tag={self.tag},name={self.name})"
 
