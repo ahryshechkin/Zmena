@@ -1,0 +1,22 @@
+[
+  {
+    "left": {
+      "tag": "replace",
+      "block": "00010001",
+      "position": 1,
+      "side": "L",
+      "name": "col_01",
+      "data_type": "INT",
+      "nullable": false
+    },
+    "right": {
+      "tag": "replace",
+      "block": "00010001",
+      "position": 1,
+      "side": "R",
+      "name": "col_11",
+      "data_type": "INT",
+      "nullable": false
+    }
+  }
+]
