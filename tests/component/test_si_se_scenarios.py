@@ -14,9 +14,6 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
         self.sce_catalog = ScenarioCatalog()
         self.fix_catalog = SEFixtureCatalog()
 
-    def normalize(self, link):
-        return str(link).split("|", 1)[1]
-
     def execute_pipeline(self, scenario):
         sii_message = SQLIntakeInboundMessage(
             label=scenario.sce_id, name=scenario.name, before=scenario.before, after=scenario.after
