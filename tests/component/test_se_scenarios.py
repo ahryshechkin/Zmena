@@ -12,9 +12,6 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         self.sce_catalog = ScenarioCatalog()
         self.fix_catalog = SEFixtureCatalog()
 
-    def normalize(self, link):
-        return str(link).split("|", 1)[1]
-
     def execute_pipeline(self, scenario):
         sei_message = SemanticEngineInboundMessage(
             before=scenario.before.splitlines(), after=scenario.after.splitlines()
@@ -22,12 +19,8 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        winners = []
-        for decision in seo_message.decisions:
-            winners.extend([self.normalize(link) for link in decision.winners()])
-
         selected_links = []
-        for decision in seo_message.decisions_snap:
+        for decision in seo_message.decisions:
             selected_links.extend(decision.selected_links)
 
         return selected_links
