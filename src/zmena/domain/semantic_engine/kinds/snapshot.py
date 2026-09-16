@@ -6,5 +6,6 @@ class SnapshotKind(StrEnum):
     DECISION = "decision"
     FRAGMENT = "fragment"
     HYPOTHESIS = "hypothesis"
+    LIGHTWEIGHT_LINK = "lightweight link"
     LINK = "link"
     UNDEFINED = "undefined"
