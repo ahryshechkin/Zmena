@@ -8,7 +8,4 @@ class LightweightLinkBridge(Bridge):
         super().__init__(BridgeKind.LIGHTWEIGHT_LINK)
 
     def translate(self, link):
-        return LightweightLinkSnapshot(
-            left=link.left,
-            right=link.right,
-        )
+        return LightweightLinkSnapshot(left=link.left, right=link.right)

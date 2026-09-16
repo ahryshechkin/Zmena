@@ -1,7 +1,7 @@
 import json
 
 from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot
-from zmena.domain.semantic_engine.snapshots.link import LinkSnapshot
+from zmena.domain.semantic_engine.snapshots.lightweight_link import LightweightLinkSnapshot
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 
@@ -15,7 +15,9 @@ class SEFixtureCatalog:
 
         links = []
         for item in items:
-            link = LinkSnapshot(FragmentSnapshot(**item["left"]), FragmentSnapshot(**item["right"]))
+            link = LightweightLinkSnapshot(
+                left=FragmentSnapshot(**item["left"]), right=FragmentSnapshot(**item["right"])
+            )
             links.append(link)
 
         return links

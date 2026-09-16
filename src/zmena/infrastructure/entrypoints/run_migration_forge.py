@@ -16,7 +16,7 @@ for scenario in catalog.get_many(sce_ids):
     seo_message = pipeline.run()
 
     bridge = MatchBundleBridge(StateBridge())
-    matches = bridge.translate(seo_message.decisions_new)
+    matches = bridge.translate(seo_message.decisions)
 
     mfi_message = MigrationForgeInboundMessage(matches=matches)
     pipeline = MigrationForgePipeline(mfi_message)
