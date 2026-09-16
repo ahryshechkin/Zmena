@@ -11,10 +11,10 @@ class MatchBundleBridge(Bridge):
     def translate(self, decisions):
         matches = []
         for decision in decisions:
-            for selected_link in decision.selected_links:
+            for winner in decision.winners:
                 match = MatchSnapshot(
-                    before=self.bridge.translate(selected_link.left),
-                    after=self.bridge.translate(selected_link.right),
+                    before=self.bridge.translate(winner.left),
+                    after=self.bridge.translate(winner.right),
                 )
                 matches.append(match)
 
