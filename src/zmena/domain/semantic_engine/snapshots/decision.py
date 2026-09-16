@@ -6,10 +6,11 @@ from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 @dataclass
 class DecisionSnapshot(Snapshot):
-    selected_links: list
+    candidates: list
+    winners: list
 
     def __repr__(self):
-        return f"DecisionSnapshot(selected_links={len(self.selected_links)})"
+        return f"DecisionSnapshot(winners={len(self.winners)})"
 
     def __post_init__(self):
         super().__init__(SnapshotKind.DECISION)

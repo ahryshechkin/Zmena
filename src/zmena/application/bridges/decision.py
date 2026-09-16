@@ -9,6 +9,7 @@ class DecisionBridge(Bridge):
         self.bridge = bridge
 
     def translate(self, decision):
-        selected_links = [self.bridge.translate(link) for link in decision.winners()]
+        candidates = [self.bridge.translate(link) for link in decision.candidates()]
+        winners = [self.bridge.translate(link) for link in decision.winners()]
 
-        return DecisionSnapshot(selected_links=selected_links)
+        return DecisionSnapshot(candidates=candidates, winners=winners)

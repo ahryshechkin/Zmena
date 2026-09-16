@@ -15,4 +15,5 @@ class LinkBridge(Bridge):
             score=link.score(),
             left=self.bridge.translate(left),
             right=self.bridge.translate(right),
+            evidences=link.evidences,
         )

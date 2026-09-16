@@ -6,13 +6,12 @@ class LinkProjection:
         self.link = link
 
     def formatted_header(self):
-        left, right = self.link.fragments()
-        return (
-            f"Link: {FragmentProjection(left).caption()} -> {FragmentProjection(right).caption()}"
-        )
+        left = FragmentProjection(self.link.left).caption()
+        right = FragmentProjection(self.link.right).caption()
+        return f"Link: {left} -> {right}"
 
     def formatted_score(self):
-        return f"Score: {self.link.score()}"
+        return f"Score: {self.link.score}"
 
     def evidences(self):
         return self.link.evidences

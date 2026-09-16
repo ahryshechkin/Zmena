@@ -4,7 +4,7 @@ from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.representation.analysis_report import AnalysisReport
 
-sce_ids = ["403"]
+sce_ids = ["071"]
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     sei_message = SemanticEngineInboundMessage(
@@ -27,7 +27,7 @@ for scenario in catalog.get_many(sce_ids):
 
     report = AnalysisReport(ari_message)
     report.show_sql_diff()
-    # report.show_fragments()
-    # report.show_hypotheses()
-    # report.show_components()
-    # report.show_decisions()
+    report.show_fragments()
+    report.show_hypotheses()
+    report.show_components()
+    report.show_decisions()
