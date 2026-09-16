@@ -1,5 +1,6 @@
 import unittest
 
+from zmena.application.bridges.lightweight_link import LightweightLinkBridge
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -19,11 +20,12 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        selected_links = []
+        bridge = LightweightLinkBridge()
+        winners = []
         for decision in seo_message.decisions:
-            selected_links.extend(decision.selected_links)
+            winners.extend(decision.winners)
 
-        return selected_links
+        return [bridge.translate(winner) for winner in winners]
 
     def test_sce_011_add_column_not_null(self):
         scenario = self.sce_catalog.get("011")
