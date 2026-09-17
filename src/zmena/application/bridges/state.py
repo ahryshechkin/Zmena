@@ -12,7 +12,5 @@ class StateBridge(Bridge):
             return None
 
         return StateSnapshot(
-            name=fragment.name,
-            data_type=fragment.data_type,
-            nullable=fragment.nullable,
+            name=fragment.name, data_type=fragment.data_type, nullable=fragment.nullable
         )

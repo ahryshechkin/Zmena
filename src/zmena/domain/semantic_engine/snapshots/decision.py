@@ -10,7 +10,7 @@ class DecisionSnapshot(Snapshot):
     winners: list
 
     def __repr__(self):
-        return f"DecisionSnapshot(winners={len(self.winners)})"
+        return f"DecisionSnapshot(candidates={len(self.candidates)},winners={len(self.winners)})"
 
     def __post_init__(self):
         super().__init__(SnapshotKind.DECISION)
