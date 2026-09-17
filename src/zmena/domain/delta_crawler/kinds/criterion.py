@@ -6,3 +6,4 @@ class CriterionKind(StrEnum):
     EXCLUDED_DIRECTORIES = "excluded directories"
     INCLUDED_EXTENSIONS = "included extensions"
     INCLUDED_DIRECTORIES = "included directories"
+    UNDEFINED = "undefined"

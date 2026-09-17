@@ -1,5 +1,6 @@
 import unittest
 
+from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
 from zmena.domain.delta_crawler.criteria.included_directories import IncludedDirectoriesCriterion
@@ -7,8 +8,20 @@ from zmena.domain.delta_crawler.criteria.included_extensions import IncludedExte
 from zmena.domain.delta_crawler.kinds.criterion import CriterionKind
 
 
+class TestCriterion(unittest.TestCase):
+    def setUp(self):
+        self.criterion = Criterion(kind=CriterionKind.UNDEFINED)
+
+    def test_init(self):
+        self.assertEqual(CriterionKind.UNDEFINED, self.criterion.kind)
+
+    def test_repr(self):
+        self.assertEqual("Criterion(kind=undefined)", repr(self.criterion))
+
+
 class TestExcludedDirectoriesCriterion(unittest.TestCase):
     def setUp(self):
+        self.criterion = ExcludedDirectoriesCriterion([])
         self.samples = [
             "code/scripts/script.py",
             "code/scripts/script.y",
@@ -176,13 +189,16 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_init(self):
+        self.assertEqual(CriterionKind.EXCLUDED_DIRECTORIES, self.criterion.kind)
+
     def test_repr(self):
-        criterion = ExcludedDirectoriesCriterion(CriterionKind.EXCLUDED_DIRECTORIES)
-        self.assertEqual("Criterion(kind=excluded directories)", repr(criterion))
+        self.assertEqual("Criterion(kind=excluded directories)", repr(self.criterion))
 
 
 class TestExcludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
+        self.criterion = ExcludedExtensionsCriterion([])
         self.samples = [
             "code/scripts/script.py",
             "code/scripts/script.y",
@@ -271,13 +287,16 @@ class TestExcludedExtensionsCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_init(self):
+        self.assertEqual(CriterionKind.EXCLUDED_EXTENSIONS, self.criterion.kind)
+
     def test_repr(self):
-        criterion = ExcludedExtensionsCriterion(CriterionKind.EXCLUDED_EXTENSIONS)
-        self.assertEqual("Criterion(kind=excluded extensions)", repr(criterion))
+        self.assertEqual("Criterion(kind=excluded extensions)", repr(self.criterion))
 
 
 class TestIncludedDirectoriesCriterion(unittest.TestCase):
     def setUp(self):
+        self.criterion = IncludedDirectoriesCriterion([])
         self.samples = [
             "code/scripts/script.py",
             "code/scripts/script.y",
@@ -389,13 +408,16 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_init(self):
+        self.assertEqual(CriterionKind.INCLUDED_DIRECTORIES, self.criterion.kind)
+
     def test_repr(self):
-        criterion = IncludedDirectoriesCriterion(CriterionKind.INCLUDED_DIRECTORIES)
-        self.assertEqual("Criterion(kind=included directories)", repr(criterion))
+        self.assertEqual("Criterion(kind=included directories)", repr(self.criterion))
 
 
 class TestIncludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
+        self.criterion = IncludedExtensionsCriterion([])
         self.samples = [
             "code/scripts/script.py",
             "code/scripts/script.y",
@@ -470,6 +492,8 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
+    def test_init(self):
+        self.assertEqual(CriterionKind.INCLUDED_EXTENSIONS, self.criterion.kind)
+
     def test_repr(self):
-        criterion = IncludedExtensionsCriterion(CriterionKind.INCLUDED_EXTENSIONS)
-        self.assertEqual("Criterion(kind=included extensions)", repr(criterion))
+        self.assertEqual("Criterion(kind=included extensions)", repr(self.criterion))
