@@ -1,11 +1,11 @@
 class Hypothesis:
-    def __init__(self, rule_kind, left, right):
-        self.rule_kind = rule_kind
+    def __init__(self, kind, left, right):
+        self.kind = kind
         self.left = left
         self.right = right
 
     def __repr__(self):
-        return f"Hypothesis(rule={self.rule_kind})"
+        return f"Hypothesis(kind={self.kind})"
 
     def key(self):
         return self.left, self.right

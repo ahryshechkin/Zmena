@@ -13,7 +13,7 @@ class ColumnSpec:
         self.match = self.PATTERN.search(line)
 
     def __repr__(self):
-        return "ColumnSpec"
+        return f"ColumnSpec(line={self.match.string})"
 
     def name(self):
         return self.match.group("name")
