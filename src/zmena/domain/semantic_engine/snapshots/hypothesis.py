@@ -7,15 +7,15 @@ from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 @dataclass
 class HypothesisSnapshot(Snapshot):
-    rule_kind: str
+    kind: str
     left: FragmentSnapshot | None
     right: FragmentSnapshot | None
 
     def __str__(self):
-        return f"{self.rule_kind:>18} | #### | {self.left} | #### | {self.right}"
+        return f"{self.kind:>18} | #### | {self.left} | #### | {self.right}"
 
     def __repr__(self):
-        return f"HypothesisSnapshot(rule={self.rule_kind})"
+        return f"HypothesisSnapshot(kind={self.kind})"
 
     def __post_init__(self):
         super().__init__(SnapshotKind.HYPOTHESIS)

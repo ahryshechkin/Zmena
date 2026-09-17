@@ -12,7 +12,7 @@ class HypothesisBridge(Bridge):
         left, right = hypothesis.key()
 
         return HypothesisSnapshot(
-            rule_kind=hypothesis.rule_kind.value,
+            kind=hypothesis.kind.value,
             left=self.bridge.translate(left),
             right=self.bridge.translate(right),
         )

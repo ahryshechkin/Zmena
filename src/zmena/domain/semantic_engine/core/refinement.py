@@ -6,7 +6,7 @@ class Refinement:
         self.lenses = lenses
 
     def __repr__(self):
-        return "Refinement"
+        return f"Refinement(lenses={len(self.lenses)})"
 
     def reassess(self, links):
         context = Context(links)
