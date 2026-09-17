@@ -9,3 +9,4 @@ class RuleKind(StrEnum):
     NAME = "name"
     POSITION = "position"
     SIGNATURE = "signature"
+    UNDEFINED = "undefined"

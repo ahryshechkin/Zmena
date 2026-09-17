@@ -5,3 +5,4 @@ class PresetKind(StrEnum):
     HEURISTICS = "heuristics"
     LENSES = "lenses"
     RULES = "rules"
+    UNDEFINED = "undefined"
