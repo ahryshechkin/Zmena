@@ -52,4 +52,4 @@ class TestHypothesis(unittest.TestCase):
         self.assertEqual(self.right, self.hypothesis.neighbor(self.left))
 
     def test_repr(self):
-        self.assertEqual("Hypothesis(rule=position)", repr(self.hypothesis))
+        self.assertEqual("Hypothesis(kind=position)", repr(self.hypothesis))

@@ -32,4 +32,4 @@ class TestColumnSpec(unittest.TestCase):
 
     def test_repr(self):
         column_spec = ColumnSpec("col_01 INT NOT NULL")
-        self.assertEqual("ColumnSpec", repr(column_spec))
+        self.assertEqual("ColumnSpec(line=col_01 INT NOT NULL)", repr(column_spec))
