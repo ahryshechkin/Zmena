@@ -7,3 +7,4 @@ class TagKind(StrEnum):
     INSERT = "insert"
     REPLACE = "replace"
     STUB = "stub"
+    UNDEFINED = "undefined1"
