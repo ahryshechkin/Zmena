@@ -1,5 +1,5 @@
-from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
+from zmena.application.messages.inbound.report_hub import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
@@ -8,7 +8,7 @@ from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
 from zmena.infrastructure.adapters.commands.git import GitCommand
 from zmena.infrastructure.project_directory import ProjectDirectory
-from zmena.infrastructure.representation.analysis_report import AnalysisReport
+from zmena.infrastructure.representation import AnalysisReport
 
 catalog = CommitCatalog()
 # catalog.cleanup_demo_repo()

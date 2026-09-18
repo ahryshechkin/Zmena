@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class AnalysisReportInboundMessage:
+class ReportHubInboundMessage:
     kind: str
     label: str
     name: str
@@ -14,4 +14,4 @@ class AnalysisReportInboundMessage:
     decisions: list
 
     def __repr__(self):
-        return f"AnalysisReportInboundMessage(kind={self.kind},label={self.label})"
+        return f"ReportHubInboundMessage(kind={self.kind},label={self.label})"

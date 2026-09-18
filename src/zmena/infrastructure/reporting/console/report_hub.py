@@ -1,16 +1,16 @@
-from zmena.infrastructure.representation.reports.component import ComponentReport
-from zmena.infrastructure.representation.reports.decision import DecisionReport
-from zmena.infrastructure.representation.reports.fragment import FragmentReport
-from zmena.infrastructure.representation.reports.hypothesis import HypothesisReport
-from zmena.infrastructure.representation.reports.sql_diff import SQLDiffReport
+from zmena.infrastructure.reporting.console.reports.component import ComponentReport
+from zmena.infrastructure.reporting.console.reports.decision import DecisionReport
+from zmena.infrastructure.reporting.console.reports.fragment import FragmentReport
+from zmena.infrastructure.reporting.console.reports.hypothesis import HypothesisReport
+from zmena.infrastructure.reporting.console.reports.sql_diff import SQLDiffReport
 
 
-class AnalysisReport:
+class ReportHub:
     def __init__(self, message):
         self.message = message
 
     def __repr__(self):
-        return f"AnalysisReport(sce_id={self.message.label},name={self.message.name})"
+        return f"ReportHub(sce_id={self.message.label},name={self.message.name})"
 
     def show_sql_diff(self):
         report = SQLDiffReport(self.message)

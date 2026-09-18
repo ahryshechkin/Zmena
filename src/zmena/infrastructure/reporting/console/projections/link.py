@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.projections.fragment import FragmentProjection
+from zmena.infrastructure.reporting.console.projections.fragment import FragmentProjection
 
 
 class LinkProjection:

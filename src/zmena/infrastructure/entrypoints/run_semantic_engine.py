@@ -1,8 +1,8 @@
-from zmena.application.messages.inbound.analysis_report import AnalysisReportInboundMessage
+from zmena.application.messages.inbound.report_hub import ReportHubInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
-from zmena.infrastructure.representation.analysis_report import AnalysisReport
+from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 sce_ids = ["071"]
 catalog = ScenarioCatalog()
@@ -13,7 +13,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    ari_message = AnalysisReportInboundMessage(
+    rhi_message = ReportHubInboundMessage(
         kind="SCE",
         label=scenario.sce_id,
         name=scenario.name,
@@ -25,9 +25,9 @@ for scenario in catalog.get_many(sce_ids):
         decisions=seo_message.decisions,
     )
 
-    report = AnalysisReport(ari_message)
-    report.show_sql_diff()
-    report.show_fragments()
-    report.show_hypotheses()
-    report.show_components()
-    report.show_decisions()
+    hub = ReportHub(rhi_message)
+    hub.show_sql_diff()
+    hub.show_fragments()
+    hub.show_hypotheses()
+    hub.show_components()
+    hub.show_decisions()
