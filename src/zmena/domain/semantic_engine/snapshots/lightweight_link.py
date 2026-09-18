@@ -11,7 +11,9 @@ class LightweightLinkSnapshot(Snapshot):
     right: FragmentSnapshot | None
 
     def __repr__(self):
-        return f"LightweightLinkSnapshot(left={self.left is None},right={self.right is None})"
+        return (
+            f"LightweightLinkSnapshot(left={self.left is not None},right={self.right is not None})"
+        )
 
     def __post_init__(self):
         super().__init__(SnapshotKind.LIGHTWEIGHT_LINK)
