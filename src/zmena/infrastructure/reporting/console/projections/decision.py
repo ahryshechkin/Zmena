@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.projections.link import LinkProjection
+from zmena.infrastructure.reporting.console.projections.link import LinkProjection
 
 
 class DecisionProjection:

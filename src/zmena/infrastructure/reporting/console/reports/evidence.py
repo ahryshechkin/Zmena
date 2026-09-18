@@ -1,6 +1,6 @@
 import re
 
-from zmena.infrastructure.representation.ansi_color import ANSIColor
+from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 
 class EvidenceReport:

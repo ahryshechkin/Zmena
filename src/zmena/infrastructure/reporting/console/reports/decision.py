@@ -1,7 +1,7 @@
-from zmena.infrastructure.representation.layouts.composite import CompositeReport
-from zmena.infrastructure.representation.projections.decision import DecisionProjection
-from zmena.infrastructure.representation.reports.evidence import EvidenceReport
-from zmena.infrastructure.representation.reports.link import LinkReport
+from zmena.infrastructure.reporting.console.layouts.composite import CompositeReport
+from zmena.infrastructure.reporting.console.projections.decision import DecisionProjection
+from zmena.infrastructure.reporting.console.reports.evidence import EvidenceReport
+from zmena.infrastructure.reporting.console.reports.link import LinkReport
 
 
 class DecisionReport(CompositeReport):

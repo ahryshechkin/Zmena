@@ -1,4 +1,4 @@
-from zmena.infrastructure.representation.layouts.basic import BasicReport
+from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
 
 
 class FragmentReport(BasicReport):

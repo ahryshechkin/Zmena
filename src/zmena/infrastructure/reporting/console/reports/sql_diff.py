@@ -3,8 +3,8 @@ from difflib import SequenceMatcher
 from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.kinds.tag import TagKind
-from zmena.infrastructure.representation.ansi_color import ANSIColor
-from zmena.infrastructure.representation.layouts.basic import BasicReport
+from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
+from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
 
 
 class SQLDiffReport(BasicReport):
