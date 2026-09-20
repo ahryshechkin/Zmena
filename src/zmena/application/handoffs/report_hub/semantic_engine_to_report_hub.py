@@ -6,14 +6,14 @@ from zmena.application.handoffs.report_hub.bridges.link import LinkBridge
 from zmena.application.messages.inbound.report_hub import ReportHubInboundMessage
 
 
-class ReportHubHandoff:
-    def __init__(self, kind, scenario, message):
+class SemanticEngineToReportHubHandoff:
+    def __init__(self, kind, scenario, seo_message):
         self.kind = kind
         self.scenario = scenario
-        self.message = message
+        self.seo_message = seo_message
 
     def __repr__(self):
-        return "ReportHubHandoff(messages=sce,sei)"
+        return "SemanticEngineToReportHubHandoff(messages=sce,seo)"
 
     def prepare(self):
         fragment_bridge = FragmentBridge()
@@ -21,14 +21,14 @@ class ReportHubHandoff:
         component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)
         decision_bridge = DecisionBridge(LinkBridge(fragment_bridge))
 
-        fragments = [fragment_bridge.translate(fragment) for fragment in self.message.fragments]
+        fragments = [fragment_bridge.translate(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
-            hypothesis_bridge.translate(hypothesis) for hypothesis in self.message.hypotheses
+            hypothesis_bridge.translate(hypothesis) for hypothesis in self.seo_message.hypotheses
         ]
         components = [
-            component_bridge.translate(component) for component in self.message.components
+            component_bridge.translate(component) for component in self.seo_message.components
         ]
-        decisions = [decision_bridge.translate(decision) for decision in self.message.decisions]
+        decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
 
         return ReportHubInboundMessage(
             kind=self.kind,
