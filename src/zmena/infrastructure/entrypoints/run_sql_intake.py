@@ -1,6 +1,4 @@
-from zmena.application.handoffs.report_hub.semantic_engine_to_report_hub import (
-    SemanticEngineToReportHubHandoff,
-)
+from zmena.application.handoffs.report_hub.semantic_engine import SemanticEngineToReportHubHandoff
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
@@ -21,9 +19,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    handoff = SemanticEngineToReportHubHandoff(
-        kind="SCE", scenario=scenario, seo_message=seo_message
-    )
+    handoff = SemanticEngineToReportHubHandoff("SCE", scenario, seo_message)
     rhi_message = handoff.prepare()
 
     report = ReportHub(rhi_message)
