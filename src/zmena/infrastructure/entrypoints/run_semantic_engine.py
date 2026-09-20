@@ -1,4 +1,4 @@
-from zmena.application.messages.inbound.report_hub import ReportHubInboundMessage
+from zmena.application.handoffs.report_hub.handoff import ReportHubHandoff
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -13,17 +13,8 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    rhi_message = ReportHubInboundMessage(
-        kind="SCE",
-        label=scenario.sce_id,
-        name=scenario.name,
-        before=scenario.before.splitlines(),
-        after=scenario.after.splitlines(),
-        fragments=seo_message.fragments,
-        hypotheses=seo_message.hypotheses,
-        components=seo_message.components,
-        decisions=seo_message.decisions,
-    )
+    handoff = ReportHubHandoff("SCE", scenario, seo_message)
+    rhi_message = handoff.prepare()
 
     hub = ReportHub(rhi_message)
     hub.show_sql_diff()
