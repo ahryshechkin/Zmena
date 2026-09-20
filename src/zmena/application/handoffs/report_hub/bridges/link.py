@@ -1,11 +1,8 @@
-from zmena.application.handoffs.report_hub.bridges.bridge import Bridge
 from zmena.application.handoffs.report_hub.snapshots.link import LinkSnapshot
-from zmena.application.kinds.bridge import BridgeKind
 
 
-class LinkBridge(Bridge):
+class LinkBridge:
     def __init__(self, bridge):
-        super().__init__(BridgeKind.LINK)
         self.bridge = bridge
 
     def translate(self, link):
