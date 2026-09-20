@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 
 from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot  # noqa: TC001
-from zmena.domain.semantic_engine.kinds.snapshot import SnapshotKind
-from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
+from zmena.application.handoffs.test_suite.snapshots.snapshot import Snapshot
 
 
 @dataclass
@@ -14,6 +13,3 @@ class LightweightLinkSnapshot(Snapshot):
         return (
             f"LightweightLinkSnapshot(left={self.left is not None},right={self.right is not None})"
         )
-
-    def __post_init__(self):
-        super().__init__(SnapshotKind.LIGHTWEIGHT_LINK)

@@ -1,12 +1,10 @@
 from dataclasses import dataclass
 
 from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot  # noqa: TC001
-from zmena.domain.semantic_engine.kinds.snapshot import SnapshotKind
-from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 
 @dataclass
-class LinkSnapshot(Snapshot):
+class LinkSnapshot:
     score: int
     left: FragmentSnapshot | None
     right: FragmentSnapshot | None
@@ -17,6 +15,3 @@ class LinkSnapshot(Snapshot):
 
     def __repr__(self):
         return f"LinkSnapshot(score={self.score},evidences={len(self.evidences)})"
-
-    def __post_init__(self):
-        super().__init__(SnapshotKind.LINK)

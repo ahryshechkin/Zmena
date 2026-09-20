@@ -1,6 +1,6 @@
-from zmena.application.bridges.bridge import Bridge
+from zmena.application.handoffs.migration_forge.snapshots.state import StateSnapshot
+from zmena.application.handoffs.report_hub.bridges.bridge import Bridge
 from zmena.application.kinds.bridge import BridgeKind
-from zmena.domain.migration_forge.snapshots.state import StateSnapshot
 
 
 class StateBridge(Bridge):

@@ -1,11 +1,8 @@
 from dataclasses import dataclass
 
-from zmena.domain.semantic_engine.kinds.snapshot import SnapshotKind
-from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
-
 
 @dataclass
-class FragmentSnapshot(Snapshot):
+class FragmentSnapshot:
     tag: str
     block: str
     position: str
@@ -24,6 +21,3 @@ class FragmentSnapshot(Snapshot):
 
     def __repr__(self):
         return f"FragmentSnapshot(tag={self.tag},name={self.name})"
-
-    def __post_init__(self):
-        super().__init__(SnapshotKind.FRAGMENT)

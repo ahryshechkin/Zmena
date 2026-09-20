@@ -1,4 +1,4 @@
-from zmena.application.bridges.bridge import Bridge
+from zmena.application.handoffs.report_hub.bridges.bridge import Bridge
 from zmena.application.handoffs.report_hub.snapshots.hypothesis import HypothesisSnapshot
 from zmena.application.kinds.bridge import BridgeKind
 
