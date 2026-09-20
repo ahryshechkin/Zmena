@@ -5,6 +5,9 @@ class LinkBridge:
     def __init__(self, bridge):
         self.bridge = bridge
 
+    def __repr__(self):
+        return "LinkBridge(bridges=fragment,link)"
+
     def translate(self, link):
         left, right = link.fragments()
 

@@ -12,6 +12,9 @@ class ReportHubHandoff:
         self.scenario = scenario
         self.message = message
 
+    def __repr__(self):
+        return "ReportHubHandoff(messages=sce,sei)"
+
     def prepare(self):
         fragment_bridge = FragmentBridge()
         hypothesis_bridge = HypothesisBridge(fragment_bridge)
