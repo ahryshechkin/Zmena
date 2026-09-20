@@ -1,11 +1,8 @@
-from zmena.application.handoffs.report_hub.bridges.bridge import Bridge
 from zmena.application.handoffs.report_hub.snapshots.component import ComponentSnapshot
-from zmena.application.kinds.bridge import BridgeKind
 
 
-class ComponentBridge(Bridge):
+class ComponentBridge:
     def __init__(self, fragment_bridge, hypothesis_bridge):
-        super().__init__(BridgeKind.COMPONENT)
         self.fragment_bridge = fragment_bridge
         self.hypothesis_bridge = hypothesis_bridge
 

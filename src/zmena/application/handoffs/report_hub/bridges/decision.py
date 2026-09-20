@@ -1,11 +1,8 @@
-from zmena.application.handoffs.report_hub.bridges.bridge import Bridge
 from zmena.application.handoffs.report_hub.snapshots.decision import DecisionSnapshot
-from zmena.application.kinds.bridge import BridgeKind
 
 
-class DecisionBridge(Bridge):
+class DecisionBridge:
     def __init__(self, bridge):
-        super().__init__(BridgeKind.DECISION)
         self.bridge = bridge
 
     def translate(self, decision):
