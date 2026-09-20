@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
+from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot  # noqa: TC001
 from zmena.domain.semantic_engine.kinds.snapshot import SnapshotKind
-from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot  # noqa: TC001
 from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 

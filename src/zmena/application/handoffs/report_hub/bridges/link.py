@@ -1,6 +1,6 @@
 from zmena.application.bridges.bridge import Bridge
+from zmena.application.handoffs.report_hub.snapshots.link import LinkSnapshot
 from zmena.application.kinds.bridge import BridgeKind
-from zmena.domain.semantic_engine.snapshots.link import LinkSnapshot
 
 
 class LinkBridge(Bridge):

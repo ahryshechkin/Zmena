@@ -1,6 +1,6 @@
 import json
 
-from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot
+from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot
 from zmena.domain.semantic_engine.snapshots.lightweight_link import LightweightLinkSnapshot
 from zmena.infrastructure.project_directory import ProjectDirectory
 
