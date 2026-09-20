@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.handoffs.migration_forge.snapshots import StateSnapshot
+from zmena.application.handoffs.migration_forge.snapshots.state import StateSnapshot
 
 
 class TestState(unittest.TestCase):
