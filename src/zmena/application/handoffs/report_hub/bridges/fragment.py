@@ -1,6 +1,6 @@
 from zmena.application.bridges.bridge import Bridge
+from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot
 from zmena.application.kinds.bridge import BridgeKind
-from zmena.domain.semantic_engine.snapshots.fragment import FragmentSnapshot
 
 
 class FragmentBridge(Bridge):
