@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.bridges.lightweight_link import LightweightLinkBridge
+from zmena.application.handoffs.test_suite.bridges.lightweight_link import LightweightLinkBridge
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline

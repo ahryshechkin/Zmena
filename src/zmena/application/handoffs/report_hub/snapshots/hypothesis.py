@@ -1,12 +1,10 @@
 from dataclasses import dataclass
 
 from zmena.application.handoffs.report_hub.snapshots.fragment import FragmentSnapshot  # noqa: TC001
-from zmena.domain.semantic_engine.kinds.snapshot import SnapshotKind
-from zmena.domain.semantic_engine.snapshots.snapshot import Snapshot
 
 
 @dataclass
-class HypothesisSnapshot(Snapshot):
+class HypothesisSnapshot:
     kind: str
     left: FragmentSnapshot | None
     right: FragmentSnapshot | None
@@ -16,6 +14,3 @@ class HypothesisSnapshot(Snapshot):
 
     def __repr__(self):
         return f"HypothesisSnapshot(kind={self.kind})"
-
-    def __post_init__(self):
-        super().__init__(SnapshotKind.HYPOTHESIS)

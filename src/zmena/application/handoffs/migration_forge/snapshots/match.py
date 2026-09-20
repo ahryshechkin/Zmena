@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
+from zmena.application.handoffs.migration_forge.snapshots.snapshot import Snapshot
+from zmena.application.handoffs.migration_forge.snapshots.state import StateSnapshot  # noqa: TC001
 from zmena.domain.migration_forge.kinds.snapshot import SnapshotKind
-from zmena.domain.migration_forge.snapshots.snapshot import Snapshot
-from zmena.domain.migration_forge.snapshots.state import StateSnapshot  # noqa: TC001
 
 
 @dataclass

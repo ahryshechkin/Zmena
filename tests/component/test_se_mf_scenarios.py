@@ -1,7 +1,7 @@
 import unittest
 
-from zmena.application.bridges.match_bundle import MatchBundleBridge
-from zmena.application.bridges.state import StateBridge
+from zmena.application.handoffs.migration_forge.bridges.match_bundle import MatchBundleBridge
+from zmena.application.handoffs.migration_forge.bridges.state import StateBridge
 from zmena.application.messages.inbound.migration_forge import MigrationForgeInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
