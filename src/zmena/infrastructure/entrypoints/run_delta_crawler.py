@@ -1,5 +1,7 @@
+from zmena.application.handoffs.report_hub.delta_crawler_to_report_hub import (
+    DeltaCrawlerToReportHubHandoff,
+)
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
-from zmena.application.messages.inbound.report_hub import AnalysisReportInboundMessage
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
@@ -8,7 +10,7 @@ from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
 from zmena.infrastructure.adapters.commands.git import GitCommand
 from zmena.infrastructure.project_directory import ProjectDirectory
-from zmena.infrastructure.representation import AnalysisReport
+from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 catalog = CommitCatalog()
 # catalog.cleanup_demo_repo()
@@ -33,19 +35,12 @@ for dco_message in pipeline.run(command):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    ari_message = AnalysisReportInboundMessage(
-        kind="CMT",
-        label=sii_message.label,
-        name=sii_message.name,
-        before=sio_message.before,
-        after=sio_message.after,
-        fragments=seo_message.fragments,
-        hypotheses=seo_message.hypotheses,
-        components=seo_message.components,
-        decisions=seo_message.decisions,
+    handoff = DeltaCrawlerToReportHubHandoff(
+        kind="CMT", dco_message=dco_message, sio_message=sio_message, seo_message=seo_message
     )
+    rhi_message = handoff.prepare()
 
-    report = AnalysisReport(ari_message)
+    report = ReportHub(rhi_message)
     report.show_sql_diff()
     report.show_fragments()
     report.show_hypotheses()
