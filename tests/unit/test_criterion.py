@@ -12,7 +12,7 @@ class TestCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = Criterion(kind=CriterionKind.UNDEFINED)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(CriterionKind.UNDEFINED, self.criterion.kind)
 
     def test_repr(self):
@@ -189,7 +189,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(CriterionKind.EXCLUDED_DIRECTORIES, self.criterion.kind)
 
     def test_repr(self):
@@ -287,7 +287,7 @@ class TestExcludedExtensionsCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(CriterionKind.EXCLUDED_EXTENSIONS, self.criterion.kind)
 
     def test_repr(self):
@@ -408,7 +408,7 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_DIRECTORIES, self.criterion.kind)
 
     def test_repr(self):
@@ -492,7 +492,7 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_EXTENSIONS, self.criterion.kind)
 
     def test_repr(self):

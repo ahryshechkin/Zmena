@@ -14,7 +14,7 @@ class TestAddColumnStatement(unittest.TestCase):
     def setUp(self):
         self.statement = AddColumnStatement(name="col_08", data_type="DATE", nullable=False)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.ADD_COLUMN, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
         self.assertEqual("DATE", self.statement.data_type)
@@ -30,7 +30,7 @@ class TestAlterDataTypeStatement(unittest.TestCase):
     def setUp(self):
         self.statement = AlterDataTypeStatement(name="col_08", data_type="TIMESTAMP")
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.ALTER_DATA_TYPE, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
         self.assertEqual("TIMESTAMP", self.statement.data_type)
@@ -46,7 +46,7 @@ class TestDropColumnStatement(unittest.TestCase):
     def setUp(self):
         self.statement = DropColumnStatement(name="col_08")
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.DROP_COLUMN, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
 
@@ -58,7 +58,7 @@ class TestDropNotNullStatement(unittest.TestCase):
     def setUp(self):
         self.statement = DropNotNullStatement(name="col_08")
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.DROP_NOT_NULL, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
 
@@ -70,7 +70,7 @@ class TestRenameColumnStatement(unittest.TestCase):
     def setUp(self):
         self.statement = RenameColumnStatement(old_name="col_08", new_name="col_88")
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.RENAME_COLUMN, self.statement.kind)
         self.assertEqual("col_08", self.statement.old_name)
         self.assertEqual("col_88", self.statement.new_name)
@@ -85,7 +85,7 @@ class TestSetNotNullStatement(unittest.TestCase):
     def setUp(self):
         self.statement = SetNotNullStatement(name="col_08")
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.SET_NOT_NULL, self.statement.kind)
         self.assertEqual("col_08", self.statement.name)
 
@@ -97,7 +97,7 @@ class TestStatement(unittest.TestCase):
     def setUp(self):
         self.statement = Statement(kind=StatementKind.UNDEFINED)
 
-    def test_init(self):
+    def test_init_execution(self):
         self.assertEqual(StatementKind.UNDEFINED, self.statement.kind)
 
     def test_repr(self):
