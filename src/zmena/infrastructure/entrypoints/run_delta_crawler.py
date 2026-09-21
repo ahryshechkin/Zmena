@@ -1,6 +1,6 @@
 from zmena.application.handoffs.report_hub.delta_crawler import DeltaCrawlerToReportHubHandoff
+from zmena.application.handoffs.sematic_engine.sql_intake import SQLIntakeToSemanticEngineHandoff
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
-from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
@@ -29,7 +29,9 @@ for dco_message in pipeline.run(command):
     pipeline = SQLIntakePipeline(sii_message)
     sio_message = pipeline.run()
 
-    sei_message = SemanticEngineInboundMessage(before=sio_message.before, after=sio_message.after)
+    handoff = SQLIntakeToSemanticEngineHandoff(sio_message)
+    sei_message = handoff.prepare()
+
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
