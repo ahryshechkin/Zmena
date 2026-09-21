@@ -1,8 +1,8 @@
 import unittest
 
-from zmena.application.handoffs.migration_forge.bridges.match_bundle import MatchBundleBridge
-from zmena.application.handoffs.migration_forge.bridges.state import StateBridge
-from zmena.application.messages.inbound.migration_forge import MigrationForgeInboundMessage
+from zmena.application.handoffs.migration_forge.semantic_engine import (
+    SemanticEngineToMigrationForgeHandoff,
+)
 from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
@@ -31,10 +31,9 @@ class TestSQLIntakeSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        bridge = MatchBundleBridge(StateBridge())
-        matches = bridge.translate(seo_message.decisions)
+        handoff = SemanticEngineToMigrationForgeHandoff(seo_message)
+        mfi_message = handoff.prepare()
 
-        mfi_message = MigrationForgeInboundMessage(matches=matches)
         pipeline = MigrationForgePipeline(mfi_message)
         mfo_message = pipeline.run()
 

@@ -21,8 +21,9 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         seo_message = pipeline.run()
 
         handoffs = SemanticEngineToTestSuiteHandoff(seo_message)
+        tsi_message = handoffs.prepare()
 
-        return handoffs.prepare()
+        return tsi_message.winners
 
     def test_sce_011_add_column_not_null(self):
         scenario = self.sce_catalog.get("011")
