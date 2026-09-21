@@ -52,7 +52,7 @@ class TestLeftFragment(unittest.TestCase):
         self.hunk.left_line.return_value = "col_04 VARCHAR(50) NOT NULL"
         self.hunk.left_lineno.return_value = 4
 
-    def test_init(self):
+    def test_init_execution(self):
         fragment = LeftFragment(0, self.hunk)
 
         self.assertEqual(TagKind.REPLACE, fragment.tag)
@@ -72,7 +72,7 @@ class TestRightFragment(unittest.TestCase):
         self.hunk.right_line.return_value = "col_04 DATE"
         self.hunk.right_lineno.return_value = 4
 
-    def test_init(self):
+    def test_init_execution(self):
         fragment = RightFragment(0, self.hunk)
 
         self.assertEqual(TagKind.REPLACE, fragment.tag)
