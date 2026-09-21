@@ -61,7 +61,7 @@ class TestHunk(unittest.TestCase):
     def test_left_range(self):
         self.assertEqual(2, self.hunk.left_range())
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Hunk(tag=replace)", repr(self.hunk))
 
     def test_right_line_in_range(self):

@@ -15,7 +15,7 @@ class TestCriterion(unittest.TestCase):
     def test_init_execution(self):
         self.assertEqual(CriterionKind.UNDEFINED, self.criterion.kind)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Criterion(kind=undefined)", repr(self.criterion))
 
 
@@ -192,7 +192,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
     def test_init_execution(self):
         self.assertEqual(CriterionKind.EXCLUDED_DIRECTORIES, self.criterion.kind)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Criterion(kind=excluded directories)", repr(self.criterion))
 
 
@@ -290,7 +290,7 @@ class TestExcludedExtensionsCriterion(unittest.TestCase):
     def test_init_execution(self):
         self.assertEqual(CriterionKind.EXCLUDED_EXTENSIONS, self.criterion.kind)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Criterion(kind=excluded extensions)", repr(self.criterion))
 
 
@@ -411,7 +411,7 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
     def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_DIRECTORIES, self.criterion.kind)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Criterion(kind=included directories)", repr(self.criterion))
 
 
@@ -495,5 +495,5 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
     def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_EXTENSIONS, self.criterion.kind)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Criterion(kind=included extensions)", repr(self.criterion))

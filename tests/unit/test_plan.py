@@ -104,6 +104,6 @@ class TestPlan(unittest.TestCase):
 
         self.assertCountEqual(expected, actual)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         plan = Plan(Mock())
         self.assertEqual("Plan", repr(plan))

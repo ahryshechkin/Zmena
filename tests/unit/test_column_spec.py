@@ -30,6 +30,6 @@ class TestColumnSpec(unittest.TestCase):
         column_spec = ColumnSpec("col_01 INT NOT NULL")
         self.assertEqual("col_01", column_spec.name())
 
-    def test_repr(self):
+    def test_repr_execution(self):
         column_spec = ColumnSpec("col_01 INT NOT NULL")
         self.assertEqual("ColumnSpec(line=col_01 INT NOT NULL)", repr(column_spec))

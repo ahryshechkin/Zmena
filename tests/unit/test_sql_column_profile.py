@@ -33,7 +33,7 @@ class TestSQLColumnProfile(unittest.TestCase):
 
         self.assertEqual(self.expected, actual)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.column_def.sql.return_value = self.expected
 
         profile = SQLColumnProfile(self.column_def)

@@ -44,14 +44,14 @@ class TestLink(unittest.TestCase):
     def test_fragments(self):
         self.assertEqual((self.left, self.right), self.link.fragments())
 
-    def test_lt(self):
+    def test_lt_execution(self):
         self.link.add_evidence(self.evidence_ns)
         self.link.add_evidence(self.evidence_ps)
         self.other.add_evidence(self.evidence_ns)
 
         self.assertTrue(self.link > self.other)
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.link.add_evidence(self.evidence_ns)
         self.link.add_evidence(self.evidence_ps)
         self.assertEqual("Link(score=2.6,evidences=2)", repr(self.link))
