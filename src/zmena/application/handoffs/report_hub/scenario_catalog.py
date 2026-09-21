@@ -6,14 +6,14 @@ from zmena.application.handoffs.report_hub.bridges.link import LinkBridge
 from zmena.application.messages.inbound.report_hub import ReportHubInboundMessage
 
 
-class SemanticEngineToReportHubHandoff:
+class ScenarioCatalogToReportHubHandoff:
     def __init__(self, kind, scenario, seo_message):
         self.kind = kind
         self.scenario = scenario
         self.seo_message = seo_message
 
     def __repr__(self):
-        return "SemanticEngineToReportHubHandoff(messages=sce,seo)"
+        return "ScenarioCatalogToReportHubHandoff(messages=sce,seo)"
 
     def prepare(self):
         fragment_bridge = FragmentBridge()
