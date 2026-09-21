@@ -40,7 +40,7 @@ class TestSQLTableProfile(unittest.TestCase):
             sql_table_profile.formatted_columns(),
         )
 
-    def test_repr(self):
+    def test_repr_execution(self):
         sql_table_profile = SQLTableProfile("""CREATE TABLE t ();""")
         self.assertEqual("SQLTableProfile", repr(sql_table_profile))
 

@@ -51,5 +51,5 @@ class TestHypothesis(unittest.TestCase):
     def test_neighbor_right(self):
         self.assertEqual(self.right, self.hypothesis.neighbor(self.left))
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Hypothesis(kind=position)", repr(self.hypothesis))

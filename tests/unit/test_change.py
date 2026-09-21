@@ -37,7 +37,7 @@ class TestChange(unittest.TestCase):
     def test_is_drop(self):
         self.assertFalse(self.change.is_drop())
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Change(before=True,after=True)", repr(self.change))
 
     def test_snapshots(self):

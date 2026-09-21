@@ -28,7 +28,7 @@ class TestFragment(unittest.TestCase):
     def test_is_replace(self):
         self.assertTrue(self.fragment.is_replace())
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual("Fragment(tag=replace,name=col_04)", repr(self.fragment))
 
     def test_same_name_as(self):

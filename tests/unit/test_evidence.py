@@ -15,7 +15,7 @@ class TestEvidence(unittest.TestCase):
     def test_polarity(self):
         self.assertEqual("+", self.evidence.polarity())
 
-    def test_repr(self):
+    def test_repr_execution(self):
         self.assertEqual(
             "Evidence(signal=1.0,weight=2.0,reason=name similarity)", repr(self.evidence)
         )
