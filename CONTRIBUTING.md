@@ -58,6 +58,7 @@ Allowed types:
 - `test` - add or update tests
 - `refactor` - improve code structure or readability without changing functionality
 - `docs` - add or update documentation
+- `chore` - maintain the project infrastructure
 
 Examples:
 - `feat`: add base parser interface
@@ -65,6 +66,7 @@ Examples:
 - `test`: add parser unit tests
 - `refactor`: extract common logic
 - `docs`: add parser usage example
+- `chore`: upgrade dependency versions
 
 Guidelines:
 - Use **imperative mood** (`add`, `handle`, `extract`)
