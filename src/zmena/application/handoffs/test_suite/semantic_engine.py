@@ -1,5 +1,6 @@
 from zmena.application.handoffs.test_suite.bridges.fragment import FragmentBridge
 from zmena.application.handoffs.test_suite.bridges.link import LinkBridge
+from zmena.application.messages.inbound.test_suite import TestSuiteInboundMessage
 
 
 class SemanticEngineToTestSuiteHandoff:
@@ -16,4 +17,4 @@ class SemanticEngineToTestSuiteHandoff:
         for decision in self.seo_message.decisions:
             winners.extend(decision.winners())
 
-        return [bridge.translate(winner) for winner in winners]
+        return TestSuiteInboundMessage(winners=[bridge.translate(winner) for winner in winners])
