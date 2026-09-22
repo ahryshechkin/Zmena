@@ -3,6 +3,7 @@ from zmena.infrastructure.reporting.console.reports.decision import DecisionRepo
 from zmena.infrastructure.reporting.console.reports.fragment import FragmentReport
 from zmena.infrastructure.reporting.console.reports.hypothesis import HypothesisReport
 from zmena.infrastructure.reporting.console.reports.sql_diff import SQLDiffReport
+from zmena.infrastructure.reporting.console.reports.statement import StatementReport
 
 
 class ReportHub:
@@ -30,4 +31,8 @@ class ReportHub:
 
     def show_decisions(self):
         report = DecisionReport(self.message.decisions)
+        report.render()
+
+    def show_statements(self):
+        report = StatementReport("Statements", self.message.statements)
         report.render()
