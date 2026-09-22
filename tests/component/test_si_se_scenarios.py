@@ -1,8 +1,8 @@
 import unittest
 
+from zmena.application.handoffs.sematic_engine.sql_intake import SQLIntakeToSemanticEngineHandoff
+from zmena.application.handoffs.sql_intake.scenario_catalog import ScenarioCatalogToSQLIntakeHandoff
 from zmena.application.handoffs.test_suite.semantic_engine import SemanticEngineToTestSuiteHandoff
-from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
-from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
@@ -16,15 +16,15 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
         self.fix_catalog = SEFixtureCatalog()
 
     def execute_pipeline(self, scenario):
-        sii_message = SQLIntakeInboundMessage(
-            label=scenario.sce_id, name=scenario.name, before=scenario.before, after=scenario.after
-        )
+        handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)
+        sii_message = handoff.prepare()
+
         pipeline = SQLIntakePipeline(sii_message)
         sio_message = pipeline.run()
 
-        sei_message = SemanticEngineInboundMessage(
-            before=sio_message.before, after=sio_message.after
-        )
+        handoff = SQLIntakeToSemanticEngineHandoff(sio_message)
+        sei_message = handoff.prepare()
+
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
