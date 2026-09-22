@@ -6,7 +6,7 @@ class SQLIntakeToSemanticEngineHandoff:
         self.sio_message = sio_message
 
     def __repr__(self):
-        return "SQLIntakeToSemanticEngineHandoff(messages=sce)"
+        return "SQLIntakeToSemanticEngineHandoff(messages=sio)"
 
     def prepare(self):
         return SemanticEngineInboundMessage(

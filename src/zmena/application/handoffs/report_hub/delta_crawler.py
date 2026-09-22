@@ -7,8 +7,7 @@ from zmena.application.messages.inbound.report_hub import ReportHubInboundMessag
 
 
 class DeltaCrawlerToReportHubHandoff:
-    def __init__(self, kind, dco_message, sio_message, seo_message):
-        self.kind = kind
+    def __init__(self, dco_message, sio_message, seo_message):
         self.dco_message = dco_message
         self.sio_message = sio_message
         self.seo_message = seo_message
@@ -32,8 +31,8 @@ class DeltaCrawlerToReportHubHandoff:
         decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
 
         return ReportHubInboundMessage(
-            kind=self.kind,
-            label=self.dco_message.label,
+            kind="CMT",
+            label=self.dco_message.cmt_id,
             name=self.dco_message.name,
             before=self.sio_message.before,
             after=self.sio_message.after,

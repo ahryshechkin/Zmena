@@ -21,7 +21,7 @@ class DeltaCrawlerPipeline(Pipeline):
             before = command.show(self.message.commit_from, path)
             after = command.show(self.message.commit_to, path)
             message = DeltaCrawlerOutboundMessage(
-                label=record.name(), name=record.annotation(), before=before, after=after
+                cmt_id=record.name(), name=record.annotation(), before=before, after=after
             )
             messages.append(message)
 

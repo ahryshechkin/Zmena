@@ -1,7 +1,7 @@
 from zmena.application.handoffs.report_hub.delta_crawler import DeltaCrawlerToReportHubHandoff
 from zmena.application.handoffs.sematic_engine.sql_intake import SQLIntakeToSemanticEngineHandoff
+from zmena.application.handoffs.sql_intake.delta_crawler import DeltaCrawlerToSQLIntakeHandoff
 from zmena.application.messages.inbound.delta_crawler import DeltaCrawlerInboundMessage
-from zmena.application.messages.inbound.sql_intake import SQLIntakeInboundMessage
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
@@ -20,12 +20,9 @@ command = GitCommand(directory.demo_repo())
 dci_message = DeltaCrawlerInboundMessage(commit_from="v0.1.007", commit_to="v0.1.008")
 pipeline = DeltaCrawlerPipeline(dci_message)
 for dco_message in pipeline.run(command):
-    sii_message = SQLIntakeInboundMessage(
-        label=dco_message.label,
-        name=dco_message.name,
-        before=dco_message.before,
-        after=dco_message.after,
-    )
+    handoff = DeltaCrawlerToSQLIntakeHandoff(dco_message)
+    sii_message = handoff.prepare()
+
     pipeline = SQLIntakePipeline(sii_message)
     sio_message = pipeline.run()
 
@@ -35,7 +32,7 @@ for dco_message in pipeline.run(command):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    handoff = DeltaCrawlerToReportHubHandoff("CMT", dco_message, sio_message, seo_message)
+    handoff = DeltaCrawlerToReportHubHandoff(dco_message, sio_message, seo_message)
     rhi_message = handoff.prepare()
 
     report = ReportHub(rhi_message)
