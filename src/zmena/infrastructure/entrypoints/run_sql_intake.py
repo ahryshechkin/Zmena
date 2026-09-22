@@ -21,7 +21,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    handoff = ScenarioCatalogToReportHubHandoff("SCE", scenario, seo_message)
+    handoff = ScenarioCatalogToReportHubHandoff(scenario, seo_message)
     rhi_message = handoff.prepare()
 
     report = ReportHub(rhi_message)

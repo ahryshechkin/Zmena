@@ -3,10 +3,10 @@ from dataclasses import dataclass
 
 @dataclass
 class DeltaCrawlerOutboundMessage:
-    label: str
+    cmt_id: str
     name: str
     before: str
     after: str
 
     def __repr__(self):
-        return f"DeltaCrawlerOutboundMessage(label={self.label},name={self.name})"
+        return f"DeltaCrawlerOutboundMessage(cmt_id={self.cmt_id},name={self.name})"
