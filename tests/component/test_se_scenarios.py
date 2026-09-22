@@ -1,7 +1,9 @@
 import unittest
 
+from zmena.application.handoffs.sematic_engine.scenario_catalog import (
+    ScenarioCatalogToSemanticEngineHandoff,
+)
 from zmena.application.handoffs.test_suite.semantic_engine import SemanticEngineToTestSuiteHandoff
-from zmena.application.messages.inbound.semantic_engine import SemanticEngineInboundMessage
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.adapters.catalogs.se_fixture import SEFixtureCatalog
@@ -14,9 +16,9 @@ class TestSemanticEngineScenarios(unittest.TestCase):
         self.fix_catalog = SEFixtureCatalog()
 
     def execute_pipeline(self, scenario):
-        sei_message = SemanticEngineInboundMessage(
-            before=scenario.before.splitlines(), after=scenario.after.splitlines()
-        )
+        handoff = ScenarioCatalogToSemanticEngineHandoff(scenario)
+        sei_message = handoff.prepare()
+
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
