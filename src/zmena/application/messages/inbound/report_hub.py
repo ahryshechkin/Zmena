@@ -12,6 +12,7 @@ class ReportHubInboundMessage:
     hypotheses: list
     components: list
     decisions: list
+    statements: list
 
     def __repr__(self):
         return f"ReportHubInboundMessage(kind={self.kind},label={self.label})"

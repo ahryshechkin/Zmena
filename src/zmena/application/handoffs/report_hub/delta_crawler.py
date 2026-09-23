@@ -40,4 +40,5 @@ class DeltaCrawlerToReportHubHandoff:
             hypotheses=hypotheses,
             components=components,
             decisions=decisions,
+            statements=[],
         )
