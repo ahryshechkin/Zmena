@@ -7,9 +7,10 @@ from zmena.application.messages.inbound.report_hub import ReportHubInboundMessag
 
 
 class ScenarioCatalogToReportHubHandoff:
-    def __init__(self, scenario, seo_message):
+    def __init__(self, scenario, seo_message, mfo_message=None):
         self.scenario = scenario
         self.seo_message = seo_message
+        self.mfo_message = mfo_message
 
     def __repr__(self):
         return "ScenarioCatalogToReportHubHandoff(messages=sce,seo)"
@@ -39,4 +40,5 @@ class ScenarioCatalogToReportHubHandoff:
             hypotheses=hypotheses,
             components=components,
             decisions=decisions,
+            statements=self.mfo_message.statements,
         )
