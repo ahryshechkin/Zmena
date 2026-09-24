@@ -1,3 +1,5 @@
+import re
+
 from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
@@ -32,3 +34,7 @@ class ANSIColor:
         mark, color = colors[sign]
 
         return f"{color}{self.BOLD}{mark}{self.RESET}"
+
+    def calculate_visible_length(self, line):
+        pattern = re.compile(r"\x1b\[[0-9;]*m")
+        return len(pattern.sub("", line))
