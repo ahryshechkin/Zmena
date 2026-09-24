@@ -35,6 +35,6 @@ class ANSIColor:
 
         return f"{color}{self.BOLD}{mark}{self.RESET}"
 
-    def calculate_visible_length(self, line):
+    def calculate_visible_width(self, line):
         pattern = re.compile(r"\x1b\[[0-9;]*m")
         return len(pattern.sub("", line))

@@ -4,6 +4,7 @@ from zmena.infrastructure.reporting.console.reports.fragment import FragmentRepo
 from zmena.infrastructure.reporting.console.reports.hypothesis import HypothesisReport
 from zmena.infrastructure.reporting.console.reports.sql_diff import SQLDiffReport
 from zmena.infrastructure.reporting.console.reports.statement import StatementReport
+from zmena.infrastructure.reporting.console.views.statement import StatementView
 
 
 class ReportHub:
@@ -34,5 +35,7 @@ class ReportHub:
         report.render()
 
     def show_statements(self):
-        report = StatementReport("Statements", self.message.statements)
+        statements = [StatementView(statement) for statement in self.message.statements]
+
+        report = StatementReport("Statements", statements)
         report.render()
