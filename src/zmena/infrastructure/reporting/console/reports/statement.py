@@ -1,28 +1,41 @@
-from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
+import re
+
+from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 
-class StatementReport(BasicReport):
+class StatementReport:
+    ATTRIBUTE_PATTERN = re.compile(r"\b[A-Za-z_]\w*(?==)")
+
     def __init__(self, name, statements):
-        super().__init__(
-            name,
-            [
-                ("rule", ">", "18"),
-                ("####", ">", "4"),
-                ("tag", ">", "8"),
-                ("block", "<", "8"),
-                ("position", ">", "8"),
-                ("side", ">", "4"),
-                ("name", "<", "7"),
-                ("data_type", "<", "13"),
-                ("constraint", "<", "10"),
-                ("####", ">", "4"),
-                ("tag", ">", "8"),
-                ("block", "<", "8"),
-                ("position", ">", "8"),
-                ("side", ">", "4"),
-                ("name", "<", "7"),
-                ("data_type", "<", "13"),
-                ("constraint", "<", "10"),
-            ],
-            statements,
+        self.prefix = f"#### {name} "
+        self.statements = statements
+        self.color = ANSIColor()
+
+    def __repr__(self):
+        return "Report(specialized=Statement)"
+
+    def render(self):
+        self.title()
+        self.body()
+        # self.separator()
+
+    def title(self):
+        width = len(self.prefix) + 4
+        print(f"\n{self.prefix}" + "#" * width)
+
+    def body(self):
+        for statement in self.statements:
+            print(self.ATTRIBUTE_PATTERN.sub(self.format, str(statement)))
+
+    def normalize(self, line):
+        padding = " " * (
+            self.decision_projection.width(self.prefix) - len(self.ANSI_RE.sub("", line))
         )
+        return f"| {line}{padding} |"
+
+    def format(self, match):
+        return f"{self.color.TERRACOTTA}{match.group()}{self.color.RESET}"
+
+    def separator(self):
+        sep = "-" * self.decision_projection.width(self.prefix)
+        print(f"+-{sep}-+")

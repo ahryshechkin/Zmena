@@ -7,6 +7,7 @@ class ANSIColor:
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
     RESET = "\033[0m"
+    TERRACOTTA = "\033[38;2;170;73;38m"
     BOLD = "\033[1m"
 
     def __repr__(self):
