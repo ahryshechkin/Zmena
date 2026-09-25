@@ -7,9 +7,9 @@ class EvidenceReport:
     ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
     def __init__(self, name, decision_projection):
+        self.color = ANSIColor()
         self.prefix = f"#### {name} "
         self.decision_projection = decision_projection
-        self.color = ANSIColor()
 
     def __repr__(self):
         return "Report(specialized=Evidence)"

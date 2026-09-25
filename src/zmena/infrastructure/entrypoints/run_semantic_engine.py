@@ -20,7 +20,7 @@ for scenario in catalog.get_many(sce_ids):
 
     hub = ReportHub(rhi_message)
     hub.show_sql_diff()
-    # hub.show_fragments()
-    # hub.show_hypotheses()
-    # hub.show_components()
-    # hub.show_decisions()
+    hub.show_fragments()
+    hub.show_hypotheses()
+    hub.show_components()
+    hub.show_decisions()
