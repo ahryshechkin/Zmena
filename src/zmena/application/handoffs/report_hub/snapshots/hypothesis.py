@@ -9,8 +9,5 @@ class HypothesisSnapshot:
     left: FragmentSnapshot | None
     right: FragmentSnapshot | None
 
-    def __str__(self):
-        return f"{self.kind:>18} | #### | {self.left} | #### | {self.right}"
-
     def __repr__(self):
         return f"HypothesisSnapshot(kind={self.kind})"
