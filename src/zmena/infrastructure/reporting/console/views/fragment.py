@@ -1,7 +1,7 @@
 from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
-class FragmentProjection:
+class FragmentView:
     def __init__(self, fragment):
         self.fragment = fragment
 
