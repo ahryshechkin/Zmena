@@ -1,4 +1,4 @@
-from zmena.application.edges.migration_forge.records.state import StateSnapshot
+from zmena.application.edges.migration_forge.records.state import StateRecord
 
 
 class StateBridge:
@@ -9,7 +9,7 @@ class StateBridge:
         if fragment.tag == "stub":
             return None
 
-        return StateSnapshot(
+        return StateRecord(
             name=fragment.name,
             data_type=fragment.data_type,
             nullable=fragment.constraint != "NOT NULL",

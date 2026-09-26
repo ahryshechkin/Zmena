@@ -1,10 +1,6 @@
 from zmena.application.edges.delta_crawler.messages.inbound import DeltaCrawlerInboundMessage
-from zmena.application.edges.report_hub.handoffs.from_dc import (
-    DeltaCrawlerToReportHubHandoff,
-)
-from zmena.application.edges.sematic_engine.handoffs.from_si import (
-    SQLIntakeToSemanticEngineHandoff,
-)
+from zmena.application.edges.report_hub.handoffs.from_dc import DeltaCrawlerToReportHubHandoff
+from zmena.application.edges.sematic_engine.handoffs.from_si import SQLIntakeToSemanticEngineHandoff
 from zmena.application.edges.sql_intake.handoffs.from_dc import DeltaCrawlerToSQLIntakeHandoff
 from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline

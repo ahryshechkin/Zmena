@@ -1,11 +1,11 @@
 import unittest
 
-from zmena.application.edges.migration_forge.records.state import StateSnapshot
+from zmena.application.edges.migration_forge.records.state import StateRecord
 
 
 class TestState(unittest.TestCase):
     def setUp(self):
-        self.state = StateSnapshot(name="col_08", data_type="DATE", nullable=False)
+        self.state = StateRecord(name="col_08", data_type="DATE", nullable=False)
 
     def test_init_execution(self):
         self.assertEqual("col_08", self.state.name)
@@ -13,6 +13,4 @@ class TestState(unittest.TestCase):
         self.assertFalse(self.state.nullable)
 
     def test_repr_execution(self):
-        self.assertEqual(
-            "StateSnapshot(name=col_08,data_type=DATE,nullable=False)", repr(self.state)
-        )
+        self.assertEqual("StateRecord(name=col_08,data_type=DATE,nullable=False)", repr(self.state))

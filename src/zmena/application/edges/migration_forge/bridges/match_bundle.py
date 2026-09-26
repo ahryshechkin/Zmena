@@ -1,4 +1,4 @@
-from zmena.application.edges.migration_forge.records.match import MatchSnapshot
+from zmena.application.edges.migration_forge.records.match import MatchRecord
 
 
 class MatchBundleBridge:
@@ -12,7 +12,7 @@ class MatchBundleBridge:
         matches = []
         for decision in decisions:
             for winner in decision.winners():
-                match = MatchSnapshot(
+                match = MatchRecord(
                     before=self.bridge.translate(winner.left),
                     after=self.bridge.translate(winner.right),
                 )
