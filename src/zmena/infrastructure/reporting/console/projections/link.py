@@ -1,17 +1,17 @@
-from zmena.infrastructure.reporting.console.views.fragment import FragmentView
+from zmena.infrastructure.reporting.console.views.link import LinkView
 
 
 class LinkProjection:
-    def __init__(self, link):
-        self.link = link
+    def __init__(self, projection):
+        self.projection = projection
 
-    def formatted_header(self):
-        left = FragmentView(self.link.left).caption()
-        right = FragmentView(self.link.right).caption()
-        return f"Link: {left} -> {right}"
+    def __repr__(self):
+        return "LinkProjection(projections=link,fragment)"
 
-    def formatted_score(self):
-        return f"Score: {self.link.score}"
-
-    def evidences(self):
-        return self.link.evidences
+    def apply(self, link):
+        return LinkView(
+            score=link.score,
+            left=self.projection.apply(link.left),
+            right=self.projection.apply(link.right),
+            evidences=link.evidences,
+        )

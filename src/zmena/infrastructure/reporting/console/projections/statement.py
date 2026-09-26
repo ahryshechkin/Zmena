@@ -1,9 +1,9 @@
 from zmena.infrastructure.reporting.console.views.statement import StatementView
 
 
-class StatementBridge:
+class StatementProjection:
     def __repr__(self):
-        return "StatementBridge(bridges=statement)"
+        return "StatementProjection(bridges=statement)"
 
-    def translate(self, statement):
+    def apply(self, statement):
         return StatementView(statement)

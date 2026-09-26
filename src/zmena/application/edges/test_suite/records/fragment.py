@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class FragmentSnapshot:
+class FragmentRecord:
     tag: str
     block: str
     position: str
@@ -20,4 +20,4 @@ class FragmentSnapshot:
         )
 
     def __repr__(self):
-        return f"FragmentSnapshot(tag={self.tag},name={self.name})"
+        return f"FragmentRecord(tag={self.tag},name={self.name})"

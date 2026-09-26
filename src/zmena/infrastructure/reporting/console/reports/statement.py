@@ -33,4 +33,4 @@ class StatementReport:
         print(f"+-{sep}-+")
 
     def width(self):
-        return max(statement.measure() for statement in self.statements)
+        return max(statement.width() for statement in self.statements)

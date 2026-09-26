@@ -1,4 +1,4 @@
-from zmena.application.edges.report_hub.records.hypothesis import HypothesisSnapshot
+from zmena.application.edges.report_hub.records.hypothesis import HypothesisRecord
 
 
 class HypothesisBridge:
@@ -11,7 +11,7 @@ class HypothesisBridge:
     def translate(self, hypothesis):
         left, right = hypothesis.key()
 
-        return HypothesisSnapshot(
+        return HypothesisRecord(
             kind=hypothesis.kind.value,
             left=self.bridge.translate(left),
             right=self.bridge.translate(right),

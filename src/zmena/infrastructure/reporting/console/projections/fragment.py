@@ -1,9 +1,9 @@
 from zmena.infrastructure.reporting.console.views.fragment import FragmentView
 
 
-class FragmentBridge:
+class FragmentProjection:
     def __repr__(self):
-        return "FragmentBridge(bridges=fragment)"
+        return "FragmentProjection(projections=fragment)"
 
-    def translate(self, fragment):
+    def apply(self, fragment):
         return FragmentView(fragment)

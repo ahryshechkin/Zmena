@@ -1,9 +1,9 @@
-from zmena.infrastructure.reporting.console.projections.link import LinkProjection
+from zmena.infrastructure.reporting.console.views.link import LinkView
 
 
 class DecisionProjection:
     def __init__(self, links):
-        self.link_projections = [LinkProjection(link) for link in links]
+        self.link_projections = [LinkView(link) for link in links]
 
     def links(self):
         return self.link_projections

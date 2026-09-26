@@ -10,10 +10,10 @@ class StatementView:
 
     def render(self):
         pattern = re.compile(r"\b[A-Za-z_]\w*(?==)")
-        return pattern.sub(self.colorize, str(self.statement))
+        return pattern.sub(self.highlight, str(self.statement))
 
-    def colorize(self, match):
+    def highlight(self, match):
         return f"{self.color.TERRACOTTA}{match.group()}{self.color.RESET}"
 
-    def measure(self):
+    def width(self):
         return len(repr(self.statement))

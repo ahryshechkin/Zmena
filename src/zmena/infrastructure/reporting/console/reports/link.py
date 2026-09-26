@@ -1,8 +1,11 @@
 from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
+from zmena.infrastructure.reporting.console.projections.fragment import FragmentProjection
+from zmena.infrastructure.reporting.console.projections.link import LinkProjection
 
 
 class LinkReport(BasicReport):
     def __init__(self, name, links):
+        projection = LinkProjection(FragmentProjection())
         super().__init__(
             name,
             [
@@ -24,5 +27,5 @@ class LinkReport(BasicReport):
                 ("data_type", "<", "13"),
                 ("constraint", "<", "10"),
             ],
-            links,
+            [projection.apply(link) for link in links],
         )
