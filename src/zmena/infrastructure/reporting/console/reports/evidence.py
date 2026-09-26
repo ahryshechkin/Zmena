@@ -6,10 +6,10 @@ from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 class EvidenceReport:
     ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
-    def __init__(self, name, decision_projection):
+    def __init__(self, name, decision):
         self.color = ANSIColor()
         self.prefix = f"#### {name} "
-        self.decision_projection = decision_projection
+        self.decision = decision
 
     def __repr__(self):
         return "Report(specialized=Evidence)"
@@ -19,15 +19,15 @@ class EvidenceReport:
         self.body()
 
     def title(self):
-        width = self.decision_projection.width(self.prefix) - len(self.prefix) + 4
+        width = self.decision.width(self.prefix) - len(self.prefix) + 4
         print(f"\n{self.prefix}" + "#" * width)
 
     def body(self):
-        for link_projection in self.decision_projection.links():
-            print(self.normalize(link_projection.formatted_header()))
-            print(self.normalize(link_projection.formatted_score()))
+        for link in self.decision.link_bundle():
+            print(self.normalize(link.formatted_header()))
+            print(self.normalize(link.formatted_score()))
 
-            evidences = link_projection.evidences()
+            evidences = link.evidence_bundle()
             if not evidences:
                 print(self.normalize("Evidences: No data"))
             else:
@@ -38,9 +38,7 @@ class EvidenceReport:
             self.separator()
 
     def normalize(self, line):
-        padding = " " * (
-            self.decision_projection.width(self.prefix) - len(self.ANSI_RE.sub("", line))
-        )
+        padding = " " * (self.decision.width(self.prefix) - len(self.ANSI_RE.sub("", line)))
         return f"| {line}{padding} |"
 
     def format(self, evidence):
@@ -50,5 +48,5 @@ class EvidenceReport:
         return f"{filler}{mark}{polarity:>3}{evidence.description()}"
 
     def separator(self):
-        sep = "-" * self.decision_projection.width(self.prefix)
+        sep = "-" * self.decision.width(self.prefix)
         print(f"+-{sep}-+")

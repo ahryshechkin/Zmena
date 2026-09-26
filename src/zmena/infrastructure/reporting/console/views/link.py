@@ -19,5 +19,5 @@ class LinkView:
     def formatted_score(self):
         return f"Score: {self.score}"
 
-    def evidences(self):
+    def evidence_bundle(self):
         return self.evidences
