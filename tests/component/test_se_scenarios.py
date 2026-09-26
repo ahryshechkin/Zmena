@@ -1,9 +1,11 @@
 import unittest
 
-from zmena.application.handoffs.sematic_engine.scenario_catalog import (
+from zmena.application.edges.sematic_engine.handoffs.from_scenario_catalog import (
     ScenarioCatalogToSemanticEngineHandoff,
 )
-from zmena.application.handoffs.test_suite.semantic_engine import SemanticEngineToTestSuiteHandoff
+from zmena.application.edges.test_suite.handoffs.from_semantic_engine import (
+    SemanticEngineToTestSuiteHandoff,
+)
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.adapters.catalogs.se_fixture import SEFixtureCatalog

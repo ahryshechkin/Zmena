@@ -1,5 +1,5 @@
+from zmena.application.edges.migration_forge.messages.outbound import MigrationForgeOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
-from zmena.application.messages.outbound.migration_forge import MigrationForgeOutboundMessage
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan

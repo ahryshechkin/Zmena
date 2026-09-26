@@ -1,5 +1,5 @@
+from zmena.application.edges.delta_crawler.messages.outbound import DeltaCrawlerOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
-from zmena.application.messages.outbound.delta_crawler import DeltaCrawlerOutboundMessage
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths
 from zmena.domain.delta_crawler.core.tag_record import TagRecord
