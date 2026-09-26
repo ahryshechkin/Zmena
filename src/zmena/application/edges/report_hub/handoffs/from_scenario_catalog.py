@@ -1,0 +1,45 @@
+from zmena.application.edges.report_hub.bridges.component import ComponentBridge
+from zmena.application.edges.report_hub.bridges.decision import DecisionBridge
+from zmena.application.edges.report_hub.bridges.fragment import FragmentBridge
+from zmena.application.edges.report_hub.bridges.hypothesis import HypothesisBridge
+from zmena.application.edges.report_hub.bridges.link import LinkBridge
+from zmena.application.edges.report_hub.messages.inbound import ReportHubInboundMessage
+
+
+class ScenarioCatalogToReportHubHandoff:
+    def __init__(self, scenario, seo_message, mfo_message=None):
+        self.scenario = scenario
+        self.seo_message = seo_message
+        self.mfo_message = mfo_message
+
+    def __repr__(self):
+        return "ScenarioCatalogToReportHubHandoff(messages=sce,seo)"
+
+    def prepare(self):
+        fragment_bridge = FragmentBridge()
+        hypothesis_bridge = HypothesisBridge(fragment_bridge)
+        component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)
+        decision_bridge = DecisionBridge(LinkBridge(fragment_bridge))
+
+        fragments = [fragment_bridge.translate(fragment) for fragment in self.seo_message.fragments]
+        hypotheses = [
+            hypothesis_bridge.translate(hypothesis) for hypothesis in self.seo_message.hypotheses
+        ]
+        components = [
+            component_bridge.translate(component) for component in self.seo_message.components
+        ]
+        decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
+        statements = self.mfo_message.statements if self.mfo_message else []
+
+        return ReportHubInboundMessage(
+            kind="SCE",
+            label=self.scenario.sce_id,
+            name=self.scenario.name,
+            before=self.scenario.before.splitlines(),
+            after=self.scenario.after.splitlines(),
+            fragments=fragments,
+            hypotheses=hypotheses,
+            components=components,
+            decisions=decisions,
+            statements=statements,
+        )
