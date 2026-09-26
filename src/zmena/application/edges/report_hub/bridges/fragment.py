@@ -1,4 +1,4 @@
-from zmena.application.edges.report_hub.records.fragment import FragmentSnapshot
+from zmena.application.edges.report_hub.records.fragment import FragmentRecord
 
 
 class FragmentBridge:
@@ -6,7 +6,7 @@ class FragmentBridge:
         return "FragmentBridge(bridges=fragment)"
 
     def translate(self, fragment):
-        return FragmentSnapshot(
+        return FragmentRecord(
             tag=fragment.tag.value,
             block=fragment.block,
             position=fragment.position,

@@ -1,4 +1,4 @@
-from zmena.application.edges.report_hub.records.decision import DecisionSnapshot
+from zmena.application.edges.report_hub.records.decision import DecisionRecord
 
 
 class DecisionBridge:
@@ -12,4 +12,4 @@ class DecisionBridge:
         candidates = [self.bridge.translate(link) for link in decision.candidates()]
         winners = [self.bridge.translate(link) for link in decision.winners()]
 
-        return DecisionSnapshot(candidates=candidates, winners=winners)
+        return DecisionRecord(candidates=candidates, winners=winners)

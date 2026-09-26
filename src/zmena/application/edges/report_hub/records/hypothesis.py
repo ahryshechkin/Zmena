@@ -1,13 +1,13 @@
 from dataclasses import dataclass
 
-from zmena.application.edges.report_hub.records.fragment import FragmentSnapshot  # noqa: TC001
+from zmena.application.edges.report_hub.records.fragment import FragmentRecord  # noqa: TC001
 
 
 @dataclass
-class HypothesisSnapshot:
+class HypothesisRecord:
     kind: str
-    left: FragmentSnapshot | None
-    right: FragmentSnapshot | None
+    left: FragmentRecord | None
+    right: FragmentRecord | None
 
     def __repr__(self):
-        return f"HypothesisSnapshot(kind={self.kind})"
+        return f"HypothesisRecord(kind={self.kind})"

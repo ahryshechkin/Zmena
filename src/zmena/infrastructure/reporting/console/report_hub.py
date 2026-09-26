@@ -1,6 +1,4 @@
-from zmena.infrastructure.reporting.console.bridges.fragment import FragmentBridge
-from zmena.infrastructure.reporting.console.bridges.hypothesis import HypothesisBridge
-from zmena.infrastructure.reporting.console.bridges.statement import StatementBridge
+from zmena.infrastructure.reporting.console.projections.statement import StatementProjection
 from zmena.infrastructure.reporting.console.reports.component import ComponentReport
 from zmena.infrastructure.reporting.console.reports.decision import DecisionReport
 from zmena.infrastructure.reporting.console.reports.fragment import FragmentReport
@@ -21,15 +19,11 @@ class ReportHub:
         report.render()
 
     def show_fragments(self):
-        bridge = FragmentBridge()
-        fragments = [bridge.translate(fragment) for fragment in self.message.fragments]
-        report = FragmentReport("Fragments", fragments)
+        report = FragmentReport("Fragments", self.message.fragments)
         report.render()
 
     def show_hypotheses(self):
-        bridge = HypothesisBridge(FragmentBridge())
-        hypotheses = [bridge.translate(hypothesis) for hypothesis in self.message.hypotheses]
-        report = HypothesisReport("Hypotheses", hypotheses)
+        report = HypothesisReport("Hypotheses", self.message.hypotheses)
         report.render()
 
     def show_components(self):
@@ -41,7 +35,7 @@ class ReportHub:
         report.render()
 
     def show_statements(self):
-        bridge = StatementBridge()
-        statements = [bridge.translate(statement) for statement in self.message.statements]
+        projection = StatementProjection()
+        statements = [projection.apply(statement) for statement in self.message.statements]
         report = StatementReport("Statements", statements)
         report.render()

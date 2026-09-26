@@ -1,4 +1,4 @@
-from zmena.application.edges.test_suite.records.link import LinkSnapshot
+from zmena.application.edges.test_suite.records.link import LinkRecord
 
 
 class LinkBridge:
@@ -11,7 +11,7 @@ class LinkBridge:
     def translate(self, link):
         left, right = link.fragments()
 
-        return LinkSnapshot(
+        return LinkRecord(
             left=self.bridge.translate(left),
             right=self.bridge.translate(right),
         )

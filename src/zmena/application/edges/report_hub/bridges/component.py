@@ -1,4 +1,4 @@
-from zmena.application.edges.report_hub.records.component import ComponentSnapshot
+from zmena.application.edges.report_hub.records.component import ComponentRecord
 
 
 class ComponentBridge:
@@ -15,4 +15,4 @@ class ComponentBridge:
             self.hypothesis_bridge.translate(hypothesis) for hypothesis in component.hypotheses
         ]
 
-        return ComponentSnapshot(fragments=fragments, hypotheses=hypotheses)
+        return ComponentRecord(fragments=fragments, hypotheses=hypotheses)
