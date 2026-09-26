@@ -1,11 +1,7 @@
-import re
-
 from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 
 class EvidenceReport:
-    ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
-
     def __init__(self, name, decision):
         self.color = ANSIColor()
         self.prefix = f"#### {name} "
@@ -24,24 +20,25 @@ class EvidenceReport:
 
     def body(self):
         for link in self.decision.link_bundle():
-            print(self.normalize(link.formatted_header()))
-            print(self.normalize(link.formatted_score()))
+            print(self.formatted_line(link.header()))
+            print(self.formatted_line(link.score()))
 
             evidences = link.evidence_bundle()
             if not evidences:
-                print(self.normalize("Evidences: No data"))
+                print(self.formatted_line("Evidences: No data"))
             else:
-                print(self.normalize("Evidences:"))
+                print(self.formatted_line("Evidences:"))
                 for evidence in evidences:
-                    print(self.normalize(self.format(evidence)))
+                    print(self.formatted_line(self.styled_evidence(evidence)))
 
             self.separator()
 
-    def normalize(self, line):
-        padding = " " * (self.decision.width(self.prefix) - len(self.ANSI_RE.sub("", line)))
+    def formatted_line(self, line):
+        visible_width = self.color.calculate_visible_width(line)
+        padding = " " * max(0, self.decision.width(self.prefix) - visible_width)
         return f"| {line}{padding} |"
 
-    def format(self, evidence):
+    def styled_evidence(self, evidence):
         filler = " " * 3
         polarity = evidence.polarity()
         mark = self.color.style_sign(polarity)
