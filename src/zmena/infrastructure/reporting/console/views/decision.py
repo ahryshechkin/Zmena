@@ -1,15 +1,10 @@
-from zmena.infrastructure.reporting.console.views.link import LinkView
-
-
-class DecisionProjection:
+class DecisionView:
     def __init__(self, links):
-        self.link_projections = [LinkView(link) for link in links]
+        self.links = links
 
-    def links(self):
-        return self.link_projections
+    def link_bundle(self):
+        return self.links
 
     def width(self, prefix):
-        max_projection_width = max(
-            len(projection.formatted_header()) for projection in self.link_projections
-        )
+        max_projection_width = max(len(projection.formatted_header()) for projection in self.links)
         return max(max_projection_width, len(prefix) - 2)
