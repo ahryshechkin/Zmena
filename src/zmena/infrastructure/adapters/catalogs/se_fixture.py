@@ -1,7 +1,7 @@
 import json
 
 from zmena.application.edges.report_hub.records.fragment import FragmentSnapshot
-from zmena.application.edges.test_suite.snapshots.link import LinkSnapshot
+from zmena.application.edges.test_suite.records.link import LinkSnapshot
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 

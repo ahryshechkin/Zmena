@@ -3,7 +3,9 @@ import unittest
 from zmena.application.edges.sematic_engine.handoffs.from_sql_intake import (
     SQLIntakeToSemanticEngineHandoff,
 )
-from zmena.application.edges.sql_intake import ScenarioCatalogToSQLIntakeHandoff
+from zmena.application.edges.sql_intake.handoffs.from_scenario_catalog import (
+    ScenarioCatalogToSQLIntakeHandoff,
+)
 from zmena.application.edges.test_suite.handoffs.from_semantic_engine import (
     SemanticEngineToTestSuiteHandoff,
 )
