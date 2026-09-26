@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from zmena.application.edges.test_suite.snapshots.fragment import FragmentSnapshot  # noqa: TC001
+from zmena.application.edges.test_suite.records.fragment import FragmentSnapshot  # noqa: TC001
 
 
 @dataclass

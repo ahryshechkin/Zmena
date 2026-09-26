@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.edges.migration_forge import StateSnapshot
+from zmena.application.edges.migration_forge.records.state import StateSnapshot
 
 
 class TestState(unittest.TestCase):

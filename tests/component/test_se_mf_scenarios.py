@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.edges.migration_forge import (
+from zmena.application.edges.migration_forge.handoffs.from_semantic_engine import (
     SemanticEngineToMigrationForgeHandoff,
 )
 from zmena.application.edges.sematic_engine.handoffs.from_scenario_catalog import (
