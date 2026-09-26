@@ -10,7 +10,7 @@ class LinkProjection:
 
     def apply(self, link):
         return LinkView(
-            score=link.score,
+            total_score=link.score,
             left=self.projection.apply(link.left),
             right=self.projection.apply(link.right),
             evidences=link.evidences,

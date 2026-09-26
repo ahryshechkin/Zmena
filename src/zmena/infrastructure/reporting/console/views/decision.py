@@ -6,5 +6,7 @@ class DecisionView:
         return self.links
 
     def width(self, prefix):
-        max_projection_width = max(len(projection.formatted_header()) for projection in self.links)
-        return max(max_projection_width, len(prefix) - 2)
+        header_width = max(len(link.header()) for link in self.links)
+        minimum_width = len(prefix) - 2
+
+        return max(header_width, minimum_width)
