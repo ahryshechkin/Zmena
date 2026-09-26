@@ -1,7 +1,7 @@
-from zmena.application.edges.report_hub.handoffs.from_scenario_catalog import (
+from zmena.application.edges.report_hub.handoffs.from_sc import (
     ScenarioCatalogToReportHubHandoff,
 )
-from zmena.application.edges.sematic_engine.handoffs.from_scenario_catalog import (
+from zmena.application.edges.sematic_engine.handoffs.from_sc import (
     ScenarioCatalogToSemanticEngineHandoff,
 )
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
