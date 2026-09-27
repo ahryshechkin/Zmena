@@ -6,4 +6,4 @@ class EvidenceBridge:
         return "EvidenceBridge(bridges=evidence)"
 
     def translate(self, evidence):
-        return EvidenceRecord(score=evidence.score())
+        return EvidenceRecord(score=evidence.score(), reason=evidence.reason)

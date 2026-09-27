@@ -1,5 +1,6 @@
 from zmena.application.edges.report_hub.bridges.component import ComponentBridge
 from zmena.application.edges.report_hub.bridges.decision import DecisionBridge
+from zmena.application.edges.report_hub.bridges.evidence import EvidenceBridge
 from zmena.application.edges.report_hub.bridges.fragment import FragmentBridge
 from zmena.application.edges.report_hub.bridges.hypothesis import HypothesisBridge
 from zmena.application.edges.report_hub.bridges.link import LinkBridge
@@ -18,8 +19,9 @@ class ScenarioCatalogToReportHubHandoff:
     def prepare(self):
         fragment_bridge = FragmentBridge()
         hypothesis_bridge = HypothesisBridge(fragment_bridge)
+        evidence_bridge = EvidenceBridge()
         component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)
-        decision_bridge = DecisionBridge(LinkBridge(fragment_bridge))
+        decision_bridge = DecisionBridge(LinkBridge(fragment_bridge, evidence_bridge))
 
         fragments = [fragment_bridge.translate(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [

@@ -16,5 +16,8 @@ class Link:
     def score(self):
         return round(sum(evidence.score() for evidence in self.evidences), 1)
 
+    def evidence_bundle(self):
+        return self.evidences
+
     def add_evidence(self, evidence):
         self.evidences.append(evidence)

@@ -1,11 +1,12 @@
 from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
+from zmena.infrastructure.reporting.console.projections.evidence import EvidenceProjection
 from zmena.infrastructure.reporting.console.projections.fragment import FragmentProjection
 from zmena.infrastructure.reporting.console.projections.link import LinkProjection
 
 
 class LinkReport(BasicReport):
     def __init__(self, name, links):
-        projection = LinkProjection(FragmentProjection())
+        projection = LinkProjection(FragmentProjection(), EvidenceProjection())
         super().__init__(
             name,
             [
