@@ -3,9 +3,9 @@ from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 class EvidenceReport:
     def __init__(self, name, decision):
-        self.color = ANSIColor()
         self.prefix = f"#### {name} "
         self.decision = decision
+        self.color = ANSIColor()
 
     def __repr__(self):
         return "Report(specialized=Evidence)"

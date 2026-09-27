@@ -7,7 +7,7 @@ class RevisionPaths:
         self.preset = CriterionPreset()
 
     def __repr__(self):
-        return f"RevisionPath(paths={len(self.paths)})"
+        return f"RevisionPaths(paths={len(self.paths)})"
 
     def filter(self):
         selected_paths = self.paths
