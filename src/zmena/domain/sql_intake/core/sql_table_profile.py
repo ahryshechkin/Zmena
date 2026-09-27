@@ -8,7 +8,7 @@ class SQLTableProfile:
         self.ddl = ddl
 
     def __repr__(self):
-        return "SQLTableProfile"
+        return f"SQLTableProfile(length={len(self.ddl)})"
 
     def formatted_columns(self):
         ast = sqlglot.parse_one(self.ddl)
