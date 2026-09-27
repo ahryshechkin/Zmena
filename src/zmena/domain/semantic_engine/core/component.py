@@ -3,9 +3,9 @@ from zmena.domain.semantic_engine.core.link import Link
 
 class Component:
     def __init__(self, heuristics):
+        self.heuristics = heuristics
         self.fragments = set()
         self.hypotheses = set()
-        self.heuristics = heuristics
 
     def __repr__(self):
         return f"Component(fragments={len(self.fragments)},hypotheses={len(self.hypotheses)})"

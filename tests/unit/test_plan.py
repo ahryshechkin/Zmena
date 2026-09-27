@@ -15,7 +15,7 @@ from zmena.domain.migration_forge.statements.set_not_null import SetNotNullState
 class TestPlan(unittest.TestCase):
     def test_derive_add_column(self):
         expected = [
-            AddColumnStatement(name="col_08", data_type="DATE", nullable=False),
+            AddColumnStatement("col_08", "DATE", nullable=False),
         ]
 
         state = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -27,7 +27,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_alter_data_type(self):
         expected = [
-            AlterDataTypeStatement(name="col_08", data_type="TIMESTAMP"),
+            AlterDataTypeStatement("col_08", "TIMESTAMP"),
         ]
 
         before = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -40,7 +40,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_drop_column(self):
         expected = [
-            DropColumnStatement(name="col_08"),
+            DropColumnStatement("col_08"),
         ]
 
         state = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -52,7 +52,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_drop_not_null(self):
         expected = [
-            DropNotNullStatement(name="col_08"),
+            DropNotNullStatement("col_08"),
         ]
 
         before = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -65,9 +65,9 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_multiple_changes(self):
         expected = [
-            AlterDataTypeStatement(name="col_88", data_type="TIMESTAMP"),
-            DropNotNullStatement(name="col_88"),
-            RenameColumnStatement(old_name="col_08", new_name="col_88"),
+            AlterDataTypeStatement("col_88", "TIMESTAMP"),
+            DropNotNullStatement("col_88"),
+            RenameColumnStatement("col_08", "col_88"),
         ]
 
         before = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -80,7 +80,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_rename_column(self):
         expected = [
-            RenameColumnStatement(old_name="col_08", new_name="col_88"),
+            RenameColumnStatement("col_08", "col_88"),
         ]
 
         before = StateRecord(name="col_08", data_type="DATE", nullable=False)
@@ -93,7 +93,7 @@ class TestPlan(unittest.TestCase):
 
     def test_derive_set_not_null(self):
         expected = [
-            SetNotNullStatement(name="col_08"),
+            SetNotNullStatement("col_08"),
         ]
 
         before = StateRecord(name="col_08", data_type="DATE", nullable=True)

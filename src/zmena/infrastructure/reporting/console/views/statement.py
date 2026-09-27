@@ -5,8 +5,8 @@ from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 class StatementView:
     def __init__(self, statement):
-        self.color = ANSIColor()
         self.statement = statement
+        self.color = ANSIColor()
 
     def render(self):
         pattern = re.compile(r"\b[A-Za-z_]\w*(?==)")

@@ -10,7 +10,7 @@ from zmena.domain.delta_crawler.kinds.criterion import CriterionKind
 
 class TestCriterion(unittest.TestCase):
     def setUp(self):
-        self.criterion = Criterion(kind=CriterionKind.UNDEFINED)
+        self.criterion = Criterion(CriterionKind.UNDEFINED)
 
     def test_init_execution(self):
         self.assertEqual(CriterionKind.UNDEFINED, self.criterion.kind)
