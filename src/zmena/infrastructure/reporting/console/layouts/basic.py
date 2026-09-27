@@ -5,8 +5,7 @@ class BasicReport:
         self.rows = rows
 
     def __repr__(self):
-        name = self.__class__.__name__.replace("Report", "")
-        return f"Report(basic={name})"
+        return f"Report(basic={self.name})"
 
     def render(self):
         self.title()

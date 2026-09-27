@@ -6,7 +6,7 @@ class DecisionBridge:
         self.bridge = bridge
 
     def __repr__(self):
-        return "DecisionBridge(bridges=fragment,link,decision)"
+        return "DecisionBridge(bridges=decision,link,fragment)"
 
     def translate(self, decision):
         candidates = [self.bridge.translate(link) for link in decision.candidates()]
