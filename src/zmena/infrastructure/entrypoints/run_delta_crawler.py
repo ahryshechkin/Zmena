@@ -13,8 +13,8 @@ from zmena.infrastructure.project_directory import ProjectDirectory
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 catalog = CommitCatalog()
-# catalog.cleanup_demo_repo()
-# catalog.build_demo_repo()
+catalog.cleanup_demo_repo()
+catalog.build_demo_repo()
 
 directory = ProjectDirectory()
 command = GitCommand(directory.demo_repo())

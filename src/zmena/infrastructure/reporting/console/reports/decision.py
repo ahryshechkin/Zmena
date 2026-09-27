@@ -17,8 +17,6 @@ class DecisionReport(CompositeReport):
             title = self.title(i, candidates=len(decision.candidates))
             report = LinkReport(title, decision.candidates)
             report.render()
-
-            title = self.title(i, candidates=len(decision.candidates))
             report = EvidenceReport(
                 title, DecisionView([projection.apply(link) for link in decision.candidates])
             )
@@ -27,8 +25,6 @@ class DecisionReport(CompositeReport):
             title = self.title(i, winners=len(decision.winners))
             report = LinkReport(title, decision.winners)
             report.render()
-
-            title = self.title(i, winners=len(decision.winners))
             report = EvidenceReport(
                 title, DecisionView([projection.apply(link) for link in decision.winners])
             )
