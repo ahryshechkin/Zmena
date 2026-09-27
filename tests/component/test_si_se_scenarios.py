@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.edges.sematic_engine.handoffs.from_si import (
+from zmena.application.edges.semantic_engine.handoffs.from_si import (
     SQLIntakeToSemanticEngineHandoff,
 )
 from zmena.application.edges.sql_intake.handoffs.from_sc import (

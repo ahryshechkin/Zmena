@@ -1,4 +1,4 @@
-from zmena.application.edges.sematic_engine.messages.inbound import SemanticEngineInboundMessage
+from zmena.application.edges.semantic_engine.messages.inbound import SemanticEngineInboundMessage
 
 
 class ScenarioCatalogToSemanticEngineHandoff:
