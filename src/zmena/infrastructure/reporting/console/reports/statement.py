@@ -5,9 +5,9 @@ from zmena.infrastructure.reporting.console.projections.statement import Stateme
 class StatementReport:
     def __init__(self, name, statements):
         projection = StatementProjection()
-        self.color = ANSIColor()
         self.prefix = f"#### {name} "
         self.statements = [projection.apply(statement) for statement in statements]
+        self.color = ANSIColor()
 
     def __repr__(self):
         return "Report(specialized=Statement)"

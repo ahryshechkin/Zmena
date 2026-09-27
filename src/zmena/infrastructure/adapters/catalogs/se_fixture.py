@@ -10,7 +10,7 @@ class SEFixtureCatalog:
         self.directory = ProjectDirectory()
 
     def __repr__(self):
-        return f"FixtureCatalog(root_dir={self.directory.mf_fixtures()})"
+        return f"FixtureCatalog(root_dir={self.directory.se_fixtures()})"
 
     def build_fixture_from(self, path):
         with (path / "expected.json").open(encoding="utf-8") as file:
