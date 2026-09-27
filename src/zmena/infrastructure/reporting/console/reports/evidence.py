@@ -42,7 +42,7 @@ class EvidenceReport:
         filler = " " * 3
         polarity = evidence.polarity()
         mark = self.color.style_sign(polarity)
-        return f"{filler}{mark}{polarity:>3}{evidence.description()}"
+        return f"{filler}{mark}{polarity:>3}{evidence.detail()}"
 
     def separator(self):
         sep = "-" * self.decision.width(self.prefix)
