@@ -6,7 +6,7 @@ class HypothesisBridge:
         self.bridge = bridge
 
     def __repr__(self):
-        return "HypothesisBridge(bridges=fragment,hypothesis)"
+        return "HypothesisBridge(bridges=hypothesis,fragment)"
 
     def translate(self, hypothesis):
         left, right = hypothesis.key()

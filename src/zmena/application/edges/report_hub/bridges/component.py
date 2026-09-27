@@ -7,7 +7,7 @@ class ComponentBridge:
         self.hypothesis_bridge = hypothesis_bridge
 
     def __repr__(self):
-        return "ComponentBridge(bridges=fragment,hypothesis,component)"
+        return "ComponentBridge(bridges=component,hypothesis,fragment)"
 
     def translate(self, component):
         fragments = [self.fragment_bridge.translate(fragment) for fragment in component.fragments]

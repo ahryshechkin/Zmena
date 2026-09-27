@@ -10,7 +10,7 @@ class HypothesisProjection:
 
     def apply(self, hypothesis):
         return HypothesisView(
-            kind=hypothesis.kind,
-            left=self.projection.apply(hypothesis.left),
-            right=self.projection.apply(hypothesis.right),
+            hypothesis.kind,
+            self.projection.apply(hypothesis.left),
+            self.projection.apply(hypothesis.right),
         )
