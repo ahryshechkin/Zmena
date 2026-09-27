@@ -1,4 +1,4 @@
-from zmena.application.edges.sematic_engine.messages.outbound import SemanticEngineOutboundMessage
+from zmena.application.edges.semantic_engine.messages.outbound import SemanticEngineOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.semantic_engine.core.fragment_bundle import FragmentBundle
