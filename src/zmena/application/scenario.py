@@ -5,8 +5,8 @@ from dataclasses import dataclass
 class Scenario:
     sce_id: str
     name: str
-    before: list
-    after: list
+    before: str
+    after: str
 
     def __repr__(self):
         return f"Scenario(sce_id={self.sce_id})"
