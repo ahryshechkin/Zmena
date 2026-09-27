@@ -21,9 +21,9 @@ class SQLDiffReport(BasicReport):
             ],
             [],
         )
-        self.message = message
         self.color = ANSIColor()
         self.sm = SequenceMatcher()
+        self.message = message
 
     def body(self):
         self.sm.set_seqs(self.message.before, self.message.after)

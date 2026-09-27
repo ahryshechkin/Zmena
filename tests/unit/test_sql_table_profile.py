@@ -42,7 +42,7 @@ class TestSQLTableProfile(unittest.TestCase):
 
     def test_repr_execution(self):
         sql_table_profile = SQLTableProfile("""CREATE TABLE t ();""")
-        self.assertEqual("SQLTableProfile", repr(sql_table_profile))
+        self.assertEqual("SQLTableProfile(length=18)", repr(sql_table_profile))
 
     def test_rough_unaligned_definition(self):
         sql_table_profile = SQLTableProfile("""
