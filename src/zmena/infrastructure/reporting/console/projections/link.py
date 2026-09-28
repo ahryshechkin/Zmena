@@ -7,12 +7,13 @@ class LinkProjection:
         self.evidence_projection = evidence_projection
 
     def __repr__(self):
-        return "LinkProjection(projections=link,evidence,fragment)"
+        return "LinkProjection(projections=link,fragment,evidence)"
 
     def apply(self, link):
+        evidences = [self.evidence_projection.apply(evidence) for evidence in link.evidences]
         return LinkView(
             link.score,
             self.fragment_projection.apply(link.left),
             self.fragment_projection.apply(link.right),
-            [self.evidence_projection.apply(evidence) for evidence in link.evidences],
+            evidences,
         )
