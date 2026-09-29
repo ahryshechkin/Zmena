@@ -4,6 +4,7 @@ from zmena.application.edges.report_hub.bridges.evidence import EvidenceBridge
 from zmena.application.edges.report_hub.bridges.fragment import FragmentBridge
 from zmena.application.edges.report_hub.bridges.hypothesis import HypothesisBridge
 from zmena.application.edges.report_hub.bridges.link import LinkBridge
+from zmena.application.edges.report_hub.bridges.statement import StatementBridge
 from zmena.application.edges.report_hub.messages.inbound import ReportHubInboundMessage
 
 
@@ -22,6 +23,7 @@ class ScenarioCatalogToReportHubHandoff:
         evidence_bridge = EvidenceBridge()
         component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)
         decision_bridge = DecisionBridge(LinkBridge(fragment_bridge, evidence_bridge))
+        statement_bridge = StatementBridge()
 
         fragments = [fragment_bridge.translate(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
@@ -31,7 +33,9 @@ class ScenarioCatalogToReportHubHandoff:
             component_bridge.translate(component) for component in self.seo_message.components
         ]
         decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
-        statements = self.mfo_message.statements if self.mfo_message else []
+        statements = [
+            statement_bridge.translate(statement) for statement in self.mfo_message.statements
+        ]
 
         return ReportHubInboundMessage(
             kind="SCE",
