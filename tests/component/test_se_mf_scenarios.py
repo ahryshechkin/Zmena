@@ -6,6 +6,7 @@ from zmena.application.edges.migration_forge.handoffs.from_se import (
 from zmena.application.edges.semantic_engine.handoffs.from_sc import (
     ScenarioCatalogToSemanticEngineHandoff,
 )
+from zmena.application.edges.test_suite.handoffs.from_mf import MigrationForgeToTestSuiteHandoff
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.mf_fixture import MFFixtureCatalog
@@ -31,7 +32,10 @@ class TestSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         pipeline = MigrationForgePipeline(mfi_message)
         mfo_message = pipeline.run()
 
-        return mfo_message.statements
+        handoffs = MigrationForgeToTestSuiteHandoff(mfo_message)
+        tsi_message = handoffs.prepare()
+
+        return tsi_message.statements
 
     def test_sce_011_add_column_not_null(self):
         scenario = self.sce_catalog.get("011")
