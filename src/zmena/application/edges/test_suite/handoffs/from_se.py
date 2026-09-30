@@ -17,4 +17,6 @@ class SemanticEngineToTestSuiteHandoff:
         for decision in self.seo_message.decisions:
             winners.extend(decision.winners())
 
-        return TestSuiteInboundMessage(winners=[bridge.translate(winner) for winner in winners])
+        return TestSuiteInboundMessage(
+            winners=[bridge.translate(winner) for winner in winners], statements=[]
+        )

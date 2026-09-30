@@ -9,6 +9,7 @@ from zmena.application.edges.semantic_engine.handoffs.from_si import (
 from zmena.application.edges.sql_intake.handoffs.from_sc import (
     ScenarioCatalogToSQLIntakeHandoff,
 )
+from zmena.application.edges.test_suite.handoffs.from_mf import MigrationForgeToTestSuiteHandoff
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
@@ -41,7 +42,10 @@ class TestSQLIntakeSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         pipeline = MigrationForgePipeline(mfi_message)
         mfo_message = pipeline.run()
 
-        return mfo_message.statements
+        handoffs = MigrationForgeToTestSuiteHandoff(mfo_message)
+        tsi_message = handoffs.prepare()
+
+        return tsi_message.statements
 
     def test_sce_701_add_column_neat_before_neat_after(self):
         scenario = self.sce_catalog.get("701")
