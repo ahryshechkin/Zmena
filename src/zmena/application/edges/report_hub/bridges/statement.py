@@ -9,6 +9,6 @@ class StatementBridge:
 
     def translate(self, statement):
         return StatementRecord(
-            name=statement.__class__.__name__,
-            attributes={field.name: getattr(statement, field.name) for field in fields(statement)},
+            kind=statement.__class__.__name__,
+            attrs={field.name: getattr(statement, field.name) for field in fields(statement)},
         )

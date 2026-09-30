@@ -3,8 +3,8 @@ from dataclasses import dataclass
 
 @dataclass
 class StatementRecord:
-    name: str
-    attributes: dict
+    kind: str
+    attrs: dict
 
     def __repr__(self):
-        return f"StatementRecord(name={self.name},attributes={len(self.attributes)})"
+        return f"StatementRecord(kind={self.name},attrs={len(self.attrs)})"

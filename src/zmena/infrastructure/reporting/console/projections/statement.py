@@ -6,4 +6,4 @@ class StatementProjection:
         return "StatementProjection(projections=statement)"
 
     def apply(self, statement):
-        return StatementView(statement.name, statement.attributes)
+        return StatementView(statement.kind, statement.attrs)
