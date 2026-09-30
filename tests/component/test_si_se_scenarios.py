@@ -37,7 +37,7 @@ class TestSQLIntakeSemanticEngineScenarios(unittest.TestCase):
         handoffs = SemanticEngineToTestSuiteHandoff(seo_message)
         tsi_message = handoffs.prepare()
 
-        return tsi_message.winners
+        return tsi_message.links
 
     def test_sce_701_add_column_neat_before_neat_after(self):
         scenario = self.sce_catalog.get("701")

@@ -3,12 +3,8 @@ from dataclasses import dataclass
 
 @dataclass
 class TestSuiteInboundMessage:
-    winners: list
+    links: list
     statements: list
 
     def __repr__(self):
-        return (
-            f"TestSuiteInboundMessage("
-            f"winners={len(self.winners)},statements={len(self.statements)}"
-            f")"
-        )
+        return f"TestSuiteInboundMessage(links={len(self.links)},statements={len(self.statements)})"
