@@ -33,9 +33,13 @@ class ScenarioCatalogToReportHubHandoff:
             component_bridge.translate(component) for component in self.seo_message.components
         ]
         decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
-        statements = [
-            statement_bridge.translate(statement) for statement in self.mfo_message.statements
-        ]
+
+        if self.mfo_message is None:
+            statements = []
+        else:
+            statements = [
+                statement_bridge.translate(statement) for statement in self.mfo_message.statements
+            ]
 
         return ReportHubInboundMessage(
             kind="SCE",
