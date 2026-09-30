@@ -11,11 +11,13 @@ class LinkBridge:
 
     def translate(self, link):
         left, right = link.fragments()
-        evidences = link.evidence_bundle()
+        evidences = [
+            self.evidence_bridge.translate(evidence) for evidence in link.evidence_bundle()
+        ]
 
         return LinkRecord(
             score=link.score(),
             left=self.fragment_bridge.translate(left),
             right=self.fragment_bridge.translate(right),
-            evidences=[self.evidence_bridge.translate(evidence) for evidence in evidences],
+            evidences=evidences,
         )

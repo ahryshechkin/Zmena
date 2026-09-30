@@ -12,6 +12,7 @@ class MigrationForgeToTestSuiteHandoff:
     def prepare(self):
         bridge = StatementBridge()
 
+        links = []
         statements = [bridge.translate(statement) for statement in self.mfo_message.statements]
 
-        return TestSuiteInboundMessage(winners=[], statements=statements)
+        return TestSuiteInboundMessage(links=links, statements=statements)

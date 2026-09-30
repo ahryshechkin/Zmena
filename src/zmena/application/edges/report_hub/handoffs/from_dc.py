@@ -31,6 +31,7 @@ class DeltaCrawlerToReportHubHandoff:
             component_bridge.translate(component) for component in self.seo_message.components
         ]
         decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
+        statements = []
 
         return ReportHubInboundMessage(
             kind="CMT",
@@ -42,5 +43,5 @@ class DeltaCrawlerToReportHubHandoff:
             hypotheses=hypotheses,
             components=components,
             decisions=decisions,
-            statements=[],
+            statements=statements,
         )
