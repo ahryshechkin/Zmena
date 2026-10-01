@@ -1,6 +1,6 @@
 import json
 
-from zmena.application.edges.test_suite.records.statement import StatementRecord
+from zmena.application.handoffs.test_suite.records.statement import StatementRecord
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 

@@ -1,10 +1,10 @@
-from zmena.application.edges.report_hub.handoffs.from_scenario_catalog import (
+from zmena.application.handoffs.report_hub.from_scenario_catalog import (
     ScenarioCatalogToReportHubHandoff,
 )
-from zmena.application.edges.semantic_engine.handoffs.from_sql_intake import (
+from zmena.application.handoffs.semantic_engine.from_sql_intake import (
     SQLIntakeToSemanticEngineHandoff,
 )
-from zmena.application.edges.sql_intake.handoffs.from_scenario_catalog import (
+from zmena.application.handoffs.sql_intake.from_scenario_catalog import (
     ScenarioCatalogToSQLIntakeHandoff,
 )
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline

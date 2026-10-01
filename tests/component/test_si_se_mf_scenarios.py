@@ -1,15 +1,15 @@
 import unittest
 
-from zmena.application.edges.migration_forge.handoffs.from_semantic_engine import (
+from zmena.application.handoffs.migration_forge.from_semantic_engine import (
     SemanticEngineToMigrationForgeHandoff,
 )
-from zmena.application.edges.semantic_engine.handoffs.from_sql_intake import (
+from zmena.application.handoffs.semantic_engine.from_sql_intake import (
     SQLIntakeToSemanticEngineHandoff,
 )
-from zmena.application.edges.sql_intake.handoffs.from_scenario_catalog import (
+from zmena.application.handoffs.sql_intake.from_scenario_catalog import (
     ScenarioCatalogToSQLIntakeHandoff,
 )
-from zmena.application.edges.test_suite.handoffs.from_migration_forge import (
+from zmena.application.handoffs.test_suite.from_migration_forge import (
     MigrationForgeToTestSuiteHandoff,
 )
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
