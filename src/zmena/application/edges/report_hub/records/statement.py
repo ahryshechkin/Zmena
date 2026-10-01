@@ -7,4 +7,4 @@ class StatementRecord:
     attrs: dict
 
     def __repr__(self):
-        return f"StatementRecord(kind={self.name},attrs={len(self.attrs)})"
+        return f"StatementRecord(kind={self.kind},attrs={len(self.attrs)})"
