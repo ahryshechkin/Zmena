@@ -1,7 +1,7 @@
 import json
 
-from zmena.application.edges.test_suite.records.fragment import FragmentRecord
-from zmena.application.edges.test_suite.records.link import LinkRecord
+from zmena.application.handoffs.test_suite.records.fragment import FragmentRecord
+from zmena.application.handoffs.test_suite.records.link import LinkRecord
 from zmena.infrastructure.project_directory import ProjectDirectory
 
 

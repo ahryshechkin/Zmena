@@ -1,6 +1,6 @@
 import unittest
 
-from zmena.application.edges.migration_forge.records.state import StateRecord
+from zmena.application.handoffs.migration_forge.records.state import StateRecord
 from zmena.domain.migration_forge.core.change import Change
 
 

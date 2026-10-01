@@ -1,4 +1,4 @@
-from zmena.application.edges.delta_crawler.messages.outbound import DeltaCrawlerOutboundMessage
+from zmena.application.handoffs.delta_crawler.messages.outbound import DeltaCrawlerOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths

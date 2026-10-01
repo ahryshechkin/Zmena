@@ -1,4 +1,4 @@
-from zmena.application.edges.sql_intake.messages.outbound import SQLIntakeOutboundMessage
+from zmena.application.handoffs.sql_intake.messages.outbound import SQLIntakeOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.sql_intake.core.sql_table_profile import SQLTableProfile
