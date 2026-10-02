@@ -1,10 +1,10 @@
 from zmena.application.handoffs.report_hub.bridges.component import ComponentMint
-from zmena.application.handoffs.report_hub.bridges.decision import DecisionBridge
+from zmena.application.handoffs.report_hub.bridges.decision import DecisionMint
 from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceMint
 from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
 from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisMint
 from zmena.application.handoffs.report_hub.bridges.link import LinkMint
-from zmena.application.handoffs.report_hub.bridges.statement import StatementBridge
+from zmena.application.handoffs.report_hub.bridges.statement import StatementMint
 from zmena.application.handoffs.report_hub.messages.inbound import ReportHubInboundMessage
 
 
@@ -22,21 +22,21 @@ class ScenarioCatalogToReportHubHandoff:
         hypothesis_mint = HypothesisMint(fragment_mint)
         evidence_mint = EvidenceMint()
         component_mint = ComponentMint(fragment_mint, hypothesis_mint)
-        decision_bridge = DecisionBridge(LinkMint(fragment_mint, evidence_mint))
-        statement_bridge = StatementBridge()
+        decision_mint = DecisionMint(LinkMint(fragment_mint, evidence_mint))
+        statement_mint = StatementMint()
 
         fragments = [fragment_mint.issue(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
             hypothesis_mint.issue(hypothesis) for hypothesis in self.seo_message.hypotheses
         ]
         components = [component_mint.issue(component) for component in self.seo_message.components]
-        decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
+        decisions = [decision_mint.issue(decision) for decision in self.seo_message.decisions]
 
         if self.mfo_message is None:
             statements = []
         else:
             statements = [
-                statement_bridge.translate(statement) for statement in self.mfo_message.statements
+                statement_mint.issue(statement) for statement in self.mfo_message.statements
             ]
 
         return ReportHubInboundMessage(

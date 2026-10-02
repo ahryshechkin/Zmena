@@ -2,9 +2,9 @@ from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 
 class EvidenceReport:
-    def __init__(self, name, decision):
+    def __init__(self, name, link_bundle):
         self.prefix = f"#### {name} "
-        self.decision = decision
+        self.link_bundle = link_bundle
         self.color = ANSIColor()
 
     def __repr__(self):
@@ -15,11 +15,11 @@ class EvidenceReport:
         self.body()
 
     def title(self):
-        width = self.decision.width(self.prefix) - len(self.prefix) + 4
+        width = self.link_bundle.width(self.prefix) - len(self.prefix) + 4
         print(f"\n{self.prefix}" + "#" * width)
 
     def body(self):
-        for link in self.decision.link_bundle():
+        for link in self.link_bundle.items():
             print(self.formatted_line(link.header()))
             print(self.formatted_line(link.score()))
 
@@ -35,7 +35,7 @@ class EvidenceReport:
 
     def formatted_line(self, line):
         visible_width = self.color.calculate_visible_width(line)
-        padding = " " * max(0, self.decision.width(self.prefix) - visible_width)
+        padding = " " * max(0, self.link_bundle.width(self.prefix) - visible_width)
         return f"| {line}{padding} |"
 
     def styled_evidence(self, evidence):
@@ -45,5 +45,5 @@ class EvidenceReport:
         return f"{filler}{mark}{polarity:>3}{evidence.detail()}"
 
     def separator(self):
-        sep = "-" * self.decision.width(self.prefix)
+        sep = "-" * self.link_bundle.width(self.prefix)
         print(f"+-{sep}-+")

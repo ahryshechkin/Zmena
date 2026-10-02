@@ -1,4 +1,4 @@
-from zmena.infrastructure.reporting.console.views.decision import DecisionView
+from zmena.infrastructure.reporting.console.views.link_bundle import DecisionView
 
 
 class DecisionProjection:

@@ -1,14 +1,14 @@
 from dataclasses import fields
 
-from zmena.application.handoffs.report_hub.records.statement import StatementRecord
+from zmena.infrastructure.reporting.console.views.statement import StatementView
 
 
-class StatementBridge:
+class StatementMint:
     def __repr__(self):
-        return "StatementBridge(bridges=statement)"
+        return "StatementMint(mints=statement)"
 
-    def translate(self, statement):
-        return StatementRecord(
-            kind=statement.__class__.__name__,
-            attrs={field.name: getattr(statement, field.name) for field in fields(statement)},
+    def issue(self, statement):
+        return StatementView(
+            statement.__class__.__name__,
+            {field.name: getattr(statement, field.name) for field in fields(statement)},
         )

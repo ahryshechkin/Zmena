@@ -1,12 +1,13 @@
 class DecisionView:
-    def __init__(self, links):
-        self.links = links
+    def __init__(self, candidate_bundle, winner_bundle):
+        self.candidate_bundle = candidate_bundle
+        self.winner_bundle = winner_bundle
 
-    def link_bundle(self):
-        return self.links
+    def candidates(self):
+        return self.candidate_bundle
 
-    def width(self, prefix):
-        header_width = max(len(link.header()) for link in self.links)
-        minimum_width = len(prefix) - 2
+    def winners(self):
+        return self.winner_bundle
 
-        return max(header_width, minimum_width)
+    def __repr__(self):
+        return f"DecisionView(candidates={len(self.candidates())},winners={len(self.winners())})"
