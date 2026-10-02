@@ -7,9 +7,9 @@ class LinkMint:
         self.evidence_mint = evidence_mint
 
     def __repr__(self):
-        return "LinkMint(mints=link,fragment,evidences)"
+        return "LinkMint(mints=link,evidence,fragment)"
 
-    def translate(self, link):
+    def issue(self, link):
         left, right = link.fragments()
         evidences = [self.evidence_mint.issue(evidence) for evidence in link.evidence_bundle()]
 
