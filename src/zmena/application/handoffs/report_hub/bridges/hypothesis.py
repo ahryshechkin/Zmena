@@ -11,8 +11,4 @@ class HypothesisMint:
     def issue(self, hypothesis):
         left, right = hypothesis.key()
 
-        return HypothesisView(
-            kind=hypothesis.kind.value,
-            left=self.mint.issue(left),
-            right=self.mint.issue(right),
-        )
+        return HypothesisView(hypothesis.kind.value, self.mint.issue(left), self.mint.issue(right))
