@@ -6,4 +6,4 @@ class EvidenceMint:
         return "EvidenceMint(mints=evidence)"
 
     def issue(self, evidence):
-        return EvidenceView(score=evidence.score(), reason=evidence.reason)
+        return EvidenceView(evidence.score(), evidence.reason)

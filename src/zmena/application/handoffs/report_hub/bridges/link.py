@@ -14,8 +14,5 @@ class LinkMint:
         evidences = [self.evidence_mint.issue(evidence) for evidence in link.evidence_bundle()]
 
         return LinkView(
-            total_score=link.score(),
-            left=self.fragment_mint.issue(left),
-            right=self.fragment_mint.issue(right),
-            evidences=evidences,
+            link.score(), self.fragment_mint.issue(left), self.fragment_mint.issue(right), evidences
         )
