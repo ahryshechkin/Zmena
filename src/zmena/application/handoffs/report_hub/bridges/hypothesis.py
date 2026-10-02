@@ -1,17 +1,17 @@
-from zmena.application.handoffs.report_hub.records.hypothesis import HypothesisRecord
+from zmena.infrastructure.reporting.console.views.hypothesis import HypothesisView
 
 
-class HypothesisBridge:
+class HypothesisMint:
     def __init__(self, mint):
         self.mint = mint
 
     def __repr__(self):
-        return "HypothesisBridge(mints=hypothesis,fragment)"
+        return "HypothesisMint(mints=hypothesis,fragment)"
 
-    def translate(self, hypothesis):
+    def issue(self, hypothesis):
         left, right = hypothesis.key()
 
-        return HypothesisRecord(
+        return HypothesisView(
             kind=hypothesis.kind.value,
             left=self.mint.issue(left),
             right=self.mint.issue(right),
