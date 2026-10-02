@@ -1,7 +1,7 @@
 from zmena.application.handoffs.report_hub.bridges.component import ComponentBridge
 from zmena.application.handoffs.report_hub.bridges.decision import DecisionBridge
 from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceBridge
-from zmena.application.handoffs.report_hub.bridges.fragment import FragmentBridge
+from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
 from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisBridge
 from zmena.application.handoffs.report_hub.bridges.link import LinkBridge
 from zmena.application.handoffs.report_hub.messages.inbound import ReportHubInboundMessage
@@ -17,7 +17,7 @@ class DeltaCrawlerToReportHubHandoff:
         return "DeltaCrawlerToReportHubHandoff(messages=dco,sio,seo)"
 
     def prepare(self):
-        fragment_bridge = FragmentBridge()
+        fragment_bridge = FragmentMint()
         hypothesis_bridge = HypothesisBridge(fragment_bridge)
         evidence_bridge = EvidenceBridge()
         component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)

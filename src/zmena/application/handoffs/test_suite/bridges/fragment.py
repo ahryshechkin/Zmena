@@ -1,9 +1,9 @@
 from zmena.application.handoffs.test_suite.records.fragment import FragmentRecord
 
 
-class FragmentBridge:
+class FragmentMint:
     def __repr__(self):
-        return "FragmentBridge(bridges=fragment)"
+        return "FragmentMint(bridges=fragment)"
 
     def translate(self, fragment):
         return FragmentRecord(

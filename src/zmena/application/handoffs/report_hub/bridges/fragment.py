@@ -1,17 +1,17 @@
-from zmena.application.handoffs.report_hub.records.fragment import FragmentRecord
+from zmena.infrastructure.reporting.console.views.fragment import FragmentView
 
 
-class FragmentBridge:
+class FragmentMint:
     def __repr__(self):
-        return "FragmentBridge(bridges=fragment)"
+        return "FragmentMint(mint=fragment)"
 
-    def translate(self, fragment):
-        return FragmentRecord(
+    def issue(self, fragment):
+        return FragmentView(
             tag=fragment.tag.value,
             block=fragment.block,
             position=fragment.position,
             side=fragment.side.value,
             name=fragment.name,
             data_type=fragment.data_type,
-            nullable=fragment.constraint != "NOT NULL",
+            nullable=fragment.constraint or "",
         )
