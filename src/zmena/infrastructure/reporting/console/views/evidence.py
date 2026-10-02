@@ -1,9 +1,10 @@
 class EvidenceView:
-    def __init__(self, evidence):
-        self.evidence = evidence
+    def __init__(self, score, reason):
+        self.score = score
+        self.reason = reason
 
     def detail(self):
-        return f"{abs(self.evidence.score):<5}{self.evidence.reason}"
+        return f"{abs(self.score):<5}{self.reason}"
 
     def polarity(self):
-        return "+" if self.evidence.score >= 0 else "-"
+        return "+" if self.score >= 0 else "-"
