@@ -1,12 +1,10 @@
 from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
-from zmena.infrastructure.reporting.console.projections.statement import StatementProjection
 
 
 class StatementReport:
     def __init__(self, name, statements):
-        projection = StatementProjection()
         self.prefix = f"#### {name} "
-        self.statements = [projection.apply(statement) for statement in statements]
+        self.statements = statements
         self.color = ANSIColor()
 
     def __repr__(self):
