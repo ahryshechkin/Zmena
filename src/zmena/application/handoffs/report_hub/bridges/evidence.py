@@ -1,9 +1,9 @@
-from zmena.application.handoffs.report_hub.records.evidence import EvidenceRecord
+from zmena.infrastructure.reporting.console.views.evidence import EvidenceView
 
 
-class EvidenceBridge:
+class EvidenceMint:
     def __repr__(self):
-        return "EvidenceBridge(bridges=evidence)"
+        return "EvidenceMint(mints=evidence)"
 
-    def translate(self, evidence):
-        return EvidenceRecord(score=evidence.score(), reason=evidence.reason)
+    def issue(self, evidence):
+        return EvidenceView(score=evidence.score(), reason=evidence.reason)

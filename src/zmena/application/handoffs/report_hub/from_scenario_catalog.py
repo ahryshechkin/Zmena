@@ -1,6 +1,6 @@
 from zmena.application.handoffs.report_hub.bridges.component import ComponentBridge
 from zmena.application.handoffs.report_hub.bridges.decision import DecisionBridge
-from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceBridge
+from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceMint
 from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
 from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisMint
 from zmena.application.handoffs.report_hub.bridges.link import LinkMint
@@ -20,9 +20,9 @@ class ScenarioCatalogToReportHubHandoff:
     def prepare(self):
         fragment_mint = FragmentMint()
         hypothesis_mint = HypothesisMint(fragment_mint)
-        evidence_bridge = EvidenceBridge()
+        evidence_mint = EvidenceMint()
         component_bridge = ComponentBridge(fragment_mint, hypothesis_mint)
-        decision_bridge = DecisionBridge(LinkMint(fragment_mint, evidence_bridge))
+        decision_bridge = DecisionBridge(LinkMint(fragment_mint, evidence_mint))
         statement_bridge = StatementBridge()
 
         fragments = [fragment_mint.issue(fragment) for fragment in self.seo_message.fragments]

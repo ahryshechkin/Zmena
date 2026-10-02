@@ -11,7 +11,7 @@ class LinkMint:
 
     def translate(self, link):
         left, right = link.fragments()
-        evidences = [self.evidence_mint.translate(evidence) for evidence in link.evidence_bundle()]
+        evidences = [self.evidence_mint.issue(evidence) for evidence in link.evidence_bundle()]
 
         return LinkView(
             total_score=link.score(),
