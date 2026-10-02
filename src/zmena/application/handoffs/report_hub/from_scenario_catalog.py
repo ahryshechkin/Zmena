@@ -2,7 +2,7 @@ from zmena.application.handoffs.report_hub.bridges.component import ComponentBri
 from zmena.application.handoffs.report_hub.bridges.decision import DecisionBridge
 from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceBridge
 from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
-from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisBridge
+from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisMint
 from zmena.application.handoffs.report_hub.bridges.link import LinkBridge
 from zmena.application.handoffs.report_hub.bridges.statement import StatementBridge
 from zmena.application.handoffs.report_hub.messages.inbound import ReportHubInboundMessage
@@ -19,15 +19,15 @@ class ScenarioCatalogToReportHubHandoff:
 
     def prepare(self):
         fragment_mint = FragmentMint()
-        hypothesis_bridge = HypothesisBridge(fragment_mint)
+        hypothesis_mint = HypothesisMint(fragment_mint)
         evidence_bridge = EvidenceBridge()
-        component_bridge = ComponentBridge(fragment_mint, hypothesis_bridge)
+        component_bridge = ComponentBridge(fragment_mint, hypothesis_mint)
         decision_bridge = DecisionBridge(LinkBridge(fragment_mint, evidence_bridge))
         statement_bridge = StatementBridge()
 
         fragments = [fragment_mint.issue(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
-            hypothesis_bridge.translate(hypothesis) for hypothesis in self.seo_message.hypotheses
+            hypothesis_mint.issue(hypothesis) for hypothesis in self.seo_message.hypotheses
         ]
         components = [
             component_bridge.translate(component) for component in self.seo_message.components
