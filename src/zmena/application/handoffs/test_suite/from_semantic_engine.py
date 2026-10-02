@@ -1,4 +1,4 @@
-from zmena.application.handoffs.test_suite.bridges.fragment import FragmentBridge
+from zmena.application.handoffs.test_suite.bridges.fragment import FragmentMint
 from zmena.application.handoffs.test_suite.bridges.link import LinkBridge
 from zmena.application.handoffs.test_suite.messages.inbound import TestSuiteInboundMessage
 
@@ -11,7 +11,7 @@ class SemanticEngineToTestSuiteHandoff:
         return "SemanticEngineToTestSuiteHandoff(messages=seo)"
 
     def prepare(self):
-        bridge = LinkBridge(FragmentBridge())
+        bridge = LinkBridge(FragmentMint())
 
         winners = []
         for decision in self.seo_message.decisions:

@@ -1,16 +1,20 @@
 class FragmentView:
-    def __init__(self, fragment):
-        self.fragment = fragment
+    def __init__(self, tag, block, position, side, name, data_type, nullable):
+        self.tag = tag
+        self.block = block
+        self.position = position
+        self.side = side
+        self.name = name
+        self.data_type = data_type
+        self.nullable = nullable
 
     def __str__(self):
-        nullable = "" if self.fragment.nullable else "NOT NULL"
         return (
-            f"{self.fragment.tag:>8} | {self.fragment.block:>8} | "
-            f"{self.fragment.position:>8} | {self.fragment.side:>4} | "
-            f"{self.fragment.name:<7} | {self.fragment.data_type:<13} | {nullable:>10}"
+            f"{self.tag:>8} | {self.block:>8} | {self.position:>8} | {self.side:>4} | "
+            f"{self.name:<7} | {self.data_type:<13} | {self.nullable:>10}"
         )
 
     def caption(self):
-        if self.fragment.tag == "stub":
+        if self.tag == "stub":
             return "Stub"
-        return f"{self.fragment.name} ({self.fragment.side}:{self.fragment.position})"
+        return f"{self.name} ({self.side}:{self.position})"
