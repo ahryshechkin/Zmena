@@ -3,7 +3,7 @@ from zmena.application.handoffs.migration_forge.records.state import StateRecord
 
 class StateBridge:
     def __repr__(self):
-        return "StateBridge(bridges=state)"
+        return "StateBridge(mints=state)"
 
     def translate(self, fragment):
         if fragment.tag == "stub":

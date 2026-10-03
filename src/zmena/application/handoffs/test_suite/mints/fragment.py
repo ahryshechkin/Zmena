@@ -3,9 +3,9 @@ from zmena.application.handoffs.test_suite.records.fragment import FragmentRecor
 
 class FragmentMint:
     def __repr__(self):
-        return "FragmentMint(bridges=fragment)"
+        return "FragmentMint(mints=fragment)"
 
-    def translate(self, fragment):
+    def issue(self, fragment):
         return FragmentRecord(
             tag=fragment.tag.value,
             block=fragment.block,
