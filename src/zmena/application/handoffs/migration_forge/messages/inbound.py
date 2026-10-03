@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class MigrationForgeInboundMessage:
-    matches: list
+    changes: list
 
     def __repr__(self):
-        return f"MigrationForgeInboundMessage(matches={len(self.matches)})"
+        return f"MigrationForgeInboundMessage(changes={len(self.changes)})"

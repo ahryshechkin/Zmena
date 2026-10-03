@@ -3,7 +3,6 @@ from zmena.application.handoffs.migration_forge.messages.outbound import (
 )
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
-from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan
 
 
@@ -14,8 +13,7 @@ class MigrationForgePipeline(Pipeline):
 
     def run(self):
         statements = []
-        for match in self.message.matches:
-            change = Change(match.before, match.after)
+        for change in self.message.changes:
             plan = Plan(change)
             statements.extend(plan.derive())
 
