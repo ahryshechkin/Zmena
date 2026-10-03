@@ -1,15 +1,15 @@
-from zmena.application.handoffs.migration_forge.records.state import StateRecord
+from zmena.domain.migration_forge.core.snapshot import Snapshot
 
 
-class StateBridge:
+class SnapshotMint:
     def __repr__(self):
-        return "StateBridge(mints=state)"
+        return "SnapshotMint(mints=snapshot)"
 
-    def translate(self, fragment):
+    def issue(self, fragment):
         if fragment.tag == "stub":
             return None
 
-        return StateRecord(
+        return Snapshot(
             name=fragment.name,
             data_type=fragment.data_type,
             nullable=fragment.constraint != "NOT NULL",

@@ -1,6 +1,6 @@
-from zmena.application.handoffs.migration_forge.bridges.match_bundle import MatchBundleBridge
-from zmena.application.handoffs.migration_forge.bridges.state import StateBridge
 from zmena.application.handoffs.migration_forge.messages.inbound import MigrationForgeInboundMessage
+from zmena.application.handoffs.migration_forge.mints.change import ChangeMint
+from zmena.application.handoffs.migration_forge.mints.snapshot import SnapshotMint
 
 
 class SemanticEngineToMigrationForgeHandoff:
@@ -11,7 +11,7 @@ class SemanticEngineToMigrationForgeHandoff:
         return "SemanticEngineToMigrationForgeHandoff(messages=seo)"
 
     def prepare(self):
-        bridge = MatchBundleBridge(StateBridge())
-        matches = bridge.translate(self.seo_message.decisions)
+        mint = ChangeMint(SnapshotMint())
+        snapshots = mint.issue(self.seo_message.decisions)
 
-        return MigrationForgeInboundMessage(matches=matches)
+        return MigrationForgeInboundMessage(matches=snapshots)
