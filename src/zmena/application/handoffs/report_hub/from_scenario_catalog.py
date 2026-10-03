@@ -1,11 +1,11 @@
-from zmena.application.handoffs.report_hub.bridges.component import ComponentMint
-from zmena.application.handoffs.report_hub.bridges.decision import DecisionMint
-from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceMint
-from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
-from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisMint
-from zmena.application.handoffs.report_hub.bridges.link import LinkMint
-from zmena.application.handoffs.report_hub.bridges.statement import StatementMint
 from zmena.application.handoffs.report_hub.messages.inbound import ReportHubInboundMessage
+from zmena.application.handoffs.report_hub.mints.component import ComponentMint
+from zmena.application.handoffs.report_hub.mints.decision import DecisionMint
+from zmena.application.handoffs.report_hub.mints.evidence import EvidenceMint
+from zmena.application.handoffs.report_hub.mints.fragment import FragmentMint
+from zmena.application.handoffs.report_hub.mints.hypothesis import HypothesisMint
+from zmena.application.handoffs.report_hub.mints.link import LinkMint
+from zmena.application.handoffs.report_hub.mints.statement import StatementMint
 
 
 class ScenarioCatalogToReportHubHandoff:
@@ -15,7 +15,7 @@ class ScenarioCatalogToReportHubHandoff:
         self.mfo_message = mfo_message
 
     def __repr__(self):
-        return "ScenarioCatalogToReportHubHandoff(messages=sce,seo)"
+        return "ScenarioCatalogToReportHubHandoff(messages=sce,seo,mfo)"
 
     def prepare(self):
         fragment_mint = FragmentMint()

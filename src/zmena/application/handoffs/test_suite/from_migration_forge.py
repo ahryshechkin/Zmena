@@ -1,5 +1,5 @@
-from zmena.application.handoffs.test_suite.bridges.statement import StatementBridge
 from zmena.application.handoffs.test_suite.messages.inbound import TestSuiteInboundMessage
+from zmena.application.handoffs.test_suite.mints.statement import StatementMint
 
 
 class MigrationForgeToTestSuiteHandoff:
@@ -10,9 +10,9 @@ class MigrationForgeToTestSuiteHandoff:
         return "MigrationForgeToTestSuiteHandoff(messages=mfo)"
 
     def prepare(self):
-        bridge = StatementBridge()
+        mint = StatementMint()
 
         links = []
-        statements = [bridge.translate(statement) for statement in self.mfo_message.statements]
+        statements = [mint.issue(statement) for statement in self.mfo_message.statements]
 
         return TestSuiteInboundMessage(links=links, statements=statements)

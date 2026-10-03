@@ -1,10 +1,10 @@
-from zmena.application.handoffs.report_hub.bridges.component import ComponentBridge
-from zmena.application.handoffs.report_hub.bridges.decision import DecisionBridge
-from zmena.application.handoffs.report_hub.bridges.evidence import EvidenceBridge
-from zmena.application.handoffs.report_hub.bridges.fragment import FragmentMint
-from zmena.application.handoffs.report_hub.bridges.hypothesis import HypothesisBridge
-from zmena.application.handoffs.report_hub.bridges.link import LinkBridge
 from zmena.application.handoffs.report_hub.messages.inbound import ReportHubInboundMessage
+from zmena.application.handoffs.report_hub.mints.component import ComponentMint
+from zmena.application.handoffs.report_hub.mints.decision import DecisionMint
+from zmena.application.handoffs.report_hub.mints.evidence import EvidenceMint
+from zmena.application.handoffs.report_hub.mints.fragment import FragmentMint
+from zmena.application.handoffs.report_hub.mints.hypothesis import HypothesisMint
+from zmena.application.handoffs.report_hub.mints.link import LinkMint
 
 
 class DeltaCrawlerToReportHubHandoff:
@@ -17,20 +17,18 @@ class DeltaCrawlerToReportHubHandoff:
         return "DeltaCrawlerToReportHubHandoff(messages=dco,sio,seo)"
 
     def prepare(self):
-        fragment_bridge = FragmentMint()
-        hypothesis_bridge = HypothesisBridge(fragment_bridge)
-        evidence_bridge = EvidenceBridge()
-        component_bridge = ComponentBridge(fragment_bridge, hypothesis_bridge)
-        decision_bridge = DecisionBridge(LinkBridge(fragment_bridge, evidence_bridge))
+        fragment_mint = FragmentMint()
+        hypothesis_mint = HypothesisMint(fragment_mint)
+        evidence_mint = EvidenceMint()
+        component_mint = ComponentMint(fragment_mint, hypothesis_mint)
+        decision_mint = DecisionMint(LinkMint(fragment_mint, evidence_mint))
 
-        fragments = [fragment_bridge.translate(fragment) for fragment in self.seo_message.fragments]
+        fragments = [fragment_mint.issue(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
-            hypothesis_bridge.translate(hypothesis) for hypothesis in self.seo_message.hypotheses
+            hypothesis_mint.issue(hypothesis) for hypothesis in self.seo_message.hypotheses
         ]
-        components = [
-            component_bridge.translate(component) for component in self.seo_message.components
-        ]
-        decisions = [decision_bridge.translate(decision) for decision in self.seo_message.decisions]
+        components = [component_mint.issue(component) for component in self.seo_message.components]
+        decisions = [decision_mint.issue(decision) for decision in self.seo_message.decisions]
         statements = []
 
         return ReportHubInboundMessage(

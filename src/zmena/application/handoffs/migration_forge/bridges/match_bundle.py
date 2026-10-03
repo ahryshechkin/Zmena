@@ -6,7 +6,7 @@ class MatchBundleBridge:
         self.bridge = bridge
 
     def __repr__(self):
-        return "MatchBundleBridge(bridges=state,match_bundle)"
+        return "MatchBundleBridge(mints=state,match_bundle)"
 
     def translate(self, decisions):
         matches = []
