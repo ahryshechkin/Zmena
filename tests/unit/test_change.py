@@ -1,13 +1,13 @@
 import unittest
 
-from zmena.application.handoffs.migration_forge.records.state import StateRecord
 from zmena.domain.migration_forge.core.change import Change
+from zmena.domain.migration_forge.core.snapshot import Snapshot
 
 
 class TestChange(unittest.TestCase):
     def setUp(self):
-        self.before = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        self.after = StateRecord(name="col_88", data_type="TIMESTAMP", nullable=True)
+        self.before = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        self.after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
         self.change = Change(self.before, self.after)
 
     def test_has_data_type_change(self):

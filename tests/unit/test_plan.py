@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import Mock
 
-from zmena.application.handoffs.migration_forge.records.state import StateRecord
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.plan import Plan
+from zmena.domain.migration_forge.core.snapshot import Snapshot
 from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
 from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
 from zmena.domain.migration_forge.statements.drop_column import DropColumnStatement
@@ -18,8 +18,8 @@ class TestPlan(unittest.TestCase):
             AddColumnStatement("col_08", "DATE", nullable=False),
         ]
 
-        state = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        change = Change(None, state)
+        snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        change = Change(None, snapshot)
         plan = Plan(change)
         actual = plan.derive()
 
@@ -30,8 +30,8 @@ class TestPlan(unittest.TestCase):
             AlterDataTypeStatement("col_08", "TIMESTAMP"),
         ]
 
-        before = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        after = StateRecord(name="col_08", data_type="TIMESTAMP", nullable=False)
+        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        after = Snapshot(name="col_08", data_type="TIMESTAMP", nullable=False)
         change = Change(before, after)
         plan = Plan(change)
         actual = plan.derive()
@@ -43,8 +43,8 @@ class TestPlan(unittest.TestCase):
             DropColumnStatement("col_08"),
         ]
 
-        state = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        change = Change(state, None)
+        snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        change = Change(snapshot, None)
         plan = Plan(change)
         actual = plan.derive()
 
@@ -55,8 +55,8 @@ class TestPlan(unittest.TestCase):
             DropNotNullStatement("col_08"),
         ]
 
-        before = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        after = StateRecord(name="col_08", data_type="DATE", nullable=True)
+        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        after = Snapshot(name="col_08", data_type="DATE", nullable=True)
         change = Change(before, after)
         plan = Plan(change)
         actual = plan.derive()
@@ -70,8 +70,8 @@ class TestPlan(unittest.TestCase):
             RenameColumnStatement("col_08", "col_88"),
         ]
 
-        before = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        after = StateRecord(name="col_88", data_type="TIMESTAMP", nullable=True)
+        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
         change = Change(before, after)
         plan = Plan(change)
         actual = plan.derive()
@@ -83,8 +83,8 @@ class TestPlan(unittest.TestCase):
             RenameColumnStatement("col_08", "col_88"),
         ]
 
-        before = StateRecord(name="col_08", data_type="DATE", nullable=False)
-        after = StateRecord(name="col_88", data_type="DATE", nullable=False)
+        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        after = Snapshot(name="col_88", data_type="DATE", nullable=False)
         change = Change(before, after)
         plan = Plan(change)
         actual = plan.derive()
@@ -96,8 +96,8 @@ class TestPlan(unittest.TestCase):
             SetNotNullStatement("col_08"),
         ]
 
-        before = StateRecord(name="col_08", data_type="DATE", nullable=True)
-        after = StateRecord(name="col_08", data_type="DATE", nullable=False)
+        before = Snapshot(name="col_08", data_type="DATE", nullable=True)
+        after = Snapshot(name="col_08", data_type="DATE", nullable=False)
         change = Change(before, after)
         plan = Plan(change)
         actual = plan.derive()
