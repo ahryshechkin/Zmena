@@ -7,11 +7,11 @@ class FragmentMint:
 
     def issue(self, fragment):
         return FragmentRecord(
-            tag=fragment.tag.value,
-            block=fragment.block,
-            position=fragment.position,
-            side=fragment.side.value,
-            name=fragment.name,
-            data_type=fragment.data_type,
-            nullable=fragment.nullable,
+            fragment.tag.value,
+            fragment.block,
+            fragment.position,
+            fragment.side.value,
+            fragment.name,
+            fragment.data_type,
+            fragment.nullable,
         )

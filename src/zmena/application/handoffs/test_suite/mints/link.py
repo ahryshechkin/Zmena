@@ -11,7 +11,4 @@ class LinkMint:
     def issue(self, link):
         left, right = link.fragments()
 
-        return LinkRecord(
-            left=self.mint.issue(left),
-            right=self.mint.issue(right),
-        )
+        return LinkRecord(self.mint.issue(left), self.mint.issue(right))

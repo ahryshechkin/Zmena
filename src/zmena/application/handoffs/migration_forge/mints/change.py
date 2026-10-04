@@ -12,10 +12,7 @@ class ChangeMint:
         changes = []
         for decision in decisions:
             for winner in decision.winners():
-                change = Change(
-                    before=self.mint.issue(winner.left),
-                    after=self.mint.issue(winner.right),
-                )
+                change = Change(self.mint.issue(winner.left), self.mint.issue(winner.right))
                 changes.append(change)
 
         return changes
