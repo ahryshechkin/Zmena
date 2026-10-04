@@ -8,10 +8,10 @@ class FragmentMint:
     def issue(self, fragment):
         return FragmentView(
             fragment.tag.value,
-            fragment.block,
-            fragment.position,
+            fragment.block or "",
+            fragment.position or "",
             fragment.side.value,
-            fragment.name,
-            fragment.data_type,
+            fragment.name or "",
+            fragment.data_type or "",
             "" if fragment.nullable else "NOT NULL",
         )

@@ -89,20 +89,20 @@ class TestStubFragment(unittest.TestCase):
         fragment = StubFragment(SideKind.LEFT)
 
         self.assertEqual(TagKind.STUB, fragment.tag)
-        self.assertEqual("", fragment.block)
-        self.assertEqual("", fragment.position)
+        self.assertIsNone(fragment.block)
+        self.assertIsNone(fragment.position)
         self.assertEqual(SideKind.LEFT, fragment.side)
-        self.assertEqual("", fragment.name)
-        self.assertEqual("", fragment.data_type)
+        self.assertIsNone(fragment.name)
+        self.assertIsNone(fragment.data_type)
         self.assertTrue(fragment.nullable)
 
     def test_init_right(self):
         fragment = StubFragment(SideKind.RIGHT)
 
         self.assertEqual(TagKind.STUB, fragment.tag)
-        self.assertEqual("", fragment.block)
-        self.assertEqual("", fragment.position)
+        self.assertIsNone(fragment.block)
+        self.assertIsNone(fragment.position)
         self.assertEqual(SideKind.RIGHT, fragment.side)
-        self.assertEqual("", fragment.name)
-        self.assertEqual("", fragment.data_type)
+        self.assertIsNone(fragment.name)
+        self.assertIsNone(fragment.data_type)
         self.assertTrue(fragment.nullable)

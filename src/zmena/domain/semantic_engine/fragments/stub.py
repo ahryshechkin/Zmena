@@ -4,4 +4,4 @@ from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 class StubFragment(Fragment):
     def __init__(self, side):
-        super().__init__(TagKind.STUB, "", "", side, "", "", nullable=True)
+        super().__init__(TagKind.STUB, None, None, side, None, None, nullable=True)

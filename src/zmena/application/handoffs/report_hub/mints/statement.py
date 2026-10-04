@@ -8,7 +8,7 @@ class StatementMint:
         return "StatementMint(mints=statement)"
 
     def issue(self, statement):
-        return StatementView(
-            statement.__class__.__name__,
-            {field.name: getattr(statement, field.name) for field in fields(statement)},
-        )
+        kind = statement.__class__.__name__
+        attrs = {field.name: getattr(statement, field.name) for field in fields(statement)}
+
+        return StatementView(kind, attrs)
