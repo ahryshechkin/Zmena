@@ -4,17 +4,17 @@ from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 
 
 class StatementView:
-    def __init__(self, name, attributes):
-        self.name = name
-        self.attributes = attributes
+    def __init__(self, kind, attrs):
+        self.kind = kind
+        self.attrs = attrs
         self.color = ANSIColor()
 
     def __str__(self):
-        attrs = ",".join(f"{k}={v}" for k, v in self.attributes.items())
-        return f"{self.name}({attrs})"
+        attrs = ",".join(f"{k}={v}" for k, v in self.attrs.items())
+        return f"{self.kind}({attrs})"
 
     def __repr__(self):
-        return f"Statement(attrs={len(self.attributes)})"
+        return f"StatementView(attrs={len(self.attrs)})"
 
     def render(self):
         pattern = re.compile(r"\b[A-Za-z_]\w*(?==)")
