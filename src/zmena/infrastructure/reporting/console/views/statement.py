@@ -13,6 +13,9 @@ class StatementView:
         attrs = ",".join(f"{k}={v}" for k, v in self.attributes.items())
         return f"{self.name}({attrs})"
 
+    def __repr__(self):
+        return f"Statement(attrs={len(self.attributes)})"
+
     def render(self):
         pattern = re.compile(r"\b[A-Za-z_]\w*(?==)")
         return pattern.sub(self.highlight, str(self))
