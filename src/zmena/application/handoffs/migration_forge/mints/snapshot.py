@@ -9,8 +9,4 @@ class SnapshotMint:
         if fragment.tag == "stub":
             return None
 
-        return Snapshot(
-            name=fragment.name,
-            data_type=fragment.data_type,
-            nullable=fragment.nullable,
-        )
+        return Snapshot(fragment.name, fragment.data_type, fragment.nullable)
