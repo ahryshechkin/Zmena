@@ -2,6 +2,9 @@ class LinkBundleView:
     def __init__(self, links):
         self.links = links
 
+    def __repr__(self):
+        return f"LinkBundleView(links={len(self.links)})"
+
     def items(self):
         return self.links
 

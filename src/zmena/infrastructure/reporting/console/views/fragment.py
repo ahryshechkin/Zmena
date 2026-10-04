@@ -14,6 +14,9 @@ class FragmentView:
             f"{self.name:<7} | {self.data_type:<13} | {self.nullable:>10}"
         )
 
+    def __repr__(self):
+        return f"FragmentView(tag={self.tag},name={self.name})"
+
     def caption(self):
         if self.tag == "stub":
             return "Stub"

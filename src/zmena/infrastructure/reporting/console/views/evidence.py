@@ -3,6 +3,9 @@ class EvidenceView:
         self.score = score
         self.reason = reason
 
+    def __repr__(self):
+        return f"EvidenceView(score={self.score},reason={self.reason})"
+
     def detail(self):
         return f"{abs(self.score):<5}{self.reason}"
 
