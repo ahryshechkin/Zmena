@@ -8,7 +8,7 @@ class LinkMint:
     def __repr__(self):
         return "LinkMint(mints=link,fragment)"
 
-    def translate(self, link):
+    def issue(self, link):
         left, right = link.fragments()
 
         return LinkRecord(

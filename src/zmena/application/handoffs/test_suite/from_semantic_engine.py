@@ -11,13 +11,13 @@ class SemanticEngineToTestSuiteHandoff:
         return "SemanticEngineToTestSuiteHandoff(messages=seo)"
 
     def prepare(self):
-        bridge = LinkMint(FragmentMint())
+        mint = LinkMint(FragmentMint())
 
         winners = []
         for decision in self.seo_message.decisions:
             winners.extend(decision.winners())
 
-        links = [bridge.translate(winner) for winner in winners]
+        links = [mint.issue(winner) for winner in winners]
         statements = []
 
         return TestSuiteInboundMessage(links=links, statements=statements)
