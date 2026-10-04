@@ -12,5 +12,5 @@ class SnapshotMint:
         return Snapshot(
             name=fragment.name,
             data_type=fragment.data_type,
-            nullable=fragment.constraint != "NOT NULL",
+            nullable=fragment.nullable,
         )

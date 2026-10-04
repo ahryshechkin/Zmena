@@ -13,5 +13,5 @@ class RightFragment(Fragment):
             SideKind.RIGHT,
             column_spec.name(),
             column_spec.data_type(),
-            column_spec.constraint(),
+            column_spec.nullable(),
         )

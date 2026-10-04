@@ -3,14 +3,14 @@ from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class Fragment:
-    def __init__(self, tag, block, position, side, name, data_type, constraint):
+    def __init__(self, tag, block, position, side, name, data_type, nullable):
         self.tag = tag
         self.block = block
         self.position = position
         self.side = side
         self.name = name
         self.data_type = data_type
-        self.constraint = constraint
+        self.nullable = nullable
 
     def __repr__(self):
         return f"Fragment(tag={self.tag},name={self.name})"
@@ -25,7 +25,7 @@ class Fragment:
         return (
             self.block == other.block
             and self.data_type == other.data_type
-            and self.constraint == other.constraint
+            and self.nullable == other.nullable
         )
 
     def same_name_but_different_block_as(self, other):
