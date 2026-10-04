@@ -5,7 +5,8 @@ class ColumnSpec:
     PATTERN = re.compile(
         r"^(?P<name>\w+)\s+"
         r"(?P<data_type>\w+(?:\(\d+\))?)"
-        r"(?:\s+(?P<constraint>not\s+null|null))?$",
+        r"(?:\s+(?P<constraint>not\s+null))?"
+        r"(?:\s+null)?$",
         re.IGNORECASE,
     )
 
@@ -22,4 +23,4 @@ class ColumnSpec:
         return self.match.group("data_type")
 
     def nullable(self):
-        return bool(self.match.group("constraint"))
+        return not self.match.group("constraint")
