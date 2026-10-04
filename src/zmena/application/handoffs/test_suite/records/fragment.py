@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class FragmentRecord:
     tag: str
     block: str
-    position: str
+    position: int
     side: str
     name: str
     data_type: str

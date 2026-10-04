@@ -3,7 +3,7 @@ from zmena.infrastructure.reporting.console.views.fragment import FragmentView
 
 class FragmentMint:
     def __repr__(self):
-        return "FragmentMint(mint=fragment)"
+        return "FragmentMint(mints=fragment)"
 
     def issue(self, fragment):
         return FragmentView(
