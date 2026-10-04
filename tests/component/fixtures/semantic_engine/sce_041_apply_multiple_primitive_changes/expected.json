@@ -2,11 +2,11 @@
   {
     "left": {
       "tag": "stub",
-      "block": "",
-      "position": "",
+      "block": null,
+      "position": null,
       "side": "L",
-      "name": "",
-      "data_type": "",
+      "name": null,
+      "data_type": null,
       "nullable": true
     },
     "right": {
@@ -22,11 +22,11 @@
   {
     "left": {
       "tag": "stub",
-      "block": "",
-      "position": "",
+      "block": null,
+      "position": null,
       "side": "L",
-      "name": "",
-      "data_type": "",
+      "name": null,
+      "data_type": null,
       "nullable": true
     },
     "right": {
@@ -71,11 +71,11 @@
     },
     "right": {
       "tag": "stub",
-      "block": "",
-      "position": "",
+      "block": null,
+      "position": null,
       "side": "R",
-      "name": "",
-      "data_type": "",
+      "name": null,
+      "data_type": null,
       "nullable": true
     }
   }
