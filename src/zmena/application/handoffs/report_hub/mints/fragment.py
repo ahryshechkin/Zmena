@@ -13,5 +13,5 @@ class FragmentMint:
             fragment.side.value,
             fragment.name,
             fragment.data_type,
-            fragment.constraint or "",
+            "" if fragment.nullable else "NOT NULL",
         )

@@ -21,6 +21,5 @@ class ColumnSpec:
     def data_type(self):
         return self.match.group("data_type")
 
-    def constraint(self):
-        c = self.match.group("constraint")
-        return " ".join(c.split()) if c else None
+    def nullable(self):
+        return bool(self.match.group("constraint"))
