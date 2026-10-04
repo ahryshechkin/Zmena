@@ -12,11 +12,11 @@ from zmena.domain.semantic_engine.kinds.tag import TagKind
 class TestFragment(unittest.TestCase):
     def setUp(self):
         self.fragment = Fragment(
-            TagKind.REPLACE, "03050306", 4, SideKind.LEFT, "col_04", "VARCHAR(50)", "NOT NULL"
+            TagKind.REPLACE, "03050306", 4, SideKind.LEFT, "col_04", "VARCHAR(50)", nullable=False
         )
 
         self.other = Fragment(
-            TagKind.REPLACE, "03050306", 5, SideKind.LEFT, "col_05", "VARCHAR(50)", None
+            TagKind.REPLACE, "03050306", 5, SideKind.LEFT, "col_05", "VARCHAR(50)", nullable=True
         )
 
     def test_is_delete(self):
@@ -61,7 +61,7 @@ class TestLeftFragment(unittest.TestCase):
         self.assertEqual(SideKind.LEFT, fragment.side)
         self.assertEqual("col_04", fragment.name)
         self.assertEqual("VARCHAR(50)", fragment.data_type)
-        self.assertEqual("NOT NULL", fragment.constraint)
+        self.assertFalse(fragment.nullable)
 
 
 class TestRightFragment(unittest.TestCase):
@@ -81,7 +81,7 @@ class TestRightFragment(unittest.TestCase):
         self.assertEqual(SideKind.RIGHT, fragment.side)
         self.assertEqual("col_04", fragment.name)
         self.assertEqual("DATE", fragment.data_type)
-        self.assertIsNone(fragment.constraint)
+        self.assertTrue(fragment.nullable)
 
 
 class TestStubFragment(unittest.TestCase):
@@ -94,7 +94,7 @@ class TestStubFragment(unittest.TestCase):
         self.assertEqual(SideKind.LEFT, fragment.side)
         self.assertEqual("", fragment.name)
         self.assertEqual("", fragment.data_type)
-        self.assertIsNone(fragment.constraint)
+        self.assertTrue(fragment.nullable)
 
     def test_init_right(self):
         fragment = StubFragment(SideKind.RIGHT)
@@ -105,4 +105,4 @@ class TestStubFragment(unittest.TestCase):
         self.assertEqual(SideKind.RIGHT, fragment.side)
         self.assertEqual("", fragment.name)
         self.assertEqual("", fragment.data_type)
-        self.assertIsNone(fragment.constraint)
+        self.assertTrue(fragment.nullable)
