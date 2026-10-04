@@ -11,7 +11,7 @@ class ReportHub:
         self.message = message
 
     def __repr__(self):
-        return f"ReportHub(sce_id={self.message.label},name={self.message.name})"
+        return f"ReportHub(label={self.message.label},name={self.message.name})"
 
     def show_sql_diff(self):
         report = SQLDiffReport(self.message)

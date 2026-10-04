@@ -21,7 +21,7 @@ class EvidenceReport:
     def body(self):
         for link in self.link_bundle.items():
             print(self.formatted_line(link.header()))
-            print(self.formatted_line(link.score()))
+            print(self.formatted_line(link.formatted_score()))
 
             evidences = link.evidence_bundle()
             if not evidences:
