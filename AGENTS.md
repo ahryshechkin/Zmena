@@ -1,116 +1,36 @@
-# AGENTS.md
+## Initial Instructions
 
-## Context
+Read this file first, then follow the references below before making changes to the repository.
 
-Read before changing code:
+You are an experienced software engineer with a strong object-oriented design mindset. Approach this repository as a senior developer: understand the existing architecture and domain before changing code, respect established conventions, and prefer changes that improve the overall design rather than merely solving the immediate task.
 
-- `.ai/architecture.md` — layers and dependency direction
-- `.ai/glossary.md` — domain vocabulary
-- `.ai/project.md` — goal and stack
-- `.ai/workflow.md` — the ten processing stages
+Evaluate the structure, naming, and proposed changes through the lens of object-oriented design:
 
-## Code style
+- **Encapsulation:** classes should own the state and behavior that naturally belong together. Keep implementation details hidden behind clear interfaces.
+- **Responsibility:** each class should have a focused and well-defined purpose. Put behavior where it naturally belongs instead of accumulating logic in unrelated services, utilities, or consumers.
+- **Cohesion:** related data and behavior should live together. Prefer cohesive domain objects over scattered logic and procedural orchestration.
+- **Plain data carriers:** objects whose primary purpose is to carry data should remain simple. Do not turn DTOs, value carriers, or configuration objects into accidental holders of business logic.
+- **Meaningful naming:** names should communicate intent, responsibility, and domain meaning. Prefer precise and explicit names over generic or ambiguous ones.
+- **Appropriate abstraction:** introduce abstractions when they clarify responsibilities, protect architectural boundaries, or represent meaningful domain concepts. Avoid abstraction for its own sake.
+- **Consistency:** follow the patterns, terminology, and architectural conventions already established in the repository unless there is a clear reason to improve them.
 
-Rules the codebase follows consistently. Almost none of them are enforced by
-tooling: `ruff` catches line length and formatting, everything below rests on
-review. The single exception is the boolean argument rule, which `FBT003`
-enforces. So check the rest by hand, and when a rule changes, change every
-existing call site with it.
+Before implementing a change, determine where the new behavior belongs, which object should own it, and how the change fits into the existing architecture.
 
-### Value carriers and behavior
+Prefer simple, explicit, and maintainable solutions over clever or unnecessarily complex designs. A successful change should not only satisfy the immediate requirement but also preserve—or improve—the coherence of the codebase.
 
-Most rules below follow from one split.
+## Where to Find Information
 
-| | Value carrier | Behavior |
-|---|---|---|
-| Classes | `Scenario`, `messages/`, `records/`, `statements/` | everything else |
-| Declared as | `@dataclass` | plain `class` |
-| Constructed with | named arguments | positional arguments |
-| Annotations | on fields | none |
-| Values are read through | fields | plain methods |
+Use the following documents as the primary sources of truth when working on the repository:
 
-`@dataclass` appears in exactly these four categories and nowhere else, 26
-classes in total. The message, record and statement categories are the
-subdirectories of `application/edges/*/`; `Scenario` is in
-`application/scenario.py`. Introducing `@dataclass` outside them, or writing a
-plain class inside them, breaks the assumption the other rules rest on.
+- `.ai/project.md` — project goals, core principles, and technology stack
+- `.ai/architecture.md` — architectural layers, responsibilities, and dependency direction
+- `.ai/glossary.md` — domain terminology and canonical vocabulary
+- `.ai/workflow.md` — the ten processing stages and their responsibilities
+- `README.md` — public project overview and usage information
+- `CONTRIBUTING.md` — commit, branch, and pull request conventions
 
-### Rules
+Read the relevant documents before making architectural or behavioral changes. Do not infer domain terminology or architectural rules when they are already documented.
 
-#### Instantiate behavior positionally
+The `.ai` documents are shared sources of knowledge for both humans and AI agents. Treat them as part of the project's documentation and architecture.
 
-Pass behavior objects positionally. Name the value at the call site instead:
-`after.name` already says it is a name, and `name=after.name` only repeats it.
-The named form of the call in `Plan.derive` reaches 118 characters against a
-limit of 100 and expands to five nested lines.
-
-#### Name boolean arguments, always
-
-The one carve-out from the rule above, and the only rule here that a tool
-enforces. A boolean literal is unmistakable on its own but not at the call
-site: `AddColumnStatement(after.name, after.data_type, False)` reads `False`
-as if it modified the data type. Write `nullable=False`. `FBT003` rejects the
-positional form outright, so this is not a matter of taste. Value carriers
-already name every argument, so the two rules never conflict.
-
-#### Name the arguments of value carriers
-
-Records, messages, statements and `Scenario` take named arguments. They are
-dataclasses whose fields are read by name throughout the reporting code, and
-naming keeps a call site readable when several fields hold similar values.
-
-#### Deserialize fixtures with `**` unpacking
-
-The accepted exception to the two rules above. `SEFixtureCatalog` and
-`MFFixtureCatalog` read a JSON object into a record or a statement. Rewriting
-them positionally would obscure which field is which.
-
-#### Annotate dataclass fields only
-
-Method parameters, return types and plain class attributes carry no
-annotations. All 77 annotations in `src/` are on dataclass fields.
-
-#### Call accessors, do not declare properties
-
-Read a value by calling it: `link.score()`, `hunk.kind()`, `decision.winners()`.
-`@property` is not used in `src/`.
-
-#### Assign constructor state before collaborators
-
-Attributes derived from parameters first, internally constructed objects last.
-Reading top to bottom then follows the order in which the object is really
-built.
-
-#### Order dunder methods
-
-`__init__`, `__repr__`, `__str__`, `__lt__`, then public methods. No class
-deviates.
-
-#### Define `__repr__` on every class
-
-Unless it is an enum or inherits one from a base class. The body is
-`ClassName(field=value,...)`, with no space after the comma. The console views
-that are rendered directly define `__str__` instead.
-
-#### Print identifying fields only
-
-Collapse collections to `len(...)` and print only what identifies the object,
-so a payload never reaches the output.
-
-Some families share a shortened prefix on purpose:
-
-| Family | Told apart by | Example |
-|---|---|---|
-| Report layouts | a field key | `Report(basic=...)` |
-| Fixture catalogs | nothing, identical bodies | `FixtureCatalog(root_dir=...)` |
-
-`BasicReport` and `CompositeReport` print `Report(...)`; `MFFixtureCatalog` and
-`SEFixtureCatalog` print `FixtureCatalog(...)`. `FragmentRecord` and `Preset`
-each exist in two packages under the same name with identical bodies, so the
-prefix is correct in both.
-
-#### Write no comments
-
-No explanatory comments anywhere. The only two in `src/` are commented-out
-calls in `run_delta_crawler.py`. The only suppressions are `S603` for
-subprocess calls and `TC001` where `src/` imports no third-party package.
+When a change affects the project's structure, behavior, architecture, terminology, workflow, or core principles, update the relevant `.ai` documentation in the same change set. Documentation should evolve together with the code so that it remains an accurate representation of the current system.
