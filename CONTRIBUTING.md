@@ -19,7 +19,6 @@ Please take a moment to read this guide before opening an Issue or Pull Request.
 ### Pull Request
 
 Pull Request follows this title pattern:
-
 ```
 [ZM-<issue-id>] Short Description
 ```
@@ -31,7 +30,6 @@ Guidelines:
 ### Branch Name
 
 Branch name should be in the format:
-
 ```
 zm-<issue-id>-short-description
 ```
@@ -47,7 +45,6 @@ Guidelines:
 ### Commit Message
 
 This project complies with the following convention:
-
 ```
 <type>: short description
 ```
