@@ -13,8 +13,6 @@ hidden behind clear interfaces.
 instead of accumulating logic in unrelated services, utilities, or consumers.
 - `Cohesion` Related data and behavior should live together. Prefer cohesive domain objects over scattered logic and
 procedural orchestration.
-- `Plain Data Carriers` Objects whose primary purpose is to carry data should remain simple. Do not turn DTOs,
-value carriers, or configuration objects into accidental holders of business logic.
 - `Meaningful Naming` Names should communicate intent, responsibility, and domain meaning. Prefer precise and explicit
 names over generic or ambiguous ones.
 - `Appropriate Abstraction` Introduce abstractions when they clarify responsibilities, protect architectural boundaries,
@@ -39,7 +37,7 @@ Use the following documents as the primary sources of truth when working on the 
 - `.ai/glossary.md` Domain terminology and canonical vocabulary.
 - `.ai/workflow.md` Ten processing stages and their responsibilities.
 
-Read the relevant documents before making architectural or behavioral changes. Do not infer domain terminology or 
+Read the relevant documents before making architectural or behavioral changes. Do not infer domain terminology or
 architectural rules when they are already documented.
 
 The `.ai` documents are shared sources of knowledge for both humans and AI agents. Treat them as part of the

@@ -1,25 +1,40 @@
 ## Project
 
-Zmena is a project designed to understand schema evolution by tracking schema changes across Git commits.
+Zmena is a tool designed to understand database schema evolution by analyzing how SQL files change across Git
+commits. It treats the schema as a continuously evolving artifact and uses its history to identify and explain how
+the database structure changes over time.
 
 
 ## Goal
 
-It aims to detect user intent behind DDL changes and generate explainable SQL migrations from those changes.
+The primary goal is to generate explainable, semantically meaningful migrations rather than mechanically translating
+textual diffs into SQL statements. A change in the schema files does not necessarily correspond directly to a single
+database operation. The same textual difference may represent fundamentally different intentions. For example,
+a column may have been:
+- renamed rather than removed and recreated;
+- moved without any semantic change;
+- modified in place;
+- removed intentionally;
+- replaced by another column;
+- or introduced as part of a larger structural change.
 
+Because multiple interpretations may be plausible, Zmena must reason about the meaning of a change rather than relying
+solely on textual similarity. The analysis should therefore identify possible interpretations, evaluate competing
+hypotheses, and produce the migration that best explains the observed schema evolution.
 
-## Core Principles
-
-- Git is the source of truth for schema evolution
-- No live database is required to understand schema evolution
-- Raw diffs are input material, not the final answer
-- The project focuses on semantic interpretation, not textual comparison
-- The goal is to generate explainable SQL migrations
-- Preserve ambiguity first, resolve it later
-- Localize uncertainty into independent components
-- Separate candidate generation from candidate evaluation
+The resulting migrations should be:
+- `Semantically Meaningful` They should reflect the likely intent behind the schema change.
+- `Explainable` The reasoning behind a migration should be understandable and traceable.
+- `Deterministic` The same schema history should produce the same result.
 
 
 ## Tech Stack
 
-The repository uses Python as its main implementation language.
+- `Python 3.14+` is the implementation language.
+- `sqlglot` is a dependency for working with SQL syntax.
+- `uv` manages the Python environment and dependencies.
+- `unittest` is used for automated tests.
+- `coverage` measures test coverage.
+- `Ruff` provides linting and formatting.
+- `pre-commit` runs repository checks.
+- `Git` stores the schema history from which changes are analyzed.
