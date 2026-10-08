@@ -35,7 +35,6 @@ Use the following documents as the primary sources of truth when working on the 
 - `.ai/project.md` Project goals, core principles, and technology stack.
 - `.ai/architecture.md` Architectural layers, responsibilities, and dependency direction.
 - `.ai/glossary.md` Domain terminology and canonical vocabulary.
-- `.ai/workflow.md` Ten processing stages and their responsibilities.
 
 Read the relevant documents before making architectural or behavioral changes. Do not infer domain terminology or
 architectural rules when they are already documented.
