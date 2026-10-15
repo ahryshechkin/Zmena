@@ -1,61 +1,53 @@
 ## Architecture
 
-The project follows a layered architecture with three main areas: `application`, `domain`, and `infrastructure`. The
-layers have different responsibilities and should depend on each other only in one direction.
+Zmena uses a layered architecture with three areas: `domain`, `application`, and `infrastructure`. This separates the
+logic for understanding schema changes from the code that coordinates how the system works and interacts with the
+outside world.
 
 
-## Layer Overview
+## Layers
 
-### `application`
+### Domain
 
-The layer coordinates the work of the system. It contains use cases and the sequence of steps needed to run an analysis
-from start to finish.
+The domain contains the logic for interpreting schema changes. It defines core concepts, possible relationships between
+them, and rules for choosing the most likely explanation for the observed differences. The domain must not depend on
+file formats, input sources, or output methods.
 
-Its responsibilities are:
-- preparation of input for analysis
-- orchestration of the analysis pipeline
-- transfer of data between domain objects
-- collection and return of the execution result
+For example, when a column is removed and another is added to the same table, the domain determines whether the new
+column replaces the old one or is unrelated to it.
 
-This layer should contain application services and use cases, but not business rules.
+**In short**: The domain decides what a schema change means.
 
-### `domain`
+### Application
 
-The layer is the heart of the system. It describes the problem space and contains the rules used to reason about it.
+The application layer coordinates the processing workflow. It prepares the data, runs the required domain operations in
+the correct order, and collects the results.
 
-Its responsibilities are:
-- representation of the main domain entities
-- grouping of competing relations into local structures
-- definition of rules for generating, evaluating, and refining relations
-- accumulation and interpretation of evidence
-- production of stable decisions from available evidence
+For example, the application runs modules in a specific order and with selected parameters to support different
+scenarios and produce a consistent result.
 
-This layer must remain independent of outer layers and external concerns.
+**In short**: The application coordinates how data is processed.
 
-### `infrastructure`
+### Infrastructure
 
-The layer contains everything that interacts with the outside world.
+The infrastructure layer handles interactions with the outside world. It includes code for reading input data,
+accessing external sources, and presenting results. Infrastructure converts external data into a format the application
+can use and presents the results in the required format. It does not decide what a schema change means.
 
-Its responsibilities are:
-- reading data from files or other external sources
-- provision of entry points for running the system
-- rendering reports and textual output
-- adaptation of external data into objects that the application can use
+For example, loading a scenario from a catalog and printing an analysis report to the console belong to this layer.
+
+**In short**: Infrastructure handles input, output, and external systems.
 
 
 ## Dependency direction
 
-Dependencies should follow this direction:
-- `application` may depend on `domain`
-- `domain` must not depend on the upper layers
-- `infrastructure` may depend on `application` and `domain`
+Source-code dependencies point inward:
 
-In short:
-- orchestration lives in `application`
-- business rules live in `domain`
-- I/O and presentation live in `infrastructure`
+`infrastructure` → `application` → `domain`
 
-If a piece of code answers one of these questions, it should usually belong to the corresponding layer:
-- "What should happen next?" → `application`
-- "What is valid?" → `domain`
-- "How do we read, write, or display it?" → `infrastructure`
+The rules are simple:
+- domain must not depend on application or infrastructure;
+- application may depend on domain, but not on infrastructure;
+- infrastructure may depend on both application and domain.
+
+These rules keep the core logic independent of external systems and make it easier to change or test individual layers.
