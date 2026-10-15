@@ -1,4 +1,4 @@
-## Glossary
+## Vocabulary
 
 This glossary contains the main domain terms. Its purpose is to keep project vocabulary consistent across code, tests,
 and AI-assisted work.

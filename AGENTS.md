@@ -32,9 +32,9 @@ should not only satisfy the immediate requirement but also preserve or improve t
 Use the following documents as the primary sources of truth when working on the repository:
 - `README.md` Public project overview and usage information.
 - `CONTRIBUTING.md` Commit, branch, and pull request conventions.
-- `.ai/project.md` Project goals, core principles, and technology stack.
 - `.ai/architecture.md` Architectural layers, responsibilities, and dependency direction.
-- `.ai/glossary.md` Domain terminology and canonical vocabulary.
+- `.ai/project.md` Project goals, core principles, and technology stack.
+- `.ai/vocabulary.md` Domain terminology and canonical vocabulary.
 
 Read the relevant documents before making architectural or behavioral changes. Do not infer domain terminology or
 architectural rules when they are already documented.
