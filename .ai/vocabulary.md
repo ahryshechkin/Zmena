@@ -38,21 +38,21 @@ for hypotheses about how columns correspond between the before and after version
 - `FragmentBundle` is a collection of fragments with a shared interface for access by side and block. It provides the
 fragment groups needed to propose new hypotheses.
 - `Heuristic` is a criterion for the local assessment of a hypothesis. It provides evidence for or against a
-correspondence based on the two fragments.
+correspondence based on two fragments.
 - `Hunk` is a structured representation of a diff block with left and right spans. The two spans describe the same
 region of change but may contain different numbers of lines.
 - `Hypothesis` is a possible correspondence between left and right fragments proposed by a specific rule. Either side
 may be a stub to represent a possible insertion or deletion.
 - `Lens` is a criterion for the global reassessment of a candidate link during refinement. It provides additional
 evidence based on relationships with other links in the same context.
-- `Link` is a candidate correspondence between two fragments with evidence for and against it. The combined evidence
-determines the score used to compare the link with other candidates and select winners.
+- `Link` is a candidate correspondence between two fragments with evidence for and against it. The score is the sum of
+all evidence scores. It is used to compare the link with other candidates and select winners.
 - `Preset` is a predefined collection of heuristics, lenses, rules, or other domain entities for a particular
 processing stage. It provides a ready-to-use configuration for that stage.
 - `Refinement` is a global reassessment of candidate links through a set of lenses. It adds evidence from the wider
 context to the initial local assessment before the selection of winners.
-- `Rule` is a criterion for possible correspondences between fragments. It provides the basis for new hypotheses
-without assessing how likely they are to be correct.
+- `Rule` is a criterion for possible correspondence between fragments. It provides the basis for new hypotheses without
+assessing how likely they are to be correct.
 - `Span` is a continuous range of lines on the left (before) or right (after) side of a diff block. Either span may be
 empty for an insertion or deletion.
 - `Step` is a domain operation that represents one stage of semantic interpretation with a specific input, output, and

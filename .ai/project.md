@@ -1,8 +1,8 @@
 ## Project
 
-Zmena is a tool designed to understand database schema evolution by analyzing how SQL files change across Git
-commits. It treats the schema as a continuously evolving artifact and uses its history to identify and explain how
-the database structure changes over time.
+Zmena is a tool designed to understand schema evolution by analyzing how SQL files change across Git commits. It treats
+the schema as a continuously evolving artifact and uses its history to identify and explain how the database structure
+changes over time.
 
 
 ## Goal
