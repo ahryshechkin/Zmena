@@ -39,7 +39,7 @@ For example, loading a scenario from a catalog and printing an analysis report t
 **In short**: Infrastructure handles input, output, and external systems.
 
 
-## Dependency direction
+## Dependency Direction
 
 Source-code dependencies point inward:
 
