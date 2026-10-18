@@ -1,15 +1,15 @@
 ## Project
 
-Zmena is a tool designed to understand schema evolution by analyzing how SQL files change across Git commits. It treats
-the schema as a continuously evolving artifact and uses its history to identify and explain how the database structure
-changes over time.
+Zmena is a tool designed to understand SQL schema evolution by analyzing how SQL files change across Git commits. It
+treats the schema as a continuously evolving artifact and uses its history to identify and explain how the database
+structure changes over time.
 
 
 ## Goal
 
-The primary goal is to generate explainable, semantically meaningful migrations rather than mechanically translating
-textual diffs into SQL statements. A change in the schema files does not necessarily correspond directly to a single
-database operation. The same textual difference may represent fundamentally different intentions. For example,
+The primary goal is to generate explainable, semantically meaningful SQL migrations rather than mechanically
+translating textual diffs into SQL statements. A change in the schema files does not necessarily correspond directly to
+a single database operation. The same textual difference may represent fundamentally different intentions. For example,
 a column may have been:
 - renamed rather than removed and recreated;
 - moved without any semantic change;
@@ -20,11 +20,11 @@ a column may have been:
 
 Because multiple interpretations may be plausible, Zmena must reason about the meaning of a change rather than relying
 solely on textual similarity. The analysis should therefore identify possible interpretations, evaluate competing
-hypotheses, and produce the migration that best explains the observed schema evolution.
+hypotheses, and produce SQL migration that best explains the observed SQL schema evolution.
 
-The resulting migrations should be:
+The resulting SQL migrations should be:
 - `Semantically Meaningful` They should reflect the likely intent behind the schema change.
-- `Explainable` The reasoning behind a migration should be understandable and traceable.
+- `Explainable` The reasoning behind a SQL migration should be understandable and traceable.
 - `Deterministic` The same schema history should produce the same result.
 
 
