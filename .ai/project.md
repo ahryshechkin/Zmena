@@ -4,8 +4,7 @@ Zmena is a tool designed to understand SQL schema evolution by analyzing how SQL
 treats the schema as a continuously evolving artifact and uses its history to identify and explain how the database
 structure changes over time.
 
-
-## Goal
+### Goal
 
 The primary goal is to generate explainable, semantically meaningful SQL migrations rather than mechanically
 translating textual diffs into SQL statements. A change in the schema files does not necessarily correspond directly to
@@ -27,8 +26,7 @@ The resulting SQL migrations should be:
 - `Explainable` The reasoning behind a SQL migration should be understandable and traceable.
 - `Deterministic` The same schema history should produce the same result.
 
-
-## Tech Stack
+### Tech Stack
 
 - `Python 3.14+` is the implementation language.
 - `sqlglot` is a dependency for working with SQL syntax.
