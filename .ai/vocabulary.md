@@ -34,7 +34,7 @@ documentation-only concept used to define hunks, spans, and fragments with no se
 the link is more or less likely to be correct.
 - `Fragment` is a structured representation of a single column on one side of a diff block. It combines column
 properties from column spec with tag, block, position, and side from a hunk and its span. It serves as the basic unit
-for hypotheses about how columns correspond between the before and after versions.
+for hypotheses about how columns correspond to each other.
 - `FragmentBundle` is a collection of fragments with a shared interface for access by side and block. It provides the
 fragment groups needed to propose new hypotheses.
 - `Heuristic` is a criterion for the local assessment of a hypothesis. It provides evidence for or against a
@@ -69,5 +69,5 @@ responsibility. Steps belong to the domain. Their execution order belongs to the
 
 ### Migration Forge
 
-**Migration Forge** is the bridge from interpreted schema changes to migration statements. It provides concrete
-operations for column additions, deletions, renames, and changes to data types or nullability.
+**Migration Forge** is the bridge between the interpretation of SQL schema evolution and the SQL statements. It provides
+concrete operations for column additions, deletions, renames, and changes to data types or nullability.

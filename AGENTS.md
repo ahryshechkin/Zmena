@@ -1,4 +1,6 @@
-## Initial Instructions
+## Agent Guidelines
+
+### Working Principles
 
 Read this file first. Before making changes, consult the references below that are relevant to the scope of the task.
 
@@ -13,7 +15,7 @@ hidden behind clear interfaces.
 instead of accumulating logic in unrelated services, utilities, or consumers.
 - `Cohesion` Related data and behavior should live together. Prefer cohesive domain objects over scattered logic and
 procedural orchestration.
-- `Meaningful Naming` Names should communicate intent, responsibility, and domain meaning. Prefer precise and explicit
+- `Meaningful Naming` Names should reflect purpose, responsibility, and domain meaning. Prefer precise and explicit
 names over generic or ambiguous ones.
 - `Appropriate Abstraction` Introduce abstractions when they clarify responsibilities, protect architectural boundaries,
 or represent meaningful domain concepts. Avoid abstraction for its own sake.
@@ -26,8 +28,7 @@ it affects.
 Prefer simple, explicit, and maintainable solutions over clever or unnecessarily complex designs. A successful change
 should not only satisfy the immediate requirement but also preserve or improve the coherence of the codebase.
 
-
-## Where to Find Information
+### Project References
 
 Use the following documents as the primary sources of truth when working on the repository:
 - `README.md` Public project overview and usage information.
