@@ -1,27 +1,60 @@
-## Contributing to Zmena
+## Zmena
 
 Thank you for your interest in contributing to **Zmena**!  
 We welcome bug reports, feature requests, documentation improvements, and code contributions.
 
-Please take a moment to read this guide before opening an Issue or Pull Request.
+Please take a moment to read this guide before opening an issue or pull request. This guide explains the basic workflow,
+environment configuration, hook setup, naming conventions, and rules to help keep changes consistent and easy to review.
+
+The project uses [**uv**](https://docs.astral.sh/uv/) for Python version, virtual environment, and dependency
+management. Run project commands within the managed environment using `uv run`.
 
 
-## Getting started
+## Basic Workflow
 
 1. Fork the repository
-2. Create a new branch from `main`
-3. Make your changes
-4. Open a Pull Request
+2. Configure the development environment
+3. Set up hooks (if they are not configured yet)
+4. Create a new branch from `main`
+5. Make your changes
+6. Open a pull request
+
+### Before You Develop
+
+After installing **uv**, navigate to the project root folder, create a virtual environment, and install all dependencies
+from `uv.lock`:
+```
+uv sync
+```
+
+Do not install or update project dependencies manually with `pip`. To add or remove a dependency, use `uv add` or
+`uv remove` and commit the changes to both `pyproject.toml` and `uv.lock`. Configure pre-commit hooks to keep the
+codebase clean and consistent. Hooks are configured in `.pre-commit-config.yaml`. Run hooks before opening a pull
+request. If a hook fails, fix the reported issue and run it again.
+
+### Hook Installation
+```
+uv run pre-commit install
+```
+
+### Manual Hook Execution
+```
+uv run pre-commit run --all-files
+```
 
 
 ## Naming Convention
 
 ### Pull Request
 
-Pull Request follows this title pattern:
+Pull request follows this title pattern:
 ```
-[ZM-<issue-id>] Short Description
+[ZM-< issue-id >] Short Description
 ```
+
+Examples:
+- [ZM-0001] New Parser
+- [ZM-0002] Empty Input
 
 Guidelines:
 - Describe what was changed
@@ -31,7 +64,7 @@ Guidelines:
 
 Branch name should be in the format:
 ```
-zm-<issue-id>-short-description
+zm-< issue-id >-short-description
 ```
 
 Examples:
@@ -46,7 +79,7 @@ Guidelines:
 
 This project complies with the following convention:
 ```
-<type>: short description
+< type >: short description
 ```
 
 Allowed types:
