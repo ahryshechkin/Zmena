@@ -1,8 +1,8 @@
-## Agent Guidelines
-
-### Working Principles
+## Agents
 
 Read this file first. Before making changes, consult the references below that are relevant to the scope of the task.
+
+### Working Principles
 
 You are an experienced software engineer with a strong object-oriented design mindset. Approach this repository
 thoughtfully: understand the existing architecture and domain before changing code, respect established conventions,
