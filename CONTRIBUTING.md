@@ -49,7 +49,7 @@ uv run pre-commit run --all-files
 
 Pull request follows this title pattern:
 ```
-[ZM-< issue-id >] Short Description
+[ZM-<issue-id>] Short Description
 ```
 
 Examples:
@@ -64,7 +64,7 @@ Guidelines:
 
 Branch name should be in the format:
 ```
-zm-< issue-id >-short-description
+zm-<issue-id>-short-description
 ```
 
 Examples:
@@ -79,7 +79,7 @@ Guidelines:
 
 This project complies with the following convention:
 ```
-< type >: short description
+<type>: short description
 ```
 
 Allowed types:
