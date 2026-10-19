@@ -4,10 +4,9 @@ Zmena uses a layered architecture with three areas: `domain`, `application`, and
 logic for understanding SQL schema evolution from the code that coordinates how the system works and interacts with the
 outside world.
 
+### Layers
 
-## Layers
-
-### Domain
+#### Domain
 
 The domain contains the logic for interpreting SQL schema evolution. It defines core concepts, possible relationships
 between them, and rules for choosing the most likely explanation for the observed differences. The domain must not
@@ -18,7 +17,7 @@ column replaces the old one or is unrelated to it.
 
 **In short**: The domain decides what a schema change means.
 
-### Application
+#### Application
 
 The application layer coordinates the processing workflow. It prepares the data, runs the required domain operations in
 the correct order, and collects the results.
@@ -28,7 +27,7 @@ scenarios and produce a consistent result.
 
 **In short**: The application coordinates how data is processed.
 
-### Infrastructure
+#### Infrastructure
 
 The infrastructure layer handles interactions with the outside world. It includes code for reading input data,
 accessing external sources, and presenting results. Infrastructure converts external data into a format the application
@@ -39,7 +38,7 @@ For example, loading a scenario from a catalog and printing processing results i
 **In short**: Infrastructure handles input, output, and external systems.
 
 
-## Dependency Direction
+### Dependency Direction
 
 Source-code dependencies point inward:
 
