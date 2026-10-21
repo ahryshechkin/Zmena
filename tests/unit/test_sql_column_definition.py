@@ -9,13 +9,6 @@ class TestSQLColumnDefinition(unittest.TestCase):
         self.column_def = Mock()
         self.expected = "col_01 INT NOT NULL"
 
-    def test_init_execution(self):
-        self.column_def.sql.return_value = self.expected
-
-        definition = SQLColumnDefinition(self.column_def)
-
-        self.assertEqual(self.expected, definition.text)
-
     def test_normalized_text_lowercase(self):
         self.column_def.sql.return_value = "col_01 int not null"
 

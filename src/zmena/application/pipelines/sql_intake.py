@@ -14,6 +14,6 @@ class SQLIntakePipeline(Pipeline):
         after = SQLTableDefinition(self.message.after)
 
         return SQLIntakeOutboundMessage(
-            before=before.normalized_columns(),
-            after=after.normalized_columns(),
+            before=before.columns(),
+            after=after.columns(),
         )

@@ -10,7 +10,13 @@ class SQLTableDefinition:
     def __repr__(self):
         return f"SQLTableDefinition(length={len(self.ddl)})"
 
-    def normalized_columns(self):
+    def name(self):
+        ast = sqlglot.parse_one(self.ddl)
+        table = ast.find(sqlglot.exp.Table)
+
+        return table.name
+
+    def columns(self):
         ast = sqlglot.parse_one(self.ddl)
 
         definitions = [
