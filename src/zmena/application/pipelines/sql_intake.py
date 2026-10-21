@@ -1,7 +1,7 @@
 from zmena.application.handoffs.sql_intake.messages.outbound import SQLIntakeOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
-from zmena.domain.sql_intake.core.sql_table_profile import SQLTableProfile
+from zmena.domain.sql_intake.core.sql_table_definition import SQLTableDefinition
 
 
 class SQLIntakePipeline(Pipeline):
@@ -10,10 +10,10 @@ class SQLIntakePipeline(Pipeline):
         self.message = message
 
     def run(self):
-        table_profile_before = SQLTableProfile(self.message.before)
-        table_profile_after = SQLTableProfile(self.message.after)
+        before = SQLTableDefinition(self.message.before)
+        after = SQLTableDefinition(self.message.after)
 
         return SQLIntakeOutboundMessage(
-            before=table_profile_before.formatted_columns(),
-            after=table_profile_after.formatted_columns(),
+            before=before.normalized_columns(),
+            after=after.normalized_columns(),
         )
