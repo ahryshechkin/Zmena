@@ -1,10 +1,10 @@
-class SQLColumnProfile:
-    def __init__(self, definition):
-        self.definition = definition.sql()
+class SQLColumnDefinition:
+    def __init__(self, column_def):
+        self.text = column_def.sql()
 
     def __repr__(self):
-        return f"SQLColumnProfile(definition={self.definition})"
+        return f"SQLColumnDefinition(text={self.text})"
 
-    def formatted_sql(self):
-        name, rest = self.definition.split(maxsplit=1)
+    def normalized_text(self):
+        name, rest = self.text.split(maxsplit=1)
         return f"{name.lower()} {rest.upper()}"

@@ -1,20 +1,20 @@
 import sqlglot
 
-from zmena.domain.sql_intake.core.sql_column_profile import SQLColumnProfile
+from zmena.domain.sql_intake.core.sql_column_definition import SQLColumnDefinition
 
 
-class SQLTableProfile:
+class SQLTableDefinition:
     def __init__(self, ddl):
         self.ddl = ddl
 
     def __repr__(self):
-        return f"SQLTableProfile(length={len(self.ddl)})"
+        return f"SQLTableDefinition(length={len(self.ddl)})"
 
-    def formatted_columns(self):
+    def normalized_columns(self):
         ast = sqlglot.parse_one(self.ddl)
 
-        profiles = [
-            SQLColumnProfile(column_def) for column_def in ast.find_all(sqlglot.exp.ColumnDef)
+        definitions = [
+            SQLColumnDefinition(column_def) for column_def in ast.find_all(sqlglot.exp.ColumnDef)
         ]
 
-        return [profile.formatted_sql() for profile in profiles]
+        return [definition.normalized_text() for definition in definitions]
