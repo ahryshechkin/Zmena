@@ -14,14 +14,19 @@ provides the before and after versions for further processing without interpreti
 may vary in formatting and include content beyond SQL table definitions. It extracts the relevant schema information
 and provides it in a consistent format for further processing.
 
+- `SQLColumnDefinition` is a parsed representation of a single column definition. It provides the normalized text of
+the definition.
+- `SQLTableDefinition` is a parsed representation of a table definition. It provides the column definitions the table
+declares.
+
 ### Semantic Engine
 
 **Semantic Engine** is the core of schema change interpretation. It represents possible column correspondences as
 hypotheses, assesses them through heuristics and lenses, and provides decisions with scored candidate links and
 non-conflicting winning links.
 
-- `ColumnSpec` is a parsed representation of a column profile provided by SQL Intake. It contains a name, a data type,
-and nullability. It describes the column independently of any comparison context.
+- `ColumnSpec` is a parsed representation of a column definition provided by SQL Intake. It contains a name, a data
+type, and nullability. It describes the column independently of any comparison context.
 - `Component` is a connected group of fragments and hypotheses representing a shared interpretation problem. Its
 hypotheses are connected by shared fragments and assessed using heuristics.
 - `Context` is a source of information for lenses during refinement. It provides a broader view of candidate links. So
