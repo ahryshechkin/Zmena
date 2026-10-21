@@ -1,41 +1,48 @@
 import unittest
 from unittest.mock import Mock
 
-from zmena.domain.sql_intake.core.sql_column_profile import SQLColumnProfile
+from zmena.domain.sql_intake.core.sql_column_definition import SQLColumnDefinition
 
 
-class TestSQLColumnProfile(unittest.TestCase):
+class TestSQLColumnDefinition(unittest.TestCase):
     def setUp(self):
         self.column_def = Mock()
         self.expected = "col_01 INT NOT NULL"
 
-    def test_formatted_sql_lowercase(self):
+    def test_init_execution(self):
+        self.column_def.sql.return_value = self.expected
+
+        definition = SQLColumnDefinition(self.column_def)
+
+        self.assertEqual(self.expected, definition.text)
+
+    def test_normalized_text_lowercase(self):
         self.column_def.sql.return_value = "col_01 int not null"
 
-        profile = SQLColumnProfile(self.column_def)
-        actual = profile.formatted_sql()
+        definition = SQLColumnDefinition(self.column_def)
+        actual = definition.normalized_text()
 
         self.assertEqual(self.expected, actual)
 
-    def test_formatted_sql_mixed(self):
+    def test_normalized_text_mixed(self):
         self.column_def.sql.return_value = "COL_01 int NoT nuLL"
 
-        profile = SQLColumnProfile(self.column_def)
-        actual = profile.formatted_sql()
+        definition = SQLColumnDefinition(self.column_def)
+        actual = definition.normalized_text()
 
         self.assertEqual(self.expected, actual)
 
-    def test_formatted_sql_uppercase(self):
+    def test_normalized_text_uppercase(self):
         self.column_def.sql.return_value = "COL_01 INT NOT NULL"
 
-        profile = SQLColumnProfile(self.column_def)
-        actual = profile.formatted_sql()
+        definition = SQLColumnDefinition(self.column_def)
+        actual = definition.normalized_text()
 
         self.assertEqual(self.expected, actual)
 
     def test_repr_execution(self):
         self.column_def.sql.return_value = self.expected
 
-        profile = SQLColumnProfile(self.column_def)
+        definition = SQLColumnDefinition(self.column_def)
 
-        self.assertEqual("SQLColumnProfile(definition=col_01 INT NOT NULL)", repr(profile))
+        self.assertEqual("SQLColumnDefinition(text=col_01 INT NOT NULL)", repr(definition))
