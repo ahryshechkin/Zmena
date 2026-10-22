@@ -1,23 +1,27 @@
 [
   {
     "kind": "AddColumnStatement",
-    "name": "col_11",
+    "tab_name": "tab_01",
+    "col_name": "col_11",
     "data_type": "INT",
     "nullable": true
   },
   {
     "kind": "AddColumnStatement",
-    "name": "col_22",
+    "tab_name": "tab_01",
+    "col_name": "col_22",
     "data_type": "VARCHAR(50)",
     "nullable": false
   },
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_07",
+    "tab_name": "tab_01",
+    "col_name": "col_07",
     "data_type": "VARCHAR(10)"
   },
   {
     "kind": "DropColumnStatement",
-    "name": "col_10"
+    "tab_name": "tab_01",
+    "col_name": "col_10"
   }
 ]

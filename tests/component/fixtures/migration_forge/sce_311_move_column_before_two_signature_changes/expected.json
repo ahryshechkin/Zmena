@@ -1,20 +1,24 @@
 [
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_04",
+    "tab_name": "tab_01",
+    "col_name": "col_04",
     "data_type": "DATE"
   },
   {
     "kind": "DropNotNullStatement",
-    "name": "col_04"
+    "tab_name": "tab_01",
+    "col_name": "col_04"
   },
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_05",
+    "tab_name": "tab_01",
+    "col_name": "col_05",
     "data_type": "DATE"
   },
   {
     "kind": "SetNotNullStatement",
-    "name": "col_05"
+    "tab_name": "tab_01",
+    "col_name": "col_05"
   }
 ]

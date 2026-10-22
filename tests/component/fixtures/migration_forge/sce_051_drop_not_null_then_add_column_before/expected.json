@@ -1,12 +1,14 @@
 [
   {
     "kind": "AddColumnStatement",
-    "name": "col_22",
+    "tab_name": "tab_01",
+    "col_name": "col_22",
     "data_type": "VARCHAR(50)",
     "nullable": false
   },
   {
     "kind": "SetNotNullStatement",
-    "name": "col_03"
+    "tab_name": "tab_01",
+    "col_name": "col_03"
   }
 ]

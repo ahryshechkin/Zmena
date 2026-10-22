@@ -1,12 +1,14 @@
 [
   {
     "kind": "AddColumnStatement",
-    "name": "col_06",
+    "tab_name": "tab_01",
+    "col_name": "col_06",
     "data_type": "VARCHAR(50)",
     "nullable": false
   },
   {
     "kind": "RenameColumnStatement",
+    "tab_name": "tab_01",
     "old_name": "col_06",
     "new_name": "col_66"
   }

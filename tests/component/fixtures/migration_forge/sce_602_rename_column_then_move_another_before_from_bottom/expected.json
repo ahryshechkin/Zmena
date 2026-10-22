@@ -1,6 +1,7 @@
 [
   {
     "kind": "RenameColumnStatement",
+    "tab_name": "tab_01",
     "old_name": "col_03",
     "new_name": "col_33"
   }

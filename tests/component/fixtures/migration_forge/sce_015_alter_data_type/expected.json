@@ -1,7 +1,8 @@
 [
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_08",
+    "tab_name": "tab_01",
+    "col_name": "col_08",
     "data_type": "TIMESTAMP"
   }
 ]

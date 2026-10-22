@@ -1,7 +1,8 @@
 [
   {
     "kind": "AddColumnStatement",
-    "name": "col_33",
+    "tab_name": "tab_01",
+    "col_name": "col_33",
     "data_type": "VARCHAR(50)",
     "nullable": false
   }

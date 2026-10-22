@@ -1,6 +1,7 @@
 [
   {
     "kind": "DropColumnStatement",
-    "name": "col_06"
+    "tab_name": "tab_01",
+    "col_name": "col_06"
   }
 ]

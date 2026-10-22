@@ -1,6 +1,7 @@
 [
   {
     "kind": "DropNotNullStatement",
-    "name": "col_07"
+    "tab_name": "tab_01",
+    "col_name": "col_07"
   }
 ]
