@@ -1,4 +1,4 @@
-creAte TaBlE t (
+creAte TaBlE tab_01 (
     CoL_01 iNt NOt nULl,
     COL_02 VarChar(50) Not NuLl,
     col_03 varchar(200),

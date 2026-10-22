@@ -1,3 +1,3 @@
-CREATE TABLE t (
+CREATE TABLE tab_01 (
     col_11 INT NOT NULL
 );
