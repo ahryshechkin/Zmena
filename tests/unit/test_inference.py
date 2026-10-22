@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import Mock
 
 from zmena.domain.migration_forge.core.change import Change
-from zmena.domain.migration_forge.core.plan import Plan
+from zmena.domain.migration_forge.core.inference import Inference
 from zmena.domain.migration_forge.core.snapshot import Snapshot
 from zmena.domain.migration_forge.statements.add_column import AddColumnStatement
 from zmena.domain.migration_forge.statements.alter_data_type import AlterDataTypeStatement
@@ -20,7 +20,7 @@ class TestPlan(unittest.TestCase):
 
         snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
         change = Change(None, snapshot)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -33,7 +33,7 @@ class TestPlan(unittest.TestCase):
         before = Snapshot(name="col_08", data_type="DATE", nullable=False)
         after = Snapshot(name="col_08", data_type="TIMESTAMP", nullable=False)
         change = Change(before, after)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -45,7 +45,7 @@ class TestPlan(unittest.TestCase):
 
         snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
         change = Change(snapshot, None)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -58,7 +58,7 @@ class TestPlan(unittest.TestCase):
         before = Snapshot(name="col_08", data_type="DATE", nullable=False)
         after = Snapshot(name="col_08", data_type="DATE", nullable=True)
         change = Change(before, after)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -73,7 +73,7 @@ class TestPlan(unittest.TestCase):
         before = Snapshot(name="col_08", data_type="DATE", nullable=False)
         after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
         change = Change(before, after)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -86,7 +86,7 @@ class TestPlan(unittest.TestCase):
         before = Snapshot(name="col_08", data_type="DATE", nullable=False)
         after = Snapshot(name="col_88", data_type="DATE", nullable=False)
         change = Change(before, after)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
@@ -99,11 +99,11 @@ class TestPlan(unittest.TestCase):
         before = Snapshot(name="col_08", data_type="DATE", nullable=True)
         after = Snapshot(name="col_08", data_type="DATE", nullable=False)
         change = Change(before, after)
-        plan = Plan(change)
+        plan = Inference(change)
         actual = plan.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_repr_execution(self):
-        plan = Plan(Mock())
-        self.assertEqual("Plan", repr(plan))
+        plan = Inference(Mock())
+        self.assertEqual("Inference", repr(plan))
