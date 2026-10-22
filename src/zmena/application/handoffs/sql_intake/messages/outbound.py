@@ -3,13 +3,13 @@ from dataclasses import dataclass
 
 @dataclass
 class SQLIntakeOutboundMessage:
-    name: str
+    tab_name: str
     before: list
     after: list
 
     def __repr__(self):
         return (
             f"SQLIntakeOutboundMessage("
-            f"name={self.name},before={len(self.before)},after={len(self.after)}"
+            f"tab_name={self.tab_name},before={len(self.before)},after={len(self.after)}"
             f")"
         )
