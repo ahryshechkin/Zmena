@@ -6,12 +6,12 @@ from zmena.domain.migration_forge.statements.rename_column import RenameColumnSt
 from zmena.domain.migration_forge.statements.set_not_null import SetNotNullStatement
 
 
-class Plan:
+class Inference:
     def __init__(self, change):
         self.change = change
 
     def __repr__(self):
-        return "Plan"
+        return "Inference"
 
     def derive(self):
         before, after = self.change.snapshots()
