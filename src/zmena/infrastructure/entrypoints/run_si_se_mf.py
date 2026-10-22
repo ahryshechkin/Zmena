@@ -1,0 +1,49 @@
+from zmena.application.handoffs.migration_forge.from_sql_intake import (
+    SQLIntakeToMigrationForgeHandoff,
+)
+from zmena.application.handoffs.report_hub.from_scenario_catalog import (
+    ScenarioCatalogToReportHubHandoff,
+)
+from zmena.application.handoffs.semantic_engine.from_sql_intake import (
+    SQLIntakeToSemanticEngineHandoff,
+)
+from zmena.application.handoffs.sql_intake.from_scenario_catalog import (
+    ScenarioCatalogToSQLIntakeHandoff,
+)
+from zmena.application.pipelines.migration_forge import MigrationForgePipeline
+from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
+from zmena.application.pipelines.sql_intake import SQLIntakePipeline
+from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
+from zmena.infrastructure.reporting.console.report_hub import ReportHub
+
+sce_ids = ["702"]
+catalog = ScenarioCatalog()
+for scenario in catalog.get_many(sce_ids):
+    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)
+    sii_message = handoff.prepare()
+
+    pipeline = SQLIntakePipeline(sii_message)
+    sio_message = pipeline.run()
+
+    handoff = SQLIntakeToSemanticEngineHandoff(sio_message)
+    sei_message = handoff.prepare()
+
+    pipeline = SemanticEnginePipeline(sei_message)
+    seo_message = pipeline.run()
+
+    handoff = SQLIntakeToMigrationForgeHandoff(sio_message, seo_message)
+    mfi_message = handoff.prepare()
+
+    pipeline = MigrationForgePipeline(mfi_message)
+    mfo_message = pipeline.run()
+
+    handoff = ScenarioCatalogToReportHubHandoff(scenario, seo_message, mfo_message)
+    rhi_message = handoff.prepare()
+
+    report = ReportHub(rhi_message)
+    report.show_sql_diff()
+    report.show_fragments()
+    report.show_hypotheses()
+    report.show_components()
+    report.show_decisions()
+    report.show_statements()
