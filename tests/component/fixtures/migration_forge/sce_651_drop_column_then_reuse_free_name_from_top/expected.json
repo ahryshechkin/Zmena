@@ -1,10 +1,12 @@
 [
   {
     "kind": "DropColumnStatement",
-    "name": "col_03"
+    "tab_name": "tab_01",
+    "col_name": "col_03"
   },
   {
     "kind": "RenameColumnStatement",
+    "tab_name": "tab_01",
     "old_name": "col_07",
     "new_name": "col_03"
   }

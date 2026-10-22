@@ -1,12 +1,14 @@
 [
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_04",
+    "tab_name": "tab_01",
+    "col_name": "col_04",
     "data_type": "VARCHAR(51)"
   },
   {
     "kind": "AlterDataTypeStatement",
-    "name": "col_14",
+    "tab_name": "tab_01",
+    "col_name": "col_14",
     "data_type": "VARCHAR(51)"
   }
 ]

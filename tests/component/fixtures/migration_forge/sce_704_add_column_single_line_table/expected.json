@@ -1,7 +1,8 @@
 [
   {
     "kind": "AddColumnStatement",
-    "name": "col_88",
+    "tab_name": "tab_01",
+    "col_name": "col_88",
     "data_type": "DATE",
     "nullable": false
   }
