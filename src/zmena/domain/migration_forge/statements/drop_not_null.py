@@ -6,10 +6,11 @@ from zmena.domain.migration_forge.statements.statement import Statement
 
 @dataclass
 class DropNotNullStatement(Statement):
-    name: str
+    tab_name: str
+    col_name: str
 
     def __repr__(self):
-        return f"DropNotNullStatement(name={self.name})"
+        return f"DropNotNullStatement(tab_name={self.tab_name},col_name={self.col_name})"
 
     def __post_init__(self):
         super().__init__(StatementKind.DROP_NOT_NULL)

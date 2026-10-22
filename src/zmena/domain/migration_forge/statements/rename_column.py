@@ -6,11 +6,16 @@ from zmena.domain.migration_forge.statements.statement import Statement
 
 @dataclass
 class RenameColumnStatement(Statement):
+    tab_name: str
     old_name: str
     new_name: str
 
     def __repr__(self):
-        return f"RenameColumnStatement(old_name={self.old_name},new_name={self.new_name})"
+        return (
+            f"RenameColumnStatement("
+            f"tab_name={self.tab_name},old_name={self.old_name},new_name={self.new_name}"
+            f")"
+        )
 
     def __post_init__(self):
         super().__init__(StatementKind.RENAME_COLUMN)
