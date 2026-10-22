@@ -1,4 +1,4 @@
-CREATE TABLE t (
+CREATE TABLE tab_01 (
     col_01 INT NOT NULL,
              col_02 VARCHAR(50) NOT NULL,
        col_03          VARCHAR(200),

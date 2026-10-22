@@ -1,4 +1,4 @@
-create table t (
+create table tab_01 (
     col_01 int not null,
     col_02 varchar(50) not null,
     col_03 varchar(200),
