@@ -8,11 +8,13 @@ class ChangeMint:
     def __repr__(self):
         return "ChangeMint(mints=change,snapshot)"
 
-    def issue(self, decisions):
+    def issue(self, tab_name, decisions):
         changes = []
         for decision in decisions:
             for winner in decision.winners():
-                change = Change(self.mint.issue(winner.left), self.mint.issue(winner.right))
+                change = Change(
+                    tab_name, self.mint.issue(winner.left), self.mint.issue(winner.right)
+                )
                 changes.append(change)
 
         return changes

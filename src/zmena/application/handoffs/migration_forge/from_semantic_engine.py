@@ -12,6 +12,6 @@ class SemanticEngineToMigrationForgeHandoff:
 
     def prepare(self):
         mint = ChangeMint(SnapshotMint())
-        changes = mint.issue(self.seo_message.decisions)
+        changes = mint.issue("tab_01", self.seo_message.decisions)
 
         return MigrationForgeInboundMessage(changes=changes)

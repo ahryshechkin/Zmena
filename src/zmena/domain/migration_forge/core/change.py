@@ -1,5 +1,6 @@
 class Change:
-    def __init__(self, before, after):
+    def __init__(self, tab_name, before, after):
+        self.tab_name = tab_name
         self.before = before
         self.after = after
 
