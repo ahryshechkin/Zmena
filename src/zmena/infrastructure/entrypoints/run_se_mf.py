@@ -4,7 +4,7 @@ from zmena.application.handoffs.migration_forge.from_semantic_engine import (
 from zmena.application.handoffs.report_hub.from_scenario_catalog import (
     ScenarioCatalogToReportHubHandoff,
 )
-from zmena.application.handoffs.semantic_engine.from_semantic_catalog import (
+from zmena.application.handoffs.semantic_engine.from_scenario_catalog import (
     ScenarioCatalogToSemanticEngineHandoff,
 )
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
