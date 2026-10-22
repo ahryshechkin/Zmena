@@ -3,7 +3,7 @@ from zmena.application.handoffs.migration_forge.messages.outbound import (
 )
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
-from zmena.domain.migration_forge.core.plan import Plan
+from zmena.domain.migration_forge.core.inference import Inference
 
 
 class MigrationForgePipeline(Pipeline):
@@ -14,7 +14,7 @@ class MigrationForgePipeline(Pipeline):
     def run(self):
         statements = []
         for change in self.message.changes:
-            plan = Plan(change)
-            statements.extend(plan.derive())
+            inference = Inference(change)
+            statements.extend(inference.derive())
 
         return MigrationForgeOutboundMessage(statements=statements)
