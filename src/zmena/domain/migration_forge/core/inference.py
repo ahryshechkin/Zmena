@@ -11,28 +11,31 @@ class Inference:
         self.change = change
 
     def __repr__(self):
-        return "Inference"
+        return f"Inference(name={self.change.name()})"
 
     def derive(self):
+        tab_name = self.change.name()
         before, after = self.change.snapshots()
         statements = []
 
         if self.change.is_add():
-            statements.append(AddColumnStatement(after.name, after.data_type, after.nullable))
+            statements.append(
+                AddColumnStatement(tab_name, after.name, after.data_type, after.nullable)
+            )
 
         if self.change.is_drop():
-            statements.append(DropColumnStatement(before.name))
+            statements.append(DropColumnStatement(tab_name, before.name))
 
         if self.change.has_name_change():
-            statements.append(RenameColumnStatement(before.name, after.name))
+            statements.append(RenameColumnStatement(tab_name, before.name, after.name))
 
         if self.change.has_data_type_change():
-            statements.append(AlterDataTypeStatement(after.name, after.data_type))
+            statements.append(AlterDataTypeStatement(tab_name, after.name, after.data_type))
 
         if self.change.has_nullability_change():
             if before.nullable:
-                statements.append(SetNotNullStatement(after.name))
+                statements.append(SetNotNullStatement(tab_name, after.name))
             else:
-                statements.append(DropNotNullStatement(after.name))
+                statements.append(DropNotNullStatement(tab_name, after.name))
 
         return statements

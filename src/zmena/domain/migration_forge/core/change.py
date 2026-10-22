@@ -7,6 +7,9 @@ class Change:
     def __repr__(self):
         return f"Change(before={self.before is not None},after={self.after is not None})"
 
+    def name(self):
+        return self.tab_name
+
     def snapshots(self):
         return self.before, self.after
 

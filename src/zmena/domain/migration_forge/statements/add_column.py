@@ -6,14 +6,16 @@ from zmena.domain.migration_forge.statements.statement import Statement
 
 @dataclass
 class AddColumnStatement(Statement):
-    name: str
+    tab_name: str
+    col_name: str
     data_type: str
     nullable: bool
 
     def __repr__(self):
         return (
             f"AddColumnStatement("
-            f"name={self.name},data_type={self.data_type},nullable={self.nullable}"
+            f"tab_name={self.tab_name},col_name={self.col_name},"
+            f"data_type={self.data_type},nullable={self.nullable}"
             f")"
         )
 
