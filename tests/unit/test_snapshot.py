@@ -5,7 +5,7 @@ from zmena.domain.migration_forge.core.snapshot import Snapshot
 
 class TestSnapshot(unittest.TestCase):
     def setUp(self):
-        self.snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
+        self.snapshot = Snapshot("col_08", "DATE", nullable=False)
 
     def test_init_execution(self):
         self.assertEqual("col_08", self.snapshot.name)
