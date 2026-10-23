@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import Mock
 
 from zmena.domain.migration_forge.core.change import Change
 from zmena.domain.migration_forge.core.inference import Inference
@@ -15,95 +14,97 @@ from zmena.domain.migration_forge.statements.set_not_null import SetNotNullState
 class TestPlan(unittest.TestCase):
     def test_derive_add_column(self):
         expected = [
-            AddColumnStatement("col_08", "DATE", nullable=False),
+            AddColumnStatement("tab_01", "col_08", "DATE", nullable=False),
         ]
 
-        snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        change = Change(None, snapshot)
-        plan = Inference(change)
-        actual = plan.derive()
+        snapshot = Snapshot("col_08", "DATE", nullable=False)
+        change = Change("tab_01", None, snapshot)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_alter_data_type(self):
         expected = [
-            AlterDataTypeStatement("col_08", "TIMESTAMP"),
+            AlterDataTypeStatement("tab_01", "col_08", "TIMESTAMP"),
         ]
 
-        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        after = Snapshot(name="col_08", data_type="TIMESTAMP", nullable=False)
-        change = Change(before, after)
-        plan = Inference(change)
-        actual = plan.derive()
+        before = Snapshot("col_08", "DATE", nullable=False)
+        after = Snapshot("col_08", "TIMESTAMP", nullable=False)
+        change = Change("tab_01", before, after)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_drop_column(self):
         expected = [
-            DropColumnStatement("col_08"),
+            DropColumnStatement("tab_01", "col_08"),
         ]
 
-        snapshot = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        change = Change(snapshot, None)
-        plan = Inference(change)
-        actual = plan.derive()
+        snapshot = Snapshot("col_08", "DATE", nullable=False)
+        change = Change("tab_01", snapshot, None)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_drop_not_null(self):
         expected = [
-            DropNotNullStatement("col_08"),
+            DropNotNullStatement("tab_01", "col_08"),
         ]
 
-        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        after = Snapshot(name="col_08", data_type="DATE", nullable=True)
-        change = Change(before, after)
-        plan = Inference(change)
-        actual = plan.derive()
+        before = Snapshot("col_08", "DATE", nullable=False)
+        after = Snapshot("col_08", "DATE", nullable=True)
+        change = Change("tab_01", before, after)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_multiple_changes(self):
         expected = [
-            AlterDataTypeStatement("col_88", "TIMESTAMP"),
-            DropNotNullStatement("col_88"),
-            RenameColumnStatement("col_08", "col_88"),
+            AlterDataTypeStatement("tab_01", "col_88", "TIMESTAMP"),
+            DropNotNullStatement("tab_01", "col_88"),
+            RenameColumnStatement("tab_01", "col_08", "col_88"),
         ]
 
-        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
-        change = Change(before, after)
-        plan = Inference(change)
-        actual = plan.derive()
+        before = Snapshot("col_08", "DATE", nullable=False)
+        after = Snapshot("col_88", "TIMESTAMP", nullable=True)
+        change = Change("tab_01", before, after)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_rename_column(self):
         expected = [
-            RenameColumnStatement("col_08", "col_88"),
+            RenameColumnStatement("tab_01", "col_08", "col_88"),
         ]
 
-        before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        after = Snapshot(name="col_88", data_type="DATE", nullable=False)
-        change = Change(before, after)
-        plan = Inference(change)
-        actual = plan.derive()
+        before = Snapshot("col_08", "DATE", nullable=False)
+        after = Snapshot("col_88", "DATE", nullable=False)
+        change = Change("tab_01", before, after)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_derive_set_not_null(self):
         expected = [
-            SetNotNullStatement("col_08"),
+            SetNotNullStatement("tab_01", "col_08"),
         ]
 
-        before = Snapshot(name="col_08", data_type="DATE", nullable=True)
-        after = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        change = Change(before, after)
-        plan = Inference(change)
-        actual = plan.derive()
+        before = Snapshot("col_08", "DATE", nullable=True)
+        after = Snapshot("col_08", "DATE", nullable=False)
+        change = Change("tab_01", before, after)
+        inference = Inference(change)
+        actual = inference.derive()
 
         self.assertCountEqual(expected, actual)
 
     def test_repr_execution(self):
-        plan = Inference(Mock())
-        self.assertEqual("Inference", repr(plan))
+        snapshot = Snapshot("col_08", "DATE", nullable=False)
+        change = Change("tab_01", None, snapshot)
+        inference = Inference(change)
+        self.assertEqual("Inference(name=tab_01)", repr(inference))
