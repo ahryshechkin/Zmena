@@ -6,29 +6,29 @@ from zmena.domain.migration_forge.core.snapshot import Snapshot
 
 class TestChange(unittest.TestCase):
     def setUp(self):
-        self.before = Snapshot(name="col_08", data_type="DATE", nullable=False)
-        self.after = Snapshot(name="col_88", data_type="TIMESTAMP", nullable=True)
-        self.change = Change(self.before, self.after)
+        self.before = Snapshot("col_08", "DATE", nullable=False)
+        self.after = Snapshot("col_88", "TIMESTAMP", nullable=True)
+        self.change = Change("tab_01", self.before, self.after)
 
     def test_has_data_type_change(self):
         self.assertTrue(self.change.has_data_type_change())
 
     def test_has_data_type_change_when_after_is_none(self):
-        change = Change(self.before, None)
+        change = Change("tab_01", self.before, None)
         self.assertFalse(change.has_data_type_change())
 
     def test_has_name_change(self):
         self.assertTrue(self.change.has_name_change())
 
     def test_has_name_change_when_after_is_none(self):
-        change = Change(self.before, None)
+        change = Change("tab_01", self.before, None)
         self.assertFalse(change.has_name_change())
 
     def test_has_nullability_change(self):
         self.assertTrue(self.change.has_nullability_change())
 
     def test_has_nullability_change_when_after_is_none(self):
-        change = Change(self.before, None)
+        change = Change("tab_01", self.before, None)
         self.assertFalse(change.has_nullability_change())
 
     def test_is_add(self):
@@ -36,6 +36,9 @@ class TestChange(unittest.TestCase):
 
     def test_is_drop(self):
         self.assertFalse(self.change.is_drop())
+
+    def test_name(self):
+        self.assertEqual("tab_01", self.change.name())
 
     def test_repr_execution(self):
         self.assertEqual("Change(before=True,after=True)", repr(self.change))

@@ -107,4 +107,5 @@ class TestPlan(unittest.TestCase):
         snapshot = Snapshot("col_08", "DATE", nullable=False)
         change = Change("tab_01", None, snapshot)
         inference = Inference(change)
+
         self.assertEqual("Inference(name=tab_01)", repr(inference))
