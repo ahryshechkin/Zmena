@@ -1,2 +1,3 @@
 class Script:
-    pass
+    def __repr__(self):
+        return "Script"
