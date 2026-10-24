@@ -1,2 +1,3 @@
 class Dialect:
-    pass
+    def __repr__(self):
+        return "Dialect"
