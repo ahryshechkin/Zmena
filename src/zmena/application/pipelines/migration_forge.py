@@ -17,4 +17,9 @@ class MigrationForgePipeline(Pipeline):
             inference = Inference(change)
             statements.extend(inference.derive())
 
+        scripts = []
+        for statement in statements:
+            script = self.message.dialect.script_for(statement)
+            scripts.append(script)
+
         return MigrationForgeOutboundMessage(statements=statements)
