@@ -1,7 +1,8 @@
 from zmena.domain.migration_forge.kinds.script import ScriptKind
+from zmena.domain.migration_forge.scripts.script import Script
 
 
-class AddColumnScript:
+class AddColumnScript(Script):
     def __init__(self, statement):
         super().__init__(ScriptKind.ADD_COLUMN, statement)
 
