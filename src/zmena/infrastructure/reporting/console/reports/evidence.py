@@ -25,7 +25,7 @@ class EvidenceReport:
 
             evidences = link.evidence_bundle()
             if not evidences:
-                print(self.formatted_line("Evidences: No data"))
+                print(self.formatted_line("Evidences: No data to show"))
             else:
                 print(self.formatted_line("Evidences:"))
                 for evidence in evidences:
