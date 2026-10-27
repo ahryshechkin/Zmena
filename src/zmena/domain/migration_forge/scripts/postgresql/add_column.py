@@ -12,4 +12,4 @@ class AddColumnScript(Script):
         data_type = self.statement.data_type
         nullable = "NULL" if self.statement.nullable else "NOT NULL"
 
-        return f"ALTER TABLE {tab_name} ADD COLUMN {col_name} {data_type} {nullable}"
+        return f"ALTER TABLE {tab_name} ADD COLUMN {col_name} {data_type} {nullable};"
