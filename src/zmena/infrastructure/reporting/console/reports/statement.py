@@ -20,8 +20,11 @@ class StatementReport:
         print(f"\n{self.prefix}" + "#" * width)
 
     def body(self):
-        for statement in self.statements:
-            print(self.formatted_line(statement.render()))
+        if not self.statements:
+            print(self.formatted_line("No data to show"))
+        else:
+            for statement in self.statements:
+                print(self.formatted_line(statement.render()))
 
     def formatted_line(self, line):
         visible_width = self.color.calculate_visible_width(line)
@@ -33,4 +36,4 @@ class StatementReport:
         print(f"+-{sep}-+")
 
     def width(self):
-        return max(statement.width() for statement in self.statements)
+        return max((statement.width() for statement in self.statements), default=15)
