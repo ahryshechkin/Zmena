@@ -15,6 +15,7 @@ from zmena.application.handoffs.test_suite.from_migration_forge import (
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
+from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.mf_fixture import MFFixtureCatalog
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 
@@ -22,6 +23,7 @@ from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 class TestSQLIntakeSemanticEngineMigrationForgeScenarios(unittest.TestCase):
     def setUp(self):
         self.maxDiff = None
+        self.dialect = PostgreSQLDialect()
         self.sce_catalog = ScenarioCatalog()
         self.fix_catalog = MFFixtureCatalog()
 
@@ -38,7 +40,7 @@ class TestSQLIntakeSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        handoff = SemanticEngineToMigrationForgeHandoff(seo_message)
+        handoff = SemanticEngineToMigrationForgeHandoff(self.dialect, seo_message)
         mfi_message = handoff.prepare()
 
         pipeline = MigrationForgePipeline(mfi_message)
