@@ -39,3 +39,4 @@ for scenario in catalog.get_many(sce_ids):
     report.show_components()
     report.show_decisions()
     report.show_statements()
+    report.show_scripts()

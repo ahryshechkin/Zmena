@@ -2,6 +2,7 @@ from zmena.infrastructure.reporting.console.reports.component import ComponentRe
 from zmena.infrastructure.reporting.console.reports.decision import DecisionReport
 from zmena.infrastructure.reporting.console.reports.fragment import FragmentReport
 from zmena.infrastructure.reporting.console.reports.hypothesis import HypothesisReport
+from zmena.infrastructure.reporting.console.reports.script import ScriptReport
 from zmena.infrastructure.reporting.console.reports.sql_diff import SQLDiffReport
 from zmena.infrastructure.reporting.console.reports.statement import StatementReport
 
@@ -35,4 +36,8 @@ class ReportHub:
 
     def show_statements(self):
         report = StatementReport("Statement", self.message.statements)
+        report.render()
+
+    def show_scripts(self):
+        report = ScriptReport("Script", self.message.scripts)
         report.render()
