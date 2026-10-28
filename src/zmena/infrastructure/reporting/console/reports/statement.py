@@ -24,7 +24,7 @@ class StatementReport:
             print(self.formatted_line("No data to show"))
         else:
             for statement in self.statements:
-                print(self.formatted_line(statement.render()))
+                print(self.formatted_line(statement.details()))
 
     def formatted_line(self, line):
         visible_width = self.color.calculate_visible_width(line)

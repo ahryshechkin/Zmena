@@ -16,11 +16,11 @@ class StatementView:
     def __repr__(self):
         return f"StatementView(attrs={len(self.attrs)})"
 
-    def render(self):
+    def details(self):
         pattern = re.compile(r"\b[A-Za-z_]\w*(?==)")
-        return pattern.sub(self.highlight, str(self))
+        return pattern.sub(self.highlighted_name, str(self))
 
-    def highlight(self, match):
+    def highlighted_name(self, match):
         return f"{self.color.TERRACOTTA}{match.group()}{self.color.RESET}"
 
     def width(self):
