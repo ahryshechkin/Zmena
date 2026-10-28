@@ -13,6 +13,7 @@ class ReportHubInboundMessage:
     components: list
     decisions: list
     statements: list
+    scripts: list
 
     def __repr__(self):
         return f"ReportHubInboundMessage(kind={self.kind},label={self.label})"
