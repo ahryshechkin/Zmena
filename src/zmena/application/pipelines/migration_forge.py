@@ -21,6 +21,5 @@ class MigrationForgePipeline(Pipeline):
         for statement in statements:
             script = self.message.dialect.script_for(statement)
             scripts.append(script)
-            print(script.assemble())
 
-        return MigrationForgeOutboundMessage(statements=statements)
+        return MigrationForgeOutboundMessage(statements=statements, scripts=scripts)

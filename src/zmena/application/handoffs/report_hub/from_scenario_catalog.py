@@ -34,10 +34,12 @@ class ScenarioCatalogToReportHubHandoff:
 
         if self.mfo_message is None:
             statements = []
+            scripts = []
         else:
             statements = [
                 statement_mint.issue(statement) for statement in self.mfo_message.statements
             ]
+            scripts = []
 
         return ReportHubInboundMessage(
             kind="SCE",
@@ -50,4 +52,5 @@ class ScenarioCatalogToReportHubHandoff:
             components=components,
             decisions=decisions,
             statements=statements,
+            scripts=scripts,
         )
