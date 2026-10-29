@@ -13,7 +13,7 @@ from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
-sce_ids = ["020"]
+sce_ids = ["015"]
 dialect = PostgreSQLDialect()
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
