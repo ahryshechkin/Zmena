@@ -24,10 +24,10 @@ class ScriptReport:
             print(self.formatted_line("No data to show"))
         else:
             for script in self.scripts:
-                print(self.formatted_line(script.render()))
+                print(self.formatted_line(script.details()))
 
     def formatted_line(self, line):
-        padding = " " * max(0, self.width())
+        padding = " " * max(0, self.width() - len(line))
         return f"| {line}{padding} |"
 
     def separator(self):
