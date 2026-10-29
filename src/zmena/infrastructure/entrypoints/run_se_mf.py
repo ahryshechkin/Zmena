@@ -13,7 +13,7 @@ from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
-sce_ids = ["051"]
+sce_ids = ["020"]
 dialect = PostgreSQLDialect()
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
@@ -34,9 +34,9 @@ for scenario in catalog.get_many(sce_ids):
 
     report = ReportHub(rhi_message)
     report.show_sql_diff()
-    report.show_fragments()
-    report.show_hypotheses()
-    report.show_components()
-    report.show_decisions()
+    # report.show_fragments()
+    # report.show_hypotheses()
+    # report.show_components()
+    # report.show_decisions()
     report.show_statements()
     report.show_scripts()
