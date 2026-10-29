@@ -5,6 +5,7 @@ from zmena.application.handoffs.report_hub.mints.evidence import EvidenceMint
 from zmena.application.handoffs.report_hub.mints.fragment import FragmentMint
 from zmena.application.handoffs.report_hub.mints.hypothesis import HypothesisMint
 from zmena.application.handoffs.report_hub.mints.link import LinkMint
+from zmena.application.handoffs.report_hub.mints.script import ScriptMint
 from zmena.application.handoffs.report_hub.mints.statement import StatementMint
 
 
@@ -24,6 +25,7 @@ class ScenarioCatalogToReportHubHandoff:
         component_mint = ComponentMint(fragment_mint, hypothesis_mint)
         decision_mint = DecisionMint(LinkMint(fragment_mint, evidence_mint))
         statement_mint = StatementMint()
+        script_mint = ScriptMint()
 
         fragments = [fragment_mint.issue(fragment) for fragment in self.seo_message.fragments]
         hypotheses = [
@@ -39,7 +41,7 @@ class ScenarioCatalogToReportHubHandoff:
             statements = [
                 statement_mint.issue(statement) for statement in self.mfo_message.statements
             ]
-            scripts = []
+            scripts = [script_mint.issue(script) for script in self.mfo_message.scripts]
 
         return ReportHubInboundMessage(
             kind="SCE",
