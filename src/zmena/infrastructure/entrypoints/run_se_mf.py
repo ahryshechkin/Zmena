@@ -34,9 +34,9 @@ for scenario in catalog.get_many(sce_ids):
 
     report = ReportHub(rhi_message)
     report.show_sql_diff()
-    # report.show_fragments()
-    # report.show_hypotheses()
-    # report.show_components()
-    # report.show_decisions()
+    report.show_fragments()
+    report.show_hypotheses()
+    report.show_components()
+    report.show_decisions()
     report.show_statements()
     report.show_scripts()
