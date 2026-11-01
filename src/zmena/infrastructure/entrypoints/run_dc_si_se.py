@@ -47,3 +47,5 @@ for dco_message in pipeline.run(command):
     report.show_hypotheses()
     report.show_components()
     report.show_decisions()
+    report.show_statements()
+    report.show_scripts()
