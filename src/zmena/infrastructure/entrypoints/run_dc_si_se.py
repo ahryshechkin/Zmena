@@ -1,4 +1,6 @@
-from zmena.application.handoffs.delta_crawler.messages.inbound import DeltaCrawlerInboundMessage
+from zmena.application.handoffs.delta_crawler.from_commit_catalog import (
+    CommitCatalogToDeltaCrawlerHandoff,
+)
 from zmena.application.handoffs.report_hub.from_delta_crawler import (
     DeltaCrawlerToReportHubHandoff,
 )
@@ -12,20 +14,16 @@ from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
-from zmena.infrastructure.adapters.commands.git import GitCommand
-from zmena.infrastructure.project_directory import ProjectDirectory
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 catalog = CommitCatalog()
 # catalog.cleanup_demo_repo()
 # catalog.build_demo_repo()
 
-directory = ProjectDirectory()
-command = GitCommand(directory.demo_repo())
-
-dci_message = DeltaCrawlerInboundMessage(commit_from="v0.1.007", commit_to="v0.1.008")
+handoff = CommitCatalogToDeltaCrawlerHandoff(commit_from="v0.1.007", commit_to="v0.1.008")
+dci_message = handoff.prepare()
 pipeline = DeltaCrawlerPipeline(dci_message)
-for dco_message in pipeline.run(command):
+for dco_message in pipeline.run(dci_message):
     handoff = DeltaCrawlerToSQLIntakeHandoff(dco_message)
     sii_message = handoff.prepare()
 
