@@ -22,8 +22,9 @@ catalog = CommitCatalog()
 
 handoff = CommitCatalogToDeltaCrawlerHandoff(commit_from="v0.1.007", commit_to="v0.1.008")
 dci_message = handoff.prepare()
+
 pipeline = DeltaCrawlerPipeline(dci_message)
-for dco_message in pipeline.run(dci_message):
+for dco_message in pipeline.run():
     handoff = DeltaCrawlerToSQLIntakeHandoff(dco_message)
     sii_message = handoff.prepare()
 
