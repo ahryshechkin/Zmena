@@ -1,8 +1,11 @@
 from dataclasses import dataclass
 
+from zmena.infrastructure.adapters.commands.git import GitCommand  # noqa: TC001
+
 
 @dataclass
 class DeltaCrawlerInboundMessage:
+    command: GitCommand
     commit_from: str
     commit_to: str
 
