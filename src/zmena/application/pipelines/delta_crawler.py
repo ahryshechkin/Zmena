@@ -10,13 +10,14 @@ class DeltaCrawlerPipeline(Pipeline):
         super().__init__(PipelineKind.DELTA_CRAWLER)
         self.message = message
 
-    def run(self, command):
-        messages = []
-
+    def run(self):
+        command = self.message.command
         record = TagRecord(command.show_tag(self.message.commit_to))
         revision_paths = RevisionPaths(
             command.diff(self.message.commit_from, self.message.commit_to)
         )
+
+        messages = []
         for path in revision_paths.filter():
             before = command.show(self.message.commit_from, path)
             after = command.show(self.message.commit_to, path)
