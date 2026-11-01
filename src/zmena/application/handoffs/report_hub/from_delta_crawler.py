@@ -30,6 +30,7 @@ class DeltaCrawlerToReportHubHandoff:
         components = [component_mint.issue(component) for component in self.seo_message.components]
         decisions = [decision_mint.issue(decision) for decision in self.seo_message.decisions]
         statements = []
+        scripts = []
 
         return ReportHubInboundMessage(
             kind="CMT",
@@ -42,4 +43,5 @@ class DeltaCrawlerToReportHubHandoff:
             components=components,
             decisions=decisions,
             statements=statements,
+            scripts=scripts,
         )
