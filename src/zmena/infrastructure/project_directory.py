@@ -30,7 +30,7 @@ class ProjectDirectory:
         return self.root() / "tests/component/fixtures/semantic_engine"
 
     def test_repo(self):
-        return self.root() / "tests/integration/test_repo"
+        return self.root() / "artifacts/repositories/test"
 
     def demo_repo(self):
-        return self.root() / "tests/integration/demo_repo"
+        return self.root() / "artifacts/repositories/demo"
