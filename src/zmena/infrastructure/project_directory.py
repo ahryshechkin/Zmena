@@ -29,6 +29,9 @@ class ProjectDirectory:
     def se_fixtures(self):
         return self.root() / "tests/component/fixtures/semantic_engine"
 
+    def migrations(self):
+        return self.root() / "artifacts/migrations"
+
     def test_repo(self):
         return self.root() / "artifacts/repositories/test"
 
