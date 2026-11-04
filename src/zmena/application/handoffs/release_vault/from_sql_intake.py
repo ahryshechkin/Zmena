@@ -1,4 +1,5 @@
 from zmena.application.handoffs.release_vault.messages.inbound import ReleaseVaultInboundMessage
+from zmena.application.handoffs.release_vault.mints.migration import MigrationMint
 
 
 class SQLIntakeToReleaseVaultHandoff:
@@ -10,7 +11,9 @@ class SQLIntakeToReleaseVaultHandoff:
         return "SQLIntakeToReleaseVaultHandoff(messages=sio,mfo)"
 
     def prepare(self):
+        mint = MigrationMint()
+
         return ReleaseVaultInboundMessage(
             tab_name=self.sio_message.tab_name,
-            sql_text="",
+            migration="\n".join(mint.issue(script) for script in self.mfo_message.scripts),
         )
