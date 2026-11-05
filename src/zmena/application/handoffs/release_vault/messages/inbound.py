@@ -1,8 +1,10 @@
 from dataclasses import dataclass
+from pathlib import Path  # noqa: TC003
 
 
 @dataclass
 class ReleaseVaultInboundMessage:
+    target_location: Path
     tab_name: str
     migration: str
 
