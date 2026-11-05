@@ -3,9 +3,11 @@ from uuid import uuid7
 
 
 class PartitionPath:
+    def __init__(self):
+        self.now = datetime.now(tz=UTC)
+
     def __repr__(self):
-        return "PartitionPath"
+        return f"PartitionPath(now={self.now})"
 
     def generate(self):
-        now = datetime.now(tz=UTC)
-        return f"year={now:%Y}/month={now:%m}/day={now:%d}/{uuid7()}"
+        return f"year={self.now:%Y}/month={self.now:%m}/day={self.now:%d}/{uuid7()}"
