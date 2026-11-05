@@ -15,9 +15,12 @@ from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
+from zmena.infrastructure.adapters.release_vault import ReleaseVault
+from zmena.infrastructure.partition_path import PartitionPath
 
 sce_ids = ["702"]
 dialect = PostgreSQLDialect()
+path = PartitionPath()
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)
@@ -38,5 +41,8 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = MigrationForgePipeline(mfi_message)
     mfo_message = pipeline.run()
 
-    handoff = SQLIntakeToReleaseVaultHandoff(sio_message, mfo_message)
+    handoff = SQLIntakeToReleaseVaultHandoff(path.generate(), sio_message, mfo_message)
     rvi_message = handoff.prepare()
+
+    vault = ReleaseVault(rvi_message)
+    vault.save()
