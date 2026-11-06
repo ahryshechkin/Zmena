@@ -2,13 +2,18 @@ from datetime import UTC, datetime
 from uuid import uuid7
 
 
-class PartitionPath:
+class ReleaseBatch:
     def __init__(self):
-        self.now = datetime.now(tz=UTC)
-        self.uuid = uuid7()
+        self.run_id = uuid7()
+        self.created_at = datetime.now(tz=UTC)
 
     def __repr__(self):
-        return f"PartitionPath(uuid={self.uuid})"
+        return f"ReleaseBatch(run_id={self.run_id})"
 
-    def generate(self):
-        return f"year={self.now:%Y}/month={self.now:%m}/day={self.now:%d}/{self.uuid}"
+    def partition_path(self):
+        return (
+            f"year={self.created_at:%Y}/"
+            f"month={self.created_at:%m}/"
+            f"day={self.created_at:%d}/"
+            f"run_id={self.run_id}"
+        )
