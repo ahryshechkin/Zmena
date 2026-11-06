@@ -16,9 +16,9 @@ from zmena.application.pipelines.sql_intake import SQLIntakePipeline
 from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.adapters.release_vault import ReleaseVault
-from zmena.infrastructure.partition_path import PartitionPath
+from zmena.infrastructure.release_batch import PartitionPath
 
-sce_ids = ["702"]
+sce_ids = ["702", "703"]
 dialect = PostgreSQLDialect()
 path = PartitionPath()
 catalog = ScenarioCatalog()
