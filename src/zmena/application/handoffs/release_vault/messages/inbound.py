@@ -4,7 +4,7 @@ from pathlib import Path  # noqa: TC003
 
 @dataclass
 class ReleaseVaultInboundMessage:
-    target_location: Path
+    batch_path: Path
     tab_name: str
     migration: str
 

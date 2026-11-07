@@ -6,7 +6,7 @@ class ReleaseVault:
         self.message = message
 
     def save(self):
-        path = (Path(self.message.target_location) / self.message.tab_name).with_suffix(".sql")
+        path = (Path(self.message.batch_path) / self.message.tab_name).with_suffix(".sql")
         path.parent.mkdir(parents=True, exist_ok=True)
 
         with path.open("w", encoding="utf-8") as file:

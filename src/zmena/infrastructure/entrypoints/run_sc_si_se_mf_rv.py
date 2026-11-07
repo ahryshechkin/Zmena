@@ -19,11 +19,12 @@ from zmena.infrastructure.adapters.release_vault import ReleaseVault
 from zmena.infrastructure.release_batch import ReleaseBatch
 
 sce_ids = ["702", "703"]
-dialect = PostgreSQLDialect()
 batch = ReleaseBatch()
+dialect = PostgreSQLDialect()
+
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)
+    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, batch, dialect)
     sii_message = handoff.prepare()
 
     pipeline = SQLIntakePipeline(sii_message)
@@ -35,13 +36,13 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    handoff = SQLIntakeToMigrationForgeHandoff(dialect, sio_message, seo_message)
+    handoff = SQLIntakeToMigrationForgeHandoff(sio_message, seo_message)
     mfi_message = handoff.prepare()
 
     pipeline = MigrationForgePipeline(mfi_message)
     mfo_message = pipeline.run()
 
-    handoff = SQLIntakeToReleaseVaultHandoff(batch.partition_path(), sio_message, mfo_message)
+    handoff = SQLIntakeToReleaseVaultHandoff(sio_message, mfo_message)
     rvi_message = handoff.prepare()
 
     vault = ReleaseVault(rvi_message)
