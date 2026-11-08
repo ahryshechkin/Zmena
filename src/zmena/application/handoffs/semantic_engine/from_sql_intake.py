@@ -10,5 +10,7 @@ class SQLIntakeToSemanticEngineHandoff:
 
     def prepare(self):
         return SemanticEngineInboundMessage(
-            before=self.sio_message.before, after=self.sio_message.after
+            dialect=self.sio_message.dialect,
+            before=self.sio_message.before,
+            after=self.sio_message.after,
         )
