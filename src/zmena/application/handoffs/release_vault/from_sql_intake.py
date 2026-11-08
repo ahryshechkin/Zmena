@@ -13,10 +13,11 @@ class SQLIntakeToReleaseVaultHandoff:
 
     def prepare(self):
         directory = ProjectDirectory()
+        release_path = directory.releases() / self.sio_message.release_batch.partition_path()
+
         mint = MigrationMint()
+        migration = "\n".join(mint.issue(script) for script in self.mfo_message.scripts)
 
         return ReleaseVaultInboundMessage(
-            release_path=directory.releases() / self.sio_message.batch.partition_path(),
-            tab_name=self.sio_message.tab_name,
-            migration="\n".join(mint.issue(script) for script in self.mfo_message.scripts),
+            release_path=release_path, tab_name=self.sio_message.tab_name, migration=migration
         )

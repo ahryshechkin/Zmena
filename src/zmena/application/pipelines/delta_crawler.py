@@ -23,8 +23,8 @@ class DeltaCrawlerPipeline(Pipeline):
             after = command.show(self.message.commit_to, path)
             message = DeltaCrawlerOutboundMessage(
                 cmt_id=record.name(),
-                batch=self.message.batch,
                 dialect=self.message.dialect,
+                release_batch=self.message.release_batch,
                 name=record.annotation(),
                 before=before,
                 after=after,

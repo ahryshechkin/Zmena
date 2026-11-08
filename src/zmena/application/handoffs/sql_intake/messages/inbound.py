@@ -7,8 +7,8 @@ from zmena.infrastructure.release_batch import ReleaseBatch  # noqa: TC001
 @dataclass
 class SQLIntakeInboundMessage:
     label: str
-    batch: ReleaseBatch
     dialect: Dialect
+    release_batch: ReleaseBatch
     name: str
     before: str
     after: str

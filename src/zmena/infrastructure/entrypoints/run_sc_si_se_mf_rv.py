@@ -19,12 +19,12 @@ from zmena.infrastructure.adapters.release_vault import ReleaseVault
 from zmena.infrastructure.release_batch import ReleaseBatch
 
 sce_ids = ["702", "703"]
-batch = ReleaseBatch()
 dialect = PostgreSQLDialect()
+release_batch = ReleaseBatch()
 
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, batch, dialect)
+    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, dialect, release_batch)
     sii_message = handoff.prepare()
 
     pipeline = SQLIntakePipeline(sii_message)

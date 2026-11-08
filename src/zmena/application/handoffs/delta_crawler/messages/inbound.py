@@ -8,8 +8,8 @@ from zmena.infrastructure.release_batch import ReleaseBatch  # noqa: TC001
 @dataclass
 class DeltaCrawlerInboundMessage:
     command: GitCommand
-    batch: ReleaseBatch
     dialect: Dialect
+    release_batch: ReleaseBatch
     commit_from: str
     commit_to: str
 
