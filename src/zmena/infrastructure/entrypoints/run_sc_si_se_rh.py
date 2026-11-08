@@ -13,6 +13,7 @@ from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 sce_ids = ["701"]
+
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
     handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)

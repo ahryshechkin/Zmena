@@ -14,8 +14,8 @@ class SQLIntakePipeline(Pipeline):
         after = SQLTableDefinition(self.message.after)
 
         return SQLIntakeOutboundMessage(
-            batch=self.message.batch,
             dialect=self.message.dialect,
+            release_batch=self.message.release_batch,
             tab_name=before.name(),
             before=before.columns(),
             after=after.columns(),

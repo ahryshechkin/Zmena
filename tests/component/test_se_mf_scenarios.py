@@ -24,13 +24,13 @@ class TestSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         self.fix_catalog = MFFixtureCatalog()
 
     def execute_pipeline(self, scenario):
-        handoff = ScenarioCatalogToSemanticEngineHandoff(scenario)
+        handoff = ScenarioCatalogToSemanticEngineHandoff(scenario, self.dialect)
         sei_message = handoff.prepare()
 
         pipeline = SemanticEnginePipeline(sei_message)
         seo_message = pipeline.run()
 
-        handoff = SemanticEngineToMigrationForgeHandoff(self.dialect, seo_message)
+        handoff = SemanticEngineToMigrationForgeHandoff(seo_message)
         mfi_message = handoff.prepare()
 
         pipeline = MigrationForgePipeline(mfi_message)

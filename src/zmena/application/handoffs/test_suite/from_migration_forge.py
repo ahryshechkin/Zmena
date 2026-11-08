@@ -10,9 +10,9 @@ class MigrationForgeToTestSuiteHandoff:
         return "MigrationForgeToTestSuiteHandoff(messages=mfo)"
 
     def prepare(self):
-        mint = StatementMint()
-
         links = []
+
+        mint = StatementMint()
         statements = [mint.issue(statement) for statement in self.mfo_message.statements]
 
         return TestSuiteInboundMessage(links=links, statements=statements)

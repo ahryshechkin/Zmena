@@ -4,14 +4,14 @@ from zmena.infrastructure.project_directory import ProjectDirectory
 
 
 class CommitCatalogToDeltaCrawlerHandoff:
-    def __init__(self, commit_from, commit_to, batch=None, dialect=None):
+    def __init__(self, commit_from, commit_to, dialect=None, release_batch=None):
         self.commit_from = commit_from
         self.commit_to = commit_to
-        self.batch = batch
         self.dialect = dialect
+        self.release_batch = release_batch
 
     def __repr__(self):
-        return "CommitCatalogToDeltaCrawlerHandoff(messages=cmt)"
+        return "CommitCatalogToDeltaCrawlerHandoff(messages=cmt,dia,rb)"
 
     def prepare(self):
         directory = ProjectDirectory()
@@ -19,8 +19,8 @@ class CommitCatalogToDeltaCrawlerHandoff:
 
         return DeltaCrawlerInboundMessage(
             command=command,
-            batch=self.batch,
             dialect=self.dialect,
+            release_batch=self.release_batch,
             commit_from=self.commit_from,
             commit_to=self.commit_to,
         )
