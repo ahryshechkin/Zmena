@@ -11,6 +11,8 @@ class DeltaCrawlerToSQLIntakeHandoff:
     def prepare(self):
         return SQLIntakeInboundMessage(
             label=self.dco_message.cmt_id,
+            batch=self.dco_message.batch,
+            dialect=self.dco_message.dialect,
             name=self.dco_message.name,
             before=self.dco_message.before,
             after=self.dco_message.after,
