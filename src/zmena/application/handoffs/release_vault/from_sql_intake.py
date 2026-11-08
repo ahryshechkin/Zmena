@@ -1,5 +1,6 @@
 from zmena.application.handoffs.release_vault.messages.inbound import ReleaseVaultInboundMessage
 from zmena.application.handoffs.release_vault.mints.migration import MigrationMint
+from zmena.infrastructure.project_directory import ProjectDirectory
 
 
 class SQLIntakeToReleaseVaultHandoff:
@@ -11,10 +12,11 @@ class SQLIntakeToReleaseVaultHandoff:
         return "SQLIntakeToReleaseVaultHandoff(messages=sio,mfo)"
 
     def prepare(self):
+        directory = ProjectDirectory()
         mint = MigrationMint()
 
         return ReleaseVaultInboundMessage(
-            batch_path=self.sio_message.batch_path,
+            release_path=directory.releases() / self.sio_message.batch.partition_path(),
             tab_name=self.sio_message.tab_name,
             migration="\n".join(mint.issue(script) for script in self.mfo_message.scripts),
         )
