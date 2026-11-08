@@ -30,5 +30,9 @@ class SemanticEnginePipeline(Pipeline):
         decisions = decision_resolver.resolve()
 
         return SemanticEngineOutboundMessage(
-            fragments=fragments, hypotheses=hypotheses, components=components, decisions=decisions
+            dialect=self.message.dialect,
+            fragments=fragments,
+            hypotheses=hypotheses,
+            components=components,
+            decisions=decisions,
         )
