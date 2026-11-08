@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 
 from zmena.domain.migration_forge.dialects.dialect import Dialect  # noqa: TC001
+from zmena.infrastructure.release_batch import ReleaseBatch  # noqa: TC001
 
 
 @dataclass
 class SQLIntakeOutboundMessage:
-    batch_path: str
+    batch: ReleaseBatch
     dialect: Dialect
     tab_name: str
     before: list

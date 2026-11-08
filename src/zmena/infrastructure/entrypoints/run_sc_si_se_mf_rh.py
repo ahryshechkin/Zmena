@@ -19,9 +19,10 @@ from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
 sce_ids = ["702"]
 dialect = PostgreSQLDialect()
+
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario)
+    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, dialect=dialect)
     sii_message = handoff.prepare()
 
     pipeline = SQLIntakePipeline(sii_message)
@@ -33,7 +34,7 @@ for scenario in catalog.get_many(sce_ids):
     pipeline = SemanticEnginePipeline(sei_message)
     seo_message = pipeline.run()
 
-    handoff = SQLIntakeToMigrationForgeHandoff(dialect, sio_message, seo_message)
+    handoff = SQLIntakeToMigrationForgeHandoff(sio_message, seo_message)
     mfi_message = handoff.prepare()
 
     pipeline = MigrationForgePipeline(mfi_message)
