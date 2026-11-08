@@ -4,8 +4,7 @@ from zmena.application.handoffs.migration_forge.mints.snapshot import SnapshotMi
 
 
 class SemanticEngineToMigrationForgeHandoff:
-    def __init__(self, dialect, seo_message):
-        self.dialect = dialect
+    def __init__(self, seo_message):
         self.seo_message = seo_message
 
     def __repr__(self):
@@ -15,4 +14,4 @@ class SemanticEngineToMigrationForgeHandoff:
         mint = ChangeMint(SnapshotMint())
         changes = mint.issue("tab_01", self.seo_message.decisions)
 
-        return MigrationForgeInboundMessage(dialect=self.dialect, changes=changes)
+        return MigrationForgeInboundMessage(dialect=self.seo_message.dialect, changes=changes)
