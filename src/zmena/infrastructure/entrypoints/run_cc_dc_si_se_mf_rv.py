@@ -17,14 +17,18 @@ from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
+from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
 from zmena.infrastructure.adapters.release_vault import ReleaseVault
+from zmena.infrastructure.release_batch import ReleaseBatch
 
+dialect = PostgreSQLDialect()
+release_batch = ReleaseBatch()
 catalog = CommitCatalog()
 # catalog.cleanup_demo_repo()
 # catalog.build_demo_repo()
 
-handoff = CommitCatalogToDeltaCrawlerHandoff("v0.1.007", "v0.1.008")
+handoff = CommitCatalogToDeltaCrawlerHandoff("v0.1.008", "v0.1.009", dialect, release_batch)
 dci_message = handoff.prepare()
 
 pipeline = DeltaCrawlerPipeline(dci_message)
