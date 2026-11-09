@@ -46,4 +46,4 @@ for scenario in catalog.get_many(sce_ids):
     rvi_message = handoff.prepare()
 
     vault = ReleaseVault(rvi_message)
-    vault.save()
+    vault.save_migrations()
