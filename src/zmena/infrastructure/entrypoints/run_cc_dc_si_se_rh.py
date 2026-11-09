@@ -20,7 +20,7 @@ catalog = CommitCatalog()
 # catalog.cleanup_demo_repo()
 # catalog.build_demo_repo()
 
-handoff = CommitCatalogToDeltaCrawlerHandoff(commit_from="v0.1.007", commit_to="v0.1.008")
+handoff = CommitCatalogToDeltaCrawlerHandoff("v0.1.007", "v0.1.008")
 dci_message = handoff.prepare()
 
 pipeline = DeltaCrawlerPipeline(dci_message)

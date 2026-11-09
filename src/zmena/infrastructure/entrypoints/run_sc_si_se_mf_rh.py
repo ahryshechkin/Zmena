@@ -22,7 +22,7 @@ dialect = PostgreSQLDialect()
 
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
-    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, dialect=dialect)
+    handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, dialect)
     sii_message = handoff.prepare()
 
     pipeline = SQLIntakePipeline(sii_message)
