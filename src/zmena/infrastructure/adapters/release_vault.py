@@ -5,7 +5,7 @@ class ReleaseVault:
     def __init__(self, message):
         self.message = message
 
-    def save(self):
+    def save_migrations(self):
         path = (Path(self.message.release_path) / self.message.tab_name).with_suffix(".sql")
         path.parent.mkdir(parents=True, exist_ok=True)
 

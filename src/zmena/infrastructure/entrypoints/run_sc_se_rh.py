@@ -8,7 +8,7 @@ from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.reporting.console.report_hub import ReportHub
 
-sce_ids = ["601"]
+sce_ids = ["019", "601"]
 
 catalog = ScenarioCatalog()
 for scenario in catalog.get_many(sce_ids):
