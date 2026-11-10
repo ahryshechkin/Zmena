@@ -13,10 +13,10 @@ from zmena.application.handoffs.sql_intake.from_scenario_catalog import (
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
+from zmena.domain.migration_forge.core.release_batch import ReleaseBatch
 from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.scenario import ScenarioCatalog
 from zmena.infrastructure.adapters.release_vault import ReleaseVault
-from zmena.infrastructure.release_batch import ReleaseBatch
 
 sce_ids = ["702", "703"]
 dialect = PostgreSQLDialect()
