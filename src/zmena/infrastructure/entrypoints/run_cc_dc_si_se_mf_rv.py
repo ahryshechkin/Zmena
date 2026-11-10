@@ -17,10 +17,10 @@ from zmena.application.pipelines.delta_crawler import DeltaCrawlerPipeline
 from zmena.application.pipelines.migration_forge import MigrationForgePipeline
 from zmena.application.pipelines.semantic_engine import SemanticEnginePipeline
 from zmena.application.pipelines.sql_intake import SQLIntakePipeline
+from zmena.domain.migration_forge.core.release_batch import ReleaseBatch
 from zmena.domain.migration_forge.dialects.postgresql import PostgreSQLDialect
 from zmena.infrastructure.adapters.catalogs.commit import CommitCatalog
 from zmena.infrastructure.adapters.release_vault import ReleaseVault
-from zmena.infrastructure.release_batch import ReleaseBatch
 
 dialect = PostgreSQLDialect()
 release_batch = ReleaseBatch()
