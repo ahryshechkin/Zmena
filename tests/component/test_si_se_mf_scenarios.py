@@ -28,7 +28,7 @@ class TestSQLIntakeSemanticEngineMigrationForgeScenarios(unittest.TestCase):
         self.fix_catalog = MFFixtureCatalog()
 
     def execute_pipeline(self, scenario):
-        handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, dialect=self.dialect)
+        handoff = ScenarioCatalogToSQLIntakeHandoff(scenario, self.dialect)
         sii_message = handoff.prepare()
 
         pipeline = SQLIntakePipeline(sii_message)
