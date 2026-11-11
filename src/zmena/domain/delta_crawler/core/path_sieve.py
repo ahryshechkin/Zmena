@@ -1,13 +1,13 @@
 from zmena.domain.delta_crawler.presets.criteria import CriterionPreset
 
 
-class RevisionPaths:
+class PathSieve:
     def __init__(self, paths):
         self.paths = paths
         self.preset = CriterionPreset()
 
     def __repr__(self):
-        return f"RevisionPaths(paths={len(self.paths)})"
+        return f"PathSieve(paths={len(self.paths)})"
 
     def filter(self):
         selected_paths = self.paths
