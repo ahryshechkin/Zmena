@@ -2,7 +2,7 @@ from zmena.application.handoffs.delta_crawler.messages.outbound import DeltaCraw
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
 from zmena.domain.delta_crawler.core.revision_paths import RevisionPaths
-from zmena.domain.delta_crawler.core.tag_record import TagRecord
+from zmena.domain.delta_crawler.core.tag_header import TagHeader
 
 
 class DeltaCrawlerPipeline(Pipeline):
@@ -12,7 +12,7 @@ class DeltaCrawlerPipeline(Pipeline):
 
     def run(self):
         command = self.message.command
-        record = TagRecord(command.show_tag(self.message.commit_to))
+        header = TagHeader(command.show_tag(self.message.commit_to))
         revision_paths = RevisionPaths(
             command.diff(self.message.commit_from, self.message.commit_to)
         )
@@ -22,10 +22,10 @@ class DeltaCrawlerPipeline(Pipeline):
             before = command.show(self.message.commit_from, path)
             after = command.show(self.message.commit_to, path)
             message = DeltaCrawlerOutboundMessage(
-                cmt_id=record.name(),
+                cmt_id=header.name(),
                 dialect=self.message.dialect,
                 release_batch=self.message.release_batch,
-                name=record.summary(),
+                name=header.summary(),
                 before=before,
                 after=after,
             )
