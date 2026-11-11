@@ -8,5 +8,5 @@ class TagRecord:
     def name(self):
         return self.line.strip().split(maxsplit=1)[0]
 
-    def annotation(self):
+    def summary(self):
         return self.line.strip().split(maxsplit=1)[1]

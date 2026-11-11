@@ -25,7 +25,7 @@ class DeltaCrawlerPipeline(Pipeline):
                 cmt_id=record.name(),
                 dialect=self.message.dialect,
                 release_batch=self.message.release_batch,
-                name=record.annotation(),
+                name=record.summary(),
                 before=before,
                 after=after,
             )
