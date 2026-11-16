@@ -21,7 +21,7 @@ class GitCommand:
         subprocess.run(args, cwd=self.root_dir, check=True, text=True)  # noqa: S603
 
     def diff(self, commit_from, commit_to):
-        args = ["git", "diff", "--name-only", commit_from, commit_to]
+        args = ["git", "diff", "--name-status", commit_from, commit_to]
         result = subprocess.run(args, cwd=self.root_dir, check=True, text=True, capture_output=True)  # noqa: S603
         return result.stdout.splitlines()
 
