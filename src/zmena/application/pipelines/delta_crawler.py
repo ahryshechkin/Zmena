@@ -22,9 +22,9 @@ class DeltaCrawlerPipeline(Pipeline):
         sieve = PathSieve(entries)
 
         messages = []
-        for path in sieve.filter():
-            before = command.show(self.message.commit_from, path)
-            after = command.show(self.message.commit_to, path)
+        for entry in sieve.filter():
+            before = command.show(self.message.commit_from, entry)
+            after = command.show(self.message.commit_to, entry)
             message = DeltaCrawlerOutboundMessage(
                 cmt_id=header.name(),
                 dialect=self.message.dialect,

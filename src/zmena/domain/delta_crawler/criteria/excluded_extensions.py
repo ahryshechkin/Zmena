@@ -14,7 +14,7 @@ class ExcludedExtensionsCriterion(Criterion):
             entry
             for entry in entries
             if not any(
-                Path(entry).suffix.endswith(f".{extension.lstrip('.')}")
+                Path(entry.path()).suffix.endswith(f".{extension.lstrip('.')}")
                 for extension in self.excluded_extensions
             )
         ]

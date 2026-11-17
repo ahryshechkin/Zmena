@@ -15,7 +15,7 @@ class ExcludedDirectoriesCriterion(Criterion):
             for entry in entries
             if not any(
                 directory.replace("\\", "/").strip("/")
-                in Path(entry.replace("\\", "/")).parent.as_posix()
+                in Path(entry.path().replace("\\", "/")).parent.as_posix()
                 for directory in self.excluded_directories
             )
         ]
