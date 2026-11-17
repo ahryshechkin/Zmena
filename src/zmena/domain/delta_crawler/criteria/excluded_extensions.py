@@ -9,12 +9,12 @@ class ExcludedExtensionsCriterion(Criterion):
         super().__init__(CriterionKind.EXCLUDED_EXTENSIONS)
         self.excluded_extensions = excluded_extensions
 
-    def apply(self, paths):
+    def apply(self, entries):
         return [
-            path
-            for path in paths
+            entry
+            for entry in entries
             if not any(
-                Path(path).suffix.endswith(f".{extension.lstrip('.')}")
+                Path(entry).suffix.endswith(f".{extension.lstrip('.')}")
                 for extension in self.excluded_extensions
             )
         ]

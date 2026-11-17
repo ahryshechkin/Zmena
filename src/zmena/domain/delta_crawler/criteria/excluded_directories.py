@@ -9,13 +9,13 @@ class ExcludedDirectoriesCriterion(Criterion):
         super().__init__(CriterionKind.EXCLUDED_DIRECTORIES)
         self.excluded_directories = excluded_directories
 
-    def apply(self, paths):
+    def apply(self, entries):
         return [
-            path
-            for path in paths
+            entry
+            for entry in entries
             if not any(
                 directory.replace("\\", "/").strip("/")
-                in Path(path.replace("\\", "/")).parent.as_posix()
+                in Path(entry.replace("\\", "/")).parent.as_posix()
                 for directory in self.excluded_directories
             )
         ]

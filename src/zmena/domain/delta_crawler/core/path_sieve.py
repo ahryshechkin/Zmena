@@ -2,16 +2,16 @@ from zmena.domain.delta_crawler.presets.criteria import CriterionPreset
 
 
 class PathSieve:
-    def __init__(self, paths):
-        self.paths = paths
+    def __init__(self, entries):
+        self.entries = entries
         self.preset = CriterionPreset()
 
     def __repr__(self):
-        return f"PathSieve(paths={len(self.paths)})"
+        return f"PathSieve(entries={len(self.entries)})"
 
     def filter(self):
-        selected_paths = self.paths
+        selected_entries = self.entries
         for criterion in self.preset.default():
-            selected_paths = criterion.apply(selected_paths)
+            selected_entries = criterion.apply(selected_entries)
 
-        return selected_paths
+        return selected_entries

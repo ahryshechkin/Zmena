@@ -9,16 +9,16 @@ class IncludedDirectoriesCriterion(Criterion):
         super().__init__(CriterionKind.INCLUDED_DIRECTORIES)
         self.included_directories = included_directories
 
-    def apply(self, paths):
+    def apply(self, entries):
         if not self.included_directories:
-            return paths
+            return entries
 
         return [
-            path
-            for path in paths
+            entry
+            for entry in entries
             if any(
                 directory.replace("\\", "/").strip("/")
-                in Path(path.replace("\\", "/")).parent.as_posix()
+                in Path(entry.replace("\\", "/")).parent.as_posix()
                 for directory in self.included_directories
             )
         ]
