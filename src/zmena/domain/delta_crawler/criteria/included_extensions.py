@@ -9,15 +9,15 @@ class IncludedExtensionsCriterion(Criterion):
         super().__init__(CriterionKind.INCLUDED_EXTENSIONS)
         self.included_extensions = included_extensions
 
-    def apply(self, paths):
+    def apply(self, entries):
         if not self.included_extensions:
-            return paths
+            return entries
 
         return [
-            path
-            for path in paths
+            entry
+            for entry in entries
             if any(
-                Path(path).suffix.endswith(f".{extension.lstrip('.')}")
+                Path(entry).suffix.endswith(f".{extension.lstrip('.')}")
                 for extension in self.included_extensions
             )
         ]

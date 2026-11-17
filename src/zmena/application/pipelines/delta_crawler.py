@@ -14,12 +14,12 @@ class DeltaCrawlerPipeline(Pipeline):
     def run(self):
         command = self.message.command
 
+        header = TagHeader(command.show_tag(self.message.commit_to))
         entries = [
             DiffEntry(entry)
             for entry in command.diff(self.message.commit_from, self.message.commit_to)
         ]
         sieve = PathSieve(entries)
-        header = TagHeader(command.show_tag(self.message.commit_to))
 
         messages = []
         for path in sieve.filter():
