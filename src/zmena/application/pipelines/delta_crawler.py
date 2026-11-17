@@ -1,6 +1,7 @@
 from zmena.application.handoffs.delta_crawler.messages.outbound import DeltaCrawlerOutboundMessage
 from zmena.application.kinds.pipeline import PipelineKind
 from zmena.application.pipelines.pipeline import Pipeline
+from zmena.domain.delta_crawler.core.diff_entry import DiffEntry
 from zmena.domain.delta_crawler.core.path_sieve import PathSieve
 from zmena.domain.delta_crawler.core.tag_header import TagHeader
 
@@ -13,7 +14,11 @@ class DeltaCrawlerPipeline(Pipeline):
     def run(self):
         command = self.message.command
 
-        sieve = PathSieve(command.diff(self.message.commit_from, self.message.commit_to))
+        entries = [
+            DiffEntry(entry)
+            for entry in command.diff(self.message.commit_from, self.message.commit_to)
+        ]
+        sieve = PathSieve(entries)
         header = TagHeader(command.show_tag(self.message.commit_to))
 
         messages = []
