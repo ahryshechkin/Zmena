@@ -10,7 +10,7 @@ class DiffEntry:
         return f"DiffEntry(status={self.status})"
 
     def path(self):
-        return self.pathname
+        return self.pathname.replace("\\", "/")
 
     def has_before(self):
         pass
