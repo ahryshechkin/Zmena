@@ -26,8 +26,8 @@ class DeltaCrawlerPipeline(Pipeline):
             if not entry.has_before() or not entry.has_before():
                 continue
 
-            before = command.show(self.message.commit_from, entry)
-            after = command.show(self.message.commit_to, entry)
+            before = command.show(self.message.commit_from, entry.path())
+            after = command.show(self.message.commit_to, entry.path())
             message = DeltaCrawlerOutboundMessage(
                 cmt_id=header.name(),
                 dialect=self.message.dialect,
