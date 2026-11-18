@@ -13,7 +13,7 @@ class DiffEntry:
         return self.pathname.replace("\\", "/")
 
     def has_before(self):
-        pass
+        return self.status in {StatusKind.DELETED, StatusKind.MODIFIED}
 
     def has_after(self):
         pass
