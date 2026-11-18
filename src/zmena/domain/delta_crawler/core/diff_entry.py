@@ -16,4 +16,4 @@ class DiffEntry:
         return self.status in {StatusKind.DELETED, StatusKind.MODIFIED}
 
     def has_after(self):
-        pass
+        return self.status in {StatusKind.ADDED, StatusKind.MODIFIED}
