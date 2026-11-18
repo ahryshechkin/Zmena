@@ -10,8 +10,8 @@ class DeltaCrawlerOutboundMessage:
     dialect: Dialect
     release_batch: ReleaseBatch
     name: str
-    before: str | None
-    after: str | None
+    before: str
+    after: str
 
     def __repr__(self):
         return f"DeltaCrawlerOutboundMessage(cmt_id={self.cmt_id},name={self.name})"

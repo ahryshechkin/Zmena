@@ -23,6 +23,9 @@ class DeltaCrawlerPipeline(Pipeline):
 
         messages = []
         for entry in sieve.filter():
+            if not entry.has_before() or not entry.has_before():
+                continue
+
             before = command.show(self.message.commit_from, entry)
             after = command.show(self.message.commit_to, entry)
             message = DeltaCrawlerOutboundMessage(
