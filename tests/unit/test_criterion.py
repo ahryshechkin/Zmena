@@ -1,5 +1,6 @@
 import unittest
 
+from zmena.domain.delta_crawler.core.diff_entry import DiffEntry
 from zmena.domain.delta_crawler.criteria.criterion import Criterion
 from zmena.domain.delta_crawler.criteria.excluded_directories import ExcludedDirectoriesCriterion
 from zmena.domain.delta_crawler.criteria.excluded_extensions import ExcludedExtensionsCriterion
@@ -22,26 +23,29 @@ class TestCriterion(unittest.TestCase):
 class TestExcludedDirectoriesCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = ExcludedDirectoriesCriterion([])
-        self.samples = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
-            "text.txt",
+        self.entries = [
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+                "M\ttext.txt",
+            ]
         ]
 
     def test_apply_empty_filter(self):
-        expected = self.samples
+        expected = self.entries
         criterion = ExcludedDirectoriesCriterion([])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
