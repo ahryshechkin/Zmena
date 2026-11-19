@@ -70,8 +70,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_full_path(self):
@@ -95,8 +94,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_leading_backslash(self):
@@ -117,8 +115,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_leading_slash(self):
@@ -139,8 +136,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_partial_path(self):
@@ -163,8 +159,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_several_filters(self):
@@ -187,8 +182,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_trailing_backslash(self):
@@ -212,8 +206,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_apply_trailing_slash(self):
@@ -237,8 +230,7 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
         actual = criterion.apply(self.entries)
 
         self.assertCountEqual(
-            [entry.path() for entry in expected],
-            [entry.path() for entry in actual],
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
 
     def test_init_execution(self):
@@ -251,93 +243,116 @@ class TestExcludedDirectoriesCriterion(unittest.TestCase):
 class TestExcludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = ExcludedExtensionsCriterion([])
-        self.samples = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
-            "text.txt",
+        self.entries = [
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+                "M\ttext.txt",
+            ]
         ]
 
     def test_apply_empty_filter(self):
-        expected = self.samples
+        expected = self.entries
         criterion = ExcludedExtensionsCriterion([])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
     def test_apply_partial_extension(self):
         expected = [
-            "code/scripts/script.py",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+                "M\ttext.txt",
+            ]
         ]
         criterion = ExcludedExtensionsCriterion(["y"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_several_extensions(self):
         expected = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\ttext.txt",
+            ]
         ]
         criterion = ExcludedExtensionsCriterion([".sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_single_extension(self):
         expected = [
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+            ]
         ]
         criterion = ExcludedExtensionsCriterion([".py", ".txt"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_suffix_only(self):
         expected = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\ttext.txt",
+            ]
         ]
         criterion = ExcludedExtensionsCriterion(["sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_init_execution(self):
         self.assertEqual(CriterionKind.EXCLUDED_EXTENSIONS, self.criterion.kind)
@@ -349,7 +364,7 @@ class TestExcludedExtensionsCriterion(unittest.TestCase):
 class TestIncludedDirectoriesCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = IncludedDirectoriesCriterion([])
-        self.samples = [
+        self.entries = [
             "code/scripts/script.py",
             "code/scripts/script.y",
             "code/scripts/sql.sql",
@@ -366,11 +381,13 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
         ]
 
     def test_apply_empty_filter(self):
-        expected = self.samples
+        expected = self.entries
         criterion = IncludedDirectoriesCriterion([])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_filter_with_backslash(self):
         expected = [
@@ -378,9 +395,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra\\catalog\\schema\\script.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["catalog\\schema"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_full_path(self):
         expected = [
@@ -388,9 +407,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra/catalog/sql/tab.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["infra/catalog/sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_leading_backslash(self):
         expected = [
@@ -401,9 +422,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra\\catalog\\schema\\script.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["\\infra"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_leading_slash(self):
         expected = [
@@ -414,9 +437,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "code/sql/scripts/script.py",
         ]
         criterion = IncludedDirectoriesCriterion(["/code"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_partial_path(self):
         expected = [
@@ -425,9 +450,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra/catalog/sql/tab.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_several_filters(self):
         expected = [
@@ -436,9 +463,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra/catalog/sql/tab.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["catalog/sql", "sql\\"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_trailing_backslash(self):
         expected = [
@@ -446,9 +475,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra\\catalog\\schema\\script.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["schema/"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_trailing_slash(self):
         expected = [
@@ -456,9 +487,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
             "infra\\catalog\\schema\\script.sql",
         ]
         criterion = IncludedDirectoriesCriterion(["schema\\"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_DIRECTORIES, self.criterion.kind)
@@ -470,7 +503,7 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 class TestIncludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = IncludedExtensionsCriterion([])
-        self.samples = [
+        self.entries = [
             "code/scripts/script.py",
             "code/scripts/script.y",
             "code/scripts/sql.sql",
@@ -487,18 +520,20 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
         ]
 
     def test_apply_empty_filter(self):
-        expected = self.samples
+        expected = self.entries
         criterion = IncludedExtensionsCriterion([])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_partial_extension(self):
         expected = [
             "code/scripts/script.y",
         ]
         criterion = IncludedExtensionsCriterion(["y"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
@@ -512,7 +547,7 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
             "text.sql",
         ]
         criterion = IncludedExtensionsCriterion([".sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
@@ -526,7 +561,7 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
             "text.txt",
         ]
         criterion = IncludedExtensionsCriterion([".py", ".txt"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
@@ -540,7 +575,7 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
             "text.sql",
         ]
         criterion = IncludedExtensionsCriterion(["sql"])
-        actual = criterion.apply(self.samples)
+        actual = criterion.apply(self.entries)
 
         self.assertCountEqual(expected, actual)
 
