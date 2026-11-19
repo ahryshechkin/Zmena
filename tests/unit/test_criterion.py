@@ -365,19 +365,22 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = IncludedDirectoriesCriterion([])
         self.entries = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+                "M\ttext.txt",
+            ]
         ]
 
     def test_apply_empty_filter(self):
@@ -391,8 +394,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_filter_with_backslash(self):
         expected = [
-            "infra/catalog/schema/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["catalog\\schema"])
         actual = criterion.apply(self.entries)
@@ -403,8 +409,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_full_path(self):
         expected = [
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["infra/catalog/sql"])
         actual = criterion.apply(self.entries)
@@ -415,11 +424,14 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_leading_backslash(self):
         expected = [
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["\\infra"])
         actual = criterion.apply(self.entries)
@@ -430,11 +442,14 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_leading_slash(self):
         expected = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["/code"])
         actual = criterion.apply(self.entries)
@@ -445,9 +460,12 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_partial_path(self):
         expected = [
-            "code/sql/scripts/script.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["sql"])
         actual = criterion.apply(self.entries)
@@ -458,9 +476,12 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_several_filters(self):
         expected = [
-            "code/sql/scripts/script.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["catalog/sql", "sql\\"])
         actual = criterion.apply(self.entries)
@@ -471,8 +492,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_trailing_backslash(self):
         expected = [
-            "infra/catalog/schema/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["schema/"])
         actual = criterion.apply(self.entries)
@@ -483,8 +507,11 @@ class TestIncludedDirectoriesCriterion(unittest.TestCase):
 
     def test_apply_trailing_slash(self):
         expected = [
-            "infra/catalog/schema/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+            ]
         ]
         criterion = IncludedDirectoriesCriterion(["schema\\"])
         actual = criterion.apply(self.entries)
