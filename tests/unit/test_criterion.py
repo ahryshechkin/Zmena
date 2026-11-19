@@ -531,19 +531,22 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
     def setUp(self):
         self.criterion = IncludedExtensionsCriterion([])
         self.entries = [
-            "code/scripts/script.py",
-            "code/scripts/script.y",
-            "code/scripts/sql.sql",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/script.y",
+                "M\tcode/scripts/sql.sql",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+                "M\ttext.txt",
+            ]
         ]
 
     def test_apply_empty_filter(self):
@@ -557,54 +560,74 @@ class TestIncludedExtensionsCriterion(unittest.TestCase):
 
     def test_apply_partial_extension(self):
         expected = [
-            "code/scripts/script.y",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.y",
+            ]
         ]
         criterion = IncludedExtensionsCriterion(["y"])
         actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_several_extensions(self):
         expected = [
-            "code/scripts/sql.sql",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/sql.sql",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+            ]
         ]
         criterion = IncludedExtensionsCriterion([".sql"])
         actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_single_extension(self):
         expected = [
-            "code/scripts/script.py",
-            "code/scripts/sql.txt",
-            "code/sql/scripts/script.py",
-            "infra/catalog/sql.py",
-            "infra/catalog/sql/script.py",
-            "text.txt",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\tcode/scripts/sql.txt",
+                "M\tcode/sql/scripts/script.py",
+                "M\tinfra/catalog/sql.py",
+                "M\tinfra/catalog/sql/script.py",
+                "M\ttext.txt",
+            ]
         ]
         criterion = IncludedExtensionsCriterion([".py", ".txt"])
         actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_apply_suffix_only(self):
         expected = [
-            "code/scripts/sql.sql",
-            "infra/catalog/schema/tab.sql",
-            "infra/catalog/sql/tab.sql",
-            "infra\\catalog\\schema\\script.sql",
-            "sql.sql",
-            "text.sql",
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/sql.sql",
+                "M\tinfra/catalog/schema/tab.sql",
+                "M\tinfra/catalog/sql/tab.sql",
+                "M\tinfra\\catalog\\schema\\script.sql",
+                "M\tsql.sql",
+                "M\ttext.sql",
+            ]
         ]
         criterion = IncludedExtensionsCriterion(["sql"])
         actual = criterion.apply(self.entries)
 
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(
+            [entry.path() for entry in expected], [entry.path() for entry in actual]
+        )
 
     def test_init_execution(self):
         self.assertEqual(CriterionKind.INCLUDED_EXTENSIONS, self.criterion.kind)
