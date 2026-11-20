@@ -36,10 +36,10 @@ class TestLink(unittest.TestCase):
         self.evidence_ns = Evidence(Mock(), 1.0, 2.0, HeuristicKind.NAME_SIMILARITY)
         self.evidence_ps = Evidence(Mock(), 1.0, 0.6, HeuristicKind.POSITION_SIMILARITY)
 
-    def test_add_evidence(self):
+    def test_evidence_bundle(self):
         self.link.add_evidence(self.evidence_ns)
         self.link.add_evidence(self.evidence_ps)
-        self.assertCountEqual([self.evidence_ns, self.evidence_ps], self.link.evidences)
+        self.assertCountEqual([self.evidence_ns, self.evidence_ps], self.link.evidence_bundle())
 
     def test_fragments(self):
         self.assertEqual((self.left, self.right), self.link.fragments())
