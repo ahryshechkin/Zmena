@@ -3,7 +3,7 @@ import unittest
 from zmena.domain.semantic_engine.core.hypothesis import Hypothesis
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
-from zmena.domain.semantic_engine.kinds.opcode import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 from zmena.domain.semantic_engine.kinds.rule import RuleKind
 from zmena.domain.semantic_engine.kinds.side import SideKind
 
@@ -11,7 +11,7 @@ from zmena.domain.semantic_engine.kinds.side import SideKind
 class TestHypothesis(unittest.TestCase):
     def setUp(self):
         self.left = object.__new__(LeftFragment)
-        self.left.tag = TagKind.REPLACE
+        self.left.tag = OpcodeKind.REPLACE
         self.left.block = "03050306"
         self.left.position = 4
         self.left.side = SideKind.LEFT
@@ -20,7 +20,7 @@ class TestHypothesis(unittest.TestCase):
         self.left.constraint = "NOT NULL"
 
         self.right = object.__new__(RightFragment)
-        self.right.tag = TagKind.REPLACE
+        self.right.tag = OpcodeKind.REPLACE
         self.right.block = "03050306"
         self.right.position = 4
         self.right.side = SideKind.RIGHT
