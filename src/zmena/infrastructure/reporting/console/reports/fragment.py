@@ -6,7 +6,7 @@ class FragmentReport(BasicReport):
         super().__init__(
             name,
             [
-                ("tag", ">", "8"),
+                ("opcode", ">", "8"),
                 ("block", "<", "8"),
                 ("position", ">", "8"),
                 ("side", ">", "4"),

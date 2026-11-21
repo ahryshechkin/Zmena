@@ -8,7 +8,7 @@ class HypothesisReport(BasicReport):
             [
                 ("rule", ">", "18"),
                 ("####", ">", "4"),
-                ("tag", ">", "8"),
+                ("opcode", ">", "8"),
                 ("block", "<", "8"),
                 ("position", ">", "8"),
                 ("side", ">", "4"),
@@ -16,7 +16,7 @@ class HypothesisReport(BasicReport):
                 ("data_type", "<", "13"),
                 ("constraint", "<", "10"),
                 ("####", ">", "4"),
-                ("tag", ">", "8"),
+                ("opcode", ">", "8"),
                 ("block", "<", "8"),
                 ("position", ">", "8"),
                 ("side", ">", "4"),
