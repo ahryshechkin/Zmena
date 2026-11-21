@@ -12,4 +12,4 @@ class FragmentRecord:
     nullable: bool
 
     def __repr__(self):
-        return f"FragmentRecord(opcode={self.tag},name={self.name})"
+        return f"FragmentRecord(opcode={self.opcode},name={self.name})"
