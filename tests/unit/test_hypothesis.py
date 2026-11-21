@@ -3,9 +3,9 @@ import unittest
 from zmena.domain.semantic_engine.core.hypothesis import Hypothesis
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
+from zmena.domain.semantic_engine.kinds.opcode import TagKind
 from zmena.domain.semantic_engine.kinds.rule import RuleKind
 from zmena.domain.semantic_engine.kinds.side import SideKind
-from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class TestHypothesis(unittest.TestCase):

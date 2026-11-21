@@ -7,7 +7,7 @@ class FragmentMint:
 
     def issue(self, fragment):
         return FragmentView(
-            fragment.tag.value,
+            fragment.opcode.value,
             fragment.block or "",
             fragment.position or "",
             fragment.side.value,

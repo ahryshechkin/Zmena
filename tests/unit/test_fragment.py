@@ -5,8 +5,8 @@ from zmena.domain.semantic_engine.fragments.fragment import Fragment
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
 from zmena.domain.semantic_engine.fragments.stub import StubFragment
+from zmena.domain.semantic_engine.kinds.opcode import TagKind
 from zmena.domain.semantic_engine.kinds.side import SideKind
-from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class TestFragment(unittest.TestCase):

@@ -6,8 +6,8 @@ from zmena.domain.semantic_engine.core.link import Link
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
 from zmena.domain.semantic_engine.kinds.heuristic import HeuristicKind
+from zmena.domain.semantic_engine.kinds.opcode import TagKind
 from zmena.domain.semantic_engine.kinds.side import SideKind
-from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class TestLink(unittest.TestCase):
