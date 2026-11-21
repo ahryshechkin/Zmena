@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class FragmentRecord:
-    tag: str
+    opcode: str
     block: str | None
     position: int | None
     side: str
@@ -12,4 +12,4 @@ class FragmentRecord:
     nullable: bool
 
     def __repr__(self):
-        return f"FragmentRecord(tag={self.tag},name={self.name})"
+        return f"FragmentRecord(opcode={self.tag},name={self.name})"
