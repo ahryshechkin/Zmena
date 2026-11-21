@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 
-class TagKind(StrEnum):
+class OpcodeKind(StrEnum):
     DELETE = "delete"
     EQUAL = "equal"
     INSERT = "insert"

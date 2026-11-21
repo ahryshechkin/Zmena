@@ -1,6 +1,6 @@
 import re
 
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 
 
 class ANSIColor:
@@ -17,10 +17,10 @@ class ANSIColor:
 
     def style_text(self, tag, text):
         colors = {
-            TagKind.DELETE: self.RED,
-            TagKind.EQUAL: self.GRAY,
-            TagKind.INSERT: self.GREEN,
-            TagKind.REPLACE: self.YELLOW,
+            OpcodeKind.DELETE: self.RED,
+            OpcodeKind.EQUAL: self.GRAY,
+            OpcodeKind.INSERT: self.GREEN,
+            OpcodeKind.REPLACE: self.YELLOW,
         }
 
         return f"{colors[tag]}{text}{self.RESET}"

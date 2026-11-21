@@ -1,17 +1,17 @@
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 
 
 class Hunk:
-    def __init__(self, tag, left, right):
-        self.tag = TagKind(tag)
+    def __init__(self, opcode, left, right):
+        self.opcode = OpcodeKind(opcode)
         self.left = left
         self.right = right
 
     def __repr__(self):
-        return f"Hunk(tag={self.tag})"
+        return f"Hunk(opcode={self.opcode})"
 
     def kind(self):
-        return self.tag
+        return self.opcode
 
     def fingerprint(self):
         return f"{self.left.fingerprint()}{self.right.fingerprint()}"

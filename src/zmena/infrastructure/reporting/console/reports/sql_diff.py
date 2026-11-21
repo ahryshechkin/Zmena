@@ -2,7 +2,7 @@ from difflib import SequenceMatcher
 
 from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 from zmena.infrastructure.reporting.console.ansi_color import ANSIColor
 from zmena.infrastructure.reporting.console.layouts.basic import BasicReport
 
@@ -27,20 +27,20 @@ class SQLDiffReport(BasicReport):
 
     def body(self):
         self.sm.set_seqs(self.message.before, self.message.after)
-        for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
+        for opcode, slo, shi, tlo, thi in self.sm.get_opcodes():
             left = Span(self.message.before, slo, shi)
             right = Span(self.message.after, tlo, thi)
-            hunk = Hunk(tag, left, right)
-            if tag == TagKind.EQUAL:
+            hunk = Hunk(opcode, left, right)
+            if opcode == OpcodeKind.EQUAL:
                 for idx in range(hunk.left_range()):
                     self.show_line(idx, hunk)
-            elif tag == TagKind.REPLACE:
+            elif opcode == OpcodeKind.REPLACE:
                 for idx in range(hunk.height()):
                     self.show_line(idx, hunk)
-            elif tag == TagKind.INSERT:
+            elif opcode == OpcodeKind.INSERT:
                 for idx in range(hunk.right_range()):
                     self.show_line(idx, hunk)
-            elif tag == TagKind.DELETE:
+            elif opcode == OpcodeKind.DELETE:
                 for idx in range(hunk.left_range()):
                     self.show_line(idx, hunk)
 

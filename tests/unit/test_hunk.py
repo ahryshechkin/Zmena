@@ -2,7 +2,7 @@ import unittest
 
 from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import TagKind
 
 
 class TestHunk(unittest.TestCase):

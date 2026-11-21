@@ -1,7 +1,7 @@
 from zmena.domain.semantic_engine.fragments.fragment import Fragment
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 
 
 class StubFragment(Fragment):
     def __init__(self, side):
-        super().__init__(TagKind.STUB, None, None, side, None, None, nullable=True)
+        super().__init__(OpcodeKind.STUB, None, None, side, None, None, nullable=True)

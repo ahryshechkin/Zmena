@@ -4,7 +4,7 @@ from zmena.domain.semantic_engine.core.hunk import Hunk
 from zmena.domain.semantic_engine.core.span import Span
 from zmena.domain.semantic_engine.fragments.left import LeftFragment
 from zmena.domain.semantic_engine.fragments.right import RightFragment
-from zmena.domain.semantic_engine.kinds.tag import TagKind
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 
 
 class FragmentBuilder:
@@ -18,11 +18,11 @@ class FragmentBuilder:
         self.sm.set_seqs(before, after)
 
         fragments = []
-        for tag, slo, shi, tlo, thi in self.sm.get_opcodes():
+        for opcode, slo, shi, tlo, thi in self.sm.get_opcodes():
             left = Span(before, slo, shi)
             right = Span(after, tlo, thi)
-            hunk = Hunk(tag, left, right)
-            if tag == TagKind.REPLACE:
+            hunk = Hunk(opcode, left, right)
+            if opcode == OpcodeKind.REPLACE:
                 for idx in range(hunk.height()):
                     if idx < hunk.left_range():
                         fragment = LeftFragment(idx, hunk)
@@ -30,11 +30,11 @@ class FragmentBuilder:
                     if idx < hunk.right_range():
                         fragment = RightFragment(idx, hunk)
                         fragments.append(fragment)
-            elif tag == TagKind.INSERT:
+            elif opcode == OpcodeKind.INSERT:
                 for idx in range(hunk.right_range()):
                     fragment = RightFragment(idx, hunk)
                     fragments.append(fragment)
-            elif tag == TagKind.DELETE:
+            elif opcode == OpcodeKind.DELETE:
                 for idx in range(hunk.left_range()):
                     fragment = LeftFragment(idx, hunk)
                     fragments.append(fragment)

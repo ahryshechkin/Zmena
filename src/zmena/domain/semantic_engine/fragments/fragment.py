@@ -1,10 +1,10 @@
+from zmena.domain.semantic_engine.kinds.opcode import OpcodeKind
 from zmena.domain.semantic_engine.kinds.side import SideKind
-from zmena.domain.semantic_engine.kinds.tag import TagKind
 
 
 class Fragment:
-    def __init__(self, tag, block, position, side, name, data_type, nullable):
-        self.tag = tag
+    def __init__(self, opcode, block, position, side, name, data_type, nullable):
+        self.opcode = opcode
         self.block = block
         self.position = position
         self.side = side
@@ -13,7 +13,7 @@ class Fragment:
         self.nullable = nullable
 
     def __repr__(self):
-        return f"Fragment(tag={self.tag},name={self.name})"
+        return f"Fragment(opcode={self.opcode},name={self.name})"
 
     def same_name_as(self, other):
         return self.name == other.name
@@ -32,10 +32,10 @@ class Fragment:
         return self.block != other.block and self.name == other.name
 
     def is_delete(self):
-        return self.tag == TagKind.DELETE and self.side == SideKind.LEFT
+        return self.opcode == OpcodeKind.DELETE and self.side == SideKind.LEFT
 
     def is_insert(self):
-        return self.tag == TagKind.INSERT and self.side == SideKind.RIGHT
+        return self.opcode == OpcodeKind.INSERT and self.side == SideKind.RIGHT
 
     def is_replace(self):
-        return self.tag == TagKind.REPLACE
+        return self.opcode == OpcodeKind.REPLACE
