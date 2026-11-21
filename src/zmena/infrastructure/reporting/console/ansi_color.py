@@ -15,7 +15,7 @@ class ANSIColor:
     def __repr__(self):
         return "ANSIColor"
 
-    def style_text(self, tag, text):
+    def style_text(self, opcode, text):
         colors = {
             OpcodeKind.DELETE: self.RED,
             OpcodeKind.EQUAL: self.GRAY,
@@ -23,7 +23,7 @@ class ANSIColor:
             OpcodeKind.REPLACE: self.YELLOW,
         }
 
-        return f"{colors[tag]}{text}{self.RESET}"
+        return f"{colors[opcode]}{text}{self.RESET}"
 
     def style_sign(self, sign):
         colors = {
