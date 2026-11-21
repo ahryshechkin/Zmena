@@ -6,7 +6,7 @@ class SnapshotMint:
         return "SnapshotMint(mints=snapshot)"
 
     def issue(self, fragment):
-        if fragment.tag == "stub":
+        if fragment.opcode == "stub":
             return None
 
         return Snapshot(fragment.name, fragment.data_type, fragment.nullable)
