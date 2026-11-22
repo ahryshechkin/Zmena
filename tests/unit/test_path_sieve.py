@@ -24,7 +24,6 @@ class TestPathSieve(unittest.TestCase):
                 "M\ttext.txt",
             ]
         ]
-        self.sieve = PathSieve(self.entries)
 
     def test_filter(self):
         expected = [
@@ -38,8 +37,37 @@ class TestPathSieve(unittest.TestCase):
                 "M\ttext.sql",
             ]
         ]
-        actual = self.sieve.filter()
+
+        sieve = PathSieve(self.entries)
+        actual = sieve.filter()
 
         self.assertCountEqual(
             [entry.path() for entry in expected], [entry.path() for entry in actual]
         )
+
+    def test_filter_empty_entries(self):
+        expected = []
+
+        sieve = PathSieve([])
+        actual = sieve.filter()
+
+        self.assertCountEqual(expected, actual)
+
+    def test_filter_without_matches(self):
+        expected = []
+
+        entries = [
+            DiffEntry(entry)
+            for entry in [
+                "M\tcode/scripts/script.py",
+                "M\ttext.txt",
+            ]
+        ]
+        sieve = PathSieve(entries)
+        actual = sieve.filter()
+
+        self.assertCountEqual(expected, actual)
+
+    def test_repr_execution(self):
+        sieve = PathSieve(self.entries)
+        self.assertEqual("PathSieve(entries=13)", repr(sieve))
