@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "delete",
+      "opcode": "delete",
       "block": "05060505",
       "position": 6,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": true
     },
     "right": {
-      "tag": "stub",
+      "opcode": "stub",
       "block": null,
       "position": null,
       "side": "R",

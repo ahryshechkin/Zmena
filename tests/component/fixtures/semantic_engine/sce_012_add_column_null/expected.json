@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "stub",
+      "opcode": "stub",
       "block": null,
       "position": null,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": true
     },
     "right": {
-      "tag": "insert",
+      "opcode": "insert",
       "block": "03030304",
       "position": 4,
       "side": "R",

@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "05060506",
       "position": 6,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": true
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "05060506",
       "position": 6,
       "side": "R",

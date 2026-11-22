@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "03040305",
       "position": 4,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "03040305",
       "position": 4,
       "side": "R",
@@ -21,7 +21,7 @@
   },
   {
     "left": {
-      "tag": "delete",
+      "opcode": "delete",
       "block": "06070707",
       "position": 7,
       "side": "L",
@@ -30,7 +30,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "03040305",
       "position": 5,
       "side": "R",

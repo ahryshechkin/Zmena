@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "delete",
+      "opcode": "delete",
       "block": "02040505",
       "position": 3,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "insert",
+      "opcode": "insert",
       "block": "01010104",
       "position": 3,
       "side": "R",
@@ -21,7 +21,7 @@
   },
   {
     "left": {
-      "tag": "stub",
+      "opcode": "stub",
       "block": null,
       "position": null,
       "side": "L",
@@ -30,7 +30,7 @@
       "nullable": true
     },
     "right": {
-      "tag": "insert",
+      "opcode": "insert",
       "block": "01010104",
       "position": 4,
       "side": "R",
@@ -41,7 +41,7 @@
   },
   {
     "left": {
-      "tag": "delete",
+      "opcode": "delete",
       "block": "02040505",
       "position": 4,
       "side": "L",
@@ -50,7 +50,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "insert",
+      "opcode": "insert",
       "block": "01010104",
       "position": 2,
       "side": "R",

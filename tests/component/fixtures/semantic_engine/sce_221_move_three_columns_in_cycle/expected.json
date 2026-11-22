@@ -1,7 +1,7 @@
 [
   {
     "left": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "01020102",
       "position": 2,
       "side": "L",
@@ -10,7 +10,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "05060506",
       "position": 6,
       "side": "R",
@@ -21,7 +21,7 @@
   },
   {
     "left": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "05060506",
       "position": 6,
       "side": "L",
@@ -30,7 +30,7 @@
       "nullable": true
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "08090809",
       "position": 9,
       "side": "R",
@@ -41,7 +41,7 @@
   },
   {
     "left": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "08090809",
       "position": 9,
       "side": "L",
@@ -50,7 +50,7 @@
       "nullable": false
     },
     "right": {
-      "tag": "replace",
+      "opcode": "replace",
       "block": "01020102",
       "position": 2,
       "side": "R",
